@@ -1,0 +1,52 @@
+﻿{
+  "description": "A basic header with a title and a logo",
+  "parameters": [
+    {
+      "name": "title",
+      "type": "string"
+    },
+    {
+      "name": "logo",
+      "type": "string",
+      "default": "http://images.amazon.com/default_logo.png"
+    }
+  ],
+  "items": [
+    {
+      "when": "${viewport.shape == 'round'}",
+      "type": "Container",
+      "direction": "column",
+      "items": [
+        {
+          "type": "Image",
+          "source": "${logo}",
+          "height": 36,
+          "width": 36
+        },
+        {
+          "type": "Text",
+          "text": "${title}",
+          "style": "textStylePrimary2"
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "direction": "row",
+      "paddingLeft": 20,
+      "items": [
+        {
+          "type": "Text",
+          "text": "${title}",
+          "style": "textStyleSecondary2"
+        },
+        {
+          "type": "Image",
+          "source": "${logo}",
+          "height": 40,
+          "width": 40
+        }
+      ]
+    }
+  ]
+}

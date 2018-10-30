@@ -7,9 +7,6 @@
     "theme": "dark",
     "mainTemplate": {
       "description": "********* Minimal APL document **********",
-      "parameters": [
-        "payload"
-      ],
       "items": [
         {
           "type": "Container",
