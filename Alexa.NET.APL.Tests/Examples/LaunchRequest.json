@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": true,
+    "sessionId": "[SessionId]",
+    "application": {
+      "applicationId": "[AppId]"
+    },
+    "user": {
+      "userId": "[UserId]"
+    }
+  },
+  "context": {
+    "AudioPlayer": {},
+    "Display": {},
+    "System": {
+      "application": {
+        "applicationId": "[AppId]"
+      },
+      "user": {
+        "userId": "[UserId]"
+      },
+      "device": {
+        "deviceId": "[DeviceId]",
+        "supportedInterfaces": {
+          "AudioPlayer": {},
+          "Alexa.Presentation.APL": {
+            "runtime": {
+              "maxVersion": "1.0"
+            }
+          }
+        }
+      },
+      "apiEndpoint": "https://api.amazonalexa.com",
+      "apiAccessToken": "<apiAccessToken-value>"
+    }
+  },
+  "request": {
+    "type": "LaunchRequest",
+    "requestId": "[RequestId]",
+    "timestamp": "2018-08-08T18:14:25Z",
+    "locale": "en-US"
+  }
+}
