@@ -38,8 +38,20 @@
   },
   "datasources": {
     "templateData": {
-      "title": "Minimal APL document",
-      "backgroundImage": "https://www.example.com/images/BT1_Background.png"
+      "type": "object",
+      "properties": {
+        "title": "Scottish Shortbread",
+        "makes": "48 servings",
+        "time": {
+          "prep": "15 minutes",
+          "bake": "20 minutes"
+        },
+        "ingredients": [
+          "2 cups butter, softened",
+          "1 cup packed brown sugar",
+          "4 to 4 1/2 cups all-purpose flour"
+        ]
+      }
     }
   }
 }

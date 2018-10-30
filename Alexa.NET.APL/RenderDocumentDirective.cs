@@ -18,6 +18,6 @@ namespace Alexa.NET.Response
         public APLDocument Document { get; set; }
 
         [JsonProperty("dataSources")]
-        public Dictionary<string,object> DataSources { get; set; }
+        public Dictionary<string,IAPLDataSource> DataSources { get; set; }
     }
 }
