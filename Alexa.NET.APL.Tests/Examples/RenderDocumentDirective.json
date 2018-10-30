@@ -1,0 +1,45 @@
+{
+  "type": "Alexa.Presentation.APL.RenderDocument",
+  "token": "anydocument",
+  "document": {
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "mainTemplate": {
+      "description": "********* Minimal APL document **********",
+      "parameters": [
+        "payload"
+      ],
+      "items": [
+        {
+          "type": "Container",
+          "width": "100%",
+          "height": "100%",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "items": [
+            {
+              "type": "Image",
+              "source": "${payload.templateData.backgroundImage}",
+              "position": "absolute",
+              "width": "100vw",
+              "height": "100vh",
+              "scale": "best-fill"
+            },
+            {
+              "type": "Text",
+              "color": "#FFFFFF",
+              "text": "${payload.templateData.title}"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "datasources": {
+    "templateData": {
+      "title": "Minimal APL document",
+      "backgroundImage": "https://www.example.com/images/BT1_Background.png"
+    }
+  }
+}
