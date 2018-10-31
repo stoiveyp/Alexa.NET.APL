@@ -56,7 +56,7 @@ namespace Alexa.NET.APL.Tests
 
         private APLDocument GetDocument()
         {
-            return Utility.ExampleFileContent<RenderDocumentDirective>("RenderDocumentDirective.json").Document;
+            return Utility.ExampleFileContent<RenderDocumentDirective>("RenderDocument.json").Document;
         }
     }
 }

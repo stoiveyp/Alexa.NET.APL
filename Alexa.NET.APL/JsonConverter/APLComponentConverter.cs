@@ -8,9 +8,11 @@ namespace Alexa.NET.APL.JsonConverter
 {
     public class APLComponentConverter : Newtonsoft.Json.JsonConverter
     {
+        public override bool CanWrite => false;
+
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            serializer.Serialize(writer, value);
+
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)

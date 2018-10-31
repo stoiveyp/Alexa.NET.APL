@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Alexa.NET.APL;
 using Alexa.NET.Response;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace Alexa.NET.APL
+namespace Alexa.NET.Response
 {
     public class ExecuteCommandsDirective:IDirective
     {
