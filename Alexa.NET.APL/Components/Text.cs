@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Alexa.NET.Response.APL;
+﻿using Alexa.NET.Response.APL;
+using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
 {
@@ -10,7 +8,13 @@ namespace Alexa.NET.APL.Components
         public const string ComponentType = "Text";
         public Text() { }
 
-        public Text(string text) { }
+        public Text(string text)
+        {
+            Content = text;
+        }
         public override string Type => ComponentType;
+
+        [JsonProperty("text")]
+        public string Content { get; set; }
     }
 }

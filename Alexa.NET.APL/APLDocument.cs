@@ -14,16 +14,16 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("mainTemplate")]
         public Layout MainTemplate { get; set; }
 
-        [JsonProperty("import")]
+        [JsonProperty("import", NullValueHandling = NullValueHandling.Ignore)]
         public IList<Import> Imports { get; set; }
 
-        [JsonProperty("layouts")]
+        [JsonProperty("layouts", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string,Layout> Layouts { get; set; }
 
-        [JsonProperty("resources")]
+        [JsonProperty("resources", NullValueHandling = NullValueHandling.Ignore)]
         public IList<Resource> Resources { get; set; }
 
-        [JsonProperty("styles")]
+        [JsonProperty("styles", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string,Style> Styles { get; set; }
 }
 }

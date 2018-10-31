@@ -12,13 +12,13 @@ namespace Alexa.NET.Response
         [JsonProperty("type")]
         public string Type => "Alexa.Presentation.APL.RenderDocument";
 
-        [JsonProperty("token")]
+        [JsonProperty("token",NullValueHandling = NullValueHandling.Ignore)]
         public string Token { get; set; }
 
         [JsonProperty("document")]
         public APLDocument Document { get; set; }
 
-        [JsonProperty("dataSources")]
+        [JsonProperty("dataSources", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string,APLDataSource> DataSources { get; set; }
     }
 }
