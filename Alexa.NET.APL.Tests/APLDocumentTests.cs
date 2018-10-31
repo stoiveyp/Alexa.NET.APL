@@ -41,6 +41,17 @@ namespace Alexa.NET.APL.Tests
         {
             var styles = Utility.ExampleFileContent<Dictionary<string, Style>>("Styles.json");
             Assert.Equal(2,styles.Count);
+
+            var first = styles["baseText"];
+            var second = styles["title"];
+
+            Assert.Equal(2, first.Values.Count);
+            Assert.Equal("Amazon Ember Display",first.Values[0]["fontFamily"]);
+            Assert.Equal("${state.focused}",first.Values[1].When);
+            Assert.Equal("blue",first.Values[1]["color"]);
+
+            Assert.Equal("baseText", second.Extends);
+            Assert.Single(second.Values);
         }
 
         private APLDocument GetDocument()
