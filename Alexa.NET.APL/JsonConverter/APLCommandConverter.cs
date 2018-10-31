@@ -1,51 +1,51 @@
 ﻿using System;
-using Alexa.NET.APL.Components;
-using Alexa.NET.Response.APL;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Alexa.NET.APL.Commands;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Alexa.NET.APL.JsonConverter
 {
-    public class APLComponentConverter : Newtonsoft.Json.JsonConverter
+    public class APLCommandConverter:Newtonsoft.Json.JsonConverter
     {
         public override bool CanWrite => false;
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-
+            
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            // Load JObject from stream
+
             var jObject = JObject.Load(reader);
-            var componentType = jObject.Value<string>("type");
-            object target = GetComponent(componentType);
+            var commandType = jObject.Value<string>("type");
+            object target = GetCommand(commandType);
             if (target != null)
             {
                 serializer.Populate(jObject.CreateReader(), target);
                 return target;
             }
 
-            throw new ArgumentOutOfRangeException($"Component type {componentType} not supported");
+            throw new ArgumentOutOfRangeException($"Command type {commandType} not supported");
         }
 
-        private APLComponent GetComponent(string type)
+        private APLCommand GetCommand(string commandType)
         {
-            switch (type)
+            switch (commandType)
             {
-                case Container.ComponentType:
-                    return new Container();
-                case Text.ComponentType:
-                    return new Text();
-                default:
-                    return null;
+                case IdleCommand.CommandType:
+                    return new IdleCommand();
             }
+
+            return null;
         }
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType.IsSubclassOf(typeof(APLComponent));
+            return objectType.IsSubclassOf(typeof(APLCommand));
         }
     }
 }
