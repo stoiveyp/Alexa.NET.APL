@@ -1,0 +1,23 @@
+{
+  "baseText": {
+    "values": [
+      {
+        "fontFamily": "Amazon Ember Display",
+        "color": "${viewport.theme == 'dark' ? 'white' : 'black' }"
+      },
+      {
+        "when": "${state.focused}",
+        "color": "blue"
+      }
+    ]
+  },
+  "title": {
+    "extends": "baseText",
+    "values": [
+      {
+        "fontWeight": 700,
+        "fontSize": "${viewport.height > 400 ? 30 : 25}"
+      }
+    ]
+  }
+}

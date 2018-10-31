@@ -1,0 +1,54 @@
+{
+  "type": "Alexa.Presentation.APL.RenderDocument",
+  "token": "anydocument",
+  "document": {
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "mainTemplate": {
+      "description": "********* Minimal APL document **********",
+      "items": [
+        {
+          "type": "Container",
+          "width": "100%",
+          "height": "100%",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "items": [
+            {
+              "type": "Image",
+              "source": "${payload.templateData.backgroundImage}",
+              "position": "absolute",
+              "width": "100vw",
+              "height": "100vh",
+              "scale": "best-fill"
+            },
+            {
+              "type": "Text",
+              "color": "#FFFFFF",
+              "text": "${payload.templateData.title}"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "datasources": {
+    "templateData": {
+      "type": "object",
+      "properties": {
+        "title": "Scottish Shortbread",
+        "makes": "48 servings",
+        "time": {
+          "prep": "15 minutes",
+          "bake": "20 minutes"
+        },
+        "ingredients": [
+          "2 cups butter, softened",
+          "1 cup packed brown sugar",
+          "4 to 4 1/2 cups all-purpose flour"
+        ]
+      }
+    }
+  }
+}

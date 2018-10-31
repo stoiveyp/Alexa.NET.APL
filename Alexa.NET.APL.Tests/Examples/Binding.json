@@ -1,0 +1,11 @@
+{
+  "type": "Text",
+  "bind": [
+    { "name": "foo", "value": "27" },
+    {
+      "name": "bar",
+      "value": "${foo + 23}"
+    }
+  ],
+  "text": "The value of bar is ${bar}"
+}
