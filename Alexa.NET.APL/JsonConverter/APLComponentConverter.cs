@@ -38,6 +38,8 @@ namespace Alexa.NET.APL.JsonConverter
                     return new Container();
                 case Text.ComponentType:
                     return new Text();
+                case Image.ComponentType:
+                    return new Image();
                 default:
                     return null;
             }
