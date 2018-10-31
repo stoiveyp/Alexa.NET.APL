@@ -1,0 +1,26 @@
+[
+  {
+    "dimensions": {
+      "myFontSize": "28dp",
+      "myLeftRightPadding": "60dp"
+    }
+  },
+  {
+    "when": "${viewport.shape == 'round'}",
+    "resources": [
+      {
+        "dimensions": {
+          "myFontSize": "30dp",
+          "myLeftRightPadding": "80dp"
+        }
+      },
+      {
+        "when": "${viewport.width < 400}",
+        "dimensions": {
+          "myFontSize": "20dp",
+          "myLeftRightPadding": "45dp"
+        }
+      }
+    ]
+  }
+]

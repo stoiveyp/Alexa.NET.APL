@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Alexa.NET.Response;
 using Alexa.NET.Response.APL;
+using Newtonsoft.Json;
 using Xunit;
 
 namespace Alexa.NET.APL.Tests
@@ -16,6 +18,29 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal("APL",doc.Type);
             Assert.Equal("1.0",doc.Version);
             Assert.NotNull(doc.MainTemplate);
+        }
+
+        [Fact]
+        public void Resources()
+        {
+            var resources = Utility.ExampleFileContent<Resource[]>("Resource.json");
+            Assert.Equal(2,resources.Length);
+
+            var first = resources.First();
+            Assert.Equal(2,first.Dimensions.Count);
+            Assert.Equal("myFontSize",first.Dimensions.First().Key);
+            Assert.Equal("28dp",first.Dimensions.First().Value);
+
+            var second = resources.Skip(1).First();
+            Assert.Equal(When.RoundViewport,second.When);
+            Assert.Equal(2,second.Resources.Count);
+        }
+
+        [Fact]
+        public void Styles()
+        {
+            var styles = Utility.ExampleFileContent<Dictionary<string, Style>>("Styles.json");
+            Assert.Equal(2,styles.Count);
         }
 
         private APLDocument GetDocument()
