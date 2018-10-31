@@ -1,13 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
-using Alexa.NET.APL;
+using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Alexa.NET.Response.APL
+namespace Alexa.NET.APL.JsonConverter
 {
-    public class APLDataSourceConverter:JsonConverter
+    public class APLDataSourceConverter:Newtonsoft.Json.JsonConverter
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {

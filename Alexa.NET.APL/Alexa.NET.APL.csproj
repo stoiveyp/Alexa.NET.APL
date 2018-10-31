@@ -8,4 +8,8 @@
     <PackageReference Include="Alexa.NET" Version="1.5.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Commands\" />
+  </ItemGroup>
+
 </Project>
