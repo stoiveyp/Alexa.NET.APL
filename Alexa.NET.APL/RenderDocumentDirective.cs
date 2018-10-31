@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Alexa.NET.APL;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
@@ -18,6 +19,6 @@ namespace Alexa.NET.Response
         public APLDocument Document { get; set; }
 
         [JsonProperty("dataSources")]
-        public Dictionary<string,IAPLDataSource> DataSources { get; set; }
+        public Dictionary<string,APLDataSource> DataSources { get; set; }
     }
 }

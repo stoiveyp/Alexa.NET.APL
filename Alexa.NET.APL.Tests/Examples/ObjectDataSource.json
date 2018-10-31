@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "properties": {
+    "name": "Sam Lee",
+    "address": {
+      "street": "301 Charles Way",
+      "city": "Bedford"
+    },
+    "family": [
+      {
+        "name": "Alex",
+        "relation": "wife"
+      },
+      {
+        "name": "Patty",
+        "relation": "daughter"
+      }
+    ],
+    "contacts": [ "Robin Barnes", "Betty Barnes" ]
+  },
+  "transformers": [
+    {
+      "inputPath": "catFactSsml",
+      "outputName": "catFactSpeech",
+      "transformer": "ssmlToSpeech"
+    }
+  ]
+}

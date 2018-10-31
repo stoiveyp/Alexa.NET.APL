@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Alexa.NET.APL.Commands;
+using Alexa.NET.APL.DataSources;
 using Alexa.NET.Response;
 using Alexa.NET.Response.APL;
 using Xunit;
@@ -19,9 +20,20 @@ namespace Alexa.NET.APL.Tests
             Assert.IsType<APLDocument>(directive.Document);
 
             Assert.NotNull(directive.Document);
-            Assert.NotNull(directive.DataSources);
+            Assert.Single(directive.DataSources);
 
             Assert.True(directive.DataSources.ContainsKey("templateData"));
+        }
+
+        [Fact]
+        public void DataSource()
+        {
+            var objectDS = Utility.ExampleFileContent<ObjectDataSource>("ObjectDataSource.json");
+            var transformer = Assert.Single(objectDS.Transformers);
+
+            Assert.Equal("catFactSsml",transformer.InputPath);
+            Assert.Equal("catFactSpeech",transformer.OutputName);
+            Assert.Equal("ssmlToSpeech",transformer.Transformer);
         }
 
         [Fact]
