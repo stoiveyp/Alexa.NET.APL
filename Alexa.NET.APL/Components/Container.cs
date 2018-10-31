@@ -13,5 +13,31 @@ namespace Alexa.NET.APL.Components
         public override string Type => ComponentType;
 
         public const string ComponentType = "Container";
+
+        [JsonProperty("alignItems",NullValueHandling = NullValueHandling.Ignore)]
+        public string AlignItems { get; set; }
+
+        [JsonProperty("data",NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string,object> Data { get; set; }
+
+        [JsonProperty("direction",NullValueHandling = NullValueHandling.Ignore)]
+        public string Direction { get; set; }
+
+        [JsonProperty("firstItem",NullValueHandling = NullValueHandling.Ignore)]
+        public APLComponent FirstItem { get; set; }
+
+        [JsonProperty("lastItem",NullValueHandling = NullValueHandling.Ignore)]
+        public APLComponent LastItem { get; set; }
+
+        [JsonProperty("items",NullValueHandling = NullValueHandling.Ignore)]
+        public IList<APLComponent> Items { get; set; }
+
+        [JsonProperty("justifyContent",NullValueHandling = NullValueHandling.Ignore)]
+        public string JustifyContent { get; set; }
+
+        [JsonProperty("numbered",NullValueHandling = NullValueHandling.Ignore)]
+        public bool? Numbered { get; set; }
+
+
     }
 }
