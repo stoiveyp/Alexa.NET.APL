@@ -10,5 +10,8 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("parameters")]
         public IList<Parameter> Parameters { get; set; }
+
+        [JsonProperty("items")]
+        public IList<APLComponent> Items { get; set; }
     }
 }

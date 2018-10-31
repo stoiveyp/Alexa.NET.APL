@@ -16,6 +16,7 @@ namespace Alexa.NET.APL.Tests
             var layout = Utility.ExampleFileContent<Layout>("layout.json");
             Assert.Equal("A basic header with a title and a logo", layout.Description);
             Assert.Equal(2,layout.Parameters.Count);
+            Assert.Equal(2,layout.Items.Count);
         }
 
         [Fact]
