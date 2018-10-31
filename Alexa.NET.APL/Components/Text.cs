@@ -7,9 +7,10 @@ namespace Alexa.NET.APL.Components
 {
     public class Text:APLComponent
     {
+        public const string ComponentType = "Text";
         public Text() { }
 
         public Text(string text) { }
-        public override string Type => "Text";
+        public override string Type => ComponentType;
     }
 }

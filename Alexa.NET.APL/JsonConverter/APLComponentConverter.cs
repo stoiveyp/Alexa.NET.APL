@@ -32,9 +32,9 @@ namespace Alexa.NET.APL.JsonConverter
         {
             switch (type)
             {
-                case "Container":
+                case Container.ComponentType:
                     return new Container();
-                case "Text":
+                case Text.ComponentType:
                     return new Text();
                 default:
                     return null;

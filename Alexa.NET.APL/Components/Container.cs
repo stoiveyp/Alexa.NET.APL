@@ -10,7 +10,8 @@ namespace Alexa.NET.APL.Components
     public class Container:APLComponent
     {
         [JsonProperty("type")]
-        public override string Type => "Container";
+        public override string Type => ComponentType;
 
+        public const string ComponentType = "Container";
     }
 }

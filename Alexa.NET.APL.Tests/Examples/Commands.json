@@ -1,0 +1,13 @@
+{
+  "type": "Parallel",
+  "commands": [
+    {
+      "type": "Idle",
+      "delay": 3000
+    },
+    {
+      "type": "SpeakItem",
+      "componentId": "item7"
+    }
+  ]
+}
