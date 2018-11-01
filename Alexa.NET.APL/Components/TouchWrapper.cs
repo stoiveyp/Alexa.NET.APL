@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using Alexa.NET.APL.Commands;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
@@ -17,6 +16,6 @@ namespace Alexa.NET.APL.Components
         public IList<APLComponent> Item { get; set; }
 
         [JsonProperty("onPress",NullValueHandling = NullValueHandling.Ignore)]
-        public APLCommand OnPress { get; set; }
+        public SendEvent OnPress { get; set; }
     }
 }
