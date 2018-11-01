@@ -65,5 +65,34 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("width", NullValueHandling = NullValueHandling.Ignore)]
         public string Width { get; set; }
 
+        [JsonProperty("alignSelf",NullValueHandling = NullValueHandling.Ignore)]
+        public string AlignSelf { get; set; }
+
+        [JsonProperty("bottom",NullValueHandling = NullValueHandling.Ignore)]
+        public string Bottom { get; set; }
+
+        [JsonProperty("grow",NullValueHandling = NullValueHandling.Ignore)]
+        public int? Grow { get; set; }
+
+        [JsonProperty("left",NullValueHandling = NullValueHandling.Ignore)]
+        public string Left { get; set; }
+
+        [JsonProperty("numbering",NullValueHandling = NullValueHandling.Ignore)]
+        public string Numbering { get; set; }
+
+        [JsonProperty("position",NullValueHandling = NullValueHandling.Ignore)]
+        public string Position { get; set; }
+
+        [JsonProperty("right",NullValueHandling = NullValueHandling.Ignore)]
+        public string Right { get; set; }
+
+        [JsonProperty("shrink",NullValueHandling = NullValueHandling.Ignore)]
+        public int? Shrink { get; set; }
+
+        [JsonProperty("spacing",NullValueHandling = NullValueHandling.Ignore)]
+        public string Spacing { get; set; }
+
+        [JsonProperty("top",NullValueHandling = NullValueHandling.Ignore)]
+        public string Top { get; set; }
     }
 }
