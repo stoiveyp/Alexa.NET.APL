@@ -5,9 +5,8 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Commands
 {
-    public class IdleCommand:APLCommand
+    public class Idle:APLCommand
     {
-        public const string CommandType = "Idle";
-        public override string Type => CommandType;
+        public override string Type => nameof(Idle);
     }
 }

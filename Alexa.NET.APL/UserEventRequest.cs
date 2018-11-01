@@ -10,12 +10,16 @@ namespace Alexa.NET.APL
     {
         public const string RequestType = "Alexa.Presentation.APL.UserEvent";
 
-        [JsonProperty("token")]
+        [JsonProperty("token", NullValueHandling = NullValueHandling.Ignore)]
         public string Token { get; set; }
 
-        [JsonProperty("arguments")]
+        [JsonProperty("arguments", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string,object> Arguments { get; set; }
 
+        [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
+        public APLCommandSource Source { get; set; }
 
+        [JsonProperty("components",NullValueHandling = NullValueHandling.Ignore)]
+        public string[] Components { get; set; }
     }
 }

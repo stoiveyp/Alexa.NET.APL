@@ -36,8 +36,24 @@ namespace Alexa.NET.APL.JsonConverter
         {
             switch (commandType)
             {
-                case IdleCommand.CommandType:
-                    return new IdleCommand();
+                case nameof(Idle):
+                    return new Idle();
+                case nameof(Sequential):
+                    return new Sequential();
+                case nameof(Parallel):
+                    return new Parallel();
+                case nameof(SendEvent):
+                    return new SendEvent();
+                case nameof(SpeakItem):
+                    return new SpeakItem();
+                case nameof(Scroll):
+                    return new Scroll();
+                case nameof(ScrollToIndex):
+                    return new ScrollToIndex();
+                case nameof(SetPage):
+                    return new SetPage();
+                case nameof(AutoPage):
+                    return new AutoPage();
             }
 
             return null;
