@@ -10,10 +10,8 @@ namespace Alexa.NET.APL.Components
     public class Container:APLComponent
     {
         [JsonProperty("type")]
-        public override string Type => ComponentType;
-
-        public const string ComponentType = "Container";
-
+        public override string Type => nameof(Container);
+        
         [JsonProperty("alignItems",NullValueHandling = NullValueHandling.Ignore)]
         public string AlignItems { get; set; }
 
@@ -24,10 +22,10 @@ namespace Alexa.NET.APL.Components
         public string Direction { get; set; }
 
         [JsonProperty("firstItem",NullValueHandling = NullValueHandling.Ignore)]
-        public APLComponent FirstItem { get; set; }
+        public IList<APLComponent> FirstItem { get; set; }
 
         [JsonProperty("lastItem",NullValueHandling = NullValueHandling.Ignore)]
-        public APLComponent LastItem { get; set; }
+        public IList<APLComponent> LastItem { get; set; }
 
         [JsonProperty("items",NullValueHandling = NullValueHandling.Ignore)]
         public IList<APLComponent> Items { get; set; }

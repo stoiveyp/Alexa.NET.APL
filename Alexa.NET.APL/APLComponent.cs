@@ -66,33 +66,33 @@ namespace Alexa.NET.Response.APL
         public string Width { get; set; }
 
         [JsonProperty("alignSelf",NullValueHandling = NullValueHandling.Ignore)]
-        public string Container_AlignSelf { get; set; }
+        public string AlignSelf { get; set; }
 
         [JsonProperty("bottom",NullValueHandling = NullValueHandling.Ignore)]
-        public string Container_Bottom { get; set; }
+        public string Bottom { get; set; }
 
         [JsonProperty("grow",NullValueHandling = NullValueHandling.Ignore)]
-        public int? Container_Grow { get; set; }
+        public int? Grow { get; set; }
 
         [JsonProperty("left",NullValueHandling = NullValueHandling.Ignore)]
-        public string Container_Left { get; set; }
+        public string Left { get; set; }
 
         [JsonProperty("numbering",NullValueHandling = NullValueHandling.Ignore)]
-        public string Container_Numbering { get; set; }
+        public string Numbering { get; set; }
 
         [JsonProperty("position",NullValueHandling = NullValueHandling.Ignore)]
-        public string Container_Position { get; set; }
+        public string Position { get; set; }
 
         [JsonProperty("right",NullValueHandling = NullValueHandling.Ignore)]
-        public string Container_Right { get; set; }
+        public string Right { get; set; }
 
         [JsonProperty("shrink",NullValueHandling = NullValueHandling.Ignore)]
-        public int? Container_Shrink { get; set; }
+        public int? Shrink { get; set; }
 
         [JsonProperty("spacing",NullValueHandling = NullValueHandling.Ignore)]
-        public string Container_Spacing { get; set; }
+        public string Spacing { get; set; }
 
         [JsonProperty("top",NullValueHandling = NullValueHandling.Ignore)]
-        public string Container_Top { get; set; }
+        public string Top { get; set; }
     }
 }

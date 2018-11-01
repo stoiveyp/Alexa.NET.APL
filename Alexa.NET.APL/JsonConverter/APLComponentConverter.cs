@@ -34,12 +34,22 @@ namespace Alexa.NET.APL.JsonConverter
         {
             switch (type)
             {
-                case Container.ComponentType:
+                case nameof(Container):
                     return new Container();
-                case Text.ComponentType:
+                case nameof(Text):
                     return new Text();
-                case Image.ComponentType:
+                case nameof(Image):
                     return new Image();
+                case nameof(Frame):
+                    return new Frame();
+                case nameof(ScrollView):
+                    return new ScrollView();
+                case nameof(Sequence):
+                    return new Sequence();
+                case nameof(TouchWrapper):
+                    return new TouchWrapper();
+                case nameof(Pager):
+                    return new Pager();
                 default:
                     return null;
             }
