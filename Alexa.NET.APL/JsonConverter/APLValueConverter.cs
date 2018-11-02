@@ -17,7 +17,7 @@ namespace Alexa.NET.APL.JsonConverter
             }
             else if (value is APLValue<Dimension> dimension)
             {
-                serializer.Serialize(writer, dimension.GetValue());
+                serializer.Serialize(writer, dimension.Value.GetValue());
             }
             else
             {
