@@ -11,18 +11,7 @@ namespace Alexa.NET.APL.JsonConverter
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var apl = (APLValue)value;
-            if (!string.IsNullOrWhiteSpace(apl.Expression))
-            {
-                serializer.Serialize(writer, apl.Expression);
-            }
-            else if (value is APLValue<Dimension> dimension)
-            {
-                serializer.Serialize(writer, dimension.Value.GetValue());
-            }
-            else
-            {
-                serializer.Serialize(writer, apl.GetValue());
-            }
+            serializer.Serialize(writer, !string.IsNullOrWhiteSpace(apl.Expression) ? apl.Expression : apl.GetValue());
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -33,16 +22,17 @@ namespace Alexa.NET.APL.JsonConverter
             }
 
             var instance = Activator.CreateInstance(objectType);
+
+            if (instance is APLDimensionValue)
+            {
+                objectType.GetProperty("Value").SetValue(instance, Dimension.From(reader.Value.ToString()));
+                return instance;
+            }
+
             var genericType = objectType.GenericTypeArguments.First();
             if (genericType.IsInstanceOfType(reader.Value))
             {
                 objectType.GetProperty("Value").SetValue(instance, reader.Value);
-            }
-            else if (typeof(Dimension).IsAssignableFrom(genericType))
-            {
-                var value = reader.Value?.ToString();
-                var dimension = Dimension.From(value);
-                objectType.GetProperty("Value").SetValue(instance, dimension);
             }
             else
             {

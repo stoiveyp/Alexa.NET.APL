@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
@@ -8,6 +9,13 @@ namespace Alexa.NET.APL.Components
 {
     public class Pager:APLComponent
     {
+        public Pager() { }
+
+        public Pager(IEnumerable<APLComponent> items)
+        {
+            Items = items.ToList();
+        }
+
         public override string Type => nameof(Pager);
 
         [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]

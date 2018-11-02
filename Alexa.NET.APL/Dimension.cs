@@ -12,6 +12,11 @@ namespace Alexa.NET.APL
             return null;
         }
 
+        public static explicit operator Dimension(string value)
+        {
+            return From(value);
+        }
+
         public static Dimension From(string value)
         {
             if (string.IsNullOrWhiteSpace(value))

@@ -40,10 +40,9 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void APLComponentValue()
         {
-            var result = (Container)GenerateComponent("Container");
-            result.Numbered.Expression = "test this ${stuff}";
-            Assert.True(result.Numbered.Value);
-            var serial = JsonConvert.SerializeObject(result);
+            var text = new Text("Hello World") {FontSize = "24dp"};
+            var jobject = JObject.FromObject(text);
+            Assert.Equal("24dp",jobject.Value<string>("fontSize"));
         }
 
         private APLComponent GenerateComponent(string componentType)
