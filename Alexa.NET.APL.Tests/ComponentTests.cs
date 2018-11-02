@@ -36,9 +36,19 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal("${foo + 23}", second.Value);
         }
 
+
+        [Fact]
+        public void APLComponentValue()
+        {
+            var result = (Container)GenerateComponent("Container");
+            result.Numbered.Expression = "test this ${stuff}";
+            Assert.True(result.Numbered.Value);
+            var serial = JsonConvert.SerializeObject(result);
+        }
+
         private APLComponent GenerateComponent(string componentType)
         {
-            var json = new JObject {{"type", componentType}};
+            var json = new JObject {{"type", componentType},{"numbered",true}};
             return JsonConvert.DeserializeObject<APLComponent>(json.ToString());
         }
     }

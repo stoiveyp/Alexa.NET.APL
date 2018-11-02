@@ -14,18 +14,18 @@ namespace Alexa.NET.APL.Components
         public Dictionary<string, object> Data { get; set; }
 
         [JsonProperty("firstItem", NullValueHandling = NullValueHandling.Ignore)]
-        public IList<APLComponent> FirstItem { get; set; }
+        public APLValue<IList<APLComponent>> FirstItem { get; set; }
 
         [JsonProperty("lastItem", NullValueHandling = NullValueHandling.Ignore)]
-        public IList<APLComponent> LastItem { get; set; }
+        public APLValue<IList<APLComponent>> LastItem { get; set; }
 
         [JsonProperty("items", NullValueHandling = NullValueHandling.Ignore)]
-        public IList<APLComponent> Items { get; set; }
+        public APLValue<IList<APLComponent>> Items { get; set; }
 
         [JsonProperty("initialPage",NullValueHandling = NullValueHandling.Ignore)]
-        public int InitialPage { get; set; }
+        public APLValue<int?> InitialPage { get; set; }
 
         [JsonProperty("navigation",NullValueHandling = NullValueHandling.Ignore)]
-        public string Navigation { get; set; }
+        public APLValue<string> Navigation { get; set; }
     }
 }

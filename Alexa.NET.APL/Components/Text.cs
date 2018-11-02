@@ -9,33 +9,33 @@ namespace Alexa.NET.APL.Components
 
         public Text(string text)
         {
-            Content = text;
+            Content = new APLValue<string>(text);
         }
         public override string Type => nameof(Text);
 
         [JsonProperty("text")]
-        public string Content { get; set; }
+        public APLValue<string> Content { get; set; }
 
         [JsonProperty("fontFamily")]
-        public string FontFamily { get; set; }
+        public APLValue<string> FontFamily { get; set; }
 
         [JsonProperty("color",NullValueHandling = NullValueHandling.Ignore)]
-        public string Color { get; set; }
+        public APLValue<string> Color { get; set; }
         [JsonProperty("fontSize", NullValueHandling = NullValueHandling.Ignore)]
-        public string FontSize { get; set; }
+        public APLValue<Dimension> FontSize { get; set; }
         [JsonProperty("fontStyle", NullValueHandling = NullValueHandling.Ignore)]
-        public string FontStyle { get; set; }
+        public APLValue<string> FontStyle { get; set; }
         [JsonProperty("fontWeight", NullValueHandling = NullValueHandling.Ignore)]
-        public string FontWeight { get; set; }
+        public APLValue<string> FontWeight { get; set; }
         [JsonProperty("letterSpacing", NullValueHandling = NullValueHandling.Ignore)]
-        public string LetterSpacing { get; set; }
+        public APLValue<Dimension> LetterSpacing { get; set; }
         [JsonProperty("lineHeight", NullValueHandling = NullValueHandling.Ignore)]
-        public double? LineHeight { get; set; }
+        public APLValue<double?> LineHeight { get; set; }
         [JsonProperty("maxLines", NullValueHandling = NullValueHandling.Ignore)]
-        public int? MaxLines { get; set; }
+        public APLValue<int?> MaxLines { get; set; }
         [JsonProperty("textAlign", NullValueHandling = NullValueHandling.Ignore)]
-        public string TextAlign { get; set; }
+        public APLValue<string> TextAlign { get; set; }
         [JsonProperty("textAlignVertical", NullValueHandling = NullValueHandling.Ignore)]
-        public string TextAlignVertical { get; set; }
+        public APLValue<string> TextAlignVertical { get; set; }
     }
 }

@@ -13,28 +13,28 @@ namespace Alexa.NET.APL.Components
         public override string Type => nameof(Container);
         
         [JsonProperty("alignItems",NullValueHandling = NullValueHandling.Ignore)]
-        public string AlignItems { get; set; }
+        public APLValue<string> AlignItems { get; set; }
 
         [JsonProperty("data",NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string,object> Data { get; set; }
 
         [JsonProperty("direction",NullValueHandling = NullValueHandling.Ignore)]
-        public string Direction { get; set; }
+        public APLValue<string> Direction { get; set; }
 
         [JsonProperty("firstItem",NullValueHandling = NullValueHandling.Ignore)]
-        public IList<APLComponent> FirstItem { get; set; }
+        public APLValue<IList<APLComponent>> FirstItem { get; set; }
 
         [JsonProperty("lastItem",NullValueHandling = NullValueHandling.Ignore)]
-        public IList<APLComponent> LastItem { get; set; }
+        public APLValue<IList<APLComponent>> LastItem { get; set; }
 
         [JsonProperty("items",NullValueHandling = NullValueHandling.Ignore)]
-        public IList<APLComponent> Items { get; set; }
+        public APLValue<IList<APLComponent>> Items { get; set; }
 
         [JsonProperty("justifyContent",NullValueHandling = NullValueHandling.Ignore)]
-        public string JustifyContent { get; set; }
+        public APLValue<string> JustifyContent { get; set; }
 
         [JsonProperty("numbered",NullValueHandling = NullValueHandling.Ignore)]
-        public bool? Numbered { get; set; }
+        public APLValue<bool?> Numbered { get; set; }
 
 
     }

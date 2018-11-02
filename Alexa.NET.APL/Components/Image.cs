@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Alexa.NET.Response.APL;
+﻿using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
@@ -12,27 +9,21 @@ namespace Alexa.NET.APL.Components
         public override string Type => ComponentType;
 
         [JsonProperty("align",NullValueHandling = NullValueHandling.Ignore)]
-        public string Align { get; set; }
+        public APLValue<string> Align { get; set; }
 
         [JsonProperty("borderRadius",NullValueHandling = NullValueHandling.Ignore)]
-        public string BorderRadius { get; set; }
-
-        [JsonProperty("height",NullValueHandling = NullValueHandling.Ignore)]
-        public int Height { get; set; }
+        public APLValue<AbsoluteDimension> BorderRadius { get; set; }
 
         [JsonProperty("opacity",NullValueHandling = NullValueHandling.Ignore)]
-        public double Opacity { get; set; }
+        public APLValue<int?> Opacity { get; set; }
 
         [JsonProperty("overlayColor",NullValueHandling = NullValueHandling.Ignore)]
-        public string OverlayColor { get; set; }
+        public APLValue<string> OverlayColor { get; set; }
 
         [JsonProperty("scale",NullValueHandling = NullValueHandling.Ignore)]
-        public string Scale { get; set; }
+        public APLValue<string> Scale { get; set; }
 
         [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
-        public string Source { get; set; }
-
-        [JsonProperty("width",NullValueHandling = NullValueHandling.Ignore)]
-        public int Width { get; set; }
+        public APLValue<string> Source { get; set; }
     }
 }
