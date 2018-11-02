@@ -12,6 +12,6 @@ namespace Alexa.NET.APL.Components
         public override string Type => ComponentType;
 
         [JsonProperty("item",NullValueHandling = NullValueHandling.Ignore)]
-        public IList<APLComponent> Item { get; set; }
+        public APLValue<IList<APLComponent>> Item { get; set; }
     }
 }

@@ -41,7 +41,7 @@ namespace Alexa.NET.APL.Tests
         {
             var directive = new ExecuteCommandsDirective("[SkillProvidedToken]");
             directive.Commands = new List<APLCommand>();
-            directive.Commands.Add(new IdleCommand());
+            directive.Commands.Add(new Idle());
 
             Assert.True(Utility.CompareJson(directive, "ExecuteCommands.json"));
         }
