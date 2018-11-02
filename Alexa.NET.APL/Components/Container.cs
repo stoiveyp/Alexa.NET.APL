@@ -1,14 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace Alexa.NET.APL.Components
 {
     public class Container:APLComponent
     {
+        public Container() { }
+
+        public Container(IEnumerable<APLComponent> items)
+        {
+            Items = items.ToList();
+        }
+
         [JsonProperty("type")]
         public override string Type => nameof(Container);
         

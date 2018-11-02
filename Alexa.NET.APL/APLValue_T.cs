@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Alexa.NET.APL.JsonConverter;
+﻿using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL

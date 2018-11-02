@@ -5,6 +5,13 @@ namespace Alexa.NET.APL.Components
 {
     public class Image:APLComponent
     {
+        public Image() { }
+
+        public Image(string source)
+        {
+            Source = source;
+        }
+
         public const string ComponentType = "Image";
         public override string Type => ComponentType;
 

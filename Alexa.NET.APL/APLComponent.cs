@@ -34,34 +34,34 @@ namespace Alexa.NET.Response.APL
         public APLValue<Style> Style { get; set; }
 
         [JsonProperty("paddingLeft", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> PaddingLeft { get; set; }
+        public APLDimensionValue PaddingLeft { get; set; }
 
         [JsonProperty("paddingTop", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> PaddingTop { get; set; }
+        public APLDimensionValue PaddingTop { get; set; }
 
         [JsonProperty("paddingRight", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> PaddingRight { get; set; }
+        public APLDimensionValue PaddingRight { get; set; }
 
         [JsonProperty("paddingBottom", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> PaddingBottom { get; set; }
+        public APLDimensionValue PaddingBottom { get; set; }
 
         [JsonProperty("minWidth", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> MinWidth { get; set; }
+        public APLDimensionValue MinWidth { get; set; }
 
         [JsonProperty("minHeight", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> MinHeight { get; set; }
+        public APLDimensionValue MinHeight { get; set; }
 
         [JsonProperty("maxWidth", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> MaxWidth { get; set; }
+        public APLDimensionValue MaxWidth { get; set; }
 
         [JsonProperty("maxHeight", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> MaxHeight { get; set; }
+        public APLDimensionValue MaxHeight { get; set; }
 
         [JsonProperty("height", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> Height { get; set; }
+        public APLDimensionValue Height { get; set; }
 
         [JsonProperty("width", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> Width { get; set; }
+        public APLDimensionValue Width { get; set; }
 
         [JsonProperty("alignSelf",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> AlignSelf { get; set; }
@@ -88,7 +88,7 @@ namespace Alexa.NET.Response.APL
         public APLValue<int?> Shrink { get; set; }
 
         [JsonProperty("spacing",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> Spacing { get; set; }
+        public APLDimensionValue Spacing { get; set; }
 
         [JsonProperty("top",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<AbsoluteDimension> Top { get; set; }

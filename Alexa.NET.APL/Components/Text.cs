@@ -22,13 +22,13 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("color",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Color { get; set; }
         [JsonProperty("fontSize", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> FontSize { get; set; }
+        public APLDimensionValue FontSize { get; set; }
         [JsonProperty("fontStyle", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> FontStyle { get; set; }
         [JsonProperty("fontWeight", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> FontWeight { get; set; }
         [JsonProperty("letterSpacing", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dimension> LetterSpacing { get; set; }
+        public APLDimensionValue LetterSpacing { get; set; }
         [JsonProperty("lineHeight", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<double?> LineHeight { get; set; }
         [JsonProperty("maxLines", NullValueHandling = NullValueHandling.Ignore)]
