@@ -15,6 +15,11 @@
             return Value.GetValue();
         }
 
+        public static implicit operator APLDimensionValue(int value)
+        {
+            return new APLDimensionValue(new AbsoluteDimension(value,"dp"));
+        }
+
         public static implicit operator APLDimensionValue(string value)
         {
             return new APLDimensionValue(value);
