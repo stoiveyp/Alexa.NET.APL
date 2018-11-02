@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexa.NET.APL", "Alexa.NET.APL\Alexa.NET.APL.csproj", "{3A4D0DAA-35D0-477C-8BDF-A7442347B1EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alexa.NET.APL", "Alexa.NET.APL\Alexa.NET.APL.csproj", "{3A4D0DAA-35D0-477C-8BDF-A7442347B1EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alexa.NET.APL.Tests", "Alexa.NET.APL.Tests\Alexa.NET.APL.Tests.csproj", "{C0052F73-B094-42B0-B529-5D5937B03382}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alexa.NET.APL.Tests", "Alexa.NET.APL.Tests\Alexa.NET.APL.Tests.csproj", "{C0052F73-B094-42B0-B529-5D5937B03382}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3904BEF6-7C9C-4E43-B51C-8D03A013CFA7}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
