@@ -41,7 +41,7 @@ namespace Alexa.NET.APL.JsonConverter
             else if (typeof(Dimension).IsAssignableFrom(genericType))
             {
                 var value = reader.Value?.ToString();
-                var dimension = ToDimension(value);
+                var dimension = Dimension.From(value);
                 objectType.GetProperty("Value").SetValue(instance, dimension);
             }
             else
@@ -50,36 +50,6 @@ namespace Alexa.NET.APL.JsonConverter
             }
 
             return instance;
-        }
-
-        private Dimension ToDimension(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                return null;
-            }
-
-            if (value.Last() == '%')
-            {
-                return new RelativeDimension(int.Parse(value.Substring(0, value.Length - 1)));
-            }
-
-            if (char.IsNumber(value[0]))
-            {
-                var split = value.Length;
-                for (var splitTest = 0; splitTest < value.Length; splitTest++)
-                {
-                    if (!char.IsDigit(value[splitTest]))
-                    {
-                        split = splitTest;
-                        break;
-                    }
-                }
-
-                return new AbsoluteDimension(int.Parse(value.Substring(0, split)), value.Substring(split));
-            }
-
-            return new SpecialDimension(value);
         }
 
         public override bool CanConvert(Type objectType)
