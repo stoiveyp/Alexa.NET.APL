@@ -10,7 +10,7 @@
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>Move support to NetStandard1.6 to allow for consistency with Alexa.NET</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
