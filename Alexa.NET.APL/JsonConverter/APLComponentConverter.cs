@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Alexa.NET.APL.Components;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
@@ -57,7 +58,7 @@ namespace Alexa.NET.APL.JsonConverter
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType.IsSubclassOf(typeof(APLComponent));
+            return objectType.GetTypeInfo().IsSubclassOf(typeof(APLComponent));
         }
     }
 }

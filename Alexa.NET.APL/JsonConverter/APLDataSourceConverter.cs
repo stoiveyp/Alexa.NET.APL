@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using Alexa.NET.APL.DataSources;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
@@ -30,12 +31,12 @@ namespace Alexa.NET.APL.JsonConverter
                 return target;
             }
 
-            throw new InvalidEnumArgumentException("Only object data sources currently supported");
+            throw new ArgumentOutOfRangeException("Only object data sources currently supported");
         }
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType.GetInterfaces().Contains(typeof(APLDataSource));
+            return objectType.GetTypeInfo().GetInterfaces().Contains(typeof(APLDataSource));
         }
     }
 }

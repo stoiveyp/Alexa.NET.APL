@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using Newtonsoft.Json;
 
@@ -22,17 +23,17 @@ namespace Alexa.NET.APL.JsonConverter
             }
 
             var instance = Activator.CreateInstance(objectType);
-
+            var objectTypeInfo = objectType.GetTypeInfo();
             if (instance is APLDimensionValue)
             {
-                objectType.GetProperty("Value").SetValue(instance, Dimension.From(reader.Value.ToString()));
+                objectTypeInfo.GetProperty("Value").SetValue(instance, Dimension.From(reader.Value.ToString()));
                 return instance;
             }
 
-            var genericType = objectType.GenericTypeArguments.First();
+            var genericType = objectType.GenericTypeArguments.First().GetTypeInfo();
             if (genericType.IsInstanceOfType(reader.Value))
             {
-                objectType.GetProperty("Value").SetValue(instance, reader.Value);
+                objectTypeInfo.GetProperty("Value").SetValue(instance, reader.Value);
             }
             else
             {
@@ -44,7 +45,7 @@ namespace Alexa.NET.APL.JsonConverter
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType.IsSubclassOf(typeof(APLValue));
+            return objectType.GetTypeInfo().IsSubclassOf(typeof(APLValue));
         }
     }
 }
