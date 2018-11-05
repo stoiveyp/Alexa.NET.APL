@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl>https://github.com/stoiveyp/Alexa.NET.APL/blob/master/LICENSE</PackageLicenseUrl>
