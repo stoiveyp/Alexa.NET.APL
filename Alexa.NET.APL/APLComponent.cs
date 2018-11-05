@@ -92,5 +92,8 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("top",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<AbsoluteDimension> Top { get; set; }
+
+        [JsonProperty("speech",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Speech { get; set; }
     }
 }

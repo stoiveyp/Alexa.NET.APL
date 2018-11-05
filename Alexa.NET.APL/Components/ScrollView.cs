@@ -11,6 +11,17 @@ namespace Alexa.NET.APL.Components
         public const string ComponentType = "ScrollView";
         public override string Type => ComponentType;
 
+        public ScrollView() { }
+        public ScrollView(APLComponent component)
+        {
+            Item = new List<APLComponent> {component};
+        }
+
+        public ScrollView(IEnumerable<APLComponent> components)
+        {
+            Item = new List<APLComponent>(components);
+        }
+
         [JsonProperty("item",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<IList<APLComponent>> Item { get; set; }
     }
