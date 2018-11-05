@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.Response.APL
 {
-    public class Layout:IAPLComponentChild
+    public class Layout
     {
         public Layout() { }
 

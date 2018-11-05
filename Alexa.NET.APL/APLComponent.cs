@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 namespace Alexa.NET.Response.APL
 {
     [JsonConverter(typeof(APLComponentConverter))]
-    public abstract class APLComponent:IAPLComponentChild
+    public abstract class APLComponent
     {
         [JsonProperty("type")]
         public abstract string Type { get; }
