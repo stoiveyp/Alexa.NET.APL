@@ -6,16 +6,15 @@ namespace Alexa.NET.APL.DataSources
 {
     public class ObjectDataSource:APLDataSource
     {
-        [JsonProperty("type")]
-        public override string Type { get; }
+        [JsonProperty("type")] public override string Type => "object";
 
-        [JsonProperty("description")]
+        [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
 
-        [JsonProperty("objectID")]
+        [JsonProperty("objectID", NullValueHandling = NullValueHandling.Ignore)]
         public string ObjectId { get; set; }
 
-        [JsonProperty("properties")]
+        [JsonProperty("properties", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string,object> Properties { get; set; }
     }
 }
