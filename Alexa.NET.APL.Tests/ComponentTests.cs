@@ -36,6 +36,13 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal("${foo + 23}", second.Value);
         }
 
+        [Fact]
+        public void RandomClassTest()
+        {
+            var component = GenerateComponent("random");
+            Assert.IsType<CustomComponent>(component);
+            Assert.Single(((CustomComponent)component).Properties);
+        }
 
         [Fact]
         public void APLComponentValue()

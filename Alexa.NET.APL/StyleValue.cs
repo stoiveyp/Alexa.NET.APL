@@ -4,15 +4,17 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.Response.APL
 {
-    [JsonConverter(typeof(StyleValueConverter))]
-    public class StyleValue:Dictionary<string,string>
+    public class StyleValue
     {
         public StyleValue() { }
 
-        public StyleValue(IDictionary<string,string> dictionary) : base(dictionary) { }
+        public StyleValue(IDictionary<string,string> dictionary) { }
 
 
         [JsonProperty("when",NullValueHandling = NullValueHandling.Ignore)]
         public string When { get; set; }
+
+        [JsonExtensionData]
+        public Dictionary<string,object> Properties { get; set; }
     }
 }

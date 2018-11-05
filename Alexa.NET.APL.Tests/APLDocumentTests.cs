@@ -46,9 +46,9 @@ namespace Alexa.NET.APL.Tests
             var second = styles["title"];
 
             Assert.Equal(2, first.Values.Count);
-            Assert.Equal("Amazon Ember Display",first.Values[0]["fontFamily"]);
+            Assert.Equal("Amazon Ember Display",first.Values[0].Properties["fontFamily"]);
             Assert.Equal("${state.focused}",first.Values[1].When);
-            Assert.Equal("blue",first.Values[1]["color"]);
+            Assert.Equal("blue",first.Values[1].Properties["color"]);
 
             Assert.Equal("baseText", second.Extends);
             Assert.Single(second.Values);

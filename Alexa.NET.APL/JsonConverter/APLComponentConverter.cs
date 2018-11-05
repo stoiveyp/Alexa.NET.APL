@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using Alexa.NET.APL.Components;
 using Alexa.NET.Response.APL;
@@ -22,13 +23,20 @@ namespace Alexa.NET.APL.JsonConverter
             var jObject = JObject.Load(reader);
             var componentType = jObject.Value<string>("type");
             object target = GetComponent(componentType);
-            if (target != null)
+            if (target == null)
             {
-                serializer.Populate(jObject.CreateReader(), target);
-                return target;
+                throw new ArgumentOutOfRangeException($"Component type {componentType} not supported");
             }
 
-            throw new ArgumentOutOfRangeException($"Component type {componentType} not supported");
+            serializer.Populate(jObject.CreateReader(), target);
+
+            if (target is CustomComponent custom)
+            {
+                custom.Properties.Remove("type");
+            }
+
+            return target;
+
         }
 
         private APLComponent GetComponent(string type)
@@ -52,7 +60,7 @@ namespace Alexa.NET.APL.JsonConverter
                 case nameof(Pager):
                     return new Pager();
                 default:
-                    return null;
+                    return new CustomComponent(type);
             }
         }
 
