@@ -9,8 +9,5 @@ namespace Alexa.NET.APL
     {
         [JsonProperty("type")]
         public abstract string Type { get; }
-
-        [JsonProperty("transformers")]
-        public IList<APLTransformer> Transformers { get; set; }
     }
 }
