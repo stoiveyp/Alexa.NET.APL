@@ -5,6 +5,8 @@ using Alexa.NET.APL.Commands;
 using Alexa.NET.APL.DataSources;
 using Alexa.NET.Response;
 using Alexa.NET.Response.APL;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Xunit;
 
 namespace Alexa.NET.APL.Tests
@@ -34,6 +36,11 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal("catFactSsml",transformer.InputPath);
             Assert.Equal("catFactSpeech",transformer.OutputName);
             Assert.Equal("ssmlToSpeech",transformer.Transformer);
+
+            var random =
+                JsonConvert.DeserializeObject<APLDataSource>(new JObject(new JProperty("test", "random")).ToString());
+            Assert.IsType<KeyValueDataSource>(random);
+            Assert.Single(((KeyValueDataSource)random).Properties);
         }
 
         [Fact]

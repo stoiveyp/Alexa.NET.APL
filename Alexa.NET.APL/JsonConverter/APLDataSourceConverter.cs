@@ -24,14 +24,18 @@ namespace Alexa.NET.APL.JsonConverter
             var jObject = JObject.Load(reader);
 
             // Create target request object based on "type" property
-            if(jObject["type"].ToString() == "object")
+            if(jObject.Value<string>("type") == "object")
             {
                 var target = new ObjectDataSource();
                 serializer.Populate(jObject.CreateReader(), target);
                 return target;
             }
-
-            throw new ArgumentOutOfRangeException("Only object data sources currently supported");
+            else
+            {
+                var target = new KeyValueDataSource();
+                serializer.Populate(jObject.CreateReader(),target);
+                return target;
+            }
         }
 
         public override bool CanConvert(Type objectType)
