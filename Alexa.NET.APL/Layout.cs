@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Alexa.NET.APL;
 using Newtonsoft.Json;
@@ -22,5 +23,20 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("items")]
         public IList<APLComponent> Items { get; set; }
+
+        public Layout AsMain()
+        {
+            if (Parameters == null)
+            {
+                Parameters = new List<Parameter>();
+            }
+
+            if (Parameters.All(p => string.Equals(p.Name, "payload", StringComparison.OrdinalIgnoreCase)))
+            {
+                Parameters.Add(new Parameter("payload"));
+            }
+
+            return this;
+        }
     }
 }

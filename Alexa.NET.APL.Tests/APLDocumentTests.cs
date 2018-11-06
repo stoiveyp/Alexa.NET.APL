@@ -5,6 +5,7 @@ using System.Text;
 using Alexa.NET.Response;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Xunit;
 
 namespace Alexa.NET.APL.Tests
@@ -52,6 +53,14 @@ namespace Alexa.NET.APL.Tests
 
             Assert.Equal("baseText", second.Extends);
             Assert.Single(second.Values);
+        }
+
+        [Fact]
+        public void Imports()
+        {
+            var importText = "{\r\n        \"name\": \"alexa-styles\",\r\n        \"version\" : \"1.0.0\"\r\n    }";
+            var import = new Import("alexa-styles", "1.0.0");
+            Assert.True(JToken.DeepEquals(JObject.Parse(importText),JObject.FromObject(import)));
         }
 
         private APLDocument GetDocument()
