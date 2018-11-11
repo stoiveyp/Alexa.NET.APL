@@ -11,6 +11,8 @@ namespace Alexa.NET.APL.Components
     {
         public Sequence() { }
 
+        public Sequence(params APLComponent[] items) : this((IEnumerable<APLComponent>)items) { }
+
         public Sequence(IEnumerable<APLComponent> items)
         {
             Items = items.ToList();

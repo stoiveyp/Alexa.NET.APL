@@ -17,6 +17,8 @@ namespace Alexa.NET.APL.Components
             Item = new List<APLComponent> {component};
         }
 
+        public ScrollView(params APLComponent[] components) : this((IEnumerable<APLComponent>)components) { }
+
         public ScrollView(IEnumerable<APLComponent> components)
         {
             Item = new List<APLComponent>(components);
