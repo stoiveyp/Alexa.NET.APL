@@ -11,6 +11,8 @@ namespace Alexa.NET.APL.Components
     {
         public Pager() { }
 
+        public Pager(params APLComponent[] items) : this((IEnumerable<APLComponent>)items) { }
+
         public Pager(IEnumerable<APLComponent> items)
         {
             Items = items.ToList();

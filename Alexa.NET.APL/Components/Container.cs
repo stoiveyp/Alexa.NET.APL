@@ -9,6 +9,8 @@ namespace Alexa.NET.APL.Components
     {
         public Container() { }
 
+        public Container(params APLComponent[] items) : this((IEnumerable<APLComponent>)items) { }
+
         public Container(IEnumerable<APLComponent> items)
         {
             Items = items.ToList();

@@ -8,6 +8,24 @@ namespace Alexa.NET.APL.Components
 {
     public class Frame:APLComponent
     {
+        public Frame() { }
+
+        public Frame(APLComponent item)
+        {
+            Item = new List<APLComponent> {item};
+        }
+
+        public Frame(params APLComponent[] item):this((IEnumerable<APLComponent>)item)
+        {
+            
+        }
+
+        public Frame(IEnumerable<APLComponent> item)
+        {
+            Item = new List<APLComponent>(item);
+        }
+
+
         public const string ComponentType = "Frame";
 
         public override string Type => ComponentType;

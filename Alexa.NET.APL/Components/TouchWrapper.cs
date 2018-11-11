@@ -17,6 +17,16 @@ namespace Alexa.NET.APL.Components
             Item = new List<APLComponent> { item };
         }
 
+        public TouchWrapper(params APLComponent[] item) : this((IEnumerable<APLComponent>)item)
+        {
+
+        }
+
+        public TouchWrapper(IEnumerable<APLComponent> item)
+        {
+            Item = new List<APLComponent>(item);
+        }
+
         public override string Type => nameof(TouchWrapper);
 
         [JsonProperty("disabled", NullValueHandling = NullValueHandling.Ignore)]
