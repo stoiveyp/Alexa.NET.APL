@@ -18,10 +18,15 @@ namespace Alexa.NET.Response
             Token = token;
         }
 
-        public ExecuteCommandsDirective(string token, IEnumerable<APLCommand> commands):this(token)
+        public ExecuteCommandsDirective(string token, IEnumerable<APLCommand> commands):
+            this(token)
         {
             Commands = commands.ToList();
         }
+
+        public ExecuteCommandsDirective(string token, params APLCommand[] commands) : 
+            this(token, (IEnumerable<APLCommand>)commands)
+        { }
 
         [JsonProperty("type")]
         public string Type => "Alexa.Presentation.APL.ExecuteCommands";
