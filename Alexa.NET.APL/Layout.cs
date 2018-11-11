@@ -10,6 +10,8 @@ namespace Alexa.NET.Response.APL
     {
         public Layout() { }
 
+        public Layout(params APLComponent[] items) : this((IEnumerable<APLComponent>)items) { }
+
         public Layout(IEnumerable<APLComponent> items)
         {
             Items = items.ToList();
