@@ -17,7 +17,7 @@ namespace Alexa.NET.APL.DataSources
         [JsonProperty("properties", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string,object> Properties { get; set; }
 
-        [JsonProperty("transformers")]
+        [JsonProperty("transformers",NullValueHandling = NullValueHandling.Ignore)]
         public IList<APLTransformer> Transformers { get; set; }
     }
 }
