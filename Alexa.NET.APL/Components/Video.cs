@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -17,7 +18,7 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("autoplay", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool> Autoplay { get; set; }
 
-        [JsonProperty("scale", NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(StringEnumConverter))]
+        [JsonProperty("scale", NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(APLEnumValueConverter<VideoScale>))]
         public APLValue<VideoScale> Scale { get; set; }
 
         [JsonProperty("align", NullValueHandling = NullValueHandling.Ignore)]

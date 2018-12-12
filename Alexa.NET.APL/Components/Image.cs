@@ -1,4 +1,5 @@
-﻿using Alexa.NET.Response.APL;
+﻿using Alexa.NET.APL.JsonConverter;
+using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -28,7 +29,7 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("overlayColor",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> OverlayColor { get; set; }
 
-        [JsonProperty("scale",NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(StringEnumConverter))]
+        [JsonProperty("scale",NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(APLEnumValueConverter<ImageScale>))]
         public APLValue<ImageScale> Scale { get; set; }
 
         [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
