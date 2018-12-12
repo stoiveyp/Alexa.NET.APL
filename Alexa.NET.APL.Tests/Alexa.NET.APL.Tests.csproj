@@ -35,6 +35,9 @@
     <None Update="Examples\ObjectDataSource.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Examples\ControlMediaCommand.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Examples\RenderDocument.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
