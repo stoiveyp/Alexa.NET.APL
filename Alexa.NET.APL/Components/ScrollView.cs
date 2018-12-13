@@ -25,6 +25,6 @@ namespace Alexa.NET.APL.Components
         }
 
         [JsonProperty("item",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<APLComponent>> Item { get; set; }
+        public APLValue<List<APLComponent>> Item { get; set; }
     }
 }

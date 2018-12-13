@@ -23,12 +23,12 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("offset")]
         public APLValue<int> Offset { get; set; }
 
-        public static IList<VideoSource> FromUrl(string url)
+        public static List<VideoSource> FromUrl(string url)
         {
             return new List<VideoSource>{new VideoSource(url)};
         }
 
-        public IList<VideoSource> FromUrl(IEnumerable<string> urls)
+        public List<VideoSource> FromUrl(IEnumerable<string> urls)
         {
             return urls.Select(u => new VideoSource(u)).ToList();
         }

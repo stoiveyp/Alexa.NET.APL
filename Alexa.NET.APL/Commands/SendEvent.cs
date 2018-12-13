@@ -13,6 +13,6 @@ namespace Alexa.NET.APL.Commands
         public APLValue<Dictionary<string, object>> Arguments { get; set; }
 
         [JsonProperty("components", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<string>> Components { get; set; }
+        public APLValue<List<string>> Components { get; set; }
     }
 }

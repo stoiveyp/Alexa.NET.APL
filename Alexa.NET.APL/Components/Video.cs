@@ -25,18 +25,18 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> Align { get; set; }
 
         [JsonProperty("onEnd", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<APLCommand>> OnEnd { get; set; }
+        public APLValue<List<APLCommand>> OnEnd { get; set; }
 
         [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<VideoSource>> Source { get; set; }
+        public APLValue<List<VideoSource>> Source { get; set; }
 
         [JsonProperty("onPause", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<APLCommand>> OnPause { get; set; }
+        public APLValue<List<APLCommand>> OnPause { get; set; }
 
         [JsonProperty("onPlay", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<APLCommand>> OnPlay { get; set; }
+        public APLValue<List<APLCommand>> OnPlay { get; set; }
 
         [JsonProperty("onTrackUpdate", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<APLCommand>> OnTrackUpdate { get; set; }
+        public APLValue<List<APLCommand>> OnTrackUpdate { get; set; }
     }
 }

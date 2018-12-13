@@ -19,7 +19,7 @@ namespace Alexa.NET.APL.Commands
         public override string Type => nameof(Sequential);
 
         [JsonProperty("commands",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<APLCommand>> Commands { get; set; }
+        public APLValue<List<APLCommand>> Commands { get; set; }
 
         [JsonProperty("repeatCount",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int> RepeatCount { get; set; }

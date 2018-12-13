@@ -17,6 +17,6 @@ namespace Alexa.NET.APL.Commands
         public APLValue<string> ComponentId { get; set; }
 
         [JsonProperty("source")]
-        public APLValue<IList<VideoSource>> Source { get; set; }
+        public APLValue<List<VideoSource>> Source { get; set; }
     }
 }

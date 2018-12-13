@@ -33,7 +33,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<bool?> Boolean { get; set; }
 
         [JsonProperty("item", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<APLComponent>> Item { get; set; }
+        public APLValue<List<APLComponent>> Item { get; set; }
 
         [JsonProperty("onPress", NullValueHandling = NullValueHandling.Ignore)]
         public SendEvent OnPress { get; set; }

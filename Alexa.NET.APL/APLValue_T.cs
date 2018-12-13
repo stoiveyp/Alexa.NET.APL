@@ -22,9 +22,14 @@ namespace Alexa.NET.APL
             return Value;
         }
 
+        public static implicit operator T(APLValue<T> value)
+        {
+            return value.Value;
+        }
+
         public static implicit operator APLValue<T>(T value)
         {
-            return new APLValue<T>(value);
+            return value == null ? null : new APLValue<T>(value);
         }
     }
 }
