@@ -59,6 +59,8 @@ namespace Alexa.NET.APL.JsonConverter
                     return new TouchWrapper();
                 case nameof(Pager):
                     return new Pager();
+                case nameof(Video):
+                    return new Video();
                 default:
                     return new CustomComponent(type);
             }

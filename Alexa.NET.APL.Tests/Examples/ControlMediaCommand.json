@@ -1,0 +1,6 @@
+﻿{
+  "type": "ControlMedia",
+  "componentId": "myAudioPlayer",
+  "command": "seek",
+  "value": 5000
+}

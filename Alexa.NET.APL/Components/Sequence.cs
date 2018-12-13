@@ -27,13 +27,13 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> ScrollDirection { get; set; }
 
         [JsonProperty("firstItem",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<APLComponent>> FirstItem { get; set; }
+        public APLValue<List<APLComponent>> FirstItem { get; set; }
 
         [JsonProperty("lastItem", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<APLComponent>> LastItem { get; set; }
+        public APLValue<List<APLComponent>> LastItem { get; set; }
 
         [JsonProperty("items", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<IList<APLComponent>> Items { get; set; }
+        public APLValue<List<APLComponent>> Items { get; set; }
 
         [JsonProperty("numbered",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> Numbered { get; set; }

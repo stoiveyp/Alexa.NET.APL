@@ -3,16 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>1.6.4</Version>
+    <Version>2.0.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl>https://github.com/stoiveyp/Alexa.NET.APL/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Make transformers within ObjectDataSource optional
-Make Data in Sequence control an APLValue&lt;Dictionary&lt;string,object&gt;&gt; to allow data binding
-(thanks Martin!)</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix UserEventRequestHandler
+Add Video Component
+Add PlayMedia and ControlMedia Commands
+Change command properties to be APLValue types, allowing data binding.
+Change IList properties to List to handle data binding issue</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

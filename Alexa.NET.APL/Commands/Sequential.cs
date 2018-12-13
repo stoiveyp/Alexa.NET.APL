@@ -8,6 +8,7 @@ namespace Alexa.NET.APL.Commands
 {
     public class Sequential:APLCommand
     {
+        public Sequential() { }
         public Sequential(IEnumerable<APLCommand> commands)
         {
             Commands = commands.ToList();
@@ -18,10 +19,10 @@ namespace Alexa.NET.APL.Commands
         public override string Type => nameof(Sequential);
 
         [JsonProperty("commands",NullValueHandling = NullValueHandling.Ignore)]
-        public IList<APLCommand> Commands { get; set; }
+        public APLValue<List<APLCommand>> Commands { get; set; }
 
         [JsonProperty("repeatCount",NullValueHandling = NullValueHandling.Ignore)]
-        public int RepeatCount { get; set; }
+        public APLValue<int> RepeatCount { get; set; }
 
     }
 }

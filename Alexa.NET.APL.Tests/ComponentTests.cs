@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Alexa.NET.APL.Components;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
@@ -42,6 +43,15 @@ namespace Alexa.NET.APL.Tests
             var component = GenerateComponent("random");
             Assert.IsType<CustomComponent>(component);
             Assert.Single(((CustomComponent)component).Properties);
+        }
+
+        [Fact]
+        public void VideoComponent()
+        {
+            var component = new Video {Autoplay = true};
+            var sources = VideoSource.FromUrl("https://examplevideo.com/video.mp4");
+            component.Source = sources;
+            Utility.CompareJson(component, "Video.json");
         }
 
         [Fact]

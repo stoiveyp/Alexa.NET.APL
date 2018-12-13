@@ -55,6 +55,10 @@ namespace Alexa.NET.APL.JsonConverter
                     return new SetPage();
                 case nameof(AutoPage):
                     return new AutoPage();
+                case nameof(PlayMedia):
+                    return new PlayMedia();
+                case nameof(ControlMedia):
+                    return new ControlMedia();
             }
 
             return null;

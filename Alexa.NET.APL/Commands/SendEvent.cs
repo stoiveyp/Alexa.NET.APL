@@ -10,9 +10,9 @@ namespace Alexa.NET.APL.Commands
         public override string Type => nameof(SendEvent);
 
         [JsonProperty("arguments", NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string, object> Arguments { get; set; }
+        public APLValue<Dictionary<string, object>> Arguments { get; set; }
 
         [JsonProperty("components", NullValueHandling = NullValueHandling.Ignore)]
-        public IList<string> Components { get; set; }
+        public APLValue<List<string>> Components { get; set; }
     }
 }

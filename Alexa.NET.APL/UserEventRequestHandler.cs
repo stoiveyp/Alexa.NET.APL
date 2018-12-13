@@ -16,7 +16,7 @@ namespace Alexa.NET.Request
 
         public Request.Type.Request Convert(string requestType)
         {
-            throw new NotImplementedException();
+            return new UserEventRequest();
         }
 
         public void AddToRequestConverter()
