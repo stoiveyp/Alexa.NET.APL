@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Commands
@@ -10,12 +11,13 @@ namespace Alexa.NET.APL.Commands
         public override string Type => nameof(SetPage);
 
         [JsonProperty("componentId",NullValueHandling = NullValueHandling.Ignore)]
-        public string ComponentId { get; set; }
+        public APLValue<string> ComponentId { get; set; }
 
         [JsonProperty("position",NullValueHandling = NullValueHandling.Ignore)]
-        public string Position { get; set; }
+        [JsonConverter(typeof(APLValueEnumConverter<SetPagePosition>))]
+        public APLValue<SetPagePosition> Position { get; set; }
 
         [JsonProperty("value",NullValueHandling = NullValueHandling.Ignore)]
-        public int Value { get; set; }
+        public APLValue<int> Value { get; set; }
     }
 }

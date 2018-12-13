@@ -13,7 +13,7 @@ namespace Alexa.NET.APL.Commands
     {
         public override string Type => "ControlMedia";
 
-        [JsonProperty("command"),JsonConverter(typeof(APLEnumValueConverter<ControlMediaCommand>))]
+        [JsonProperty("command"),JsonConverter(typeof(APLValueEnumConverter<ControlMediaCommand>))]
         public APLValue<ControlMediaCommand> Command { get; set; }
 
         [JsonProperty("componentId", NullValueHandling = NullValueHandling.Ignore)]

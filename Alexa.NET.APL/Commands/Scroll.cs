@@ -10,9 +10,9 @@ namespace Alexa.NET.APL.Commands
         public override string Type => nameof(Scroll);
 
         [JsonProperty("componentId",NullValueHandling = NullValueHandling.Ignore)]
-        public string ComponentId { get; set; }
+        public APLValue<string> ComponentId { get; set; }
 
         [JsonProperty("distance",NullValueHandling = NullValueHandling.Ignore)]
-        public int Distance { get; set; }
+        public APLValue<int> Distance { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("autoplay", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool> Autoplay { get; set; }
 
-        [JsonProperty("scale", NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(APLEnumValueConverter<VideoScale>))]
+        [JsonProperty("scale", NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(APLValueEnumConverter<VideoScale>))]
         public APLValue<VideoScale> Scale { get; set; }
 
         [JsonProperty("align", NullValueHandling = NullValueHandling.Ignore)]

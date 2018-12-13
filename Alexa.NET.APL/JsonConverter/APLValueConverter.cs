@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.JsonConverter
 {
-    public class APLEnumValueConverter<T> : APLValueConverter
+    public class APLValueEnumConverter<T> : APLValueConverter
     {
         private readonly Type EnumType = typeof(T);
 

@@ -20,6 +20,6 @@ namespace Alexa.NET.APL.Commands
         public override string Type => nameof(Parallel);
 
         [JsonProperty("commands", NullValueHandling = NullValueHandling.Ignore)]
-        public IList<APLCommand> Commands { get; set; }
+        public APLValue<IList<APLCommand>> Commands { get; set; }
     }
 }
