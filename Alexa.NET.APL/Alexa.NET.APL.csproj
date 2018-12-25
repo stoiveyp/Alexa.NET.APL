@@ -3,18 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>2.0.0</Version>
+    <Version>2.1.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl>https://github.com/stoiveyp/Alexa.NET.APL/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Fix UserEventRequestHandler
-Add Video Component
-Add PlayMedia and ControlMedia Commands
-Change command properties to be APLValue types, allowing data binding.
-Change IList properties to List to handle data binding issue</PackageReleaseNotes>
+    <PackageReleaseNotes>Add object support for single value styles
+Add simple name support for parameters</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
