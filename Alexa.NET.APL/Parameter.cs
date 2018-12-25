@@ -28,5 +28,10 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("default", NullValueHandling = NullValueHandling.Ignore)]
         public object Default { get; set; }
+
+        public static implicit operator Parameter(string parameterName)
+        {
+            return new Parameter(parameterName);
+        }
     }
 }

@@ -63,6 +63,15 @@ namespace Alexa.NET.APL.Tests
             Assert.True(JToken.DeepEquals(JObject.Parse(importText),JObject.FromObject(import)));
         }
 
+        [Fact]
+        public void LongTextExample()
+        {
+            var result = Utility.ExampleFileContent<APLDocument>("LongText.json");
+            Assert.Single(result.MainTemplate.Parameters);
+            Assert.Equal("payload", result.MainTemplate.Parameters.First().Name);
+            Assert.Equal("100",result.Styles["textStyleBase0"].Value.Properties["fontWeight"]);
+        }
+
         private APLDocument GetDocument()
         {
             return Utility.ExampleFileContent<RenderDocumentDirective>("RenderDocument.json").Document;
