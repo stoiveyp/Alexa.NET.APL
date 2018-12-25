@@ -12,7 +12,7 @@
     ]
   },
   "title": {
-    "extends": "baseText",
+    "extend": "baseText",
     "values": [
       {
         "fontWeight": 700,
