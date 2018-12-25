@@ -8,10 +8,15 @@ namespace Alexa.NET.Response.APL
 {
     public class Style
     {
-        [JsonProperty("extends")]
-        public string Extends { get; set; }
+        [JsonProperty("extend",NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(StringOrArrayConverter))]
+        public IList<string> Extends { get; set; }
 
-        [JsonProperty("description")]
+        public bool ShouldSerializeExtends()
+        {
+            return Extends?.Any() ?? false;
+        }
+
+        [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
 
         [JsonIgnore()]

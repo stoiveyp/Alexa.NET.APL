@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
 using Alexa.NET.APL.Components;
 using Alexa.NET.Response.APL;
@@ -28,7 +27,13 @@ namespace Alexa.NET.APL.JsonConverter
                 throw new ArgumentOutOfRangeException($"Component type {componentType} not supported");
             }
 
-            serializer.Populate(jObject.CreateReader(), target);
+            try
+            {
+                serializer.Populate(jObject.CreateReader(), target);
+            }
+            catch (Exception ex)
+            {
+            }
 
             if (target is CustomComponent custom)
             {

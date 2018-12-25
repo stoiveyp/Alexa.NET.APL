@@ -61,7 +61,7 @@ namespace Alexa.NET.APL.JsonConverter
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if (reader.Value == null)
+            if (reader.Value == null && reader.TokenType != JsonToken.StartArray)
             {
                 return null;
             }
@@ -75,7 +75,8 @@ namespace Alexa.NET.APL.JsonConverter
             }
 
             var genericType = objectType.GenericTypeArguments.First();
-            var realInput = CorrectInput(reader.Value);
+            
+            var realInput = reader.TokenType == JsonToken.StartArray ? CreateList(reader,serializer,genericType) : CorrectInput(reader.Value);
             var realInputType = realInput.GetType();
 
             if (IsIntType(genericType) && IsIntType(realInputType))
@@ -92,6 +93,12 @@ namespace Alexa.NET.APL.JsonConverter
             }
 
             return instance;
+        }
+
+        private object CreateList(JsonReader reader, JsonSerializer serializer, Type genericType)
+        {
+            return serializer.Deserialize(reader,
+                typeof(List<>).MakeGenericType(genericType.GenericTypeArguments.First()));
         }
 
         private static bool IsIntType(Type type)
