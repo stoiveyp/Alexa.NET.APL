@@ -31,7 +31,7 @@ namespace Alexa.NET.APL.JsonConverter
                     jObject.Remove("type");
                     var dynamic = new ObjectDynamicDataSource();
                     serializer.Populate(jObject.CreateReader(), dynamic);
-                    return ObjectDataSource.From(dynamic);
+                    return dynamic;
                 }
 
                 var target = new ObjectDataSource();

@@ -84,7 +84,7 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal(2, document.MainTemplate.Items.Count);
             Assert.Equal(3, ((Container)document.MainTemplate.Items[1]).Items.Value.Count);
             Assert.Single(result.DataSources);
-            var dataSource = Assert.IsType<ObjectDataSource>(result.DataSources["bodyTemplate7Data"]);
+            var dataSource = Assert.IsType<ObjectDynamicDataSource>(result.DataSources["bodyTemplate7Data"]);
             Assert.True(dataSource.Properties.ContainsKey("backgroundImage"));
             Assert.IsType<JObject>(dataSource.Properties["backgroundImage"]);
         }
