@@ -10,7 +10,7 @@
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Handle deserializing ObjectDataSource without documented properties object</PackageReleaseNotes>
+    <PackageReleaseNotes>Added TopLevelData to ObjectDataSource to handle deserializing without documented "properties" object</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

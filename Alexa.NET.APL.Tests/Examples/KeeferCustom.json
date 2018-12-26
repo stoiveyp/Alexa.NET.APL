@@ -168,6 +168,9 @@
       "type": "object",
       "objectId": "bt7Sample",
       "title": "Today's Daily Photo of Cheese",
+      "properties": {
+        "test": "stuff" 
+      },
       "backgroundImage": {
         "contentDescription": null,
         "smallSourceUrl": null,

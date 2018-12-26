@@ -4,26 +4,9 @@ using Newtonsoft.Json.Serialization;
 
 namespace Alexa.NET.APL.DataSources
 {
-    public class ObjectDynamicDataSource:ObjectDataSource
-    {
-        [JsonExtensionData]
-        public virtual Dictionary<string, object> Properties { get; set; }
-    }
 
     public class ObjectDataSource:APLDataSource
     {
-        internal static ObjectDataSource From(ObjectDynamicDataSource dynamic)
-        {
-            return new ObjectDataSource
-            {
-                ObjectId = dynamic.ObjectId,
-                Title = dynamic.Title,
-                Description = dynamic.Description,
-                Properties = dynamic.Properties,
-                Transformers = dynamic.Transformers
-            };
-        }
-
         [JsonProperty("type")] public override string Type => "object";
 
         [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
@@ -37,6 +20,9 @@ namespace Alexa.NET.APL.DataSources
 
         [JsonProperty("properties")]
         public virtual Dictionary<string,object> Properties { get; set; }
+
+        [JsonExtensionData]
+        public virtual Dictionary<string, object> TopLevelData { get; set; }
 
         [JsonProperty("transformers",NullValueHandling = NullValueHandling.Ignore)]
         public IList<APLTransformer> Transformers { get; set; }

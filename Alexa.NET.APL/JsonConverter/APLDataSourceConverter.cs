@@ -26,14 +26,7 @@ namespace Alexa.NET.APL.JsonConverter
             // Create target request object based on "type" property
             if(jObject.Value<string>("type") == "object")
             {
-                if (jObject.Value<JObject>("properties") == null)
-                {
-                    jObject.Remove("type");
-                    var dynamic = new ObjectDynamicDataSource();
-                    serializer.Populate(jObject.CreateReader(), dynamic);
-                    return dynamic;
-                }
-
+                jObject.Remove("type");
                 var target = new ObjectDataSource();
                 serializer.Populate(jObject.CreateReader(), target);
                 return target;
