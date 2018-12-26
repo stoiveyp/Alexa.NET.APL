@@ -3,17 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>3.0.0</Version>
+    <Version>3.1.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl>https://github.com/stoiveyp/Alexa.NET.APL/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Update Style support based on designer extension rather than documentation
-Allow style extensions to be both strings and arrays
-Fix component sub types not deserializing properly
-(thanks Stephen!)</PackageReleaseNotes>
+    <PackageReleaseNotes>Handle deserializing ObjectDataSource without documented properties object</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

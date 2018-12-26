@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Alexa.NET.APL.Components;
+using Alexa.NET.APL.DataSources;
 using Alexa.NET.Response;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
@@ -83,7 +84,9 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal(2, document.MainTemplate.Items.Count);
             Assert.Equal(3, ((Container)document.MainTemplate.Items[1]).Items.Value.Count);
             Assert.Single(result.DataSources);
-            Assert.NotNull(result);
+            var dataSource = Assert.IsType<ObjectDataSource>(result.DataSources["bodyTemplate7Data"]);
+            Assert.True(dataSource.Properties.ContainsKey("backgroundImage"));
+            Assert.IsType<JObject>(dataSource.Properties["backgroundImage"]);
         }
 
         private APLDocument GetDocument()
