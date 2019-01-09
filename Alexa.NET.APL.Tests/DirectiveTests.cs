@@ -28,6 +28,16 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void DeserializeComplexRenderDocument()
+        {
+            var directive = Utility.ExampleFileContent<RenderDocumentDirective>("InputDirectiveTest.json");
+            Assert.NotNull(directive);
+
+
+            Assert.NotNull(directive.Document.MainTemplate);
+        }
+
+        [Fact]
         public void DataSource()
         {
             var objectDS = Utility.ExampleFileContent<ObjectDataSource>("ObjectDataSource.json");

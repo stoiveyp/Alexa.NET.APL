@@ -3,14 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>3.1.0</Version>
+    <Version>3.2.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl>https://github.com/stoiveyp/Alexa.NET.APL/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Added TopLevelData to ObjectDataSource to handle deserializing without documented "properties" object</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix SendEvent arguments type to be List&lt;string&gt;</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

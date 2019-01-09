@@ -1,0 +1,420 @@
+﻿{
+  "type": "Alexa.Presentation.APL.RenderDocument",
+  "token": "randomToken",
+  "document": {
+    "type": "APL",
+    "version": "1.0",
+    "theme": "dark",
+    "import": [
+      {
+        "name": "alexa-viewport-profiles",
+        "version": "1.0.0"
+      },
+      {
+        "name": "alexa-layouts",
+        "version": "1.0.0"
+      }
+    ],
+    "resources": [
+      {
+        "when": "${@viewportProfile == @hubRoundSmall}",
+        "dimensions": {
+          "textSizeTitle": 40,
+          "textSizeNow": 30,
+          "footerMarginTop": 10,
+          "footerMarginBottom": 10
+        }
+      },
+      {
+        "when": "${@viewportProfile == @hubLandscapeMedium}",
+        "dimensions": {
+          "textSizeTitle": 35,
+          "textSizeNow": 28,
+          "footerMarginTop": 10,
+          "footerMarginBottom": 10
+        }
+      },
+      {
+        "when": "${@viewportProfile == @hubLandscapeLarge}",
+        "dimensions": {
+          "textSizeTitle": 40,
+          "textSizeNow": 30,
+          "footerMarginTop": 10,
+          "footerMarginBottom": 10
+        }
+      },
+      {
+        "when": "${@viewportProfile == @tvLandscapeXLarge}",
+        "dimensions": {
+          "textSizeTitle": 30,
+          "textSizeNow": 22,
+          "footerMarginTop": 10,
+          "footerMarginBottom": 10
+        }
+      }
+    ],
+    "styles": {
+      "textStyleBase": {
+        "description": "Base font description; set color and core font family",
+        "values": [
+          {
+            "color": "@colorTextPrimary",
+            "fontFamily": "Amazon Ember"
+          }
+        ]
+      },
+      "textStyleBase0": {
+        "description": "Thin version of basic font",
+        "extend": "textStyleBase",
+        "values": {
+          "fontWeight": 100
+        }
+      },
+      "textStyleBase1": {
+        "description": "Light version of basic font",
+        "extend": "textStyleBase",
+        "values": {
+          "fontWeight": 300
+        }
+      },
+      "textStyleBase2": {
+        "description": "Regular version of basic font",
+        "extend": "textStyleBase",
+        "values": {
+          "fontWeight": 500
+        }
+      },
+      "mixinBody": {
+        "values": {
+          "fontSize": "@textSizeBody"
+        }
+      },
+      "mixinPrimary": {
+        "values": {
+          "fontSize": "@textSizePrimary"
+        }
+      },
+      "mixinSecondary": {
+        "values": {
+          "fontSize": "@textSizeSecondary"
+        }
+      },
+      "mixinDetails": {
+        "values": {
+          "fontSize": "@textSizeDetails"
+        }
+      },
+      "textStylePrimary": {
+        "extend": [
+          "textStyleBase1",
+          "mixinPrimary"
+        ]
+      },
+      "textStyleSecondary": {
+        "extend": [
+          "textStyleBase0",
+          "mixinSecondary"
+        ]
+      },
+      "textStyleBody": {
+        "extend": [
+          "textStyleBase1",
+          "mixinBody"
+        ]
+      },
+      "textStyleDetails": {
+        "extend": [
+          "textStyleBase2",
+          "mixinDetails"
+        ]
+      },
+      "textStyleSecondaryHint": {
+        "values": {
+          "fontFamily": "Bookerly",
+          "fontStyle": "bold",
+          "fontSize": "@textSizeSecondaryHint",
+          "color": "@colorTextPrimary"
+        }
+      }
+    },
+    "layouts": {
+      "TouchableBox": {
+        "parameters": [
+          {
+            "name": "boxIndex",
+            "type": "number"
+          },
+          {
+            "name": "touch",
+            "type": "string"
+          },
+          {
+            "name": "channelNumber",
+            "type": "number"
+          },
+          {
+            "name": "channelName",
+            "type": "string"
+          },
+          {
+            "name": "now_text",
+            "type": "string"
+          },
+          {
+            "name": "url",
+            "type": "string"
+          }
+        ],
+        "items": [
+          {
+            "type": "TouchWrapper",
+            "onPress": {
+              "type": "SendEvent",
+              "arguments": [ "${touch}" ]
+            },
+            "item": [
+              {
+                "type": "Container",
+                "direction": "column",
+                "width": "${viewport.width / 3.3}",
+                "height": "${viewport.height / 2.7}",
+                "paddingRight": 15,
+                "items": [
+                  {
+                    "type": "Frame",
+                    "backgroundColor": "#00000080",
+                    "items": [
+                      {
+                        "type": "Container",
+                        "direction": "row",
+                        "width": "100%",
+                        "items": [
+                          {
+
+                            "type": "Text",
+                            "text": "${channelNumber}",
+                            "fontSize": "@textSizeTitle",
+                            "paddingLeft": 15,
+                            "paddingRight": 15,
+                            "maxLines": 1,
+                            "color": "#ffffff",
+                            "textAlign": "center",
+                            "fontWeight": 800
+                          },
+                          {
+                            "type": "Text",
+                            "text": "${channelName}",
+                            "fontSize": "@textSizeTitle",
+                            "paddingLeft": 10,
+                            "maxLines": 1,
+                            "color": "#ffffff",
+                            "textAlign": "center",
+                            "fontWeight": 400
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "width": "${viewport.width / 3}",
+                    "height": "${viewport.height / 4.6}",
+                    "items": [
+                      {
+                        "type": "Container",
+                        "width": "100%",
+                        "height": "100%",
+                        "item": [
+                          {
+                            "type": "Frame",
+                            "backgroundColor": "#00000080",
+                            "width": "100%",
+                            "height": "100%",
+                            "items": [
+                              {
+                                "type": "Image",
+                                "source": "${url}",
+                                "scale": "best-fit",
+                                "width": "100%",
+                                "height": "100%",
+                                "position": "absolute"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "Container",
+                    "width": "100%",
+                    "items": [
+                      {
+                        "type": "Frame",
+                        "backgroundColor": "#00000080",
+                        "items": [
+                          {
+                            "type": "Text",
+                            "text": "${now_text}",
+                            "fontSize": "@textSizeNow",
+                            "maxLines": 1,
+                            "color": "#fff",
+                            "fontWeight": 400,
+                            "paddingLeft": 5
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "mainTemplate": {
+      "parameters": [
+        "payload"
+      ],
+      "items": [
+        {
+          "type": "Container",
+          "direction": "column",
+          "width": "100vw",
+          "height": "100vh",
+          "items": [
+            {
+              "type": "Image",
+              "source": "${payload.StreamPlayerData.properties.backgroundImage.sources[0].url}",
+              "position": "absolute",
+              "width": "100vw",
+              "height": "100vh",
+              "scale": "best-fill"
+            },
+            {
+              "type": "Container",
+              "paddingTop": 40,
+              "paddingLeft": 50,
+              "height": "${viewport.height - 80}",
+              "width": "${viewport.width}",
+              "items": [
+                {
+                  "type": "ScrollView",
+                  "id": "Scrollarea",
+                  "width": "${viewport.width}",
+                  "height": "100%",
+                  "item": [
+                    {
+                      "type": "Container",
+                      "direction": "column",
+                      "width": "${viewport.width}",
+                      "items": [
+                        {
+                          "type": "Container",
+                          "direction": "row",
+                          "width": "${viewport.width}",
+                          "items": [
+                            {
+                              "type": "TouchableBox",
+                              "boxIndex": 0,
+                              "touch": "${payload.StreamPlayerData.properties.channels.sources[0].touch}",
+                              "channelName": "${payload.StreamPlayerData.properties.channels.sources[0].name}",
+                              "channelNumber": "${payload.StreamPlayerData.properties.channels.sources[0].channelnumber}",
+                              "now_text": "${payload.StreamPlayerData.properties.channels.sources[0].now}",
+                              "url": "${payload.StreamPlayerData.properties.channels.sources[0].url}"
+                            },
+                            {
+                              "type": "TouchableBox",
+                              "boxIndex": 1,
+                              "touch": "${payload.StreamPlayerData.properties.channels.sources[1].touch}",
+                              "channelName": "${payload.StreamPlayerData.properties.channels.sources[1].name}",
+                              "channelNumber": "${payload.StreamPlayerData.properties.channels.sources[1].channelnumber}",
+                              "now_text": "${payload.StreamPlayerData.properties.channels.sources[1].now}",
+                              "url": "${payload.StreamPlayerData.properties.channels.sources[1].url}"
+                            },
+                            {
+                              "type": "TouchableBox",
+                              "boxIndex": 2,
+                              "touch": "${payload.StreamPlayerData.properties.channels.sources[2].touch}",
+                              "channelName": "${payload.StreamPlayerData.properties.channels.sources[2].name}",
+                              "channelNumber": "${payload.StreamPlayerData.properties.channels.sources[2].channelnumber}",
+                              "now_text": "${payload.StreamPlayerData.properties.channels.sources[2].now}",
+                              "url": "${payload.StreamPlayerData.properties.channels.sources[2].url}"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "AlexaFooter",
+              "footerHint": "${payload.StreamPlayerData.properties.hintString}",
+              "height": 80
+            }
+          ]
+        }
+      ]
+    }
+  },
+
+  "dataSources": {
+
+    "StreamPlayerData": {
+      "type": "object",
+      "objectId": "StreamPlayerData",
+      "properties": {
+        "backgroundImage": {
+          "contentDescription": null,
+          "smallSourceUrl": null,
+          "largeSourceUrl": null,
+          "sources": [
+            {
+              "url": "https://s3-eu-west-1.amazonaws.com/alexa-skill-streamplayer/human-1215160_1280.jpg"
+            },
+            {
+              "url": "https://s3-eu-west-1.amazonaws.com/alexa-skill-streamplayer/human-1215160_1280.jpg"
+            }
+          ]
+        },
+        "title": "Stream Player: Senderübersicht",
+        "channels": {
+          "contentDescription": null,
+          "smallSourceUrl": null,
+          "largeSourceUrl": null,
+          "sources": [
+            {
+              "url": "https://s3-eu-west-1.amazonaws.com/alexa-skill-streamplayer/ard.png",
+              "name": "ARD",
+              "touch": "ard",
+              "channelnumber": "1"
+            },
+            {
+              "url": "https://s3-eu-west-1.amazonaws.com/alexa-skill-streamplayer/zdf.png",
+              "name": "ZDF",
+              "touch": "zdf",
+              "channelnumber": "2"
+            },
+            {
+              "url": "https://s3-eu-west-1.amazonaws.com/alexa-skill-streamplayer/wdr.png",
+              "name": "WDR",
+              "touch": "wdr",
+              "channelnumber": "3"
+            }
+          ]
+        },
+        "logoUrl": "https://s3-eu-west-1.amazonaws.com/alexa-skill-streamplayer/skill-logo.png",
+        "hintString": "zeige Menüseite 2"
+      },
+      "transformers": [
+        {
+          "inputPath": "hintString",
+          "transformer": "textToHint"
+        }
+      ]
+    }
+  }
+}

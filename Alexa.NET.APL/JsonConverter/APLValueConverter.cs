@@ -89,7 +89,7 @@ namespace Alexa.NET.APL.JsonConverter
             }
             else
             {
-                ((APLValue)instance).Expression = reader.Value.ToString();
+                ((APLValue)instance).Expression = reader.Value?.ToString();
             }
 
             return instance;
