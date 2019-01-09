@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Alexa.NET.APL.Commands;
+using Alexa.NET.APL.Components;
 using Alexa.NET.APL.DataSources;
 using Alexa.NET.Response;
 using Alexa.NET.Response.APL;
@@ -36,8 +35,12 @@ namespace Alexa.NET.APL.Tests
 
             var source = Assert.IsType<ObjectDataSource>(directive.DataSources["StreamPlayerData"]);
             Assert.Equal("textToHint",source.Transformers.First().Transformer);
-        }
 
+            var wrapper = Assert.IsType<TouchWrapper>(directive.Document.Layouts["TouchableBox"].Items.First());
+            var container = ((Container) wrapper.Item.Value.First()).Items.Value.Skip(1).First() as Container;
+            Assert.NotNull(((Container)container.Items.Value.First()).Items);
+        }
+        
         [Fact]
         public void DataSource()
         {

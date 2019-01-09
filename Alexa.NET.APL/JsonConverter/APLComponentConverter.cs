@@ -27,6 +27,18 @@ namespace Alexa.NET.APL.JsonConverter
                 throw new ArgumentOutOfRangeException($"Component type {componentType} not supported");
             }
 
+            if ((target is Frame || target is TouchWrapper) && jObject["items"] != null)
+            {
+                jObject["item"] = jObject["items"];
+                jObject.Remove("items");
+            }
+
+            if ((target is Container || target is Pager) && jObject["item"] != null)
+            {
+                jObject["items"] = jObject["item"];
+                jObject.Remove("item");
+            }
+
             try
             {
                 serializer.Populate(jObject.CreateReader(), target);
