@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Alexa.NET.APL.Commands;
 using Alexa.NET.APL.DataSources;
@@ -33,8 +34,8 @@ namespace Alexa.NET.APL.Tests
             var directive = Utility.ExampleFileContent<RenderDocumentDirective>("InputDirectiveTest.json");
             Assert.NotNull(directive);
 
-
-            Assert.NotNull(directive.Document.MainTemplate);
+            var source = Assert.IsType<ObjectDataSource>(directive.DataSources["StreamPlayerData"]);
+            Assert.Equal("textToHint",source.Transformers.First().Transformer);
         }
 
         [Fact]

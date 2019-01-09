@@ -20,7 +20,7 @@ namespace Alexa.NET.APL
         [JsonProperty("inputPath")]
         public string InputPath { get; set; }
 
-        [JsonProperty("outputName")]
+        [JsonProperty("outputName",NullValueHandling = NullValueHandling.Ignore)]
         public string OutputName { get; set; }
 
         [JsonProperty("transformer")]
