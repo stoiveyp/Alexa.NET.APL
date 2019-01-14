@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using Alexa.NET.APL;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Alexa.NET.Response.APL
 {
@@ -10,6 +12,9 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("version")]
         public string Version => "1.0";
+
+        [JsonProperty("theme",NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(StringEnumConverter))]
+        public ViewportTheme Theme { get; set; }
 
         [JsonProperty("mainTemplate")]
         public Layout MainTemplate { get; set; }
