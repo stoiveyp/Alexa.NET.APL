@@ -14,7 +14,7 @@ namespace Alexa.NET.APL
         public string Token { get; set; }
 
         [JsonProperty("arguments", NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string,object> Arguments { get; set; }
+        public string[] Arguments { get; set; }
 
         [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
         public APLCommandSource Source { get; set; }
