@@ -20,6 +20,6 @@ namespace Alexa.NET.APL
         public APLCommandSource Source { get; set; }
 
         [JsonProperty("components",NullValueHandling = NullValueHandling.Ignore)]
-        public string[] Components { get; set; }
+        public Dictionary<string, object> Components { get; set; }
     }
 }
