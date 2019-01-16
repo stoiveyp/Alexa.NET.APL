@@ -1,5 +1,5 @@
 workflow "New workflow" {
-  on = "release"
+  on = "push"
   resolves = ["Do Nothing"]
 }
 
