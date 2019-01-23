@@ -21,7 +21,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> Align { get; set; }
 
         [JsonProperty("borderRadius",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<AbsoluteDimension> BorderRadius { get; set; }
+        public APLDimensionValue BorderRadius { get; set; }
 
         [JsonProperty("opacity",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int?> Opacity { get; set; }
