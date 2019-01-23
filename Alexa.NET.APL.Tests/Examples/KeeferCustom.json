@@ -94,6 +94,7 @@
           "items": [
             {
               "type": "Image",
+              "borderRadius": "20vw", 
               "source": "${payload.bodyTemplate7Data.backgroundImage.sources[0].url}",
               "scale": "best-fill",
               "position": "absolute",

@@ -21,7 +21,7 @@ namespace Alexa.NET.APL.Components
         public override string Type => nameof(Sequence);
 
         [JsonProperty("data",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dictionary<string, object>> Data { get; set; }
+        public APLValue<List<object>> Data { get; set; }
 
         [JsonProperty("scrollDirection",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> ScrollDirection { get; set; }
