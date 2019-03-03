@@ -3,14 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>3.6.3</Version>
+    <Version>3.7.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
-    <PackageLicenseUrl>https://github.com/stoiveyp/Alexa.NET.APL/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Fix to ensure Context is available when APLSkillRequest is used as SkillRequest</PackageReleaseNotes>
+    <PackageReleaseNotes>Addition of SpeakList command</PackageReleaseNotes>
+    <PackageLicenseExpression>https://github.com/stoiveyp/Alexa.NET.APL/blob/master/LICENSE</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
