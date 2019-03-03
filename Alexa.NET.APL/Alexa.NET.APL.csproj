@@ -11,11 +11,19 @@
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
     <PackageReleaseNotes>Addition of SpeakList command</PackageReleaseNotes>
-    <PackageLicenseExpression>https://github.com/stoiveyp/Alexa.NET.APL/blob/master/LICENSE</PackageLicenseExpression>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Alexa.NET" Version="1.5.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
