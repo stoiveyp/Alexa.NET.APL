@@ -35,7 +35,9 @@ namespace Alexa.NET.APL.Tests
         {
             var document = new APLDocument();
             AlexaFooter.ImportInto(document);
-            document.MainTemplate = new Layout(new AlexaFooter("Hint Text"));
+            document.MainTemplate = new Layout(
+                new AlexaFooter("Hint Text")
+            ).AsMain();
             Assert.Contains(Import.AlexaLayouts,document.Imports);
         }
 
