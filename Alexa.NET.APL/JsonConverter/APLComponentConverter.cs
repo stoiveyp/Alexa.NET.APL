@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using Alexa.NET.APL.Components;
+using Alexa.NET.APL.Layouts;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -78,6 +79,11 @@ namespace Alexa.NET.APL.JsonConverter
                     return new Pager();
                 case nameof(Video):
                     return new Video();
+                case nameof(AlexaFooter):
+                    return new AlexaFooter();
+                case nameof(AlexaHeader):
+                    return new AlexaHeader();
+
                 default:
                     return new CustomComponent(type);
             }

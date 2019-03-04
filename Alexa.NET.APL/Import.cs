@@ -1,9 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace Alexa.NET.Response.APL
 {
-    public class Import
+    public class Import:IEquatable<Import>
     {
         public Import() { }
 
@@ -22,5 +24,30 @@ namespace Alexa.NET.Response.APL
         public static Import AlexaStyles => new Import("alexa-styles","1.0.0");
         public static Import AlexaViewportProfiles => new Import("alexa-viewport-profiles", "1.0.0");
         public static Import AlexaLayouts => new Import("alexa-layouts","1.0.0");
+
+        public void ImportInto(APLDocument document)
+        {
+
+            if (document.Imports == null)
+            {
+                document.Imports = new List<Import>();
+            }
+            else if (document.Imports.Contains(this))
+            {
+                return;
+            }
+
+            document.Imports.Add(this);
+        }
+
+        public bool Equals(Import other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            return other.Name == Name && other.Version == Version;
+        }
     }
 }

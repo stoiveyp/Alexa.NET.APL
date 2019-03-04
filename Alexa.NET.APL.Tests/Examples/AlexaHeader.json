@@ -1,0 +1,9 @@
+{
+  "type": "AlexaHeader",
+  "headerTitle": "Header Title",
+  "headerSubtitle": "Header Subtitle",
+  "headerAttributionImage": "http://HeaderAttributionImage",
+  "headerBackgroundColor": "red",
+  "headerBackButton": true,
+  "headerNavigationAction": "Go Back"
+}

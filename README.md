@@ -26,6 +26,18 @@ new Layout(new[]
 })
 ```
 
+## Adding an AlexaHeader or Footer layout
+Alexa.NET.APL has support for the custom Layouts provided by the Alexa team.
+These need to be imported into a document before the layout can be used inside a document.
+```csharp
+var document = new APLDocument();
+AlexaFooter.ImportInto(document);
+
+document.MainTemplate = new Layout(
+    new AlexaFooter("Hint Text")
+).AsMain();
+```
+
 ## Sending a RenderDocument Directove
 RenderDocument hooks into the same Alexa.NET directive mechanism that already exists, you just reference the layout, document token and any data sources you want to send along with it
 ```csharp
