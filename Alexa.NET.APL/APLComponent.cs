@@ -31,7 +31,7 @@ namespace Alexa.NET.Response.APL
         public APLValue<string> When { get; set; }
 
         [JsonProperty("style",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Style> Style { get; set; }
+        public APLValue<string> Style { get; set; }
 
         [JsonProperty("paddingLeft", NullValueHandling = NullValueHandling.Ignore)]
         public APLDimensionValue PaddingLeft { get; set; }
