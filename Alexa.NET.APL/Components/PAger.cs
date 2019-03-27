@@ -21,7 +21,7 @@ namespace Alexa.NET.APL.Components
         public override string Type => nameof(Pager);
 
         [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string, object> Data { get; set; }
+        public APLValue<List<object>> Data { get; set; }
 
         [JsonProperty("firstItem", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<List<APLComponent>> FirstItem { get; set; }
