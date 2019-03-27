@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using Alexa.NET.APL.Commands;
+using Alexa.NET.APL.JsonConverter;
 using Xunit;
 
 namespace Alexa.NET.APL.Tests
@@ -19,6 +20,18 @@ namespace Alexa.NET.APL.Tests
                 Value = 5000
             };
             Assert.True(Utility.CompareJson(command,"ControlMediaCommand.json"));
+        }
+
+        [Fact]
+        public void SetStateWorksCorrectly()
+        {
+            var command = new SetState
+            {
+                ComponentId = "myButton",
+                State = SetStateStates.Checked,
+                Value = true
+            };
+            Assert.True(Utility.CompareJson(command, "SetSTateCommand.json"));
         }
 
         [Fact]

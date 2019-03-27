@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -13,7 +14,7 @@ namespace Alexa.NET.APL.Commands
         [JsonProperty("componentId", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> ComponentId { get; set; }
 
-        [JsonProperty("state"),JsonConverter(typeof(StringEnumConverter))]
+        [JsonProperty("state"),JsonConverter(typeof(APLValueEnumConverter<SetStateStates>))]
         public APLValue<SetStateStates> State { get; set; }
 
         [JsonProperty("value")]
