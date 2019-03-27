@@ -59,6 +59,8 @@ namespace Alexa.NET.APL.JsonConverter
                     return new PlayMedia();
                 case nameof(ControlMedia):
                     return new ControlMedia();
+                case nameof(SetState):
+                    return new SetState();
             }
 
             return null;

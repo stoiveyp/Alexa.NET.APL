@@ -59,6 +59,9 @@
     <None Update="Examples\Resource.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Examples\SetStateCommand.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Examples\Styles.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
