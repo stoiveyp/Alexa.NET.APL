@@ -57,9 +57,15 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void APLComponentValue()
         {
-            var text = new Text("Hello World") {FontSize = "24dp"};
+            var text = new Text("Hello World")
+            {
+                FontSize = "24dp",
+                Left = new AbsoluteDimension(24,"vw"),
+                PaddingLeft = new RelativeDimension(5)
+            };
             var jobject = JObject.FromObject(text);
             Assert.Equal("24dp",jobject.Value<string>("fontSize"));
+            Assert.Equal("24vw", jobject.Value<string>("left"));
         }
 
         private APLComponent GenerateComponent(string componentType)

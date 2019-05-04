@@ -67,13 +67,13 @@ namespace Alexa.NET.Response.APL
         public APLValue<string> AlignSelf { get; set; }
 
         [JsonProperty("bottom",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<AbsoluteDimension> Bottom { get; set; }
+        public APLAbsoluteDimensionValue Bottom { get; set; }
 
         [JsonProperty("grow",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int?> Grow { get; set; }
 
         [JsonProperty("left",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<AbsoluteDimension> Left { get; set; }
+        public APLAbsoluteDimensionValue Left { get; set; }
 
         [JsonProperty("numbering",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Numbering { get; set; }
@@ -82,7 +82,7 @@ namespace Alexa.NET.Response.APL
         public APLValue<string> Position { get; set; }
 
         [JsonProperty("right",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<AbsoluteDimension> Right { get; set; }
+        public APLAbsoluteDimensionValue Right { get; set; }
 
         [JsonProperty("shrink",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int?> Shrink { get; set; }
@@ -91,7 +91,7 @@ namespace Alexa.NET.Response.APL
         public APLDimensionValue Spacing { get; set; }
 
         [JsonProperty("top",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<AbsoluteDimension> Top { get; set; }
+        public APLAbsoluteDimensionValue Top { get; set; }
 
         [JsonProperty("speech",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Speech { get; set; }
