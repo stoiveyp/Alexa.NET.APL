@@ -35,6 +35,18 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void SetValueWorksCorrectly()
+        {
+            var command = new SetValue
+            {
+                ComponentId = "jokePunchline",
+                Property = "opacity",
+                Value = "1"
+            };
+            Assert.True(Utility.CompareJson(command,"SetValueCommand.json"));
+        }
+
+        [Fact]
         public void PlayMediaDeserializesCorrectly()
         {
             var command = Utility.ExampleFileContent<ControlMedia>("ControlMediaCommand.json");
