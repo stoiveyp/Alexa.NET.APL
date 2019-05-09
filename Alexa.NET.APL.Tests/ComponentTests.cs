@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Alexa.NET.APL.Components;
+using Alexa.NET.APL.Filters;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -51,7 +52,7 @@ namespace Alexa.NET.APL.Tests
             var component = new Video {Autoplay = true};
             var sources = VideoSource.FromUrl("https://examplevideo.com/video.mp4");
             component.Source = sources;
-            Utility.CompareJson(component, "Video.json");
+            Assert.True(Utility.CompareJson(component, "Video.json"));
         }
 
         [Fact]
@@ -66,6 +67,20 @@ namespace Alexa.NET.APL.Tests
             var jobject = JObject.FromObject(text);
             Assert.Equal("24dp",jobject.Value<string>("fontSize"));
             Assert.Equal("24vw", jobject.Value<string>("left"));
+        }
+
+        [Fact]
+        public void ImageWithBlur()
+        {
+            var image = new Image
+            {
+                Filters = new IImageFilter[]
+                {
+                    new Blur(Dimension.From("10dp")),
+                }
+            };
+
+            Assert.True(Utility.CompareJson(image,"ImageWithBlur.json"));
         }
 
         private APLComponent GenerateComponent(string componentType)

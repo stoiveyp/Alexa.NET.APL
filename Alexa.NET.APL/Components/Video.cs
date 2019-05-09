@@ -13,7 +13,7 @@ namespace Alexa.NET.APL.Components
         public override string Type => "Video";
 
         [JsonProperty("audioTrack", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> AudioTrack { get; set; } = "foreground";
+        public APLValue<string> AudioTrack { get; set; }
 
         [JsonProperty("autoplay", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool> Autoplay { get; set; }

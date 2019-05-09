@@ -11,16 +11,16 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("url")]
         public APLValue<Uri> Uri { get; set; }
 
-        [JsonProperty("description")]
+        [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Description { get; set; }
 
-        [JsonProperty("duration")]
+        [JsonProperty("duration", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int> DurationMilliseconds { get; set; }
 
-        [JsonProperty("repeatCount")]
-        public APLValue<int> RepeatCount { get; set; }
+        [JsonProperty("repeatCount", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<int?> RepeatCount { get; set; }
 
-        [JsonProperty("offset")]
+        [JsonProperty("offset", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int> Offset { get; set; }
 
         public static List<VideoSource> FromUrl(string url)
