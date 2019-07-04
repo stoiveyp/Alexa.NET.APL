@@ -46,14 +46,14 @@ namespace Alexa.NET.APL.Tests
             Assert.Single(((CustomComponent)component).Properties);
         }
 
-        [Fact]
-        public void VideoComponent()
-        {
-            var component = new Video {Autoplay = true};
-            var sources = VideoSource.FromUrl("https://examplevideo.com/video.mp4");
-            component.Source = sources;
-            Assert.True(Utility.CompareJson(component, "Video.json"));
-        }
+        //[Fact]
+        //public void VideoComponent()
+        //{
+        //    var component = new Video {Autoplay = true};
+        //    var sources = VideoSource.FromUrl("https://examplevideo.com/video.mp4");
+        //    component.Source = sources;
+        //    Assert.True(Utility.CompareJson(component, "Video.json"));
+        //}
 
         [Fact]
         public void APLComponentValue()

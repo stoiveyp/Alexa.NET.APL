@@ -19,7 +19,7 @@ namespace Alexa.NET.APL.Tests
         {
             var doc = GetDocument();
             Assert.Equal("APL", doc.Type);
-            Assert.Equal("1.0", doc.Version);
+            Assert.Equal(APLDocumentVersion.V1, doc.Version);
             Assert.NotNull(doc.MainTemplate);
         }
 
