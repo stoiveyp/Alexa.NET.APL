@@ -21,7 +21,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> ButtonText { get; set; }
 
         [JsonProperty("primaryAction",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<APLCommand> PrimaryAction { get; set; }
+        public APLValue<List<APLCommand>> PrimaryAction { get; set; }
 
         [JsonProperty("theme",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Theme { get; set; }
