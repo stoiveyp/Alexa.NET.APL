@@ -37,5 +37,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("numbered",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> Numbered { get; set; }
+
+        [JsonProperty("onScroll", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<List<APLCommand>> OnScroll { get; set; }
     }
 }

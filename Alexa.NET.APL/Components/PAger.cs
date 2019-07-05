@@ -37,5 +37,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("navigation",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Navigation { get; set; }
+
+        [JsonProperty("onPageChanged",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<List<APLCommand>> OnPageChanged { get; set; }
     }
 }

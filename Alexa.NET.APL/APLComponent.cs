@@ -113,7 +113,7 @@ namespace Alexa.NET.Response.APL
         public APLValue<APLDisplay> Display { get; set; }
 
         [JsonProperty("onMount", NullValueHandling = NullValueHandling.Ignore)]
-        public List<APLCommand> OnMount { get; set; }
+        public APLValue<List<APLCommand>> OnMount { get; set; }
 
         [JsonProperty("transform",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<List<APLTransform>> Transform { get; set; }

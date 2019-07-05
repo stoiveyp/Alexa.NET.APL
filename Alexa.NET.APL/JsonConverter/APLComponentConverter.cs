@@ -67,6 +67,7 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(Sequence), typeof(Sequence)},
             {nameof(TouchWrapper), typeof(TouchWrapper)},
             {nameof(Pager), typeof(Pager)},
+            {nameof(VectorGraphic),typeof(VectorGraphic) },
             {nameof(Video), typeof(Video)},
             {nameof(AlexaBackground), typeof(AlexaBackground)},
             {nameof(AlexaButton),typeof(AlexaButton) },

@@ -26,5 +26,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("item",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<List<APLComponent>> Item { get; set; }
+
+        [JsonProperty("onScroll", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<List<APLCommand>> OnScroll { get; set; }
     }
 }
