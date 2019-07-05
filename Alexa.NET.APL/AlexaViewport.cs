@@ -6,7 +6,7 @@ namespace Alexa.NET.APL
 {
     public class AlexaViewport
     {
-        [JsonProperty("experiences")]
+        [JsonProperty("experiences",NullValueHandling = NullValueHandling.Ignore)]
         public ViewportExperience[] Experiences { get; set; }
 
         [JsonProperty("currentPixelWidth")]
@@ -27,13 +27,13 @@ namespace Alexa.NET.APL
         [JsonProperty("touch")]
         public string[] Touch { get; set; }
 
-        [JsonProperty("keyboard")]
+        [JsonProperty("keyboard",NullValueHandling = NullValueHandling.Ignore)]
         public string[] Keyboard { get; set; }
 
         [JsonProperty("shape"),JsonConverter(typeof(StringEnumConverter))]
         public ViewportShape Shape { get; set; }
 
-        [JsonProperty("video")]
+        [JsonProperty("video",NullValueHandling = NullValueHandling.Ignore)]
         public VideoSupport Video { get; set; }
 
 
