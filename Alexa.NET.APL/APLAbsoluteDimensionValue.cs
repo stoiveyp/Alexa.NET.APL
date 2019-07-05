@@ -18,5 +18,10 @@
         {
             return new APLAbsoluteDimensionValue(value);
         }
+
+        public static implicit operator APLAbsoluteDimensionValue(int value)
+        {
+            return new APLAbsoluteDimensionValue(value,"dp");
+        }
     }
 }

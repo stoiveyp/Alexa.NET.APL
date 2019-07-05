@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Runtime.Serialization;
 using Alexa.NET.APL;
+using Alexa.NET.APL.VectorGraphics;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -41,13 +41,17 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("styles", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, Style> Styles { get; set; }
-    }
 
-    public enum APLDocumentVersion
-    {
-        [EnumMember(Value = "1.0")]
-        V1,
-        [EnumMember(Value = "1.1")]
-        V1_1
+        [JsonProperty("graphics",NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string,AVG> Graphics { get; set; }
+
+        [JsonProperty("onMount",NullValueHandling = NullValueHandling.Ignore)]
+        public List<APLCommand> OnMount { get; set; }
+
+        [JsonProperty("command",NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string,APLCommand> Commands { get; set; }
+
+        [JsonProperty("settings",NullValueHandling = NullValueHandling.Ignore)]
+        public APLDocumentSettings Settings { get; set; }
     }
 }

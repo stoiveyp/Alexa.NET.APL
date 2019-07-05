@@ -9,6 +9,12 @@ namespace Alexa.NET.APL.Commands
         [EnumMember(Value = "disabled")]
         Disabled,
         [EnumMember(Value = "focused")]
-        Focused
+        Focused,
+        [EnumMember(Value = "karaoke")]
+        Karaoke,
+        [EnumMember(Value = "karaokeTarget")]
+        KaraokeTarget,
+        [EnumMember(Value = "pressed")]
+        Pressed
     }
 }

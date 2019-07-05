@@ -8,6 +8,11 @@
             Unit = unit;
         }
 
+        public static explicit operator AbsoluteDimension(int value)
+        {
+            return new AbsoluteDimension(value,string.Empty);
+        }
+
         public string Unit { get; set; }
 
         public int Number { get; set; }

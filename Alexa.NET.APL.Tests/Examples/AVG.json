@@ -1,0 +1,13 @@
+{
+  "type": "AVG",
+  "version": "1.0",
+  "height": "100dp",
+  "width": "100dp",
+  "items": {
+    "type": "path",
+    "fill": "red",
+    "stroke": "blue",
+    "strokeWidth": 4,
+    "pathData": "M 50 0 L 100 50 L 50 100 L 0 50 z"
+  }
+}

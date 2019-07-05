@@ -1,6 +1,11 @@
 # Alexa.NET.APL
 Small helper library to allow Alexa.NET skills to work with APL
 
+## Still To Do
+*    gradient support
+*    AVG support
+*    
+
 ## Access to APL ViewPort Data within your skill
 There are new `Display` and `Viewport` properties available within the request being sent to an APL enabled skill.
 Rather than create a forced dependency for Alexa.NET - APL skills have an enhanced SkillRequest object with these new properties
