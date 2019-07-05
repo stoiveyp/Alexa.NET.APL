@@ -72,7 +72,8 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(AlexaButton),typeof(AlexaButton) },
             {nameof(AlexaDivider),typeof(AlexaDivider) },
             {nameof(AlexaFooter),typeof(AlexaFooter) },
-            {nameof(AlexaHeader),typeof(AlexaHeader) }
+            {nameof(AlexaHeader),typeof(AlexaHeader) },
+            {nameof(AlexaImage),typeof(AlexaImage) }
         };
 
         private APLComponent GetComponent(string type)

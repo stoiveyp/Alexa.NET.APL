@@ -31,6 +31,23 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void AlexaImageSerialisesCorrectly()
+        {
+            var image = new AlexaImage
+            {
+                ImageSource= "https://d2o906d8ln7ui1.cloudfront.net/images/MollyforBT7.png",
+                ImageRoundedCorner = true,
+                Scale = Scale.BestFit,
+                ImageAlignment = AlexaImageAlignment.Center,
+                ImageWidth = new AbsoluteDimension(75,"vh"),
+                ImageAspectRatio = AlexaImageAspectRatio.Square,
+                ImageBlurredBackground = true
+            };
+
+            Assert.True(Utility.CompareJson(image, "AlexaImage.json"));
+        }
+
+        [Fact]
         public void AlexaFooterAddsImport()
         {
             var document = new APLDocument();
@@ -71,8 +88,6 @@ namespace Alexa.NET.APL.Tests
                 HeaderAttributionPrimacy = true,
                 HeaderDivider = true
             };
-
-
 
             Assert.True(Utility.CompareJson(header,"AlexaHeader.json"));
         }
