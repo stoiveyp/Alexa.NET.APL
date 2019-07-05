@@ -78,7 +78,8 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(AlexaPageCounter),typeof(AlexaPageCounter) },
             {nameof(AlexaTextListItem),typeof(AlexaTextListItem) },
             {nameof(AlexaTransportControls),typeof(AlexaTransportControls) },
-            {nameof(AlexaHeadline),typeof(AlexaHeadline) }
+            {nameof(AlexaHeadline),typeof(AlexaHeadline) },
+            {nameof(AlexaTextList),typeof(AlexaTextList) }
         };
 
         private APLComponent GetComponent(string type)
