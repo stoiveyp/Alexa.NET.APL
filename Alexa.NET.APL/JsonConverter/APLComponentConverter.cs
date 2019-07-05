@@ -83,6 +83,8 @@ namespace Alexa.NET.APL.JsonConverter
                     return new AlexaFooter();
                 case nameof(AlexaHeader):
                     return new AlexaHeader();
+                case nameof(AlexaBackground):
+                    return new AlexaBackground();
 
                 default:
                     return new CustomComponent(type);
