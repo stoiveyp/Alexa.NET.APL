@@ -23,8 +23,8 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("borderRadius",NullValueHandling = NullValueHandling.Ignore)]
         public APLDimensionValue BorderRadius { get; set; }
 
-        [JsonProperty("opacity",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int?> Opacity { get; set; }
+        [JsonProperty("overlayGradient",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<APLGradient> OverlayGradient { get; set; }
 
         [JsonProperty("overlayColor",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> OverlayColor { get; set; }
