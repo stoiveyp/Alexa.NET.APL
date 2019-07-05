@@ -40,5 +40,10 @@ namespace Alexa.NET.APL
         {
             return new APLTransformer("textToHint", inputPath, outputName);
         }
+
+        public static APLTransformer TextToSpeech(string inputPath, string outputName)
+        {
+            return new APLTransformer("textToSpeech",inputPath,outputName);
+        }
     }
 }

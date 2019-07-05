@@ -98,5 +98,24 @@ namespace Alexa.NET.Response.APL
 
         [JsonExtensionData]
         public Dictionary<string, object> Properties { get; set; }
+
+        [JsonProperty("accessibilityLabel",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> AccessibilityLabel { get; set; }
+
+        [JsonProperty("checked",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool> Checked { get; set; }
+
+        [JsonProperty("disabled",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool> Disabled { get; set; }
+
+        [JsonProperty("display",NullValueHandling = NullValueHandling.Ignore),
+        JsonConverter(typeof(APLValueEnumConverter<APLDisplay>))]
+        public APLValue<APLDisplay> Display { get; set; }
+
+        [JsonProperty("onMount", NullValueHandling = NullValueHandling.Ignore)]
+        public List<APLCommand> OnMount { get; set; }
+
+        [JsonProperty("transform",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<List<APLTransform>> Transform { get; set; }
     }
 }
