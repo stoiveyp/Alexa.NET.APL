@@ -10,6 +10,31 @@ namespace Alexa.NET.APL.Tests
 {
     public class CommandTests
     {
+
+        [Fact]
+        public void AnimatedItemWorksProperly()
+        {
+            var list = new List<AnimatedProperty>
+            {
+                new AnimatedProperty
+                {
+                    Property = "opacity",
+                    From = 0,
+                    To = 1
+                }
+            };
+
+            var command = new AnimateItem
+            {
+                Duration = 1000,
+                RepeatCount = 9,
+                RepeatMode = RepeatMode.Reverse,
+                Value = list
+            };
+
+            Assert.True(Utility.CompareJson(command,"AnimatedItem.json"));
+        }
+
         [Fact]
         public void PlayMediaWorksCorrectly()
         {

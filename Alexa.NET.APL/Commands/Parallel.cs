@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Commands
@@ -19,7 +20,8 @@ namespace Alexa.NET.APL.Commands
 
         public override string Type => nameof(Parallel);
 
-        [JsonProperty("commands", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLCommand>> Commands { get; set; }
+        [JsonProperty("commands", NullValueHandling = NullValueHandling.Ignore),
+        JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> Commands { get; set; }
     }
 }

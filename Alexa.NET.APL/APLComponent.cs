@@ -112,8 +112,9 @@ namespace Alexa.NET.Response.APL
         JsonConverter(typeof(APLValueEnumConverter<APLDisplay>))]
         public APLValue<APLDisplay> Display { get; set; }
 
-        [JsonProperty("onMount", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLCommand>> OnMount { get; set; }
+        [JsonProperty("onMount", NullValueHandling = NullValueHandling.Ignore),
+        JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OnMount { get; set; }
 
         [JsonProperty("transform",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<List<APLTransform>> Transform { get; set; }

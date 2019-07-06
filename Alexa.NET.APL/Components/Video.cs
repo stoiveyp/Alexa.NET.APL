@@ -27,16 +27,20 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("onEnd", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<List<APLCommand>> OnEnd { get; set; }
 
-        [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<VideoSource>> Source { get; set; }
+        [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<VideoSource>> Source { get; set; }
 
-        [JsonProperty("onPause", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLCommand>> OnPause { get; set; }
+        [JsonProperty("onPause", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OnPause { get; set; }
 
-        [JsonProperty("onPlay", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLCommand>> OnPlay { get; set; }
+        [JsonProperty("onPlay", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OnPlay { get; set; }
 
-        [JsonProperty("onTrackUpdate", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLCommand>> OnTrackUpdate { get; set; }
+        [JsonProperty("onTrackUpdate", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OnTrackUpdate { get; set; }
     }
 }

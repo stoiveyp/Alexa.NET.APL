@@ -30,7 +30,7 @@ namespace Alexa.NET.Response.APL
         }
 
         [JsonProperty("values", NullValueHandling = NullValueHandling.Ignore),
-         JsonConverter(typeof(StyleValueListConverter))]
+         JsonConverter(typeof(GenericSingleOrListConverter<StyleValue>))]
         public IList<StyleValue> Values { get; set; }
 
         public bool ShouldSerializeValues()

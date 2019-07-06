@@ -67,8 +67,9 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("headerBackButtonAccessibilityLabel", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HeaderBackButtonAccessibilityLabel { get; set; }
 
-        [JsonProperty("headerBackButtonCommand", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLCommand>> HeaderBackButtonCommand { get; set; }
+        [JsonProperty("headerBackButtonCommand", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> HeaderBackButtonCommand { get; set; }
 
         [JsonProperty("headerBackgroundColor", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HeaderBackgroundColor { get; set; }
@@ -82,8 +83,9 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("hideOrdinal", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool> HideOrdinal { get; set; }
 
-        [JsonProperty("primaryAction", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLCommand>> PrimaryAction { get; set; }
+        [JsonProperty("primaryAction", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> PrimaryAction { get; set; }
 
         [JsonProperty("listItems",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<List<AlexaTextListItem>> ListItems { get; set; }

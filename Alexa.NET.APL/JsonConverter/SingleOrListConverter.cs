@@ -20,12 +20,24 @@ namespace Alexa.NET.APL.JsonConverter
             }
             else if(value is APLValue<IList<TValue>> apl)
             {
+                if (apl.Expression != null)
+                {
+                    serializer.Serialize(writer, apl.Expression);
+                    return;
+                }
                 list = apl.Value;
             }
 
             if ((list?.Count ?? 0) < 2)
             {
-                serializer.Serialize(writer, list == null? default(TValue) : list.First());
+                if (list == null)
+                {
+                    serializer.Serialize(writer,null);
+                }
+                else
+                {
+                    serializer.Serialize(writer, list.First());
+                }
             }
             else
             {

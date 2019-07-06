@@ -57,7 +57,7 @@ namespace Alexa.NET.APL.JsonConverter
 
         }
 
-        public static Dictionary<string, Type> APLComponentFactories = new Dictionary<string, Type>
+        public static Dictionary<string, Type> APLComponentLookup = new Dictionary<string, Type>
         {
             {nameof(Container), typeof(Container)},
             {nameof(Text), typeof(Text)},
@@ -86,8 +86,8 @@ namespace Alexa.NET.APL.JsonConverter
         private APLComponent GetComponent(string type)
         {
             return (APLComponent)(
-                APLComponentFactories.ContainsKey(type)
-                    ? Activator.CreateInstance(APLComponentFactories[type])
+                APLComponentLookup.ContainsKey(type)
+                    ? Activator.CreateInstance(APLComponentLookup[type])
                     : new CustomComponent(type));
         }
 

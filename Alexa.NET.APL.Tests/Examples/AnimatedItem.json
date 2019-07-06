@@ -1,0 +1,11 @@
+{
+  "type": "AnimateItem",
+  "duration": 1000,
+  "repeatCount": 9,
+  "repeatMode": "reverse",
+  "value": {
+    "property": "opacity",
+    "from": 0.0,
+    "to": 1.0
+  }
+}

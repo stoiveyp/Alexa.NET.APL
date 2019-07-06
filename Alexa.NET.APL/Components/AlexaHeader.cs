@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Alexa.NET.APL.Components;
+using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
@@ -37,8 +38,9 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("headerBackButtonAccessibilityLabel",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HeaderBackButtonAccessibilityLabel { get; set; }
 
-        [JsonProperty("headerBackButtonCommand",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLCommand>> HeaderBackButtonCommand { get; set; }
+        [JsonProperty("headerBackButtonCommand",NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> HeaderBackButtonCommand { get; set; }
 
         [JsonProperty("headerBackgroundColor",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HeaderBackgroundColor { get; set; }

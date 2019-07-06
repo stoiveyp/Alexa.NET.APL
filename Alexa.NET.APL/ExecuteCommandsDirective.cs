@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Alexa.NET.APL;
+using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -34,7 +35,8 @@ namespace Alexa.NET.Response
         [JsonProperty("token")]
         public string Token { get; set; }
 
-        [JsonProperty("commands")]
+        [JsonProperty("commands"),
+         JsonConverter(typeof(APLCommandListConverter))]
         public IList<APLCommand> Commands { get; set; }
     }
 }
