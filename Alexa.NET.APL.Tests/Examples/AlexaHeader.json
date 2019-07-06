@@ -1,9 +1,12 @@
 {
   "type": "AlexaHeader",
-  "headerTitle": "Header Title",
-  "headerSubtitle": "Header Subtitle",
-  "headerAttributionImage": "http://HeaderAttributionImage",
-  "headerBackgroundColor": "red",
   "headerBackButton": true,
-  "headerNavigationAction": "Go Back"
+  "headerBackButtonAccessibilityLabel": "back",
+  "headerBackgroundColor": "red",
+  "headerTitle": "Header title",
+  "headerSubtitle": "Header subtitle",
+  "headerAttributionText": "Attribution",
+  "headerAttributionImage": "https://d2o906d8ln7ui1.cloudfront.net/images/cheeseskillicon.png",
+  "headerAttributionPrimacy": true,
+  "headerDivider": true
 }

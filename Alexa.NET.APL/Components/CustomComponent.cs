@@ -15,8 +15,5 @@ namespace Alexa.NET.APL.Components
         }
 
         public override string Type { get; }
-
-        [JsonExtensionData]
-        public Dictionary<string, object> Properties { get; set; }
     }
 }

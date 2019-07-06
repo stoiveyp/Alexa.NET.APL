@@ -16,6 +16,9 @@ namespace Alexa.NET.APL
         public string Description { get; set; }
 
         [JsonProperty("delay", NullValueHandling = NullValueHandling.Ignore)]
-        public int? DelayMilliseconds { get; set; }
+        public APLValue<int?> DelayMilliseconds { get; set; }
+
+        [JsonProperty("screenLock",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool> ScreenLock { get; set; }
     }
 }

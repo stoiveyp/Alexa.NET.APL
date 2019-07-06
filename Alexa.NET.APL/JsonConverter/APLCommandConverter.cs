@@ -9,13 +9,13 @@ using Newtonsoft.Json.Linq;
 
 namespace Alexa.NET.APL.JsonConverter
 {
-    public class APLCommandConverter:Newtonsoft.Json.JsonConverter
+    public class APLCommandConverter : Newtonsoft.Json.JsonConverter
     {
         public override bool CanWrite => false;
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            
+
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -33,39 +33,35 @@ namespace Alexa.NET.APL.JsonConverter
             throw new ArgumentOutOfRangeException($"Command type {commandType} not supported");
         }
 
+        public static Dictionary<string, Type> APLCommandLookup = new Dictionary<string, Type>
+        {
+            {nameof(Idle), typeof(Idle)},
+            {nameof(Sequential), typeof(Sequential)},
+            {nameof(Parallel), typeof(Parallel)},
+            {nameof(SendEvent), typeof(SendEvent)},
+            {nameof(SpeakItem), typeof(SpeakItem)},
+            {nameof(SpeakList), typeof(SpeakList)},
+            {nameof(Scroll), typeof(Scroll)},
+            {nameof(ScrollToComponent), typeof(ScrollToComponent)},
+            {nameof(ScrollToIndex), typeof(ScrollToIndex)},
+            {nameof(SetPage), typeof(SetPage)},
+            {nameof(AutoPage), typeof(AutoPage)},
+            {nameof(PlayMedia), typeof(PlayMedia)},
+            {nameof(ControlMedia), typeof(ControlMedia)},
+            {nameof(SetState), typeof(SetState)},
+            {nameof(SetValue), typeof(SetValue)},
+            {nameof(AnimateItem),typeof(AnimateItem) },
+            {nameof(OpenURL),typeof(OpenURL) },
+            {nameof(SetFocus),typeof(SetFocus) },
+            {nameof(ClearFocus),typeof(ClearFocus) }
+        };
+
         private APLCommand GetCommand(string commandType)
         {
-            switch (commandType)
-            {
-                case nameof(Idle):
-                    return new Idle();
-                case nameof(Sequential):
-                    return new Sequential();
-                case nameof(Parallel):
-                    return new Parallel();
-                case nameof(SendEvent):
-                    return new SendEvent();
-                case nameof(SpeakItem):
-                    return new SpeakItem();
-                case nameof(Scroll):
-                    return new Scroll();
-                case nameof(ScrollToIndex):
-                    return new ScrollToIndex();
-                case nameof(SetPage):
-                    return new SetPage();
-                case nameof(AutoPage):
-                    return new AutoPage();
-                case nameof(PlayMedia):
-                    return new PlayMedia();
-                case nameof(ControlMedia):
-                    return new ControlMedia();
-                case nameof(SetState):
-                    return new SetState();
-                case nameof(SetValue):
-                    return new SetValue();
-            }
-
-            return null;
+            return (APLCommand)(
+                APLCommandLookup.ContainsKey(commandType)
+                    ? Activator.CreateInstance(APLCommandLookup[commandType])
+                    : new CustomCommand(commandType));
         }
 
         public override bool CanConvert(Type objectType)

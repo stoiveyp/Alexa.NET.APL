@@ -13,9 +13,9 @@ namespace Alexa.NET.APL.Commands
         public APLValue<string> ComponentId { get; set; }
 
         [JsonProperty("count",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int> Count { get; set; }
+        public APLValue<int?> Count { get; set; }
 
         [JsonProperty("duration",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int> Duration { get; set; }
+        public APLValue<int?> Duration { get; set; }
     }
 }

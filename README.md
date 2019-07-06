@@ -28,7 +28,7 @@ Alexa.NET.APL has support for the custom Layouts provided by the Alexa team.
 These need to be imported into a document before the layout can be used inside a document.
 ```csharp
 var document = new APLDocument();
-AlexaFooter.ImportInto(document);
+document.AddResponsiveDesign();
 
 document.MainTemplate = new Layout(
     new AlexaFooter("Hint Text")

@@ -12,11 +12,32 @@ namespace Alexa.NET.APL.JsonConverter
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            var list = (IList<TValue>)value;
+            IList<TValue> list = null;
 
-            if (list.Count == 1)
+            if (value is IList<TValue> templist)
             {
-                serializer.Serialize(writer, list.First());
+                list = templist;
+            }
+            else if(value is APLValue<IList<TValue>> apl)
+            {
+                if (apl.Expression != null)
+                {
+                    serializer.Serialize(writer, apl.Expression);
+                    return;
+                }
+                list = apl.Value;
+            }
+
+            if ((list?.Count ?? 0) < 2)
+            {
+                if (list == null)
+                {
+                    serializer.Serialize(writer,null);
+                }
+                else
+                {
+                    serializer.Serialize(writer, list.First());
+                }
             }
             else
             {

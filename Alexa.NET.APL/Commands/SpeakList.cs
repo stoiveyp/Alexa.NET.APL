@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Alexa.NET.APL.JsonConverter;
 
 namespace Alexa.NET.APL.Commands
 {
@@ -9,8 +10,9 @@ namespace Alexa.NET.APL.Commands
     {
         public override string Type => nameof(SpeakList);
 
-        [JsonProperty("align", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> Align { get; set; }
+        [JsonProperty("align", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLValueEnumConverter<ItemAlignment>))]
+        public APLValue<ItemAlignment?> Align { get; set; }
 
         [JsonProperty("componentId")]
         public APLValue<string> ComponentId { get; set; }
@@ -22,7 +24,7 @@ namespace Alexa.NET.APL.Commands
         public APLValue<int> Count { get; set; }
 
         [JsonProperty("minimumDwellTime",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int> MinimumDwellTime { get; set; }
+        public APLValue<int?> MinimumDwellTime { get; set; }
 
     }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "AlexaImage",
+  "imageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/MollyforBT7.png",
+  "imageRoundedCorner": true,
+  "imageScale": "best-fit",
+  "imageAlignment": "center",
+  "imageWidth": "75vh",
+  "imageAspectRatio": "square",
+  "imageBlurredBackground": true
+}

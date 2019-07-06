@@ -1,9 +1,9 @@
 {
   "type": "Alexa.Presentation.APL.ExecuteCommands",
   "token": "[SkillProvidedToken]",
-  "commands": [
+  "commands": 
     {
       "type": "Idle"
     }
-  ]
+  
 }

@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 using Alexa.NET.APL.Components;
+using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
-namespace Alexa.NET.APL.Layouts
+namespace Alexa.NET.APL.Components
 {
-    public class AlexaHeader:CustomComponent
+    public class AlexaHeader:APLComponent
     {
-        public static void ImportInto(APLDocument document)
+        public AlexaHeader()
         {
-            Import.AlexaLayouts.ImportInto(document);
         }
 
-        public AlexaHeader() : base(nameof(AlexaHeader))
-        {
-        }
+        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
+        public override string Type => nameof(AlexaHeader);
 
         [JsonProperty("headerTitle", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HeaderTitle { get; set; }
@@ -36,11 +35,21 @@ namespace Alexa.NET.APL.Layouts
         [JsonProperty("headerBackButton",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool> HeaderBackButton { get; set; }
 
-        [JsonProperty("headerNavigationAction",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> HeaderNavigationAction { get; set; }
+        [JsonProperty("headerBackButtonAccessibilityLabel",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> HeaderBackButtonAccessibilityLabel { get; set; }
+
+        [JsonProperty("headerBackButtonCommand",NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> HeaderBackButtonCommand { get; set; }
 
         [JsonProperty("headerBackgroundColor",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HeaderBackgroundColor { get; set; }
+
+        [JsonProperty("headerDivider",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool> HeaderDivider { get; set; }
+
+        [JsonProperty("theme",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Theme { get; set; }
 
     }
 }

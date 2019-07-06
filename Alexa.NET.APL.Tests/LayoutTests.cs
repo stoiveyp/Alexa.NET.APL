@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Alexa.NET.APL.Layouts;
+using Alexa.NET.APL.Components;
 using Alexa.NET.Response;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json.Linq;
@@ -31,10 +31,27 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void AlexaImageSerialisesCorrectly()
+        {
+            var image = new AlexaImage
+            {
+                ImageSource= "https://d2o906d8ln7ui1.cloudfront.net/images/MollyforBT7.png",
+                ImageRoundedCorner = true,
+                Scale = Scale.BestFit,
+                ImageAlignment = AlexaImageAlignment.Center,
+                ImageWidth = new AbsoluteDimension(75,"vh"),
+                ImageAspectRatio = AlexaImageAspectRatio.Square,
+                ImageBlurredBackground = true
+            };
+
+            Assert.True(Utility.CompareJson(image, "AlexaImage.json"));
+        }
+
+        [Fact]
         public void AlexaFooterAddsImport()
         {
             var document = new APLDocument();
-            AlexaFooter.ImportInto(document);
+            Import.AlexaLayouts.ImportInto(document);
             document.MainTemplate = new Layout(
                 new AlexaFooter("Hint Text")
             ).AsMain();
@@ -45,7 +62,7 @@ namespace Alexa.NET.APL.Tests
         public void AlexaFooterRecognisesExistingImport()
         {
             var document = new APLDocument {Imports = new List<Import> {Import.AlexaLayouts}};
-            AlexaFooter.ImportInto(document);
+            Import.AlexaLayouts.ImportInto(document);
             Assert.Single(document.Imports);
         }
 
@@ -61,15 +78,16 @@ namespace Alexa.NET.APL.Tests
         {
             var header = new AlexaHeader
             {
-                HeaderTitle = "Header Title",
-                HeaderSubtitle = "Header Subtitle",
-                HeaderAttributionImage = "http://HeaderAttributionImage",
+                HeaderTitle = "Header title",
+                HeaderSubtitle = "Header subtitle",
+                HeaderAttributionImage = "https://d2o906d8ln7ui1.cloudfront.net/images/cheeseskillicon.png",
                 HeaderBackgroundColor = "red",
                 HeaderBackButton = true,
-                HeaderNavigationAction = "Go Back"
+                HeaderBackButtonAccessibilityLabel = "back",
+                HeaderAttributionText = "Attribution",
+                HeaderAttributionPrimacy = true,
+                HeaderDivider = true
             };
-
-
 
             Assert.True(Utility.CompareJson(header,"AlexaHeader.json"));
         }

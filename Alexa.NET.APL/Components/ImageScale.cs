@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Alexa.NET.APL.Components
 {
-    public enum ImageScale
+    public enum Scale
     {
         [EnumMember(Value = "none")]
         None,

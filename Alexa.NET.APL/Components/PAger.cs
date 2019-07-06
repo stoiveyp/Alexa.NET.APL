@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
@@ -37,5 +38,9 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("navigation",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Navigation { get; set; }
+
+        [JsonProperty("onPageChanged",NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OnPageChanged { get; set; }
     }
 }

@@ -3,23 +3,24 @@ using Alexa.NET.APL.Components;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
-namespace Alexa.NET.APL.Layouts
+namespace Alexa.NET.APL.Components
 {
-    public class AlexaFooter:CustomComponent
+    public class AlexaFooter:APLComponent
     {
-        public static void ImportInto(APLDocument document)
-        {
-            Import.AlexaLayouts.ImportInto(document);
-        }
-
-        public AlexaFooter():base(nameof(AlexaFooter)) { }
+        public AlexaFooter() { }
 
         public AlexaFooter(string hintText) : this()
         {
             HintText = hintText;
         }
 
+        [JsonProperty("theme",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Theme { get; set; }
+
         [JsonProperty("hintText",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HintText { get; set; }
+
+        [JsonProperty("type")]
+        public override string Type => nameof(AlexaFooter);
     }
 }

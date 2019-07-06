@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using Alexa.NET.APL.Components;
-using Alexa.NET.APL.Layouts;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -57,36 +57,38 @@ namespace Alexa.NET.APL.JsonConverter
 
         }
 
+        public static Dictionary<string, Type> APLComponentLookup = new Dictionary<string, Type>
+        {
+            {nameof(Container), typeof(Container)},
+            {nameof(Text), typeof(Text)},
+            {nameof(Image), typeof(Image)},
+            {nameof(Frame), typeof(Frame)},
+            {nameof(ScrollView), typeof(ScrollView)},
+            {nameof(Sequence), typeof(Sequence)},
+            {nameof(TouchWrapper), typeof(TouchWrapper)},
+            {nameof(Pager), typeof(Pager)},
+            {nameof(VectorGraphic),typeof(VectorGraphic) },
+            {nameof(Video), typeof(Video)},
+            {nameof(AlexaBackground), typeof(AlexaBackground)},
+            {nameof(AlexaButton),typeof(AlexaButton) },
+            {nameof(AlexaDivider),typeof(AlexaDivider) },
+            {nameof(AlexaFooter),typeof(AlexaFooter) },
+            {nameof(AlexaHeader),typeof(AlexaHeader) },
+            {nameof(AlexaImage),typeof(AlexaImage) },
+            {nameof(AlexaOrdinal),typeof(AlexaOrdinal) },
+            {nameof(AlexaPageCounter),typeof(AlexaPageCounter) },
+            {nameof(AlexaTextListItem),typeof(AlexaTextListItem) },
+            {nameof(AlexaTransportControls),typeof(AlexaTransportControls) },
+            {nameof(AlexaHeadline),typeof(AlexaHeadline) },
+            {nameof(AlexaTextList),typeof(AlexaTextList) }
+        };
+
         private APLComponent GetComponent(string type)
         {
-            switch (type)
-            {
-                case nameof(Container):
-                    return new Container();
-                case nameof(Text):
-                    return new Text();
-                case nameof(Image):
-                    return new Image();
-                case nameof(Frame):
-                    return new Frame();
-                case nameof(ScrollView):
-                    return new ScrollView();
-                case nameof(Sequence):
-                    return new Sequence();
-                case nameof(TouchWrapper):
-                    return new TouchWrapper();
-                case nameof(Pager):
-                    return new Pager();
-                case nameof(Video):
-                    return new Video();
-                case nameof(AlexaFooter):
-                    return new AlexaFooter();
-                case nameof(AlexaHeader):
-                    return new AlexaHeader();
-
-                default:
-                    return new CustomComponent(type);
-            }
+            return (APLComponent)(
+                APLComponentLookup.ContainsKey(type)
+                    ? Activator.CreateInstance(APLComponentLookup[type])
+                    : new CustomComponent(type));
         }
 
         public override bool CanConvert(Type objectType)

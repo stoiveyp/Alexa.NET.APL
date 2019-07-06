@@ -11,7 +11,8 @@ namespace Alexa.NET.APL.Commands
 {
     public class ControlMedia:APLCommand
     {
-        public override string Type => "ControlMedia";
+        [JsonProperty("type")]
+        public override string Type => nameof(ControlMedia);
 
         [JsonProperty("command"),JsonConverter(typeof(APLValueEnumConverter<ControlMediaCommand>))]
         public APLValue<ControlMediaCommand> Command { get; set; }
@@ -20,7 +21,7 @@ namespace Alexa.NET.APL.Commands
         public APLValue<string> ComponentId { get; set; }
 
         [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int> Value { get; set; }
+        public APLValue<int?> Value { get; set; }
 
     }
 }
