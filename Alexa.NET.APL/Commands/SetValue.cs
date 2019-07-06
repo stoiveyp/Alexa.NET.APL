@@ -8,6 +8,7 @@ namespace Alexa.NET.APL.Commands
 {
     public class SetValue : APLCommand
     {
+        [JsonProperty("type")]
         public override string Type => nameof(SetValue);
 
         [JsonProperty("componentId", NullValueHandling = NullValueHandling.Ignore)]

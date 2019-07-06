@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Alexa.NET.APL.Commands
 {
+    [Obsolete("This command is deprecated, and no longer the correct way to change state")]
     public class SetState:APLCommand
     {
         public override string Type => nameof(SetState);

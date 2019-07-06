@@ -36,6 +36,20 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void SpeakItemWorksProperly()
+        {
+            var command = new SpeakItem
+            {
+                HighlightMode = HighlightMode.Line,
+                Align = ItemAlignment.Center,
+                ComponentId = "myJokeSetup"
+            };
+
+            var parsed = Utility.ExampleFileContent<SpeakItem>("SpeakItem.json");
+            Assert.True(Utility.CompareJson(command, "SpeakItem.json"));
+        }
+
+        [Fact]
         public void PlayMediaWorksCorrectly()
         {
             var command = new ControlMedia

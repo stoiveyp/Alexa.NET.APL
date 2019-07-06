@@ -9,13 +9,13 @@ using Newtonsoft.Json.Linq;
 
 namespace Alexa.NET.APL.JsonConverter
 {
-    public class APLCommandConverter:Newtonsoft.Json.JsonConverter
+    public class APLCommandConverter : Newtonsoft.Json.JsonConverter
     {
         public override bool CanWrite => false;
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            
+
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -40,7 +40,9 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(Parallel), typeof(Parallel)},
             {nameof(SendEvent), typeof(SendEvent)},
             {nameof(SpeakItem), typeof(SpeakItem)},
+            {nameof(SpeakList), typeof(SpeakList)},
             {nameof(Scroll), typeof(Scroll)},
+            {nameof(ScrollToComponent), typeof(ScrollToComponent)},
             {nameof(ScrollToIndex), typeof(ScrollToIndex)},
             {nameof(SetPage), typeof(SetPage)},
             {nameof(AutoPage), typeof(AutoPage)},
@@ -49,7 +51,9 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(SetState), typeof(SetState)},
             {nameof(SetValue), typeof(SetValue)},
             {nameof(AnimateItem),typeof(AnimateItem) },
-            {nameof(OpenURL),typeof(OpenURL) }
+            {nameof(OpenURL),typeof(OpenURL) },
+            {nameof(SetFocus),typeof(SetFocus) },
+            {nameof(ClearFocus),typeof(ClearFocus) }
         };
 
         private APLCommand GetCommand(string commandType)
