@@ -1,9 +1,6 @@
 # Alexa.NET.APL
 Small helper library to allow Alexa.NET skills to work with APL
 
-## Still To Do
-*    OpenURL Command
-
 ## Access to APL ViewPort Data within your skill
 There are new `Display` and `Viewport` properties available within the request being sent to an APL enabled skill.
 Rather than create a forced dependency for Alexa.NET - APL skills have an enhanced SkillRequest object with these new properties
@@ -31,7 +28,7 @@ Alexa.NET.APL has support for the custom Layouts provided by the Alexa team.
 These need to be imported into a document before the layout can be used inside a document.
 ```csharp
 var document = new APLDocument();
-AlexaFooter.ImportInto(document);
+document.AddResponsiveDesign();
 
 document.MainTemplate = new Layout(
     new AlexaFooter("Hint Text")

@@ -26,7 +26,7 @@ namespace Alexa.NET.Response.APL
         public static Import AlexaViewportProfilesV1_1 => new Import("alexa-viewport-profiles", "1.1.0");
         public static Import AlexaLayouts => new Import("alexa-layouts","1.1.0");
 
-        public void ImportInto(APLDocument document)
+        public void Into(APLDocument document)
         {
 
             if (document.Imports == null)

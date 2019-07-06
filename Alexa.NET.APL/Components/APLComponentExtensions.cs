@@ -9,7 +9,7 @@ namespace Alexa.NET.APL.Components
     {
         public static void AddResponsiveDesign(this APLDocument document)
         {
-            Import.AlexaLayouts.ImportInto(document);
+            Import.AlexaLayouts.Into(document);
         }
     }
 }
