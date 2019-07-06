@@ -61,7 +61,7 @@ namespace Alexa.NET.APL.JsonConverter
             return (APLCommand)(
                 APLCommandLookup.ContainsKey(commandType)
                     ? Activator.CreateInstance(APLCommandLookup[commandType])
-                    : null);
+                    : new CustomCommand(commandType));
         }
 
         public override bool CanConvert(Type objectType)
