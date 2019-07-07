@@ -1,5 +1,6 @@
 using System;
 using Alexa.NET.Request;
+using Alexa.NET.Response.APL;
 using Xunit;
 
 namespace Alexa.NET.APL.Tests
@@ -20,6 +21,13 @@ namespace Alexa.NET.APL.Tests
         {
             var request = Utility.ExampleFileContent<SkillRequest>("LaunchRequest.json");
             APLInterface.Supported(request);
+        }
+
+        [Fact]
+        public void APLInterfaceDetailsReturnsVersion()
+        {
+            var request = Utility.ExampleFileContent<SkillRequest>("LaunchRequest.json");
+            Assert.Equal(APLDocumentVersion.V1_1,request.APLInterfaceDetails().Runtime.MaxVersion);
         }
     }
 }

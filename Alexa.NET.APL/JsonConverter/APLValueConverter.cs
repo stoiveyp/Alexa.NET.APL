@@ -75,6 +75,8 @@ namespace Alexa.NET.APL.JsonConverter
             }
 
             var genericType = objectType.GenericTypeArguments.First();
+
+            genericType = Nullable.GetUnderlyingType(genericType) ?? genericType;
             
             var realInput = reader.TokenType == JsonToken.StartArray ? CreateList(reader,serializer,genericType) : CorrectInput(reader.Value);
             var realInputType = realInput.GetType();

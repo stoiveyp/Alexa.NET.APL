@@ -11,6 +11,12 @@ public Task<SkillResponse> FunctionHandler(APLSkillRequest input, ILambdaContext
 var shape = input.Context.Viewport?.Shape;
 ```
 
+## Check APL support / which version of APL is supported
+```csharp
+	skillRequest.APLSupported();
+	var aplDocumentVersion = skillRequest.APLInterfaceDetails().Runtime.MaxVersion;
+```
+
 ## Creating a Layout Document
 Alexa.NET.APL has a set of APL components so that creating layouts is entirely within the C# object model
 All properties are of Type `APLValue&lt;T&gt;` - which allows you to specify an absolute value or an APL data binding expression for each property
