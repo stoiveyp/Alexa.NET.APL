@@ -51,7 +51,7 @@ namespace Alexa.NET.APL.Tests
         public void AlexaFooterAddsImport()
         {
             var document = new APLDocument();
-            Import.AlexaLayouts.ImportInto(document);
+            Import.AlexaLayouts.Into(document);
             document.MainTemplate = new Layout(
                 new AlexaFooter("Hint Text")
             ).AsMain();
@@ -62,7 +62,7 @@ namespace Alexa.NET.APL.Tests
         public void AlexaFooterRecognisesExistingImport()
         {
             var document = new APLDocument {Imports = new List<Import> {Import.AlexaLayouts}};
-            Import.AlexaLayouts.ImportInto(document);
+            Import.AlexaLayouts.Into(document);
             Assert.Single(document.Imports);
         }
 
