@@ -3,15 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>4.0.2</Version>
+    <Version>4.0.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Fix issue with command lists not deserializing from JSON documents properly</Description>
+    <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Improve APLInterface support (added to readme too)
-Fix issue where APLValue didn't put nullable types in Value property</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix issue with command lists not deserializing from JSON documents properly</PackageReleaseNotes>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
