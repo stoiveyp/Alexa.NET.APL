@@ -12,6 +12,6 @@ namespace Alexa.NET.Response.APL
         }
 
         [JsonProperty("idleTimeout",NullValueHandling = NullValueHandling.Ignore)]
-        public int IdleTimeout { get; set; }
+        public int? IdleTimeout { get; set; }
     }
 }

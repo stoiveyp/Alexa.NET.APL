@@ -35,6 +35,7 @@ namespace Alexa.NET.APL.Tests
 
             var mount = doc.OnMount.Value.Single();
             Assert.IsType<OpenURL>(mount);
+            Assert.True(Utility.CompareJson(doc, "DailyCheese.json"));
         }
 
         [Fact]
