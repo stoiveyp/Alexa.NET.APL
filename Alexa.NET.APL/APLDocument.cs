@@ -47,7 +47,7 @@ namespace Alexa.NET.Response.APL
         public Dictionary<string,AVG> Graphics { get; set; }
 
         [JsonProperty("onMount",NullValueHandling = NullValueHandling.Ignore),
-         JsonConverter(typeof(APLCommandListConverter))]
+         JsonConverter(typeof(APLCommandListConverter),true)]
         public APLValue<IList<APLCommand>> OnMount { get; set; }
 
         [JsonProperty("command",NullValueHandling = NullValueHandling.Ignore)]

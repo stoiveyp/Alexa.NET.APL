@@ -7,18 +7,25 @@ using Newtonsoft.Json.Linq;
 
 namespace Alexa.NET.APL.JsonConverter
 {
-    public abstract class SingleOrListConverter<TValue>:Newtonsoft.Json.JsonConverter
+    public abstract class SingleOrListConverter<TValue> : Newtonsoft.Json.JsonConverter
     {
+        public bool AlwaysOutputArray { get; }
+
+        protected SingleOrListConverter() : base() { }
+
+        protected SingleOrListConverter(bool alwaysOutputArray)
+        {
+            AlwaysOutputArray = alwaysOutputArray;
+        }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             IList<TValue> list = null;
-
             if (value is IList<TValue> templist)
             {
                 list = templist;
             }
-            else if(value is APLValue<IList<TValue>> apl)
+            else if (value is APLValue<IList<TValue>> apl)
             {
                 if (apl.Expression != null)
                 {
@@ -28,26 +35,33 @@ namespace Alexa.NET.APL.JsonConverter
                 list = apl.Value;
             }
 
-            if (list == null)
+            if (!AlwaysOutputArray)
             {
-                serializer.Serialize(writer, null);
-            }
-            else if(list.Count == 1)
-            {
-                serializer.Serialize(writer, list.First());
-            }
-            else
-            {
-                writer.WriteStartArray();
+                if (list == null)
+                {
+                    serializer.Serialize(writer, null);
+                    return;
+                }
 
+                if (list.Count == 1)
+                {
+                    serializer.Serialize(writer, list.First());
+                    return;
+                }
+            }
+
+            writer.WriteStartArray();
+
+            if (list != null)
+            {
                 foreach (var listitem in list)
                 {
                     serializer.Serialize(writer, listitem);
                 }
-
-                writer.WriteEndArray();
-
             }
+
+            writer.WriteEndArray();
+
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -56,7 +70,7 @@ namespace Alexa.NET.APL.JsonConverter
 
             if (reader.TokenType == SingleToken)
             {
-                ReadSingle(reader, serializer,valueList);
+                ReadSingle(reader, serializer, valueList);
             }
             else
             {
