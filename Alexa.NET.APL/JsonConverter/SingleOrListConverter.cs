@@ -66,6 +66,10 @@ namespace Alexa.NET.APL.JsonConverter
                 serializer.Populate(reader, valueList);
             }
 
+            if (objectType == typeof(APLValue<IList<TValue>>))
+            {
+                return new APLValue<IList<TValue>>(valueList);
+            }
             return valueList;
         }
 
@@ -74,7 +78,7 @@ namespace Alexa.NET.APL.JsonConverter
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType == typeof(IList<TValue>);
+            return objectType == typeof(IList<TValue>) || objectType == typeof(APLValue<IList<TValue>>);
         }
     }
 }

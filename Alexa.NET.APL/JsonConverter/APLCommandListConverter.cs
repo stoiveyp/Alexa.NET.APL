@@ -10,10 +10,15 @@ namespace Alexa.NET.APL.JsonConverter
     {
         private readonly APLCommandConverter _converter = new APLCommandConverter();
         protected override JsonToken SingleToken => JsonToken.StartObject;
+
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            return base.ReadJson(reader, objectType, existingValue, serializer);
+        }
+
         protected override void ReadSingle(JsonReader reader, JsonSerializer serializer, List<APLCommand> list)
         {
-            var value = (APLCommand)_converter.ReadJson(reader, typeof(IAVGItem), null, serializer);
-            serializer.Populate(reader, value);
+            var value = (APLCommand)_converter.ReadJson(reader, typeof(APLCommand), null, serializer);
             list.Add(value);
         }
     }

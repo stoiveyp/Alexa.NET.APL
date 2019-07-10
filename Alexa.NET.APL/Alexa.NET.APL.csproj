@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>4.0.1</Version>
+    <Version>4.0.2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
+    <Description>Fix issue with command lists not deserializing from JSON documents properly</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>

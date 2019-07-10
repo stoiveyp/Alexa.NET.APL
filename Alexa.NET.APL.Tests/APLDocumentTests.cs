@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Alexa.NET.APL.Commands;
 using Alexa.NET.APL.Components;
 using Alexa.NET.APL.DataSources;
 using Alexa.NET.Response;
@@ -21,6 +22,19 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal("APL", doc.Type);
             Assert.Equal(APLDocumentVersion.V1, doc.Version);
             Assert.NotNull(doc.MainTemplate);
+        }
+
+        [Fact]
+        public void DailyCheese()
+        {
+            var doc = Utility.ExampleFileContent<APLDocument>("DailyCheese.json");
+            Assert.Equal("APL", doc.Type);
+            Assert.Equal(APLDocumentVersion.V1_1, doc.Version);
+            Assert.NotNull(doc.MainTemplate);
+            Assert.Equal(1,doc.OnMount.Value.Count);
+
+            var mount = doc.OnMount.Value.Single();
+            Assert.IsType<OpenURL>(mount);
         }
 
         [Fact]
