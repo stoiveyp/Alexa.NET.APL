@@ -28,16 +28,13 @@ namespace Alexa.NET.APL.JsonConverter
                 list = apl.Value;
             }
 
-            if ((list?.Count ?? 0) < 2)
+            if (list == null)
             {
-                if (list == null)
-                {
-                    serializer.Serialize(writer,null);
-                }
-                else
-                {
-                    serializer.Serialize(writer, list.First());
-                }
+                serializer.Serialize(writer, null);
+            }
+            else if(list.Count == 1)
+            {
+                serializer.Serialize(writer, list.First());
             }
             else
             {
