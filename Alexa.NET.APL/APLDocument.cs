@@ -50,7 +50,7 @@ namespace Alexa.NET.Response.APL
          JsonConverter(typeof(APLCommandListConverter),true)]
         public APLValue<IList<APLCommand>> OnMount { get; set; }
 
-        [JsonProperty("command",NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("commands",NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string,APLCommand> Commands { get; set; }
 
         [JsonProperty("settings",NullValueHandling = NullValueHandling.Ignore)]

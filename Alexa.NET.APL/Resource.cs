@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Alexa.NET.APL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -27,7 +28,7 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("colors", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, string> Colors { get; set; }
         [JsonProperty("dimensions", NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string, string> Dimensions { get; set; }
+        public Dictionary<string, APLDimensionValue> Dimensions { get; set; }
         [JsonProperty("strings", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, string> Strings { get; set; }
         [JsonProperty("resources", NullValueHandling = NullValueHandling.Ignore)]
@@ -55,7 +56,7 @@ namespace Alexa.NET.Response.APL
         {
             if (Dimensions == null)
             {
-                Dimensions = new Dictionary<string, string>();
+                Dimensions = new Dictionary<string, APLDimensionValue>();
             }
             Dimensions.Add(key, expression);
         }

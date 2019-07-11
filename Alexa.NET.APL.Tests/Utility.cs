@@ -13,10 +13,11 @@ namespace Alexa.NET.APL.Tests
 
         public static bool CompareJson(object actual, string expectedFile)
         {
-            var actualJObject = JObject.FromObject(actual);
             var expected = ExampleFileContent(expectedFile);
+
+            var actualJObject = JObject.FromObject(actual);
             var expectedJObject = JObject.Parse(expected);
-            Console.WriteLine(actualJObject);
+
             return JToken.DeepEquals(expectedJObject, actualJObject);
         }
 

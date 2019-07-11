@@ -55,11 +55,11 @@
   "styles": {
     "textStyleBase": {
       "description": "Base font description; set color",
-      "values": [
+      "values": 
         {
           "color": "@colorTextPrimary"
         }
-      ]
+      
     },
     "textStyleBase0": {
       "description": "Thin version of basic font",

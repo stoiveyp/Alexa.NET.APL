@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Alexa.NET.APL
@@ -12,7 +13,13 @@ namespace Alexa.NET.APL
 
         public override object GetValue()
         {
-            return Value.GetValue();
+            var value = Value.GetValue().ToString();
+            if (value.All(char.IsDigit))
+            {
+                return int.Parse(value);
+            }
+
+            return value;
         }
     }
 }

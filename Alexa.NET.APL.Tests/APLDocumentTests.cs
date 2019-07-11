@@ -47,7 +47,7 @@ namespace Alexa.NET.APL.Tests
             var first = resources.First();
             Assert.Equal(2, first.Dimensions.Count);
             Assert.Equal("myFontSize", first.Dimensions.First().Key);
-            Assert.Equal("28dp", first.Dimensions.First().Value);
+            Assert.Equal("28dp", first.Dimensions.First().Value.GetValue());
 
             var second = resources.Skip(1).First();
             Assert.Equal(When.RoundViewport, second.When);
