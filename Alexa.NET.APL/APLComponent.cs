@@ -28,7 +28,7 @@ namespace Alexa.NET.Response.APL
         }
 
         [JsonProperty("when", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> When { get; set; }
+        public APLValue<bool?> When { get; set; }
 
         [JsonProperty("style",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Style { get; set; }
