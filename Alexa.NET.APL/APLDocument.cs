@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Alexa.NET.APL;
+using Alexa.NET.APL.Commands;
 using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.APL.VectorGraphics;
 using Newtonsoft.Json;
@@ -51,7 +52,7 @@ namespace Alexa.NET.Response.APL
         public APLValue<IList<APLCommand>> OnMount { get; set; }
 
         [JsonProperty("commands",NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string,APLCommand> Commands { get; set; }
+        public Dictionary<string, CommandDefinition> Commands { get; set; }
 
         [JsonProperty("settings",NullValueHandling = NullValueHandling.Ignore)]
         public APLDocumentSettings Settings { get; set; }
