@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Threading;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.JsonConverter
@@ -68,9 +69,15 @@ namespace Alexa.NET.APL.JsonConverter
 
             var instance = Activator.CreateInstance(objectType);
             var objectTypeInfo = objectType.GetTypeInfo();
-            if (instance is APLDimensionValue)
+            if (instance is APLDimensionValue apldimen)
             {
-                objectTypeInfo.GetProperty("Value").SetValue(instance, Dimension.From(reader.Value.ToString()));
+                apldimen.Value = Dimension.From(reader.Value.ToString());
+                return instance;
+            }
+
+            if (instance is APLAbsoluteDimensionValue abs)
+            {
+                abs.Value = (AbsoluteDimension)Dimension.From(reader.Value.ToString());
                 return instance;
             }
 

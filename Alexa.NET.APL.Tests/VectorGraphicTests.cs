@@ -29,6 +29,10 @@ namespace Alexa.NET.APL.Tests
                 Items = new APLValue<IList<IAVGItem>>(items)
             };
             Assert.True(Utility.CompareJson(avg,"AVG.json"));
+
+            var avgdeserial = Utility.ExampleFileContent<AVG>("AVG.json");
+            var item = Assert.Single(avgdeserial.Items.Value);
+            Assert.IsType<AVGPath>(item);
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Alexa.NET.APL.Commands
         public APLValue<RepeatMode> RepeatMode { get; set; }
 
         [JsonProperty("value"),
-        JsonConverter(typeof(GenericSingleOrListConverter<AnimatedProperty>))]
+        JsonConverter(typeof(AnimatedPropertyListConverter))]
         public APLValue<IList<AnimatedProperty>> Value { get; set; }
     }
 }

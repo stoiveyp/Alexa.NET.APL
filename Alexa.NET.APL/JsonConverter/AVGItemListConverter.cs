@@ -13,7 +13,6 @@ namespace Alexa.NET.APL.JsonConverter
         protected override void ReadSingle(JsonReader reader, JsonSerializer serializer, List<IAVGItem> list)
         {
             var value = (IAVGItem) _converter.ReadJson(reader, typeof(IAVGItem), null, serializer);
-            serializer.Populate(reader, value);
             list.Add(value);
         }
     }

@@ -16,9 +16,8 @@ namespace Alexa.NET.APL.Tests
         {
             var list = new List<AnimatedProperty>
             {
-                new AnimatedProperty
+                new AnimatedOpacity
                 {
-                    Property = "opacity",
                     From = 0,
                     To = 1
                 }
@@ -33,6 +32,12 @@ namespace Alexa.NET.APL.Tests
             };
 
             Assert.True(Utility.CompareJson(command,"AnimatedItem.json"));
+
+            var deserial = Utility.ExampleFileContent<AnimateItem>("AnimatedItem.json");
+            var property = Assert.Single(deserial.Value.Value);
+            var opacity = Assert.IsType<AnimatedOpacity>(property);
+            Assert.Equal(0,opacity.From.Value);
+            Assert.Equal(1,opacity.To.Value);
         }
 
         [Fact]
