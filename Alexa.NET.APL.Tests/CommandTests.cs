@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using Alexa.NET.APL.Commands;
 using Alexa.NET.APL.JsonConverter;
@@ -10,6 +11,17 @@ namespace Alexa.NET.APL.Tests
 {
     public class CommandTests
     {
+
+        [Fact]
+        public void CommandDefinitionWorksProperly()
+        {
+            var commandDefinition = Utility.ExampleFileContent<CommandDefinition>("jackinthebox.json");
+            Assert.Equal(2,commandDefinition.Parameters.Value.Count);
+            var item = Assert.IsType<AnimateItem>(commandDefinition.Commands.Value.First());
+            var transform = Assert.IsType<AnimatedTransform>(item.Value.Value.Skip(1).First());
+            Assert.Equal(2,transform.From.Value.Count);
+            Assert.Equal(0.1,transform.From.Value.First().ScaleX.Value);
+        }
 
         [Fact]
         public void AnimatedItemWorksProperly()
