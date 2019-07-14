@@ -32,7 +32,7 @@ namespace Alexa.NET.APL.Commands
         public APLValue<IList<APLCommand>> Commands { get; set; }
 
         [JsonProperty("repeatCount",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int> RepeatCount { get; set; }
+        public APLValue<int?> RepeatCount { get; set; }
 
     }
 }

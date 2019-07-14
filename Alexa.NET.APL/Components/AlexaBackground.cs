@@ -16,7 +16,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> BackgroundAlign { get; set; }
 
         [JsonProperty("backgroundBlur", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> BackgroundBlur { get; set; }
+        public APLValue<bool?> BackgroundBlur { get; set; }
 
         [JsonProperty("backgroundColor", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> BackgroundColor { get; set; }
@@ -32,11 +32,11 @@ namespace Alexa.NET.APL.Components
         public APLValue<Scale> BackgroundScale { get; set; }
 
         [JsonProperty("colorOverlay", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> ColorOverlay { get; set; }
+        public APLValue<bool?> ColorOverlay { get; set; }
 
 
         [JsonProperty("overlayGradient", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> OverlayGradient { get; set; }
+        public APLValue<bool?> OverlayGradient { get; set; }
 
 
         [JsonProperty("videoAudioTrack", NullValueHandling = NullValueHandling.Ignore)]
@@ -44,7 +44,7 @@ namespace Alexa.NET.APL.Components
 
 
         [JsonProperty("videoAutoPlay", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> VideoAutoPlay { get; set; }
+        public APLValue<bool?> VideoAutoPlay { get; set; }
 
     }
 }

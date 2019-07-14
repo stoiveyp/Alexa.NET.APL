@@ -22,7 +22,7 @@ namespace Alexa.NET.APL.VectorGraphics
         public APLValue<string> Stroke { get; set; }
 
         [JsonProperty("strokeWidth",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int> StrokeWidth { get; set; }
+        public APLValue<int?> StrokeWidth { get; set; }
 
 
     }

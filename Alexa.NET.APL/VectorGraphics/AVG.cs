@@ -36,9 +36,9 @@ namespace Alexa.NET.APL.VectorGraphics
         public APLValue<AVGScaleType> ScaleTypeWidth { get; set; }
 
         [JsonProperty("viewportHeight",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int> ViewportHeight { get; set; }
+        public APLValue<int?> ViewportHeight { get; set; }
 
         [JsonProperty("viewportWidth", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int> ViewportWidth { get; set; }
+        public APLValue<int?> ViewportWidth { get; set; }
     }
 }

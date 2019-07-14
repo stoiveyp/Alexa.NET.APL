@@ -16,7 +16,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> AudioTrack { get; set; }
 
         [JsonProperty("autoplay", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> Autoplay { get; set; }
+        public APLValue<bool?> Autoplay { get; set; }
 
         [JsonProperty("scale", NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(APLValueEnumConverter<Scale>))]
         public APLValue<Scale> Scale { get; set; }

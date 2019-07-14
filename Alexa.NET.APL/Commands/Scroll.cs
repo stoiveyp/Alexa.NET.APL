@@ -13,6 +13,6 @@ namespace Alexa.NET.APL.Commands
         public APLValue<string> ComponentId { get; set; }
 
         [JsonProperty("distance",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int> Distance { get; set; }
+        public APLValue<int?> Distance { get; set; }
     }
 }

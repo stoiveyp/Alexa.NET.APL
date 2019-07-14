@@ -103,10 +103,10 @@ namespace Alexa.NET.Response.APL
         public APLValue<string> AccessibilityLabel { get; set; }
 
         [JsonProperty("checked",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> Checked { get; set; }
+        public APLValue<bool?> Checked { get; set; }
 
         [JsonProperty("disabled",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> Disabled { get; set; }
+        public APLValue<bool?> Disabled { get; set; }
 
         [JsonProperty("display",NullValueHandling = NullValueHandling.Ignore),
         JsonConverter(typeof(APLValueEnumConverter<APLDisplay>))]

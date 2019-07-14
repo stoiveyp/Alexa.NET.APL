@@ -16,7 +16,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> BackgroundAlign { get; set; }
 
         [JsonProperty("backgroundBlur", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> BackgroundBlur { get; set; }
+        public APLValue<bool?> BackgroundBlur { get; set; }
 
         [JsonProperty("backgroundColor", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> BackgroundColor { get; set; }
@@ -32,11 +32,11 @@ namespace Alexa.NET.APL.Components
         public APLValue<Scale> BackgroundScale { get; set; }
 
         [JsonProperty("colorOverlay", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> ColorOverlay { get; set; }
+        public APLValue<bool?> ColorOverlay { get; set; }
 
 
         [JsonProperty("overlayGradient", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> OverlayGradient { get; set; }
+        public APLValue<bool?> OverlayGradient { get; set; }
 
 
         [JsonProperty("videoAudioTrack", NullValueHandling = NullValueHandling.Ignore)]
@@ -44,7 +44,7 @@ namespace Alexa.NET.APL.Components
 
 
         [JsonProperty("videoAutoPlay", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> VideoAutoPlay { get; set; }
+        public APLValue<bool?> VideoAutoPlay { get; set; }
 
         [JsonProperty("headerTitle", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HeaderTitle { get; set; }
@@ -59,10 +59,10 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> HeaderAttributionImage { get; set; }
 
         [JsonProperty("headerAttributionPrimacy", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> HeaderAttributionPrimacy { get; set; }
+        public APLValue<bool?> HeaderAttributionPrimacy { get; set; }
 
         [JsonProperty("headerBackButton", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> HeaderBackButton { get; set; }
+        public APLValue<bool?> HeaderBackButton { get; set; }
 
         [JsonProperty("headerBackButtonAccessibilityLabel", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HeaderBackButtonAccessibilityLabel { get; set; }
@@ -75,13 +75,13 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> HeaderBackgroundColor { get; set; }
 
         [JsonProperty("headerDivider", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> HeaderDivider { get; set; }
+        public APLValue<bool?> HeaderDivider { get; set; }
 
         [JsonProperty("hideDivider", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> HideDivider { get; set; }
+        public APLValue<bool?> HideDivider { get; set; }
 
         [JsonProperty("hideOrdinal", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> HideOrdinal { get; set; }
+        public APLValue<bool?> HideOrdinal { get; set; }
 
         [JsonProperty("primaryAction", NullValueHandling = NullValueHandling.Ignore),
          JsonConverter(typeof(APLCommandListConverter))]

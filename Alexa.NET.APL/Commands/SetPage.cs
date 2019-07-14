@@ -15,7 +15,7 @@ namespace Alexa.NET.APL.Commands
         [JsonConverter(typeof(APLValueEnumConverter<SetPagePosition>))]
         public APLValue<SetPagePosition> Position { get; set; }
 
-        [JsonProperty("value",NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("value")]
         public APLValue<int> Value { get; set; }
     }
 }

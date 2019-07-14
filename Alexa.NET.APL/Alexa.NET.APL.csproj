@@ -3,16 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>4.0.6</Version>
+    <Version>4.0.7</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Fix OpenUrl command
-Update resource output
-Update dimension output</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated when to use APLValue&lt;bool?&gt; (thanks PabloBenigno!)
+Changed component and command APLValue&lt;int&gt; and APLValue&lt;bool&gt; properties to nullable where not required</PackageReleaseNotes>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>

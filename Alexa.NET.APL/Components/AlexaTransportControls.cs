@@ -23,7 +23,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> MediaComponentId { get; set; }
 
         [JsonProperty("autoplay",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> Autoplay { get; set; }
+        public APLValue<bool?> Autoplay { get; set; }
 
         [JsonProperty("playPauseToggleButtonId",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> PlayPauseToggleButtonId { get; set; }

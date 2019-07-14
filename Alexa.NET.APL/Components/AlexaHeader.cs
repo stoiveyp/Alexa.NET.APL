@@ -30,10 +30,10 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> HeaderAttributionImage { get; set; }
 
         [JsonProperty("headerAttributionPrimacy",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> HeaderAttributionPrimacy { get; set; }
+        public APLValue<bool?> HeaderAttributionPrimacy { get; set; }
 
         [JsonProperty("headerBackButton",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> HeaderBackButton { get; set; }
+        public APLValue<bool?> HeaderBackButton { get; set; }
 
         [JsonProperty("headerBackButtonAccessibilityLabel",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HeaderBackButtonAccessibilityLabel { get; set; }
@@ -46,7 +46,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> HeaderBackgroundColor { get; set; }
 
         [JsonProperty("headerDivider",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> HeaderDivider { get; set; }
+        public APLValue<bool?> HeaderDivider { get; set; }
 
         [JsonProperty("theme",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Theme { get; set; }

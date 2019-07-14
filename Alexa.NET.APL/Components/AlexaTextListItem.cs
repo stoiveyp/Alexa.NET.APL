@@ -12,10 +12,10 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("type")] public override string Type => nameof(AlexaTextListItem);
 
         [JsonProperty("hideDivider",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> HideDivider { get; set; }
+        public APLValue<bool?> HideDivider { get; set; }
 
         [JsonProperty("hideOrdinal",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool> HideOrdinal { get; set; }
+        public APLValue<bool?> HideOrdinal { get; set; }
 
         [JsonProperty("primaryAction",NullValueHandling = NullValueHandling.Ignore),
          JsonConverter(typeof(APLCommandListConverter))]
