@@ -36,7 +36,7 @@ namespace Alexa.NET.Response
         public string Token { get; set; }
 
         [JsonProperty("commands"),
-         JsonConverter(typeof(APLCommandListConverter))]
+         JsonConverter(typeof(APLCommandListConverter),true)]
         public IList<APLCommand> Commands { get; set; }
     }
 }
