@@ -18,8 +18,11 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("version")]
+        [JsonProperty("version",NullValueHandling = NullValueHandling.Ignore)]
         public string Version { get; set; }
+
+        [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
+        public string Source { get; set; }
 
         public static Import AlexaStyles => new Import("alexa-styles","1.0.0");
         public static Import AlexaViewportProfilesV1 => new Import("alexa-viewport-profiles", "1.0.0");
