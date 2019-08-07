@@ -56,7 +56,7 @@ namespace Alexa.NET.APL.JsonConverter
             {
                 foreach (var listitem in list)
                 {
-                    serializer.Serialize(writer, listitem);
+                    serializer.Serialize(writer, OutputArrayItem(listitem));
                 }
             }
 
@@ -87,6 +87,10 @@ namespace Alexa.NET.APL.JsonConverter
         protected abstract JsonToken SingleToken { get; }
         protected abstract void ReadSingle(JsonReader reader, JsonSerializer serializer, List<TValue> list);
 
+        protected virtual object OutputArrayItem(TValue value)
+        {
+            return value;
+        }
         public override bool CanConvert(Type objectType)
         {
             return objectType == typeof(IList<TValue>) || objectType == typeof(APLValue<IList<TValue>>);

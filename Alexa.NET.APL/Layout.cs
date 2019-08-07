@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Alexa.NET.APL;
+using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.Response.APL
@@ -20,7 +21,8 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
 
-        [JsonProperty("parameters", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("parameters", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(ParameterListConverter),true)]
         public IList<Parameter> Parameters { get; set; }
 
         [JsonProperty("items")]
