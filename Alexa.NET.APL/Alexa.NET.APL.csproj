@@ -3,16 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>4.1</Version>
+    <Version>4.1.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>TouchWrapper OnPress can handle all commands
-Parameters output as string if only name is defined
-(thanks for spotting George!)</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix dimension binding (thanks for spotting George!)
+Fix video component source property</PackageReleaseNotes>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
