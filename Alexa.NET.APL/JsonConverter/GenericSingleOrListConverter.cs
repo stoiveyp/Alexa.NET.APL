@@ -7,6 +7,13 @@ namespace Alexa.NET.APL.JsonConverter
 {
     public class GenericSingleOrListConverter<T> : SingleOrListConverter<T>
     {
+        public GenericSingleOrListConverter() : base() { }
+
+        public GenericSingleOrListConverter(bool alwaysOutputArray):base(alwaysOutputArray)
+        {
+            
+        }
+
         protected override JsonToken SingleToken => JsonToken.StartObject;
 
         protected override void ReadSingle(JsonReader reader, JsonSerializer serializer, List<T> list)

@@ -10,7 +10,8 @@ namespace Alexa.NET.APL.Commands
         [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Description { get; set; }
 
-        [JsonProperty("parameters", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("parameters", NullValueHandling = NullValueHandling.Ignore),
+        JsonConverter(typeof(ParameterListConverter),true)]
         public APLValue<IList<Parameter>> Parameters { get; set; }
 
         [JsonProperty("commands", NullValueHandling = NullValueHandling.Ignore),

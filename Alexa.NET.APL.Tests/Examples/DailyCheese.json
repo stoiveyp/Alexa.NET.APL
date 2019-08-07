@@ -134,9 +134,8 @@
   "layouts": {},
   "mainTemplate": {
     "parameters": [
-      {
-        "name": "payload"
-      }
+      
+      "payload"
     ],
     "items": [
       {
