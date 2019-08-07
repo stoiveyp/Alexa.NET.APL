@@ -10,8 +10,15 @@
         {
         }
 
-        public APLDimensionValue(string value) : this(Dimension.From(value))
+        public APLDimensionValue(string value)
         {
+            var dimension = Dimension.From(value);
+            if (dimension == null)
+            {
+                Expression = value;
+            }
+
+            Value = dimension;
         }
 
         public static implicit operator APLDimensionValue(int value)

@@ -28,7 +28,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<List<APLCommand>> OnEnd { get; set; }
 
         [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore),
-         JsonConverter(typeof(APLCommandListConverter))]
+         JsonConverter(typeof(GenericSingleOrListConverter<VideoSource>),true)]
         public APLValue<IList<VideoSource>> Source { get; set; }
 
         [JsonProperty("onPause", NullValueHandling = NullValueHandling.Ignore),

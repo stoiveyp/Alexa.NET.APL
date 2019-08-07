@@ -49,7 +49,7 @@ namespace Alexa.NET.APL.Tests
         //[Fact]
         //public void VideoComponent()
         //{
-        //    var component = new Video {Autoplay = true};
+        //    var component = new Video { Autoplay = true };
         //    var sources = VideoSource.FromUrl("https://examplevideo.com/video.mp4");
         //    component.Source = sources;
         //    Assert.True(Utility.CompareJson(component, "Video.json"));
@@ -62,11 +62,20 @@ namespace Alexa.NET.APL.Tests
             {
                 FontSize = "24dp",
                 Left = new AbsoluteDimension(24,"vw"),
-                PaddingLeft = new RelativeDimension(5)
+                PaddingLeft = new RelativeDimension(5),
+                Top = new APLAbsoluteDimensionValue("${top}"),
+                Right = new APLAbsoluteDimensionValue("345"),
+                Bottom = new APLAbsoluteDimensionValue("test")
+
             };
+
             var jobject = JObject.FromObject(text);
             Assert.Equal("24dp",jobject.Value<string>("fontSize"));
             Assert.Equal("24vw", jobject.Value<string>("left"));
+            Assert.Equal("5%",jobject.Value<string>("paddingLeft"));
+            Assert.Equal("${top}", jobject.Value<string>("top"));
+            Assert.Equal("345", jobject.Value<string>("right"));
+            Assert.Equal("test", jobject.Value<string>("bottom"));
         }
 
         [Fact]

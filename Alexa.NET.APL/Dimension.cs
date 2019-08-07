@@ -24,6 +24,11 @@ namespace Alexa.NET.APL
                 return null;
             }
 
+            if (int.TryParse(value, out var intvalue))
+            {
+                return (AbsoluteDimension) intvalue;
+            }
+
             if (value.Last() == '%')
             {
                 return new RelativeDimension(int.Parse(value.Substring(0, value.Length - 1)));
@@ -44,7 +49,12 @@ namespace Alexa.NET.APL
                 return new AbsoluteDimension(int.Parse(value.Substring(0, split)), value.Substring(split));
             }
 
-            return new SpecialDimension(value);
+            if (value == "auto")
+            {
+                return new SpecialDimension(value);
+            }
+
+            return null;
         }
     }
 }
