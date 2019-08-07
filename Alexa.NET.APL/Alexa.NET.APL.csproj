@@ -10,7 +10,9 @@
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>TouchWrapper can handle all commands (thanks for spotting George!)</PackageReleaseNotes>
+    <PackageReleaseNotes>TouchWrapper OnPress can handle all commands
+Parameters output as string if only name is defined
+(thanks for spotting George!)</PackageReleaseNotes>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
