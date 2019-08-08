@@ -12,9 +12,6 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("type")]
         public override string Type => nameof(AlexaButton);
 
-        [JsonProperty("accessibilityLabel",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> AccessibilityLabel { get; set; }
-
         [JsonProperty("buttonStyle",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> ButtonStyle { get; set; }
 

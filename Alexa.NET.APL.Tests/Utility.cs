@@ -31,7 +31,7 @@ namespace Alexa.NET.APL.Tests
 
         public static string ExampleFileContent(string expectedFile)
         {
-            return File.ReadAllText(Path.Combine(ExamplesPath, expectedFile));
+            return File.ReadAllText(Path.Combine(ExamplesPath, expectedFile).Trim());
         }
     }
 }
