@@ -30,7 +30,7 @@ namespace Alexa.NET.APL.JsonConverter
             {
                 serializer.Populate(jObject.CreateReader(), target);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
 

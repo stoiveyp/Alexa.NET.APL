@@ -17,9 +17,6 @@ namespace Alexa.NET.APL.Commands
         [JsonProperty("type")]
         public override string Type { get; }
 
-        [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> Description { get; set; }
-
         [JsonExtensionData]
         public Dictionary<string, object> ParameterValues { get; set; }
     }

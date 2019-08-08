@@ -63,6 +63,7 @@ namespace Alexa.NET.APL.Tests
             };
 
             var parsed = Utility.ExampleFileContent<SpeakItem>("SpeakItem.json");
+            Assert.NotNull(parsed);
             Assert.True(Utility.CompareJson(command, "SpeakItem.json"));
         }
 

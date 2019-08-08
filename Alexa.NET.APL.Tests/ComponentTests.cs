@@ -27,14 +27,14 @@ namespace Alexa.NET.APL.Tests
         public void Bindings()
         {
             var component = Utility.ExampleFileContent<Text>("Binding.json");
-            Assert.Equal(2,component.Bindings.Count);
+            Assert.Equal(2, component.Bindings.Count);
 
             var first = component.Bindings.First();
-            Assert.Equal("foo",first.Name);
-            Assert.Equal("27",first.Value);
+            Assert.Equal("foo", first.Name);
+            Assert.Equal("27", first.Value);
 
             var second = component.Bindings.Skip(1).First();
-            Assert.Equal("bar",second.Name);
+            Assert.Equal("bar", second.Name);
             Assert.Equal("${foo + 23}", second.Value);
         }
 
@@ -60,8 +60,10 @@ namespace Alexa.NET.APL.Tests
         {
             var text = new Text("Hello World")
             {
+                Color = APLValue.To<string>("${color}"),
+                Disabled = APLValue.To<bool?>("${disabled}"),
                 FontSize = "24dp",
-                Left = new AbsoluteDimension(24,"vw"),
+                Left = new AbsoluteDimension(24, "vw"),
                 PaddingLeft = new RelativeDimension(5),
                 Top = new APLAbsoluteDimensionValue("${top}"),
                 Right = new APLAbsoluteDimensionValue("345"),
@@ -70,9 +72,9 @@ namespace Alexa.NET.APL.Tests
             };
 
             var jobject = JObject.FromObject(text);
-            Assert.Equal("24dp",jobject.Value<string>("fontSize"));
+            Assert.Equal("24dp", jobject.Value<string>("fontSize"));
             Assert.Equal("24vw", jobject.Value<string>("left"));
-            Assert.Equal("5%",jobject.Value<string>("paddingLeft"));
+            Assert.Equal("5%", jobject.Value<string>("paddingLeft"));
             Assert.Equal("${top}", jobject.Value<string>("top"));
             Assert.Equal("345", jobject.Value<string>("right"));
             Assert.Equal("test", jobject.Value<string>("bottom"));
@@ -89,12 +91,12 @@ namespace Alexa.NET.APL.Tests
                 }
             };
 
-            Assert.True(Utility.CompareJson(image,"ImageWithBlur.json"));
+            Assert.True(Utility.CompareJson(image, "ImageWithBlur.json"));
         }
 
         private APLComponent GenerateComponent(string componentType)
         {
-            var json = new JObject {{"type", componentType},{"numbered",true}};
+            var json = new JObject { { "type", componentType }, { "numbered", true } };
             return JsonConvert.DeserializeObject<APLComponent>(json.ToString());
         }
     }
