@@ -34,6 +34,11 @@ namespace Alexa.NET.APL
             Value = dimension as AbsoluteDimension;
         }
 
+        public static implicit operator APLAbsoluteDimensionValue(string value)
+        {
+            return new APLAbsoluteDimensionValue(value);
+        }
+
         public static implicit operator APLAbsoluteDimensionValue(AbsoluteDimension value)
         {
             return new APLAbsoluteDimensionValue(value);

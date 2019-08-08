@@ -65,7 +65,7 @@ namespace Alexa.NET.APL.Tests
                 FontSize = "24dp",
                 Left = new AbsoluteDimension(24, "vw"),
                 PaddingLeft = new RelativeDimension(5),
-                Top = new APLAbsoluteDimensionValue("${top}"),
+                Top = "${top}",
                 Right = new APLAbsoluteDimensionValue("345"),
                 Bottom = new APLAbsoluteDimensionValue("test")
 
