@@ -13,6 +13,11 @@ namespace Alexa.NET.APL
 
         public override object GetValue()
         {
+            if (Value == null)
+            {
+                return null;
+            }
+
             var value = Value.GetValue().ToString();
             if (value.All(char.IsDigit))
             {

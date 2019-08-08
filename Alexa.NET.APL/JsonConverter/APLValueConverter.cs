@@ -69,16 +69,15 @@ namespace Alexa.NET.APL.JsonConverter
 
             var instance = Activator.CreateInstance(objectType);
             var objectTypeInfo = objectType.GetTypeInfo();
-            if (instance is APLDimensionValue apldimen)
+
+            if (instance is APLAbsoluteDimensionValue)
             {
-                apldimen.Value = Dimension.From(reader.Value.ToString());
-                return instance;
+                return new APLAbsoluteDimensionValue(reader.Value.ToString());
             }
 
-            if (instance is APLAbsoluteDimensionValue abs)
+            if (instance is APLDimensionValue)
             {
-                abs.Value = (AbsoluteDimension)Dimension.From(reader.Value.ToString());
-                return instance;
+                return new APLDimensionValue(reader.Value.ToString());
             }
 
             var genericType = objectType.GenericTypeArguments.First();
