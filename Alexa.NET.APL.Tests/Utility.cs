@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Alexa.NET.Response;
+using Alexa.NET.Response.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -23,6 +25,8 @@ namespace Alexa.NET.APL.Tests
 
         public static T ExampleFileContent<T>(string expectedFile)
         {
+            RenderDocumentDirective.AddSupport();
+            ExecuteCommandsDirective.AddSupport();
             using (var reader = new JsonTextReader(new StringReader(ExampleFileContent(expectedFile))))
             {
                 return new JsonSerializer().Deserialize<T>(reader);

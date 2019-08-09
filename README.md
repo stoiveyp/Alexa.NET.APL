@@ -11,7 +11,13 @@ public Task<SkillResponse> FunctionHandler(APLSkillRequest input, ILambdaContext
 var shape = input.Context.Viewport?.Shape;
 ```
 
-## Check APL support / which version of APL is supported
+## Add support for APL Directives
+```csharp
+	RenderDocumentDirective.AddSupport();
+	ExecutiveCommandsDirective.AddSupport();
+```
+
+## Check APL support in a request / which version of APL is supported
 ```csharp
 	skillRequest.APLSupported();
 	var aplDocumentVersion = skillRequest.APLInterfaceDetails().Runtime.MaxVersion;
