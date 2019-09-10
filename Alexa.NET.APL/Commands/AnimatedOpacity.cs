@@ -4,6 +4,14 @@ namespace Alexa.NET.APL.Commands
 {
     public class AnimatedOpacity : AnimatedProperty
     {
+        public AnimatedOpacity() { }
+
+        public AnimatedOpacity(APLValue<double?> from, APLValue<double?> to)
+        {
+            From = from;
+            To = to;
+        }
+
         [JsonProperty("property")]
         public override APLValue<string> Property => "opacity";
 

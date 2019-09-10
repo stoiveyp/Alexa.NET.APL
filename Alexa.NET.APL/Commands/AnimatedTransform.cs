@@ -6,6 +6,21 @@ namespace Alexa.NET.APL.Commands
 {
     public class AnimatedTransform : AnimatedProperty
     {
+        public AnimatedTransform() { }
+
+        public AnimatedTransform(APLTransform from, APLTransform to)
+        {
+            From = new List<APLTransform>
+            {
+                from
+            };
+
+            To = new List<APLTransform>
+            {
+                to
+            };
+        }
+
         [JsonProperty("property")]
         public override APLValue<string> Property => "transform";
 
@@ -15,7 +30,7 @@ namespace Alexa.NET.APL.Commands
         [JsonProperty("to", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<IList<APLTransform>> To { get; set; }
 
-        public IList<AnimatedProperty> Multiple(IEnumerable<APLTransform> from, IEnumerable<APLTransform> to)
+        public static IList<AnimatedProperty> Multiple(IEnumerable<APLTransform> from, IEnumerable<APLTransform> to)
         {
             return new List<AnimatedProperty>
                 {
@@ -27,7 +42,7 @@ namespace Alexa.NET.APL.Commands
                 };
         }
 
-        public IList<AnimatedProperty> Single(APLTransform from, APLTransform to)
+        public static IList<AnimatedProperty> Single(APLTransform from, APLTransform to)
         {
             return new List<AnimatedProperty>
             {
