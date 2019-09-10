@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Commands
 {
@@ -20,5 +21,14 @@ namespace Alexa.NET.APL.Commands
 
         [JsonProperty("to", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<double?> To { get; set; }
+
+        public static APLValue<IList<AnimatedProperty>> Single(double? from, double? to)
+        {
+            return new APLValue<IList<AnimatedProperty>>(
+                new List<AnimatedProperty>
+                {
+                    new AnimatedOpacity(from,to)
+                });
+        }
     }
 }

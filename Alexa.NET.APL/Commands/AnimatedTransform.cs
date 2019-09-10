@@ -30,34 +30,26 @@ namespace Alexa.NET.APL.Commands
         [JsonProperty("to", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<IList<APLTransform>> To { get; set; }
 
-        public static IList<AnimatedProperty> Multiple(IEnumerable<APLTransform> from, IEnumerable<APLTransform> to)
+        public static APLValue<IList<AnimatedProperty>> Multiple(IEnumerable<APLTransform> from, IEnumerable<APLTransform> to)
         {
-            return new List<AnimatedProperty>
+            return new APLValue<IList<AnimatedProperty>>(
+                new List<AnimatedProperty>
                 {
                     new AnimatedTransform
                     {
                         From = new List<APLTransform>(from),
                         To = new List<APLTransform>(to)
                     }
-                };
+                });
         }
 
-        public static IList<AnimatedProperty> Single(APLTransform from, APLTransform to)
+        public static APLValue<IList<AnimatedProperty>> Single(APLTransform from, APLTransform to)
         {
-            return new List<AnimatedProperty>
+            return new APLValue<IList<AnimatedProperty>>(
+                new List<AnimatedProperty>
             {
-                new AnimatedTransform
-                {
-                    From = new List<APLTransform>
-                    {
-                        from
-                    },
-                    To = new List<APLTransform>
-                    {
-                        to
-                    }
-                }
-            };
+                new AnimatedTransform(from,to)
+            });
         }
     }
 }
