@@ -33,7 +33,72 @@
       },
       "apiEndpoint": "https://api.amazonalexa.com",
       "apiAccessToken": "<apiAccessToken-value>"
-    }
+    },
+    "Viewport": {
+      "experiences": [
+        {
+          "arcMinuteWidth": 246,
+          "arcMinuteHeight": 144,
+          "canRotate": false,
+          "canResize": false
+        }
+      ],
+      "shape": "RECTANGLE",
+      "pixelWidth": 1024,
+      "pixelHeight": 600,
+      "dpi": 160,
+      "currentPixelWidth": 1024,
+      "currentPixelHeight": 600,
+      "touch": [
+        "SINGLE"
+      ],
+      "video": {
+        "codecs": [
+          "H_264_42",
+          "H_264_41"
+        ]
+      }
+    },
+    "Viewports": [
+      {
+        "type": "APL",
+        "id": "main",
+        "shape": "RECTANGLE",
+        "dpi": 160,
+        "presentationType": "STANDARD",
+        "canRotate": false,
+        "configuration": {
+          "current": {
+            "video": {
+              "codecs": [
+                "H_264_42",
+                "H_264_41"
+              ]
+            },
+            "size": {
+              "type": "DISCRETE",
+              "pixelWidth": 1024,
+              "pixelHeight": 600
+            }
+          }
+        }
+      },
+      {
+        "id": "main",
+        "type": "APLT",
+        "supportedProfiles": [ "FOUR_CHARACTER_CLOCK" ],
+        "lineLength": 4,
+        "lineCount": 1,
+        "format": "SEVEN_SEGMENT",
+        "interSegments": [
+          {
+            "x": 2,
+            "y": 0,
+            "characters": "':."
+          }
+        ]
+      }
+    ]
   },
   "request": {
     "type": "LaunchRequest",

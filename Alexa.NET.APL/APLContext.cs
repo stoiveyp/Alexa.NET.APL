@@ -10,5 +10,8 @@ namespace Alexa.NET.APL
 
         [JsonProperty("Viewport")]
         public AlexaViewport Viewport { get; set; }
+
+        [JsonProperty("Viewports")]
+        public Viewport[] Viewports { get; set; }
     }
 }
