@@ -94,6 +94,19 @@ namespace Alexa.NET.APL.Tests
             Assert.True(Utility.CompareJson(image, "ImageWithBlur.json"));
         }
 
+        [Fact]
+        public void TimeText()
+        {
+            var timeText = new TimeText
+            {
+                Direction = TimeTextDirection.Down,
+                Format = "%M:%S",
+                Start = 1552070232
+            };
+
+            Assert.True(Utility.CompareJson(timeText, "TimeText.json"));
+        }
+
         private APLComponent GenerateComponent(string componentType)
         {
             var json = new JObject { { "type", componentType }, { "numbered", true } };

@@ -31,7 +31,7 @@ namespace Alexa.NET.Response
         public string Token { get; set; }
 
         [JsonProperty("document")]
-        public APLDocument Document { get; set; }
+        public APLDocumentBase Document { get; set; }
 
         [JsonProperty("datasources", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, APLDataSource> DataSources { get; set; }

@@ -93,7 +93,7 @@ namespace Alexa.NET.APL.Tests
         public void KeeferExample()
         {
             var result = Utility.ExampleFileContent<RenderDocumentDirective>("KeeferCustom.json");
-            var document = result.Document;
+            var document = result.Document as APLDocument;
             Assert.Equal(10, document.Styles.Count);
             Assert.Equal(2, document.Styles["textStylePrimary"].Extends.Count);
             Assert.Equal(2, document.MainTemplate.Items.Count);
@@ -106,7 +106,7 @@ namespace Alexa.NET.APL.Tests
 
         private APLDocument GetDocument()
         {
-            return Utility.ExampleFileContent<RenderDocumentDirective>("RenderDocument.json").Document;
+            return Utility.ExampleFileContent<RenderDocumentDirective>("RenderDocument.json").Document as APLDocument;
         }
     }
 }
