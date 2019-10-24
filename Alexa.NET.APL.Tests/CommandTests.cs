@@ -88,7 +88,7 @@ namespace Alexa.NET.APL.Tests
                 State = SetStateStates.Checked,
                 Value = true
             };
-            Assert.True(Utility.CompareJson(command, "SetSTateCommand.json"));
+            Assert.True(Utility.CompareJson(command, "SetStateCommand.json"));
         }
 
         [Fact]
