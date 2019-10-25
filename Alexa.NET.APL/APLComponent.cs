@@ -116,7 +116,27 @@ namespace Alexa.NET.Response.APL
         JsonConverter(typeof(APLCommandListConverter))]
         public APLValue<IList<APLCommand>> OnMount { get; set; }
 
+        [JsonProperty("onCursorEnter", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OnCursorEnter { get; set; }
+
+        [JsonProperty("onCursorExit", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OnCursorExit { get; set; }
+
         [JsonProperty("transform",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<List<APLTransform>> Transform { get; set; }
+
+        [JsonProperty("shadowColor",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> ShadowColor { get; set; }
+
+        [JsonProperty("shadowHorizontalOffset", NullValueHandling = NullValueHandling.Ignore)]
+        public APLAbsoluteDimensionValue ShadowHorizontalOffset { get; set; }
+
+        [JsonProperty("shadowVerticalOffset", NullValueHandling = NullValueHandling.Ignore)]
+        public APLAbsoluteDimensionValue ShadowVerticalOffset { get; set; }
+
+        [JsonProperty("shadowRadius",NullValueHandling = NullValueHandling.Ignore)]
+        public APLAbsoluteDimensionValue ShadowRadius { get; set; }
     }
 }
