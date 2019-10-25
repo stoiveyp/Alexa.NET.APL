@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
 {
-    public class TouchWrapper : APLComponent
+    public class TouchWrapper : ActionableComponent
     {
         public TouchWrapper()
         {

@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
 {
-    public class Sequence : APLComponent
+    public class Sequence : ActionableComponent
     {
         public Sequence() { }
 

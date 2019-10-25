@@ -107,6 +107,19 @@ namespace Alexa.NET.APL.Tests
             Assert.True(Utility.CompareJson(timeText, "TimeText.json"));
         }
 
+        [Fact]
+        public void KeyboardEvent()
+        {
+            var component = Utility.ExampleFileContent<APLComponent>("KeyboardTouchWrapper.json");
+            var touch = Assert.IsType<TouchWrapper>(component);
+            Assert.Equal(2,touch.Bindings.Count);
+            Assert.Equal(5,touch.HandleKeyDown.Value.Count);
+            var keydown = touch.HandleKeyDown.Value.First();
+            
+            Assert.Equal("${event.keyboard.code == 'KeyW'}", keydown.When.Expression);
+            Assert.Single(keydown.Commands.Value);
+        }
+
         private APLComponent GenerateComponent(string componentType)
         {
             var json = new JObject { { "type", componentType }, { "numbered", true } };
