@@ -22,6 +22,14 @@ namespace Alexa.NET.Response.APL
 
         }
 
+        [JsonProperty("handleKeyDown", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(APLKeyboardHandlerConverter))]
+        public APLValue<IList<APLKeyboardHandler>> HandleKeyDown { get; set; }
+
+        [JsonProperty("handleKeyUp", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(APLKeyboardHandlerConverter))]
+        public APLValue<IList<APLKeyboardHandler>> HandleKeyUp { get; set; }
+
         [JsonProperty("theme", NullValueHandling = NullValueHandling.Ignore), JsonConverter(typeof(StringEnumConverter))]
         public ViewportTheme Theme { get; set; }
 

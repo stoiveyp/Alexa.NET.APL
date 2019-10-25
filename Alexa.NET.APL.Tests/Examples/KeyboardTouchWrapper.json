@@ -1,0 +1,63 @@
+{
+  "type": "TouchWrapper",
+  "bind": [
+    {
+      "name": "x",
+      "value": 0
+    },
+    {
+      "name": "y",
+      "value": 0
+    }
+  ],
+  "handleKeyDown": [
+    {
+      "when": "${event.keyboard.code == 'KeyW'}",
+      "commands": [
+        {
+          "type": "SetValue",
+          "property": "y",
+          "value": "${y - 10}"
+        }
+      ]
+    },
+    {
+      "when": "${event.keyboard.code == 'KeyS'}",
+      "commands": [
+        {
+          "type": "SetValue",
+          "property": "y",
+          "value": "${y + 10}"
+        }
+      ]
+    },
+    {
+      "when": "${event.keyboard.code == 'KeyA'}",
+      "commands": [
+        {
+          "type": "SetValue",
+          "property": "x",
+          "value": "${x - 10}"
+        }
+      ]
+    },
+    {
+      "when": "${event.keyboard.code == 'KeyD'}",
+      "commands": [
+        {
+          "type": "SetValue",
+          "property": "x",
+          "value": "${x + 10}"
+        }
+      ]
+    },
+    {
+      "when": "${event.keyboard.code == 'Enter'}",
+      "description": "Block the normal 'enter' behavior"
+    }
+  ],
+  "items": {
+    "type": "Image",
+    "source": "...."
+  }
+}

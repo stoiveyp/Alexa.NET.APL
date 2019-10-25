@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
 {
-    public class ScrollView:APLComponent
+    public class ScrollView:ActionableComponent
     {
         public const string ComponentType = "ScrollView";
         public override string Type => ComponentType;
