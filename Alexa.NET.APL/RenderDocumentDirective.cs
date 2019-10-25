@@ -5,6 +5,7 @@ using Alexa.NET.APL;
 using Alexa.NET.Response.APL;
 using Alexa.NET.Response.Converters;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Alexa.NET.Response
 {
@@ -35,6 +36,10 @@ namespace Alexa.NET.Response
 
         [JsonProperty("token", NullValueHandling = NullValueHandling.Ignore)]
         public string Token { get; set; }
+
+        [JsonProperty("targetProfile", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public APLTProfile? TargetProfile { get; set; }
 
         [JsonProperty("document")]
         public APLDocumentBase Document { get; set; }
