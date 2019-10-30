@@ -30,7 +30,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> OverlayColor { get; set; }
 
         [JsonProperty("scale",NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(APLValueEnumConverter<Scale>))]
-        public APLValue<Scale> Scale { get; set; }
+        public APLValue<Scale?> Scale { get; set; }
 
         [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Source { get; set; }

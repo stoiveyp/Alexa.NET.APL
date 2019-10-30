@@ -1,4 +1,5 @@
-﻿using Alexa.NET.Response.APL;
+﻿using Alexa.NET.APL.JsonConverter;
+using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
@@ -26,5 +27,12 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> TextAlign { get; set; }
         [JsonProperty("textAlignVertical", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> TextAlignVertical { get; set; }
+
+        [JsonProperty("overflow",NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(APLValueEnumConverter<TextOverflow>))]
+        public APLValue<TextOverflow?> TextOverflow { get; set; }
+
+        [JsonProperty("msPerCharacter",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<int?> MsPerCharacter { get; set; }
     }
 }
