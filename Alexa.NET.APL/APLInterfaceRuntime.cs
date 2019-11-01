@@ -12,6 +12,5 @@ namespace Alexa.NET.Request
 
         [JsonProperty("maxVersion", NullValueHandling = NullValueHandling.Ignore)]
         public string MaxVersionString { get; set; }
-
     }
 }
