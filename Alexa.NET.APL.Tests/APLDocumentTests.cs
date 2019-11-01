@@ -25,6 +25,26 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void HandleInvalidDocumentVersion()
+        {
+            var doc = GetDocument();
+            var jobject = JObject.FromObject(doc);
+            jobject["version"] = "1.21";
+            var newDoc = JsonConvert.DeserializeObject<APLDocument>(jobject.ToString());
+            Assert.Equal(APLDocumentVersion.Unknown,newDoc.Version);
+        }
+
+        [Fact]
+        public void HandleValidDocumentVersion()
+        {
+            var doc = GetDocument(APLDocumentVersion.V1_2);
+            var jobject = JObject.FromObject(doc);
+            var newDoc = JsonConvert.DeserializeObject<APLDocument>(jobject.ToString());
+            Assert.Equal(APLDocumentVersion.V1_2, newDoc.Version);
+        }
+
+
+        [Fact]
         public void DailyCheese()
         {
             var doc = Utility.ExampleFileContent<APLDocument>("DailyCheese.json");
@@ -94,6 +114,7 @@ namespace Alexa.NET.APL.Tests
         {
             var result = Utility.ExampleFileContent<RenderDocumentDirective>("KeeferCustom.json");
             var document = result.Document as APLDocument;
+            Assert.Equal(APLDocumentVersion.V1_1, document.Version);
             Assert.Equal(10, document.Styles.Count);
             Assert.Equal(2, document.Styles["textStylePrimary"].Extends.Count);
             Assert.Equal(2, document.MainTemplate.Items.Count);
@@ -104,9 +125,15 @@ namespace Alexa.NET.APL.Tests
             Assert.IsType<JObject>(dataSource.TopLevelData["backgroundImage"]);
         }
 
-        private APLDocument GetDocument()
+        private APLDocument GetDocument(APLDocumentVersion? version = null)
         {
-            return Utility.ExampleFileContent<RenderDocumentDirective>("RenderDocument.json").Document as APLDocument;
+            var doc = Utility.ExampleFileContent<RenderDocumentDirective>("RenderDocument.json").Document as APLDocument;
+            if (version.HasValue)
+            {
+                doc.Version = version.Value;
+            }
+
+            return doc;
         }
     }
 }
