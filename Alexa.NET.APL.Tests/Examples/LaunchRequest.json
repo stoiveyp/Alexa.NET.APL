@@ -26,7 +26,7 @@
           "AudioPlayer": {},
           "Alexa.Presentation.APL": {
             "runtime": {
-              "maxVersion": "1.1"
+              "maxVersion": "1.21"
             }
           }
         }

@@ -29,7 +29,8 @@ namespace Alexa.NET.APL.Tests
         public void APLInterfaceDetailsReturnsVersion()
         {
             var request = Utility.ExampleFileContent<SkillRequest>("LaunchRequest.json");
-            Assert.Equal(APLDocumentVersion.V1_1,request.APLInterfaceDetails().Runtime.MaxVersion);
+            Assert.Equal(APLDocumentVersion.Unknown,request.APLInterfaceDetails().Runtime.MaxVersion);
+            Assert.Equal("1.21", request.APLInterfaceDetails().Runtime.MaxVersionString);
         }
 
         [Fact]
