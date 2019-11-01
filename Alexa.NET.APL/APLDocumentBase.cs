@@ -23,7 +23,7 @@ namespace Alexa.NET.APL
 
         [JsonProperty("type")] public abstract string Type { get; }
 
-        [JsonProperty("version"), JsonConverter(typeof(StringEnumConverter))]
+        [JsonProperty("version")]
         public APLDocumentVersion Version { get; set; }
 
         [JsonProperty("layouts", NullValueHandling = NullValueHandling.Ignore)]

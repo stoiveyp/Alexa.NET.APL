@@ -1,9 +1,13 @@
 ﻿using System.Runtime.Serialization;
+using Alexa.NET.APL.JsonConverter;
+using Newtonsoft.Json;
 
 namespace Alexa.NET.Response.APL
 {
+    [JsonConverter(typeof(UnknownDocumentVersionConverter))]
     public enum APLDocumentVersion
     {
+        Unknown,
         [EnumMember(Value = "1.0")]
         V1,
         [EnumMember(Value = "1.1")]
