@@ -10,5 +10,8 @@ namespace Alexa.NET.Request
         [JsonProperty("maxVersion", NullValueHandling = NullValueHandling.Ignore)]
         public APLDocumentVersion MaxVersion { get; set; }
 
+        [JsonProperty("maxVersion", NullValueHandling = NullValueHandling.Ignore)]
+        public string MaxVersionString { get; set; }
+
     }
 }
