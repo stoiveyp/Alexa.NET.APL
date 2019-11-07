@@ -23,7 +23,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> AlignItems { get; set; }
 
         [JsonProperty("data",NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string,object> Data { get; set; }
+        public APLValue<Dictionary<string,object>> Data { get; set; }
 
         [JsonProperty("direction",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Direction { get; set; }

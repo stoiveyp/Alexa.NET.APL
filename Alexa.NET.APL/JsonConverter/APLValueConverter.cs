@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Alexa.NET.APL.JsonConverter
 {
@@ -15,22 +16,22 @@ namespace Alexa.NET.APL.JsonConverter
 
         protected override object CorrectOutput(object value)
         {
-            return ToEnumString(EnumType,value);
+            return ToEnumString(EnumType, value);
         }
 
         protected override object CorrectInput(object value)
         {
-            return value is string ? ToEnum(EnumType,value.ToString()) : value;
+            return value is string ? ToEnum(EnumType, value.ToString()) : value;
         }
 
-        public static string ToEnumString(Type enumType,object type)
+        public static string ToEnumString(Type enumType, object type)
         {
             var name = Enum.GetName(enumType, type);
             var enumMemberAttribute = ((EnumMemberAttribute[])enumType.GetTypeInfo().GetField(name).GetCustomAttributes(typeof(EnumMemberAttribute), true)).Single();
             return enumMemberAttribute.Value;
         }
 
-        public static object ToEnum(Type enumType,string str)
+        public static object ToEnum(Type enumType, string str)
         {
             if (string.IsNullOrWhiteSpace(str))
             {
@@ -42,7 +43,7 @@ namespace Alexa.NET.APL.JsonConverter
                 var enumMemberAttribute = ((EnumMemberAttribute[])enumType.GetTypeInfo().GetField(name).GetCustomAttributes(typeof(EnumMemberAttribute), true)).Single();
                 if (enumMemberAttribute.Value == str) return (T)Enum.Parse(enumType, name);
             }
-            
+
             return str;
         }
     }
@@ -62,7 +63,7 @@ namespace Alexa.NET.APL.JsonConverter
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if (reader.Value == null && reader.TokenType != JsonToken.StartArray)
+            if (reader.Value == null && (reader.TokenType != JsonToken.StartArray && reader.TokenType != JsonToken.StartObject))
             {
                 return null;
             }
@@ -83,13 +84,26 @@ namespace Alexa.NET.APL.JsonConverter
             var genericType = objectType.GenericTypeArguments.First();
 
             genericType = Nullable.GetUnderlyingType(genericType) ?? genericType;
-            
-            var realInput = reader.TokenType == JsonToken.StartArray ? CreateList(reader,serializer,genericType) : CorrectInput(reader.Value);
+
+            object realInput;
+            switch (reader.TokenType)
+            {
+                case JsonToken.StartArray:
+                    realInput = CreateList(reader, serializer, genericType);
+                    break;
+                case JsonToken.StartObject:
+                    realInput = serializer.Deserialize(reader, genericType);
+                    break;
+                default:
+                    realInput = CorrectInput(reader.Value);
+                    break;
+            }
+
             var realInputType = realInput.GetType();
 
             if (IsIntType(genericType) && IsIntType(realInputType))
             {
-                objectTypeInfo.GetProperty("Value").SetValue(instance, Convert.ChangeType(realInput,genericType));
+                objectTypeInfo.GetProperty("Value").SetValue(instance, Convert.ChangeType(realInput, genericType));
             }
             else if (genericType.GetTypeInfo().IsAssignableFrom(realInputType))
             {
