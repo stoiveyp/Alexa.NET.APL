@@ -112,12 +112,37 @@ namespace Alexa.NET.APL.Tests
         {
             var component = Utility.ExampleFileContent<APLComponent>("KeyboardTouchWrapper.json");
             var touch = Assert.IsType<TouchWrapper>(component);
-            Assert.Equal(2,touch.Bindings.Count);
-            Assert.Equal(5,touch.HandleKeyDown.Value.Count);
+            Assert.Equal(2, touch.Bindings.Count);
+            Assert.Equal(5, touch.HandleKeyDown.Value.Count);
             var keydown = touch.HandleKeyDown.Value.First();
-            
+
             Assert.Equal("${event.keyboard.code == 'KeyW'}", keydown.When.Expression);
             Assert.Single(keydown.Commands.Value);
+        }
+
+        [Fact]
+        public void DictionaryBindingTest()
+        {
+            var rawContainer = new Container
+            {
+                Data = new Dictionary<string, object> { { "test", "thing" } },
+            };
+            var dataBoundContainer = new Container
+            {
+                Data = APLValue.To<Dictionary<string, object>>("$data.random.stuff")
+            };
+
+            var rawJson = JsonConvert.SerializeObject(rawContainer);
+            var boundJson = JsonConvert.SerializeObject(dataBoundContainer);
+
+            var newRaw = JsonConvert.DeserializeObject<APLComponent>(rawJson);
+            var newBound = JsonConvert.DeserializeObject<APLComponent>(boundJson);
+
+            var newRawContainer = Assert.IsType<Container>(newRaw);
+            var newBoundContainer = Assert.IsType<Container>(newBound);
+
+            Assert.Single(newRawContainer.Data.Value);
+            Assert.Equal("$data.random.stuff", newBoundContainer.Data.Expression);
         }
 
         private APLComponent GenerateComponent(string componentType)
