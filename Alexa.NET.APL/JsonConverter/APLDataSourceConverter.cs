@@ -9,13 +9,13 @@ using Newtonsoft.Json.Linq;
 
 namespace Alexa.NET.APL.JsonConverter
 {
-    public class APLDataSourceConverter:Newtonsoft.Json.JsonConverter
+    public class APLDataSourceConverter : Newtonsoft.Json.JsonConverter
     {
         public override bool CanWrite => false;
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            
+
         }
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
@@ -24,19 +24,25 @@ namespace Alexa.NET.APL.JsonConverter
             var jObject = JObject.Load(reader);
 
             // Create target request object based on "type" property
-            if(jObject.Value<string>("type") == "object")
+            if (jObject.Value<string>("type") == "list")
+            {
+                jObject.Remove("type");
+                var target = new ListDataSource();
+                serializer.Populate(jObject.CreateReader(), target);
+                return target;
+            }
+
+            if (jObject.Value<string>("type") == "object")
             {
                 jObject.Remove("type");
                 var target = new ObjectDataSource();
                 serializer.Populate(jObject.CreateReader(), target);
                 return target;
             }
-            else
-            {
-                var target = new KeyValueDataSource();
-                serializer.Populate(jObject.CreateReader(),target);
-                return target;
-            }
+
+            var keyDataSource = new KeyValueDataSource();
+            serializer.Populate(jObject.CreateReader(), keyDataSource);
+            return keyDataSource;
         }
 
         public override bool CanConvert(Type objectType)

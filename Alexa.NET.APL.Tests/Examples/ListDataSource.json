@@ -1,0 +1,39 @@
+{
+  "type": "list",
+  "listId": "lt1Sample",
+  "totalNumberOfItems": 10,
+  "listPage": {
+    "listItems": [
+      {
+        "listItemIdentifier": "gouda",
+        "ordinalNumber": 1,
+        "token": "gouda"
+      },
+      {
+        "listItemIdentifier": "cheddar",
+        "ordinalNumber": 2,
+        "token": "cheddar"
+      },
+      {
+        "listItemIdentifier": "blue",
+        "ordinalNumber": 3,
+        "token": "blue" 
+      },
+      {
+        "listItemIdentifier": "brie",
+        "ordinalNumber": 4,
+        "token": "brie"
+      },
+      {
+        "listItemIdentifier": "cheddar",
+        "ordinalNumber": 5,
+        "token": "cheddar"
+      },
+      {
+        "listItemIdentifier": "parm",
+        "ordinalNumber": 6,
+        "token": "parm"
+      }
+    ]
+  }
+}
