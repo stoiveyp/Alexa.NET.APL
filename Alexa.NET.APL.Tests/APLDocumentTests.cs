@@ -125,6 +125,19 @@ namespace Alexa.NET.APL.Tests
             Assert.IsType<JObject>(dataSource.TopLevelData["backgroundImage"]);
         }
 
+        [Fact]
+        public void ListDataSource()
+        {
+            var list = new ListDataSource {ListId = "lt1Sample", TotalNumberOfItems = 10};
+            list.ListPage.ListItems.Add(new TestListItem("gouda",1));
+            list.ListPage.ListItems.Add(new TestListItem("cheddar",2));
+            list.ListPage.ListItems.Add(new TestListItem("blue",3));
+            list.ListPage.ListItems.Add(new TestListItem("brie",4));
+            list.ListPage.ListItems.Add(new TestListItem("cheddar",5));
+            list.ListPage.ListItems.Add(new TestListItem("parm",6));
+            Assert.True(Utility.CompareJson(list, "ListDataSource.json"));
+        }
+
         private APLDocument GetDocument(APLDocumentVersion? version = null)
         {
             var doc = Utility.ExampleFileContent<RenderDocumentDirective>("RenderDocument.json").Document as APLDocument;
@@ -134,6 +147,25 @@ namespace Alexa.NET.APL.Tests
             }
 
             return doc;
+        }
+    }
+
+    public class TestListItem
+    {
+        [JsonProperty("listItemIdentifier")]
+        public string ListItemIdentifier { get; }
+
+        [JsonProperty("token")]
+        public string Token { get; }
+
+        [JsonProperty("ordinalNumber")]
+        public int Ordinal { get; }
+
+        public TestListItem(string identifier, int ordinal)
+        {
+            ListItemIdentifier = identifier;
+            Token = identifier;
+            Ordinal = ordinal;
         }
     }
 }
