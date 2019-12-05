@@ -138,5 +138,8 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("shadowRadius",NullValueHandling = NullValueHandling.Ignore)]
         public APLAbsoluteDimensionValue ShadowRadius { get; set; }
+
+        [JsonProperty("opacity", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<double?> Opacity { get; set; }
     }
 }
