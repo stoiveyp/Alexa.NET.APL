@@ -19,23 +19,14 @@ jobs:
         run:  dotnet build -c Release
       - name: Test Solution
         run:  dotnet test
-      - name: Setup Mono
+      - name: GH Deploy Workaround
         run: |
-          sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-          sudo apt install apt-transport-https ca-certificates
-          echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-          sudo apt update
-      - name: Setup NuGet
-        run: |
-          mkdir ~/tmp
-          sudo curl -o ~/tmp/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-          sudo chmod 777 ~/tmp/nuget.exe
-      - name: GH Deploy
-        run: |
-          export REPO_NAME=$(echo ${GITHUB_REPOSITORY} | sed 's/stoiveyp\///')
-          ~/tmp/nuget.exe source Add -Name "GitHub" -Source "https://nuget.pkg.github.com/stoiveyp/index.json" -UserName stoiveyp -Password ${{ secrets.GITHUB_TOKEN }}
-          ~/tmp/nuget.exe push ./${REPO_NAME}/bin/Release/Alexa.NET*.nupkg -Source "GitHub"
-        continue-on-error: true
+           export REPO_NAME=$(echo ${GITHUB_REPOSITORY} | sed 's/stoiveyp\///')
+           for f in ./${REPO_NAME}/bin/Release/Alexa.NET*.nupkg
+           do
+             curl -vX PUT -u "stoiveyp:${{ secrets.GITHUB_TOKEN }}" -F package=@$f https://nuget.pkg.github.com/stoiveyp/
+           done
+        shell: bash
       - name: Deploy to NuGet
         run: |
           export REPO_NAME=$(echo ${GITHUB_REPOSITORY} | sed 's/stoiveyp\///')
