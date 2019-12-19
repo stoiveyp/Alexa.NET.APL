@@ -14,7 +14,7 @@ var shape = input.Context.Viewport?.Shape;
 ## Add support for APL Directives
 ```csharp
 	RenderDocumentDirective.AddSupport();
-	ExecutiveCommandsDirective.AddSupport();
+	ExecuteCommandsDirective.AddSupport();
 ```
 
 ## Check APL support in a request / which version of APL is supported
@@ -47,7 +47,7 @@ document.MainTemplate = new Layout(
 ).AsMain();
 ```
 
-## Sending a RenderDocument Directove
+## Sending a RenderDocument Directive
 RenderDocument hooks into the same Alexa.NET directive mechanism that already exists, you just reference the layout, document token and any data sources you want to send along with it
 ```csharp
             var shape = input.Context.Viewport?.Shape;
