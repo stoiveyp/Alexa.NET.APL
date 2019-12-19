@@ -8,7 +8,10 @@ namespace Alexa.NET.Response.APL
     {
         public StyleValue() { }
 
-        public StyleValue(IDictionary<string,string> dictionary) { }
+        public StyleValue(Dictionary<string, object> properties)
+        {
+            Properties = properties;
+        }
 
 
         [JsonProperty("when",NullValueHandling = NullValueHandling.Ignore)]
