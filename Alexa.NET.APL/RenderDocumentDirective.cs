@@ -11,17 +11,17 @@ namespace Alexa.NET.Response
 {
     public class RenderDocumentDirective : IDirective
     {
-        private const string DirectiveType = "Alexa.Presentation.APL.RenderDocument";
-        private const string APLTDirectiveType = "Alexa.Presentation.APLT.RenderDocument";
+        public const string APLDirectiveType = "Alexa.Presentation.APL.RenderDocument";
+        public const string APLTDirectiveType = "Alexa.Presentation.APLT.RenderDocument";
         private static readonly object directiveadd = new object();
 
         public static void AddSupport()
         {
             lock (directiveadd)
             {
-                if (!DirectiveConverter.TypeFactories.ContainsKey(DirectiveType))
+                if (!DirectiveConverter.TypeFactories.ContainsKey(APLDirectiveType))
                 {
-                    DirectiveConverter.TypeFactories.Add(DirectiveType, () => new RenderDocumentDirective());
+                    DirectiveConverter.TypeFactories.Add(APLDirectiveType, () => new RenderDocumentDirective());
                 }
 
                 if (!DirectiveConverter.TypeFactories.ContainsKey(APLTDirectiveType))
@@ -32,7 +32,7 @@ namespace Alexa.NET.Response
         }
 
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-        public string Type => Document is APLTDocument ? APLTDirectiveType : DirectiveType;
+        public string Type => Document is APLTDocument ? APLTDirectiveType : APLDirectiveType;
 
         [JsonProperty("token", NullValueHandling = NullValueHandling.Ignore)]
         public string Token { get; set; }

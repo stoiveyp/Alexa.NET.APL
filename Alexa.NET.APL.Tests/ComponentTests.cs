@@ -27,6 +27,7 @@ namespace Alexa.NET.APL.Tests
         public void Bindings()
         {
             var component = Utility.ExampleFileContent<Text>("Binding.json");
+            component.When = APLValue.To<bool?>("${@viewportProfile == @hubLandscapeSmall}");
             Assert.Equal(2, component.Bindings.Count);
 
             var first = component.Bindings.First();
@@ -36,6 +37,7 @@ namespace Alexa.NET.APL.Tests
             var second = component.Bindings.Skip(1).First();
             Assert.Equal("bar", second.Name);
             Assert.Equal("${foo + 23}", second.Value);
+            
         }
 
         [Fact]

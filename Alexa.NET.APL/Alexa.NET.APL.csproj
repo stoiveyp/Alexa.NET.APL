@@ -3,19 +3,21 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>4.8.1</Version>
+    <Version>4.9.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Fix StyleValue constructor</PackageReleaseNotes>
+    <PackageReleaseNotes>Make directives types public from RenderDocumentDirective
+Update Alexa.NET reference to ensure JsonDirective compatibility
+Readme update</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Alexa.NET" Version="1.8.0" />
+    <PackageReference Include="Alexa.NET" Version="1.11.0" />
   </ItemGroup>
 
   <ItemGroup>

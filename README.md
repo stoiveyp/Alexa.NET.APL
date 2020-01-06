@@ -23,7 +23,15 @@ var shape = input.Context.Viewport?.Shape;
 	var aplDocumentVersion = skillRequest.APLInterfaceDetails().Runtime.MaxVersion;
 ```
 
-## Creating a Layout Document
+## If you already have a JSON Layout
+If you've used the Alexa designer to generate your APL and just want to send it exactly as-is in the response, we recommend not using the strongly typed APLDocument and RenderDocumentDirective.
+Instead we've contributed to the core Alexa.NET library to enable the JSONDirective type, which saves on the extra processing and complexity of converting to and from an object model for no added benefit.
+```csharp
+  var directive = new JsonDirective(RenderDocumentDirective.APLDirectiveType);
+  directive.Properties.Add("document",aplDocumentJson);
+```
+
+## Creating a Layout Document from scratch
 Alexa.NET.APL has a set of APL components so that creating layouts is entirely within the C# object model
 All properties are of Type `APLValue&lt;T&gt;` - which allows you to specify an absolute value or an APL data binding expression for each property
 ```csharp
@@ -33,6 +41,13 @@ All properties are of Type `APLValue&lt;T&gt;` - which allows you to specify an 
       new Image("https://example.com/image.jpg") {Width = 400, Height = 400}
 	)
     { Direction = "row"});
+```
+
+## Data Binding / Expressions
+If the component property is of type `APLValue<T>` that means you can data bind to it or use an expression instead
+For example
+```csharp
+  component.When = APLValue.To<bool?>("${@viewportProfile == @hubLandscapeSmall}");
 ```
 
 ## Adding an AlexaHeader or Footer layout
