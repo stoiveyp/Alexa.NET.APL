@@ -21,6 +21,6 @@ namespace Alexa.NET.APL
         public APLValue<string[]> ColorRange { get; set; }
 
         [JsonProperty("inputRange",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<double?> InputRange { get; set; }
+        public APLValue<double[]> InputRange { get; set; }
     }
 }
