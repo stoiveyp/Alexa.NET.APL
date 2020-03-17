@@ -17,7 +17,7 @@ namespace Alexa.NET.APL.Tests
             ""white"",
             ""transparent""
                 ],
-            ""inputRange"": 0.5
+            ""inputRange"": [0.0,0.5]
         }";
 
             var expected = JObject.Parse(expectedRaw);
@@ -26,7 +26,7 @@ namespace Alexa.NET.APL.Tests
             {
                 Type = APLGradientType.Linear,
                 ColorRange = new[] {"white", "transparent"},
-                InputRange = 0.5
+                InputRange = new[] {0,0.5}
             };
 
             Assert.True(JObject.DeepEquals(expected,JToken.FromObject(gradient)));
