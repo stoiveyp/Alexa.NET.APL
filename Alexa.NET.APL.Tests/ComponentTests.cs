@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Alexa.NET.APL.Components;
+using Alexa.NET.APL.DataSources;
 using Alexa.NET.APL.Filters;
+using Alexa.NET.Response;
 using Alexa.NET.Response.APL;
+using Alexa.NET.Response.Directive;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
@@ -58,6 +62,65 @@ namespace Alexa.NET.APL.Tests
         //}
 
         [Fact]
+        public void AalmadaTest()
+        {
+            var response = ResponseBuilder
+                .Ask("Welcome to my skill. How can I help", new Reprompt());
+
+            
+                var json = JObject.FromObject(new APLDocument(APLDocumentVersion.V1_2));
+                var launchTemplateApl = JObject.FromObject(json);
+
+                var launchTemplateData = new ObjectDataSource
+                {
+                    ObjectId = "launchScreen",
+                    Properties = new Dictionary<string, object>(),
+                    TopLevelData = new Dictionary<string, object>(),
+                };
+                launchTemplateData.Properties.Add("textContent", "My Skill");
+                launchTemplateData.Properties.Add("hintText", "Try, \"What can you do?\"");
+
+                var directive = CreateAplDirective(launchTemplateApl, ("launchTemplateData", launchTemplateData));
+
+                response.Response.Directives.Add(directive);
+                var output = JsonConvert.SerializeObject(response);
+        }
+
+        static JsonDirective CreateAplDirective(JObject apl, params (string Key, ObjectDataSource Value)[] dataSources)
+        {
+            var directive = new JsonDirective(RenderDocumentDirective.APLDirectiveType);
+
+            directive.Properties.Add("document", apl);
+
+            var sources = new Dictionary<string, ObjectDataSource>();
+            foreach (var (key, dataSource) in dataSources)
+                sources.Add(key, dataSource);
+
+            directive.Properties.Add("dataSources", JObject.FromObject(sources));
+
+            return directive;
+        }
+
+        [Fact]
+        public void ContainerTest()
+        {
+            var container = new Container
+            (
+                new Text("APL in C#")
+                {
+                    FontSize = "24dp",
+                    TextAlign = "Center",
+                },
+                new Image(
+                    "https://images.example.com/photos/2143/lights-party-dancing-music.jpg?cs=srgb&dl=cheerful-club-concert-2143.jpg&fm=jpg")
+                {
+                    Width = 400,
+                    Height = 400,
+                }
+            );
+        }
+
+        [Fact]
         public void APLComponentValue()
         {
             var text = new Text("Hello World")
@@ -108,6 +171,8 @@ namespace Alexa.NET.APL.Tests
 
             Assert.True(Utility.CompareJson(timeText, "TimeText.json"));
         }
+
+
 
         [Fact]
         public void KeyboardEvent()

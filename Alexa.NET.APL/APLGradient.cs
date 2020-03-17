@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Alexa.NET.APL
 {
     public class APLGradient
     {
-        [JsonProperty("type",NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("type",NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(StringEnumConverter))]
         public APLGradientType Type { get; set; }
 
         [JsonProperty("angle",NullValueHandling = NullValueHandling.Ignore)]
