@@ -5,13 +5,10 @@ on:
     - master
 jobs:
   runner:
+    if: github.event_name == 'push' && contains(toJson(github.event.commits), '***NO_CI***') == false && contains(toJson(github.event.commits), '[ci skip]') == false && contains(toJson(github.event.commits), '[skip ci]') == false
     name: Package Pipeline
     runs-on: ubuntu-latest
     steps:
-      - name: Skip based on commit message
-        uses: veggiemonk/skip-commit@1.0.0
-        env:
-          COMMIT_FILTER: skip-ci
       - uses: actions/checkout@master
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
