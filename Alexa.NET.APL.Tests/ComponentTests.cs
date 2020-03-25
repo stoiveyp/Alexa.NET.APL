@@ -196,12 +196,12 @@ namespace Alexa.NET.APL.Tests
                 ButtonSize = new AbsoluteDimension(72, "dp"),
                 VectorSource =
                     "M21.343,8.661l-7.895-7.105c-0.823-0.741-2.073-0.741-2.896,0L2.657,8.661C2.238,9.039,2,9.564,2,10.113V20c0,1.105,0.943,2,2.105,2H9v-9h6v9h4.895C21.057,22,22,21.105,22,20v-9.887C22,9.564,21.762,9.039,21.343,8.661z",
-                PrimaryAction = new SetValue
+                PrimaryAction = new APLCommand[]{new SetValue
                 {
                     ComponentId = "textToUpdate",
                     Property = "text",
                     Value = APLValue.To<string>("${exampleData.imageStyleText}")
-                }
+                }}.ToList()
             };
             Assert.True(Utility.CompareJson(control,"AlexaIconButton.json"));
         }
@@ -237,6 +237,25 @@ namespace Alexa.NET.APL.Tests
                 Spacing = "@spacingMedium"
             };
             Assert.True(Utility.CompareJson(control,"AlexaRating.json"));
+        }
+
+        [Fact]
+        public void AlexaImageList()
+        {
+            var control = new AlexaImageList
+            {
+                ListItems = APLValue.To<IList<AlexaImageListItem>>("${imageListData.listItemsToShow}"),
+                DefaultImageSource = "https://d2o906d8ln7ui1.cloudfront.net/images/BT7_Background.png",
+                ImageBlurredBackground = true,
+                PrimaryAction = (new APLCommand[]
+                {
+                    new SendEvent
+                    {
+                        Arguments = new[]{"ListItemSelected", "${ordinal}"}.ToList()
+                    }
+                }.ToList())
+            };
+            Assert.True(Utility.CompareJson(control,"AlexaImageList.json"));
         }
 
 

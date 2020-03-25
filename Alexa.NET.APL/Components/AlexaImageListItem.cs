@@ -12,11 +12,11 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("imageAlignment", NullValueHandling = NullValueHandling.Ignore),
          JsonConverter(typeof(APLValueEnumConverter<AlexaImageAlignment>))]
-        public APLValue<AlexaImageAlignment> ImageAlignment { get; set; }
+        public APLValue<AlexaImageAlignment?> ImageAlignment { get; set; }
 
         [JsonProperty("imageAspectRatio", NullValueHandling = NullValueHandling.Ignore),
          JsonConverter(typeof(APLValueEnumConverter<AlexaImageAspectRatio>))]
-        public APLValue<AlexaImageAspectRatio> ImageAspectRatio { get; set; }
+        public APLValue<AlexaImageAspectRatio?> ImageAspectRatio { get; set; }
 
         [JsonProperty("imageBlurredBackground", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> ImageBlurredBackground { get; set; }

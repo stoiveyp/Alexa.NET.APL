@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
@@ -20,7 +21,8 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> ButtonStyle { get; set; }
 
         [JsonProperty("primaryAction",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<APLCommand> PrimaryAction { get; set; }
+        [JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> PrimaryAction { get; set; }
 
         [JsonProperty("vectorSource", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> VectorSource { get; set; }
