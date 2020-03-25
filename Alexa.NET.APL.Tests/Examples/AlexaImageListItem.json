@@ -1,0 +1,12 @@
+{
+  "type": "AlexaImageListItem",
+  "theme": "dark",
+  "primaryText": "${exampleData.primaryText}",
+  "secondaryText": "${exampleData.secondaryText}",
+  "tertiaryText": "${exampleData.tertiaryText}",
+  "providerText": "${exampleData.providerText}",
+  "imageProgressBarPercentage": 75,
+  "imageRoundedCorner": true,
+  "imageAspectRatio": "square",
+  "imageSource": "${exampleData.imageSource}"
+}

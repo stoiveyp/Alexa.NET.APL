@@ -207,6 +207,24 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void AlexaImageListItem()
+        {
+            var control = new AlexaImageListItem
+            {
+                Theme = "dark",
+                PrimaryText = "${exampleData.primaryText}",
+                SecondaryText = "${exampleData.secondaryText}",
+                TertiaryText = "${exampleData.tertiaryText}",
+                ProviderText = "${exampleData.providerText}",
+                ImageProgressBarPercentage = 75,
+                ImageRoundedCorner = true,
+                ImageAspectRatio = AlexaImageAspectRatio.Square,
+                ImageSource = "${exampleData.imageSource}"
+            };
+            Assert.True(Utility.CompareJson(control,"AlexaImageListItem.json"));
+        }
+
+        [Fact]
         public void DictionaryBindingTest()
         {
             var rawContainer = new Container
