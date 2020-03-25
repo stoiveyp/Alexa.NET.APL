@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Alexa.NET.APL.Commands;
 using Alexa.NET.APL.Components;
 using Alexa.NET.APL.DataSources;
 using Alexa.NET.APL.Filters;
@@ -185,6 +186,24 @@ namespace Alexa.NET.APL.Tests
 
             Assert.Equal("${event.keyboard.code == 'KeyW'}", keydown.When.Expression);
             Assert.Single(keydown.Commands.Value);
+        }
+
+        [Fact]
+        public void AlexaIconButton()
+        {
+            var control = new AlexaIconButton
+            {
+                ButtonSize = new AbsoluteDimension(72, "dp"),
+                VectorSource =
+                    "M21.343,8.661l-7.895-7.105c-0.823-0.741-2.073-0.741-2.896,0L2.657,8.661C2.238,9.039,2,9.564,2,10.113V20c0,1.105,0.943,2,2.105,2H9v-9h6v9h4.895C21.057,22,22,21.105,22,20v-9.887C22,9.564,21.762,9.039,21.343,8.661z",
+                PrimaryAction = new SetValue
+                {
+                    ComponentId = "textToUpdate",
+                    Property = "text",
+                    Value = APLValue.To<string>("${exampleData.imageStyleText}")
+                }
+            };
+            Assert.True(Utility.CompareJson(control,"AlexaIconButton.json"));
         }
 
         [Fact]
