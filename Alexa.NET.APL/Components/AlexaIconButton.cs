@@ -8,7 +8,7 @@ namespace Alexa.NET.APL.Components
 {
     public class AlexaIconButton:APLComponent
     {
-        public override string Type => "AlexaIconButton";
+        public override string Type => nameof(AlexaIconButton);
 
         [JsonProperty("theme", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Theme { get; set; }

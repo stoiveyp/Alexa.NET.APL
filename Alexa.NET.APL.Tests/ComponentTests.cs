@@ -224,6 +224,22 @@ namespace Alexa.NET.APL.Tests
             Assert.True(Utility.CompareJson(control,"AlexaImageListItem.json"));
         }
 
+
+        [Fact]
+        public void AlexaRating()
+        {
+            var control = new AlexaRating
+            {
+                RatingSlotPadding = new AbsoluteDimension(0,"dp"),
+                RatingSlotMode = RatingSlotMode.Multiple,
+                RatingNumber = 3.5,
+                RatingText = "509 ratings",
+                Spacing = "@spacingMedium"
+            };
+            Assert.True(Utility.CompareJson(control,"AlexaRating.json"));
+        }
+
+
         [Fact]
         public void DictionaryBindingTest()
         {
