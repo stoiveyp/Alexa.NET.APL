@@ -258,6 +258,20 @@ namespace Alexa.NET.APL.Tests
             Assert.True(Utility.CompareJson(control,"AlexaImageList.json"));
         }
 
+        [Fact]
+        public void AlexaLists()
+        {
+            var control = new AlexaLists
+            {
+                ListItems = APLValue.To<IList<AlexaListItem>>("${listData.listItemsToShow}"),
+                ListImagePrimacy = true,
+                DefaultImageSource = "https://d2o906d8ln7ui1.cloudfront.net/images/BT7_Background.png",
+                ImageBlurredBackground = true
+            };
+
+            Assert.True(Utility.CompareJson(control, "AlexaLists.json"));
+        }
+
 
         [Fact]
         public void DictionaryBindingTest()

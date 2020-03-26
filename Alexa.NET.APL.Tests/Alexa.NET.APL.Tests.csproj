@@ -35,6 +35,9 @@
     <None Update="Examples\AlexaImageListItem.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Examples\AlexaLists.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Examples\AlexaRating.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

@@ -32,6 +32,12 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("backgroundVideoSource", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<VideoSource> BackgroundVideoSource { get; set; }
 
+        [JsonProperty("backgroundVideoAudioTrack", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> BackgroundVideoAudioTrack { get; set; }
+
+        [JsonProperty("backgroundVideoAutoPlay", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool?> BackgroundVideoAutoPlay { get; set; }
+
         [JsonProperty("headerDivider", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> HeaderDivider { get; set; }
 

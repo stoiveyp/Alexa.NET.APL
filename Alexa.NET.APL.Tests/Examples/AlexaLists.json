@@ -1,0 +1,7 @@
+{
+  "type": "AlexaLists",
+  "listItems": "${listData.listItemsToShow}",
+  "listImagePrimacy": true,
+  "defaultImageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/BT7_Background.png",
+  "imageBlurredBackground": true
+}
