@@ -141,9 +141,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void DynamicIndexList()
         {
-            var list = new DynamicIndexList("my-list-id",0);
-            list.MinimumInclusiveIndex = 0;
-            list.MaximumExclusiveIndex = 200;
+            var list = new DynamicIndexList("my-list-id", 0) {MinimumInclusiveIndex = 0, MaximumExclusiveIndex = 200};
             list.Items.Add(new DynamicListItem { PrimaryText = "item 1"});
             list.Items.Add(new DynamicListItem { PrimaryText = "item 2"});
             list.Items.Add(new DynamicListItem { PrimaryText = "item 3"});
@@ -155,6 +153,8 @@ namespace Alexa.NET.APL.Tests
             list.Items.Add(new DynamicListItem { PrimaryText = "item 9"});
             list.Items.Add(new DynamicListItem { PrimaryText = "item 10"});
             Assert.True(Utility.CompareJson(list, "DynamicSourceExample.json"));
+            var source = Utility.ExampleFileContent<APLDataSource>("DynamicSourceExample.json");
+            Assert.IsType<DynamicIndexList>(source);
         }
 
 

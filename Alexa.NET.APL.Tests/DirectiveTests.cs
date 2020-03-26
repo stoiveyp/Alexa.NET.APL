@@ -68,5 +68,38 @@ namespace Alexa.NET.APL.Tests
 
             Assert.True(Utility.CompareJson(directive, "ExecuteCommands.json"));
         }
+
+        [Fact]
+        public void SendIndexListData()
+        {
+            SendIndexListDataDirective.AddSupport();
+            var dir = Utility.ExampleFileContent<IDirective>("SendIndexListDataDirective.json");
+            Assert.IsType<SendIndexListDataDirective>(dir);
+
+            var directive = new SendIndexListDataDirective
+            {
+                Token = "developer-provided-token",
+                CorrelationToken = "alexa-provided-correlation-token",
+                ListId = "my-list-id",
+                ListVersion = 3,
+                StartIndex = 11,
+                MinimumInclusiveIndex = 11,
+                MaximumExclusiveIndex = 21,
+                Items = new List<object>
+                {
+                    new DynamicListItem{PrimaryText = "item 11"},
+                    new DynamicListItem{PrimaryText = "item 12"},
+                    new DynamicListItem{PrimaryText = "item 13"},
+                    new DynamicListItem{PrimaryText = "item 14"},
+                    new DynamicListItem{PrimaryText = "item 15"},
+                    new DynamicListItem{PrimaryText = "item 16"},
+                    new DynamicListItem{PrimaryText = "item 17"},
+                    new DynamicListItem{PrimaryText = "item 18"},
+                    new DynamicListItem{PrimaryText = "item 19"},
+                    new DynamicListItem{PrimaryText = "item 20"},
+                }
+            };
+            Assert.True(Utility.CompareJson(directive, "SendIndexListDataDirective.json"));
+        }
     }
 }
