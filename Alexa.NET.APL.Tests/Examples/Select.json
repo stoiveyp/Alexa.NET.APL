@@ -1,0 +1,31 @@
+{
+  "type": "Select",
+  "commands": {
+    "when": "${!data.until || age < data.until}",
+    "type": "SetValue",
+    "property": "text",
+    "value": "Your category is ${data.category}",
+    "componentId": "${textIdToUpdate}"
+  },
+  "data": [
+    {
+      "until": 2,
+      "category": "Infant"
+    },
+    {
+      "until": 5,
+      "category": "Toddler"
+    },
+    {
+      "until": 13,
+      "category": "Kid"
+    },
+    {
+      "until": 18,
+      "category": "Teen"
+    },
+    {
+      "category": "Adult"
+    }
+  ]
+}
