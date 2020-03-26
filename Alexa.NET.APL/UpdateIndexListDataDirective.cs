@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Alexa.NET.Response;
+﻿using System.Collections.Generic;
+using Alexa.NET.APL.Operation;
 using Alexa.NET.Response.Converters;
 using Newtonsoft.Json;
 
-namespace Alexa.NET.APL
+namespace Alexa.NET.Response
 {
     public class UpdateIndexListDataDirective:IDirective
     {
@@ -36,6 +34,6 @@ namespace Alexa.NET.APL
         public int? ListVersion { get; set; }
 
         [JsonProperty("operations",NullValueHandling = NullValueHandling.Ignore)]
-        public IList<Operation.Operation> Operations { get; set; } = new List<Operation.Operation>();
+        public IList<Operation> Operations { get; set; } = new List<Operation>();
     }
 }

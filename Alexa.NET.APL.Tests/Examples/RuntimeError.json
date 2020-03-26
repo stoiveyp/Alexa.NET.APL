@@ -1,0 +1,17 @@
+{
+  "type": "Alexa.Presentation.APL.RuntimeError",
+  "requestId": "amzn1.echo-api.request.1",
+  "timestamp": "2020-03-12T19:47:02Z",
+  "locale": "en-US",
+  "token": "developer-provided-token",
+  "errors": [
+    {
+      "type": "LIST_ERROR",
+      "reason": "LIST_INDEX_OUT_OF_RANGE",
+      "listId": "my-list-id",
+      "listVersion": 3,
+      "operationIndex": 3,
+      "message": ""
+    }
+  ]
+}

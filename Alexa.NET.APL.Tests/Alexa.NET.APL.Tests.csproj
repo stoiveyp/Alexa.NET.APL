@@ -89,6 +89,9 @@
     <None Update="Examples\ListDataSource.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Examples\LoadIndexListDataRequest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Examples\LongText.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -103,6 +106,9 @@
     </None>
     <None Update="Examples\Resource.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Examples\RuntimeError.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Examples\SendIndexListDataDirective.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

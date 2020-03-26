@@ -1,0 +1,11 @@
+{
+  "type": "Alexa.Presentation.APL.LoadIndexListData",
+  "requestId": "amzn1.echo-api.request.1",
+  "timestamp": "2020-03-12T19:47:02Z",
+  "locale": "en-US",
+  "token": "developer-provided-token",
+  "correlationToken": "101",
+  "listId": "my-list-id",
+  "startIndex": 20,
+  "count": 10
+}
