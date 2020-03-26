@@ -81,7 +81,13 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(AlexaTransportControls),typeof(AlexaTransportControls) },
             {nameof(AlexaHeadline),typeof(AlexaHeadline) },
             {nameof(AlexaTextList),typeof(AlexaTextList) },
-            {nameof(TimeText),typeof(TimeText) }
+            {nameof(TimeText),typeof(TimeText) },
+            {nameof(AlexaIconButton),typeof(AlexaIconButton) },
+            {nameof(AlexaImageListItem),typeof(AlexaImageListItem) },
+            {nameof(AlexaRating),typeof(AlexaRating) },
+            {nameof(AlexaImageList),typeof(AlexaImageList) },
+            {nameof(AlexaLists),typeof(AlexaLists) },
+            {nameof(AlexaPaginatedList),typeof(AlexaPaginatedList) }
         };
 
         private APLComponent GetComponent(string type)

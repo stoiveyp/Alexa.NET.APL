@@ -5,6 +5,20 @@
     "type": "APL",
     "version": "1.0",
     "theme": "dark",
+    "background": {
+      "type": "linear",
+      "colorRange": [ "darkgreen", "white" ],
+      "inputRange": [ 0, 0.25 ],
+      "angle": 90
+    },
+    "export": {
+      "resources": [
+        {
+          "name": "CompanyGreen" // Description omitted
+        },
+        "CompanyGray"
+      ]
+    },
     "mainTemplate": {
       "description": "********* Minimal APL document **********",
       "items": [

@@ -49,7 +49,7 @@ namespace Alexa.NET.APL.Tests
         {
             var doc = Utility.ExampleFileContent<APLDocument>("DailyCheese.json");
             Assert.Equal("APL", doc.Type);
-            Assert.Equal(APLDocumentVersion.V1_1, doc.Version);
+            Assert.Equal(APLDocumentVersion.V1_3, doc.Version);
             Assert.NotNull(doc.MainTemplate);
             Assert.Equal(1,doc.OnMount.Value.Count);
 
@@ -138,6 +138,27 @@ namespace Alexa.NET.APL.Tests
             Assert.True(Utility.CompareJson(list, "ListDataSource.json"));
         }
 
+        [Fact]
+        public void DynamicIndexList()
+        {
+            var list = new DynamicIndexList("my-list-id", 0) {MinimumInclusiveIndex = 0, MaximumExclusiveIndex = 200};
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 1"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 2"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 3"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 4"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 5"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 6"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 7"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 8"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 9"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 10"});
+            Assert.True(Utility.CompareJson(list, "DynamicSourceExample.json"));
+            var source = Utility.ExampleFileContent<APLDataSource>("DynamicSourceExample.json");
+            Assert.IsType<DynamicIndexList>(source);
+        }
+
+
+
         private APLDocument GetDocument(APLDocumentVersion? version = null)
         {
             var doc = Utility.ExampleFileContent<RenderDocumentDirective>("RenderDocument.json").Document as APLDocument;
@@ -148,6 +169,12 @@ namespace Alexa.NET.APL.Tests
 
             return doc;
         }
+    }
+
+    internal class DynamicListItem
+    {
+        [JsonProperty("primaryText")]
+        public string PrimaryText { get; set; }
     }
 
     public class TestListItem

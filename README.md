@@ -11,6 +11,11 @@ public Task<SkillResponse> FunctionHandler(APLSkillRequest input, ILambdaContext
 var shape = input.Context.Viewport?.Shape;
 ```
 
+## Add All APL Support
+```csharp
+    APLSupport.Add();
+```
+
 ## Add support for APL Directives
 ```csharp
 	RenderDocumentDirective.AddSupport();

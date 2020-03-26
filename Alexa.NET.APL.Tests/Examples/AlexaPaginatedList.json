@@ -1,0 +1,12 @@
+{
+  "type": "AlexaPaginatedList",
+  "listItems": "${paginatedListData.listItemsToShow}",
+  "backgroundColorOverlay": true,
+  "primaryAction": {
+    "type": "SendEvent",
+    "arguments": [
+      "ListItemSelected",
+      "${ordinal}"
+    ]
+  }
+}

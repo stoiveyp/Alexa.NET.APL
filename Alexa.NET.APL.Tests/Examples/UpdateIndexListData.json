@@ -1,0 +1,38 @@
+{
+  "type": "Alexa.Presentation.APL.UpdateIndexListData",
+  "token": "developer-provided-token",
+  "listId": "my-list-id",
+  "listVersion": 3,
+  "operations": [
+    {
+      "type": "InsertItem",
+      "index": 10,
+      "item": {
+        "primaryText": "new item 9.5, inserted before item 10"
+      }
+    },
+    {
+      "type": "InsertMultipleItems",
+      "index": 12,
+      "items": [
+        { "primaryText": "first of three new items, inserted before item 12" },
+        { "primaryText": "second of three" },
+        { "primaryText": "third of three" }
+      ]
+    },
+    {
+      "type": "SetItem",
+      "index": 14,
+      "item": { "primaryText": "Replacement text for item 14" }
+    },
+    {
+      "type": "DeleteItem",
+      "index": 16
+    },
+    {
+      "type": "DeleteMultipleItems",
+      "index": 17,
+      "count": 2
+    }
+  ]
+}
