@@ -7,7 +7,8 @@ namespace Alexa.NET.APL.DataSources
 {
     public class ListDataSource : APLDataSource
     {
-        public override string Type => "list";
+        public const string DataSourceType = "list";
+        public override string Type => DataSourceType;
 
         [JsonProperty("listPage")]
         public ListPage ListPage { get; }

@@ -138,6 +138,27 @@ namespace Alexa.NET.APL.Tests
             Assert.True(Utility.CompareJson(list, "ListDataSource.json"));
         }
 
+        [Fact]
+        public void DynamicIndexList()
+        {
+            var list = new DynamicIndexList("my-list-id",0);
+            list.MinimumInclusiveIndex = 0;
+            list.MaximumExclusiveIndex = 200;
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 1"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 2"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 3"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 4"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 5"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 6"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 7"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 8"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 9"});
+            list.Items.Add(new DynamicListItem { PrimaryText = "item 10"});
+            Assert.True(Utility.CompareJson(list, "DynamicSourceExample.json"));
+        }
+
+
+
         private APLDocument GetDocument(APLDocumentVersion? version = null)
         {
             var doc = Utility.ExampleFileContent<RenderDocumentDirective>("RenderDocument.json").Document as APLDocument;
@@ -148,6 +169,12 @@ namespace Alexa.NET.APL.Tests
 
             return doc;
         }
+    }
+
+    internal class DynamicListItem
+    {
+        [JsonProperty("primaryText")]
+        public string PrimaryText { get; set; }
     }
 
     public class TestListItem

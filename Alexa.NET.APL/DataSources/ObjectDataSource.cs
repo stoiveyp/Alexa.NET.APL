@@ -7,7 +7,8 @@ namespace Alexa.NET.APL.DataSources
 
     public class ObjectDataSource:APLDataSource
     {
-        [JsonProperty("type")] public override string Type => "object";
+        public const string DataSourceType = "object";
+        [JsonProperty("type")] public override string Type => DataSourceType;
 
         [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }

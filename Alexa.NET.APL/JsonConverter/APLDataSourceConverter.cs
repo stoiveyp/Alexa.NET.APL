@@ -23,26 +23,20 @@ namespace Alexa.NET.APL.JsonConverter
             // Load JObject from stream
             var jObject = JObject.Load(reader);
 
-            // Create target request object based on "type" property
-            if (jObject.Value<string>("type") == "list")
-            {
-                jObject.Remove("type");
-                var target = new ListDataSource();
-                serializer.Populate(jObject.CreateReader(), target);
-                return target;
-            }
+            var target = GetDataSource(jObject.Value<string>("type"));
+            serializer.Populate(jObject.CreateReader(), target);
+            return target;
+        }
 
-            if (jObject.Value<string>("type") == "object")
+        private static APLDataSource GetDataSource(string value)
+        {
+            return value switch
             {
-                jObject.Remove("type");
-                var target = new ObjectDataSource();
-                serializer.Populate(jObject.CreateReader(), target);
-                return target;
-            }
-
-            var keyDataSource = new KeyValueDataSource();
-            serializer.Populate(jObject.CreateReader(), keyDataSource);
-            return keyDataSource;
+                DynamicIndexList.DataSourceType => new DynamicIndexList(),
+                ObjectDataSource.DataSourceType => new ObjectDataSource(),
+                ListDataSource.DataSourceType => new ListDataSource(),
+                _ => (APLDataSource)new KeyValueDataSource()
+            };
         }
 
         public override bool CanConvert(Type objectType)
