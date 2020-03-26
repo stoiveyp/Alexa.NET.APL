@@ -122,6 +122,9 @@
     <None Update="Examples\TimeText.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Examples\UpdateIndexListData.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Examples\Video.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
