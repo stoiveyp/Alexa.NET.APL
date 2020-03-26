@@ -53,7 +53,10 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(AnimateItem),typeof(AnimateItem) },
             {nameof(OpenURL),typeof(OpenURL) },
             {nameof(SetFocus),typeof(SetFocus) },
-            {nameof(ClearFocus),typeof(ClearFocus) }
+            {nameof(ClearFocus),typeof(ClearFocus) },
+            {nameof(Select),typeof(Select) },
+            {nameof(Finish),typeof(Finish) },
+
         };
 
         private APLCommand GetCommand(string commandType)

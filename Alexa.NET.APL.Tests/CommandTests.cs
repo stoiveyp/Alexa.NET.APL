@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Alexa.NET.APL.Commands;
 using Alexa.NET.APL.JsonConverter;
+using Newtonsoft.Json.Linq;
 using Xunit;
 
 namespace Alexa.NET.APL.Tests
@@ -110,6 +111,23 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal(ControlMediaCommand.Seek,command.Command.Value);
             Assert.Equal("myAudioPlayer",command.ComponentId.Value);
             Assert.Equal(5000,command.Value.Value);
+        }
+
+        [Fact]
+        public void Finish()
+        {
+            var command = new Finish();
+            var jo = JObject.FromObject(command);
+            Assert.Single(jo);
+            Assert.Equal("Finish",jo["type"].Value<string>());
+        }
+
+        [Fact]
+        public void Select()
+        {
+            var select = Utility.ExampleFileContent<Select>("Select.json");
+            Assert.Single(select.Commands.Value);
+            Assert.Equal(5, select.Data.Length);
         }
     }
 }
