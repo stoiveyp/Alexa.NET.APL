@@ -49,7 +49,7 @@ namespace Alexa.NET.APL.Tests
         {
             var doc = Utility.ExampleFileContent<APLDocument>("DailyCheese.json");
             Assert.Equal("APL", doc.Type);
-            Assert.Equal(APLDocumentVersion.V1_1, doc.Version);
+            Assert.Equal(APLDocumentVersion.V1_3, doc.Version);
             Assert.NotNull(doc.MainTemplate);
             Assert.Equal(1,doc.OnMount.Value.Count);
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Versioning;
 using Alexa.NET.APL;
 using Alexa.NET.APL.Commands;
 using Alexa.NET.APL.JsonConverter;
@@ -44,5 +45,11 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("commands",NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, CommandDefinition> Commands { get; set; }
+
+        [JsonProperty("export",NullValueHandling = NullValueHandling.Ignore)]
+        public ExportList Export { get; set; }
+
+        [JsonProperty("background",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<DocumentBackgroundColor> Background { get; set; }
     }
 }

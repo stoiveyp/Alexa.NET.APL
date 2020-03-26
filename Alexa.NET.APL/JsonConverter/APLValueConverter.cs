@@ -117,10 +117,15 @@ namespace Alexa.NET.APL.JsonConverter
             return instance;
         }
 
-        private object CreateList(JsonReader reader, JsonSerializer serializer, Type genericType)
+        private static object CreateList(JsonReader reader, JsonSerializer serializer, Type genericType)
         {
-            return serializer.Deserialize(reader,
-                typeof(List<>).MakeGenericType(genericType.GenericTypeArguments.First()));
+            if (genericType.GenericTypeArguments.Any())
+            {
+                return serializer.Deserialize(reader,
+                    typeof(List<>).MakeGenericType(genericType.GenericTypeArguments.First()));
+            }
+
+            return genericType.IsArray ? serializer.Deserialize(reader, genericType) : null;
         }
 
         private static bool IsIntType(Type type)

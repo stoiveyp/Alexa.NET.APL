@@ -19,10 +19,12 @@ namespace Alexa.NET.APL.Tests
             var directive = Utility.ExampleFileContent<RenderDocumentDirective>("RenderDocument.json");
             Assert.Equal("Alexa.Presentation.APL.RenderDocument",directive.Type);
             Assert.Equal("anydocument",directive.Token);
-            Assert.IsType<APLDocument>(directive.Document);
+            var doc = Assert.IsType<APLDocument>(directive.Document);
 
             Assert.NotNull(directive.Document);
             Assert.Single(directive.DataSources);
+            Assert.NotNull(doc.Export.Resources);
+            Assert.Equal(2,doc.Export.Resources.Length);
 
             Assert.True(directive.DataSources.ContainsKey("templateData"));
         }
