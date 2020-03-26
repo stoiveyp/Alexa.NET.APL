@@ -86,7 +86,8 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(AlexaImageListItem),typeof(AlexaImageListItem) },
             {nameof(AlexaRating),typeof(AlexaRating) },
             {nameof(AlexaImageList),typeof(AlexaImageList) },
-            {nameof(AlexaLists),typeof(AlexaLists) }
+            {nameof(AlexaLists),typeof(AlexaLists) },
+            {nameof(AlexaPaginatedList),typeof(AlexaPaginatedList) }
         };
 
         private APLComponent GetComponent(string type)

@@ -272,6 +272,24 @@ namespace Alexa.NET.APL.Tests
             Assert.True(Utility.CompareJson(control, "AlexaLists.json"));
         }
 
+        [Fact]
+        public void AlexaPaginatedList()
+        {
+            var control = new AlexaPaginatedList
+            {
+                ListItems = APLValue.To<IList<AlexaPaginatedListItem>>("${paginatedListData.listItemsToShow}"),
+                BackgroundColorOverlay = true,
+                PrimaryAction = new APLCommand[]
+                {
+                    new SendEvent
+                    {
+                        Arguments = new[] {"ListItemSelected", "${ordinal}"}.ToList()
+                    }
+                }.ToList()
+            };
+            Assert.True(Utility.CompareJson(control, "AlexaPaginatedList.json"));
+        }
+
 
         [Fact]
         public void DictionaryBindingTest()

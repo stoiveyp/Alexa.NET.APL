@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
 {
-    public class AlexaImageListItem : AlexaListItem
+    public class AlexaImageListItem : AlexaPaginatedListItem
     {
         [JsonProperty("type")] public override string Type => nameof(AlexaImageListItem);
 
@@ -36,16 +36,7 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("imageScale",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<Scale?> ImageScale { get; set; }
 
-        [JsonProperty("imageSource",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> ImageSource { get; set; }
-
         [JsonProperty("providerText",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> ProviderText { get; set; }
-
-        [JsonProperty("secondaryText",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> SecondaryText { get; set; }
-
-        [JsonProperty("tertiaryText",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> TertiaryText { get; set; }
     }
 }
