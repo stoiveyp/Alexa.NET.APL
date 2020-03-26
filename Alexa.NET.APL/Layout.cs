@@ -28,16 +28,16 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("items")]
         public IList<APLComponent> Items { get; set; }
 
-        public Layout AsMain()
+        public Layout AsMain(string dataSourceKey = "payload")
         {
             if (Parameters == null)
             {
                 Parameters = new List<Parameter>();
             }
 
-            if (Parameters.All(p => string.Equals(p.Name, "payload", StringComparison.OrdinalIgnoreCase)))
+            if (Parameters.All(p => string.Equals(p.Name, dataSourceKey, StringComparison.OrdinalIgnoreCase)))
             {
-                Parameters.Add(new Parameter("payload"));
+                Parameters.Add(new Parameter(dataSourceKey));
             }
 
             return this;
