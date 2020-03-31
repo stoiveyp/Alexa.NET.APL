@@ -24,9 +24,9 @@ namespace Alexa.NET.Response.APL
         public APLValue<double?> SkewY { get; set; }
 
         [JsonProperty("translateX", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<double?> TranslateX { get; set; }
+        public APLDimensionValue TranslateX { get; set; }
 
         [JsonProperty("translateY", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<double?> TranslateY { get; set; }
+        public APLDimensionValue TranslateY { get; set; }
     }
 }
