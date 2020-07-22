@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Alexa.NET.APL;
+using Alexa.NET.APL.Components;
 using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -141,5 +142,13 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("opacity", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<double?> Opacity { get; set; }
+
+        [JsonProperty("entities", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(GenericSingleOrListConverter<VideoSource>))]
+        public APLValue<IList<object[]>> Entities { get; set; }
+
+        [JsonProperty("handleTick",NullValueHandling = NullValueHandling.Ignore),
+        JsonConverter(typeof(GenericSingleOrListConverter<TickHandler>))]
+        public APLValue<IList<TickHandler>> HandleTick { get; set; }
     }
 }

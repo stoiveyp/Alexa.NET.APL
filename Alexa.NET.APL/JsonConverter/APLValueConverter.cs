@@ -125,6 +125,11 @@ namespace Alexa.NET.APL.JsonConverter
                     typeof(List<>).MakeGenericType(genericType.GenericTypeArguments.First()));
             }
 
+            if (genericType == typeof(object))
+            {
+
+            }
+
             return genericType.IsArray ? serializer.Deserialize(reader, genericType) : null;
         }
 

@@ -18,9 +18,16 @@ namespace Alexa.NET.APL.JsonConverter
 
         protected override void ReadSingle(JsonReader reader, JsonSerializer serializer, List<T> list)
         {
-            var value = Activator.CreateInstance<T>();
-            serializer.Populate(reader, value);
-            list.Add(value);
+            if (typeof(T) == typeof(object))
+            {
+                list.Add((T)serializer.Deserialize(reader));
+            }
+            else
+            {
+                var value = Activator.CreateInstance<T>();
+                serializer.Populate(reader, value);
+                list.Add(value);
+            }
         }
     }
 }

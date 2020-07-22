@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
@@ -22,8 +23,9 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("alignItems",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> AlignItems { get; set; }
 
-        [JsonProperty("data",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<Dictionary<string,object>> Data { get; set; }
+        [JsonProperty("data",NullValueHandling = NullValueHandling.Ignore),
+        JsonConverter(typeof(GenericSingleOrListConverter<object>))]
+        public APLValue<IList<object>> Data { get; set; }
 
         [JsonProperty("direction",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Direction { get; set; }
@@ -34,8 +36,9 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("lastItem",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<List<APLComponent>> LastItem { get; set; }
 
-        [JsonProperty("items",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLComponent>> Items { get; set; }
+        [JsonProperty("items", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLComponentListConverter))]
+        public APLValue<IList<APLComponent>> Items { get; set; }
 
         [JsonProperty("justifyContent",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> JustifyContent { get; set; }

@@ -275,32 +275,31 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void AlexaPaginatedList()
         {
-            var control = new AlexaPaginatedList
-            {
-                ListItems = APLValue.To<IList<AlexaPaginatedListItem>>("${paginatedListData.listItemsToShow}"),
-                BackgroundColorOverlay = true,
-                PrimaryAction = new APLCommand[]
-                {
-                    new SendEvent
-                    {
-                        Arguments = new[] {"ListItemSelected", "${ordinal}"}.ToList()
-                    }
-                }.ToList()
-            };
-            Assert.True(Utility.CompareJson(control, "AlexaPaginatedList.json"));
+            Utility.AssertSerialization<AlexaPaginatedList>("AlexaPaginatedList.json");
         }
 
+        [Fact]
+        public void ProgressBar()
+        {
+            Utility.AssertSerialization<AlexaProgressBar>("AlexaProgressBar.json");
+        }
+
+        [Fact]
+        public void TickHandler()
+        {
+            Utility.AssertSerialization<Container>("TickHandler.json");
+        }
 
         [Fact]
         public void DictionaryBindingTest()
         {
             var rawContainer = new Container
             {
-                Data = new Dictionary<string, object> { { "test", "thing" } },
+                Data = new[]{new Dictionary<string, object> { { "test", "thing" } }},
             };
             var dataBoundContainer = new Container
             {
-                Data = APLValue.To<Dictionary<string, object>>("$data.random.stuff")
+                Data = APLValue.To<IList<object>>("$data.random.stuff")
             };
 
             var rawJson = JsonConvert.SerializeObject(rawContainer);
@@ -312,7 +311,7 @@ namespace Alexa.NET.APL.Tests
             var newRawContainer = Assert.IsType<Container>(newRaw);
             var newBoundContainer = Assert.IsType<Container>(newBound);
 
-            Assert.Single(newRawContainer.Data.Value);
+            Assert.Single((JObject)newRawContainer.Data.Value.First());
             Assert.Equal("$data.random.stuff", newBoundContainer.Data.Expression);
         }
 

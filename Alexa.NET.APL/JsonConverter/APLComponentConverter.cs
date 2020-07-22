@@ -28,6 +28,12 @@ namespace Alexa.NET.APL.JsonConverter
                 throw new ArgumentOutOfRangeException($"Component type {componentType} not supported");
             }
 
+            if(jObject["entity"] != null)
+            {
+                jObject["entities"] = jObject["entity"];
+                jObject.Remove("entity");
+            }
+
             if ((target is Frame || target is TouchWrapper) && jObject["items"] != null)
             {
                 jObject["item"] = jObject["items"];
@@ -44,7 +50,7 @@ namespace Alexa.NET.APL.JsonConverter
             {
                 serializer.Populate(jObject.CreateReader(), target);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
             }
 
@@ -87,7 +93,8 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(AlexaRating),typeof(AlexaRating) },
             {nameof(AlexaImageList),typeof(AlexaImageList) },
             {nameof(AlexaLists),typeof(AlexaLists) },
-            {nameof(AlexaPaginatedList),typeof(AlexaPaginatedList) }
+            {nameof(AlexaPaginatedList),typeof(AlexaPaginatedList) },
+            {nameof(AlexaProgressBar), typeof(AlexaProgressBar)}
         };
 
         private APLComponent GetComponent(string type)

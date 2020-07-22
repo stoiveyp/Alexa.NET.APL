@@ -1,0 +1,46 @@
+{
+  "type": "Container",
+  "bind": [
+    {
+      "name": "CurrentIndex",
+      "value": 0
+    }
+  ],
+  "handleTick": [
+    {
+      "minimumDelay": 1000,
+      "description": "Cycle through the traffic light at random intervals.  The cycle order is green-yellow-red-green-...",
+      "commands": [
+        {
+          "when": "${Math.random() < 0.25}",
+          "type": "SetValue",
+          "property": "CurrentIndex",
+          "value": "${(CurrentIndex + 2) % 3}"
+        }
+      ]
+    },
+    {
+      "minimumDelay": 15000,
+      "description": "Every 15 seconds just go back to red to annoy folks",
+      "commands": [
+        {
+          "type": "SetValue",
+          "property": "CurrentIndex",
+          "value": 0
+        }
+      ]
+    }
+  ],
+  "items": {
+    "type": "Frame",
+    "width": 100,
+    "height": 100,
+    "borderRadius": 100,
+    "backgroundColor": "${index == CurrentIndex ? data : 'grey'}"
+  },
+  "data": [
+    "red",
+    "yellow",
+    "green"
+  ]
+}
