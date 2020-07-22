@@ -279,15 +279,21 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void TickHandler()
+        {
+            Utility.AssertSerialization<Container>("TickHandler.json");
+        }
+
+        [Fact]
         public void ProgressBar()
         {
             Utility.AssertSerialization<AlexaProgressBar>("AlexaProgressBar.json");
         }
 
         [Fact]
-        public void TickHandler()
+        public void ProgressBarRadial()
         {
-            Utility.AssertSerialization<Container>("TickHandler.json");
+            Utility.AssertSerialization<Container>("AlexaProgressBarRadial.json");
         }
 
         [Fact]

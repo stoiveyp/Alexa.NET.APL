@@ -94,7 +94,8 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(AlexaImageList),typeof(AlexaImageList) },
             {nameof(AlexaLists),typeof(AlexaLists) },
             {nameof(AlexaPaginatedList),typeof(AlexaPaginatedList) },
-            {nameof(AlexaProgressBar), typeof(AlexaProgressBar)}
+            {nameof(AlexaProgressBar), typeof(AlexaProgressBar)},
+            {nameof(AlexaProgressBarRadial), typeof(AlexaProgressBarRadial)}
         };
 
         private APLComponent GetComponent(string type)

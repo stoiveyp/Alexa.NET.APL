@@ -1,0 +1,21 @@
+{
+  "when": "${@viewportProfile == @hubRoundSmall}",
+  "type": "Container",
+  "height": "100%",
+  "width": "100%",
+  "items": [
+    {
+      "type": "AlexaProgressBarRadial",
+      "id": "roundHubBar",
+      "progressBarType": "indeterminate",
+      "position": "absolute"
+    },
+    {
+      "type": "Text",
+      "height": "100%",
+      "textAlignVertical": "center",
+      "textAlign": "center",
+      "text": "${progressBarRadialExample.textToShow}"
+    }
+  ]
+}
