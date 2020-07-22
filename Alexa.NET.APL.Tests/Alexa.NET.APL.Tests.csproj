@@ -41,6 +41,9 @@
     <None Update="Examples\AlexaPaginatedList.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Examples\AlexaProgressDots.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Examples\AlexaProgressBarRadial.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

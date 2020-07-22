@@ -297,6 +297,12 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void ProgressDots()
+        {
+            Utility.AssertSerialization<AlexaProgressDots>("AlexaProgressDots.json");
+        }
+
+        [Fact]
         public void DictionaryBindingTest()
         {
             var rawContainer = new Container

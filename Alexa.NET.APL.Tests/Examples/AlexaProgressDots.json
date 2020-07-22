@@ -1,0 +1,6 @@
+{
+  "type": "AlexaProgressDots",
+  "dotSize": "72dp",
+  "componentId": "largeDotsId",
+  "spacing": "@spacingMedium"
+}

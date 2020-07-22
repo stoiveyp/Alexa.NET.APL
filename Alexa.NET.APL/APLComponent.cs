@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Alexa.NET.APL;
-using Alexa.NET.APL.Components;
 using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace Alexa.NET.Response.APL
 {
