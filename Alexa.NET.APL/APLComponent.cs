@@ -144,8 +144,8 @@ namespace Alexa.NET.Response.APL
         public APLValue<double?> Opacity { get; set; }
 
         [JsonProperty("entities", NullValueHandling = NullValueHandling.Ignore),
-         JsonConverter(typeof(GenericSingleOrListConverter<VideoSource>))]
-        public APLValue<IList<object[]>> Entities { get; set; }
+         JsonConverter(typeof(GenericSingleOrListConverter<object>))]
+        public APLValue<IList<object>> Entities { get; set; }
 
         [JsonProperty("handleTick",NullValueHandling = NullValueHandling.Ignore),
         JsonConverter(typeof(GenericSingleOrListConverter<TickHandler>))]

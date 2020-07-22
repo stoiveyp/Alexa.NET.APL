@@ -5,7 +5,7 @@
   "totalValue": 120000,
   "progressFillColor": "blue",
   "spacing": "@spacingXLarge",
-  "handleTick": [
+  "handleTick": 
     {
       "when": "${progressValue < totalValue}",
       "minimumDelay": 1000,
@@ -17,5 +17,5 @@
         }
       ]
     }
-  ]
+  
 }
