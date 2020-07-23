@@ -8,6 +8,10 @@ namespace Alexa.NET.APL
 {
     public class APLADocument:APLDocumentReference
     {
+        public APLADocument()
+        {
+            VersionString = "0.8";
+        }
         public override string Type => "APLA";
 
         [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
