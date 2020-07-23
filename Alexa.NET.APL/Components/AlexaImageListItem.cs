@@ -38,5 +38,11 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("providerText",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> ProviderText { get; set; }
+
+        [JsonProperty("hasPlayIcon",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool?> HasPlayIcon { get; set; }
+
+        [JsonProperty("imageSource", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> ImageSource { get; set; }
     }
 }
