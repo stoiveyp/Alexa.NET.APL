@@ -1,0 +1,25 @@
+{
+  "when": "${@viewportProfile == @hubRoundSmall}",
+  "type": "Container",
+  "height": "100%",
+  "width": "100%",
+  "items": [
+    {
+      "type": "AlexaSliderRadial",
+      "progressValue": "${sliderRadialExample.progressValue}",
+      "bufferValue": "${sliderRadialExample.bufferValue}",
+      "totalValue": "${sliderRadialExample.totalValue}",
+      "progressFillColor": "blue",
+      "position": "absolute"
+    },
+    {
+      "type": "Text",
+      "height": "100%",
+      "paddingLeft": "@marginHorizontal",
+      "paddingRight": "@marginHorizontal",
+      "textAlignVertical": "center",
+      "textAlign": "center",
+      "text": "${sliderRadialExample.textToShow}"
+    }
+  ]
+}

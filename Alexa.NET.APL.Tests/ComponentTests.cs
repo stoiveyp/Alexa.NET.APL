@@ -306,8 +306,13 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void Slider()
         {
-            APLComponentConverter.ThrowConversionExceptions = true;
             Utility.AssertSerialization<AlexaSlider>("AlexaSlider.json");
+        }
+
+        [Fact]
+        public void SliderRadial()
+        {
+            Utility.AssertSerialization<Container>("AlexaSliderRadial.json");
         }
 
         [Fact]

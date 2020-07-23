@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
@@ -38,6 +39,7 @@ namespace Alexa.NET.APL.Tests
 
         public static void AssertSerialization<T>(string expectedFile)
         {
+            APLComponentConverter.ThrowConversionExceptions = true;
             var obj = ExampleFileContent<T>(expectedFile);
             Assert.True(CompareJson(obj, expectedFile));
         }
