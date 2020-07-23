@@ -1,0 +1,13 @@
+{
+  "type": "Mixer",
+  "items": [
+    {
+      "type": "Speech",
+      "content": "Hello world! Hopefully these water sounds are relaxing"
+    },
+    {
+      "type": "Audio",
+      "source": "soundbank://soundlibrary/water/nature/nature_10"
+    }
+  ]
+}

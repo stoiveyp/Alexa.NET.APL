@@ -39,7 +39,7 @@ namespace Alexa.NET.APL.Tests
             var source = Assert.IsType<ObjectDataSource>(directive.DataSources["StreamPlayerData"]);
             Assert.Equal("textToHint", source.Transformers.First().Transformer);
 
-            var wrapper = Assert.IsType<TouchWrapper>(directive.Document.Layouts["TouchableBox"].Items.First());
+            var wrapper = Assert.IsType<TouchWrapper>(((APLDocumentBase)directive.Document).Layouts["TouchableBox"].Items.First());
             var container = ((Container)wrapper.Item.Value.First()).Items.Value.Skip(1).First() as Container;
             Assert.NotNull(((Container)container.Items.Value.First()).Items);
         }

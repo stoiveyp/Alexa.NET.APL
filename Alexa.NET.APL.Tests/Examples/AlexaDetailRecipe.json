@@ -1,0 +1,52 @@
+{
+  "type": "AlexaDetail",
+  "detailType": "recipe",
+  "detailImageAlignment": "right",
+  "headerTitle": "Alexa Detail header title - Recipe",
+  "headerSubtitle": "Header subtitle for the 'recipe' variant",
+  "headerBackButton": true,
+  "headerAttributionImage": "https://s3.amazonaws.com/ask-skills-assets/apl-layout-assets/attribution_dark_hub_prime.png",
+  "headerDivider": true,
+  "imageAspectRatio": "standard_portrait",
+  "imageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/md_gruyere.png",
+  "imageBlurredBackground": true,
+  "primaryText": "Primary Text",
+  "secondaryText": "Secondary text, displayed after the primary text. Details about the recipe can go here. This variant does not display any body text.",
+  "ratingSlotMode": "multiple",
+  "ratingNumber": 4.5,
+  "ratingText": "(208)",
+  "imageCaption": "Image caption",
+  "ingredientsText": "Ingredients Text",
+  "ingredientListItems": [
+    {
+      "ingredientsContentText": "First ingredient",
+      "ingredientsPrimaryAction": {
+        "type": "SendEvent",
+        "arguments": [
+          "ListItemSelected",
+          "${ordinal}"
+        ]
+      }
+    },
+    {
+      "ingredientsContentText": "Second ingredient",
+      "ingredientsPrimaryAction": {
+        "type": "SendEvent",
+        "arguments": [
+          "ListItemSelected",
+          "${ordinal}"
+        ]
+      }
+    },
+    {
+      "ingredientsContentText": "Third ingredient",
+      "ingredientsPrimaryAction": {
+        "type": "SendEvent",
+        "arguments": [
+          "ListItemSelected",
+          "${ordinal}"
+        ]
+      }
+    }
+  ]
+}

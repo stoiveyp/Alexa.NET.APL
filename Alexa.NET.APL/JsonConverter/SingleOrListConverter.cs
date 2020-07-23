@@ -68,9 +68,14 @@ namespace Alexa.NET.APL.JsonConverter
         {
             var valueList = new List<TValue>();
 
+           
             if (reader.TokenType == SingleToken)
             {
                 ReadSingle(reader, serializer, valueList);
+            }
+            else if (reader.TokenType == JsonToken.String)
+            { 
+                return APLValue.To<IList<TValue>>(reader.Value.ToString());
             }
             else
             {

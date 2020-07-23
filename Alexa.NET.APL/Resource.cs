@@ -23,14 +23,27 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("when", NullValueHandling = NullValueHandling.Ignore)]
         public string When { get; set; }
 
-        [JsonProperty("boolean",NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("booleans",NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, string> Booleans { get; set; }
+
         [JsonProperty("colors", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, string> Colors { get; set; }
+
         [JsonProperty("dimensions", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, APLDimensionValue> Dimensions { get; set; }
+
         [JsonProperty("strings", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, string> Strings { get; set; }
+
+        [JsonProperty("numbers",NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string, APLValue<int?>> Numbers { get; set; }
+
+        [JsonProperty("gradients",NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string, APLValue<APLGradient>> Gradients { get; set; }
+
+        [JsonProperty("easings",NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string,string> Easings { get; set; }
+
         [JsonProperty("resources", NullValueHandling = NullValueHandling.Ignore)]
         public IList<Resource> Resources { get; set; }
 
@@ -68,6 +81,33 @@ namespace Alexa.NET.Response.APL
                 Strings = new Dictionary<string, string>();
             }
             Strings.Add(key, expression);
+        }
+
+        public void AddNumber(string key, APLValue<int?> resource)
+        {
+            if (Numbers == null)
+            {
+                Numbers = new Dictionary<string, APLValue<int?>>();
+            }
+            Numbers.Add(key, resource);
+        }
+
+        public void AddGradient(string key, APLValue<APLGradient> gradient)
+        {
+            if (Gradients == null)
+            {
+                Gradients = new Dictionary<string, APLValue<APLGradient>>();
+            }
+            Gradients.Add(key, gradient);
+        }
+
+        public void AddEasing(string key, string expression)
+        {
+            if (Easings == null)
+            {
+                Easings = new Dictionary<string, string>();
+            }
+            Easings.Add(key, expression);
         }
 
         public void AddResource(string key, Resource resource)

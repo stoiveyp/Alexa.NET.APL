@@ -9,8 +9,5 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("tertiaryText", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> TertiaryText { get; set; }
-
-        [JsonProperty("imageSource", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> ImageSource { get; set; }
     }
 }

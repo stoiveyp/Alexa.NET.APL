@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
 {
-    public class VectorGraphic:APLComponent
+    public class VectorGraphic: TouchComponent
     {
         [JsonProperty("type")]
         public override string Type => nameof(VectorGraphic);

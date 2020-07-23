@@ -81,18 +81,6 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
-        public void SetStateWorksCorrectly()
-        {
-            var command = new SetState
-            {
-                ComponentId = "myButton",
-                State = SetStateStates.Checked,
-                Value = true
-            };
-            Assert.True(Utility.CompareJson(command, "SetStateCommand.json"));
-        }
-
-        [Fact]
         public void SetValueWorksCorrectly()
         {
             var command = new SetValue

@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Alexa.NET.APL.JsonConverter;
+using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.VectorGraphics
@@ -9,7 +8,16 @@ namespace Alexa.NET.APL.VectorGraphics
     public class AVG
     {
         [JsonProperty("type")] public string Type => nameof(AVG);
-        [JsonProperty("version")] public string Version => "1.0";
+
+        [JsonIgnore]
+        public AVGVersion Version
+        {
+            get => EnumParser.ToEnum(VersionString, AVGVersion.Unknown);
+            set => VersionString = EnumParser.ToEnumString(typeof(AVGVersion), value);
+        }
+
+        [JsonProperty("version")] public string VersionString { get; set; } = "1.1";
+
 
         [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Description { get; set; }
@@ -23,6 +31,12 @@ namespace Alexa.NET.APL.VectorGraphics
         [JsonProperty("items",NullValueHandling = NullValueHandling.Ignore),
         JsonConverter(typeof(AVGItemListConverter))]
         public APLValue<IList<IAVGItem>> Items { get; set; }
+
+        [JsonProperty("resources", NullValueHandling = NullValueHandling.Ignore)]
+        public IList<AVGResource> Resources { get; set; }
+
+        [JsonProperty("styles", NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string, Style> Styles { get; set; }
 
         [JsonProperty("parameters",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<List<AVGParameter>> Parameters { get; set; }

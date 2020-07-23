@@ -1,0 +1,25 @@
+{
+  "type": "APLA",
+  "version": "0.8",
+  "description": "More complex example that plays two speech components, one after another",
+  "mainTemplate": {
+    "parameters": [
+      "payload"
+    ],
+    "items": 
+      {
+        "type": "Sequencer",
+        "items": [
+          {
+            "type": "Speech",
+            "content": "Hello world."
+          },
+          {
+            "type": "Speech",
+            "content": "I am an Alexa device."
+          }
+        ]
+      }
+    
+  }
+}

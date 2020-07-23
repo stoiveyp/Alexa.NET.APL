@@ -1,6 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
+using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Xunit;
 
 namespace Alexa.NET.APL.Tests
 {
@@ -8,15 +12,16 @@ namespace Alexa.NET.APL.Tests
     {
         private const string ExamplesPath = "Examples";
 
-        public static bool CompareJson(object actual, string expectedFile)
+        public static bool CompareJson(object actual, string expectedFile, params string[] exclude)
         {
-            var expected = ExampleFileContent(expectedFile);
-
             var actualJObject = JObject.FromObject(actual);
+            var expected = File.ReadAllText(Path.Combine(ExamplesPath, expectedFile));
             var expectedJObject = JObject.Parse(expected);
 
             return JToken.DeepEquals(expectedJObject, actualJObject);
         }
+
+
 
         public static T ExampleFileContent<T>(string expectedFile)
         {
@@ -30,6 +35,13 @@ namespace Alexa.NET.APL.Tests
         public static string ExampleFileContent(string expectedFile)
         {
             return File.ReadAllText(Path.Combine(ExamplesPath, expectedFile).Trim());
+        }
+
+        public static void AssertSerialization<T>(string expectedFile)
+        {
+            APLComponentConverter.ThrowConversionExceptions = true;
+            var obj = ExampleFileContent<T>(expectedFile);
+            Assert.True(CompareJson(obj, expectedFile));
         }
     }
 }

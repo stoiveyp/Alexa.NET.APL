@@ -1,0 +1,21 @@
+{
+  "type": "AlexaProgressBar",
+  "progressValue": 0,
+  "bufferValue": 0,
+  "totalValue": 120000,
+  "progressFillColor": "blue",
+  "spacing": "@spacingXLarge",
+  "handleTick": 
+    {
+      "when": "${progressValue < totalValue}",
+      "minimumDelay": 1000,
+      "commands": [
+        {
+          "type": "SetValue",
+          "property": "progressValue",
+          "value": "${progressValue + 1000}"
+        }
+      ]
+    }
+  
+}

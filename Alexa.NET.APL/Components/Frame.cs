@@ -56,5 +56,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("item",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<List<APLComponent>> Item { get; set; }
+
+        [JsonProperty("borderStrokeWidth",NullValueHandling = NullValueHandling.Ignore)]
+        public APLAbsoluteDimensionValue BorderStrokeWidth { get; set; }
     }
 }

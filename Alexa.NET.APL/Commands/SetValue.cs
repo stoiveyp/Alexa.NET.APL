@@ -19,6 +19,6 @@ namespace Alexa.NET.APL.Commands
 
 
         [JsonProperty("value")]
-        public APLValue<string> Value { get; set; }
+        public APLValue<object> Value { get; set; }
     }
 }

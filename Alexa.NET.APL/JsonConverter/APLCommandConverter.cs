@@ -48,7 +48,6 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(AutoPage), typeof(AutoPage)},
             {nameof(PlayMedia), typeof(PlayMedia)},
             {nameof(ControlMedia), typeof(ControlMedia)},
-            {nameof(SetState), typeof(SetState)},
             {nameof(SetValue), typeof(SetValue)},
             {nameof(AnimateItem),typeof(AnimateItem) },
             {nameof(OpenURL),typeof(OpenURL) },

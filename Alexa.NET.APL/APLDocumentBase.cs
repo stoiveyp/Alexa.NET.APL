@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.Text;
+﻿using System.Collections.Generic;
 using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Alexa.NET.APL
 {
-    [JsonConverter(typeof(APLDocumentConverter))]
-    public abstract class APLDocumentBase
+    public abstract class APLDocumentBase:APLDocumentReference
     {
         protected APLDocumentBase()
         {
@@ -24,17 +17,15 @@ namespace Alexa.NET.APL
             Version = version;
         }
 
-        [JsonProperty("type")] public abstract string Type { get; }
-
         [JsonIgnore]
         public APLDocumentVersion Version
         {
-            get => ToEnum(VersionString);
-            set => VersionString = ToEnumString(typeof(APLDocumentVersion), value);
+            get => EnumParser.ToEnum(VersionString, APLDocumentVersion.Unknown);
+            set => VersionString = EnumParser.ToEnumString(typeof(APLDocumentVersion), value);
         }
 
-        [JsonProperty("version")]
-        public string VersionString { get; set; }
+        [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Description { get; set; }
 
         [JsonProperty("layouts", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, Layout> Layouts { get; set; }
@@ -52,29 +43,8 @@ namespace Alexa.NET.APL
         [JsonProperty("settings", NullValueHandling = NullValueHandling.Ignore)]
         public APLDocumentSettings Settings { get; set; }
 
-
-        private static string ToEnumString(System.Type enumType, object type)
-        {
-            var name = Enum.GetName(enumType, type);
-            var enumMemberAttribute = ((EnumMemberAttribute[])enumType.GetTypeInfo().GetField(name).GetCustomAttributes(typeof(EnumMemberAttribute), true)).FirstOrDefault();
-            return enumMemberAttribute?.Value ?? type.ToString();
-        }
-
-        public static APLDocumentVersion ToEnum(string str)
-        {
-            var enumType = typeof(APLDocumentVersion);
-            if (string.IsNullOrWhiteSpace(str))
-            {
-                return APLDocumentVersion.Unknown;
-            }
-
-            foreach (var name in Enum.GetNames(enumType))
-
-            {
-                var enumMemberAttribute = ((EnumMemberAttribute[])enumType.GetTypeInfo().GetField(name).GetCustomAttributes(typeof(EnumMemberAttribute), true)).FirstOrDefault();
-                if (enumMemberAttribute != null && enumMemberAttribute.Value == str) return (APLDocumentVersion)Enum.Parse(enumType, name);
-            }
-            return APLDocumentVersion.Unknown;
-        }
+        [JsonProperty("extensions",NullValueHandling = NullValueHandling.Ignore),
+            JsonConverter(typeof(GenericSingleOrListConverter<APLExtension>))]
+        public APLValue<IList<APLExtension>> Extensions { get; set; }
     }
 }

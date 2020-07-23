@@ -1,34 +1,15 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Alexa.NET.APL;
 using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace Alexa.NET.Response.APL
 {
     [JsonConverter(typeof(APLComponentConverter))]
-    public abstract class APLComponent
+    public abstract class APLComponent:APLComponentBase
     {
-        [JsonProperty("type")]
-        public abstract string Type { get; }
-
-        [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
-        public string Id { get; set; }
-
         [JsonProperty("inheritParentState", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> InheritParentState { get; set; }
-
-        [JsonProperty("bind", NullValueHandling = NullValueHandling.Ignore)]
-        public IList<Binding> Bindings { get; set; }
-
-        public bool ShouldSerializeBindings()
-        {
-            return Bindings?.Any() ?? false;
-        }
-
-        [JsonProperty("when", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool?> When { get; set; }
 
         [JsonProperty("style",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Style { get; set; }
@@ -141,5 +122,13 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("opacity", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<double?> Opacity { get; set; }
+
+        [JsonProperty("entities", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(GenericSingleOrListConverter<object>))]
+        public APLValue<IList<object>> Entities { get; set; }
+
+        [JsonProperty("handleTick",NullValueHandling = NullValueHandling.Ignore),
+        JsonConverter(typeof(GenericSingleOrListConverter<TickHandler>))]
+        public APLValue<IList<TickHandler>> HandleTick { get; set; }
     }
 }

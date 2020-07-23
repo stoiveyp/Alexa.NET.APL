@@ -20,5 +20,8 @@ namespace Alexa.NET.APL
 
         [JsonProperty("screenLock",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> ScreenLock { get; set; }
+
+        [JsonProperty("sequencer",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Sequencer { get; set; }
     }
 }

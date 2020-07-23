@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Alexa.NET.APL;
 using Alexa.NET.Response.APL;
 using Alexa.NET.Response.Converters;
@@ -13,7 +11,15 @@ namespace Alexa.NET.Response
     {
         public const string APLDirectiveType = "Alexa.Presentation.APL.RenderDocument";
         public const string APLTDirectiveType = "Alexa.Presentation.APLT.RenderDocument";
+        public const string APLADirectiveType = "Alexa.Presentation.APLA.RenderDocument";
         private static readonly object directiveadd = new object();
+
+        public RenderDocumentDirective(){}
+
+        public RenderDocumentDirective(APLDocumentReference document)
+        {
+            Document = document;
+        }
 
         public static void AddSupport()
         {
@@ -28,11 +34,23 @@ namespace Alexa.NET.Response
                 {
                     DirectiveConverter.TypeFactories.Add(APLTDirectiveType, () => new RenderDocumentDirective());
                 }
+
+                if (!DirectiveConverter.TypeFactories.ContainsKey(APLADirectiveType))
+                {
+                    DirectiveConverter.TypeFactories.Add(APLADirectiveType, () => new RenderDocumentDirective());
+                }
             }
         }
 
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-        public string Type => Document is APLTDocument ? APLTDirectiveType : APLDirectiveType;
+        public string Type => Document switch
+        {
+            APLDocument _ => APLDirectiveType,
+            APLDocumentLink _ => APLDirectiveType,
+            APLTDocument _ => APLTDirectiveType,
+            APLADocument _ => APLADirectiveType,
+            _ => string.Empty
+        };
 
         [JsonProperty("token", NullValueHandling = NullValueHandling.Ignore)]
         public string Token { get; set; }
@@ -42,9 +60,12 @@ namespace Alexa.NET.Response
         public APLTProfile? TargetProfile { get; set; }
 
         [JsonProperty("document")]
-        public APLDocumentBase Document { get; set; }
+        public APLDocumentReference Document { get; set; }
 
         [JsonProperty("datasources", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, APLDataSource> DataSources { get; set; }
+
+        [JsonProperty("sources",NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string, APLDocumentReference> Sources { get; set; }
     }
 }

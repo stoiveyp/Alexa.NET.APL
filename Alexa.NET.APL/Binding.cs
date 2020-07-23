@@ -8,7 +8,7 @@ namespace Alexa.NET.Response.APL
         public string Name { get; set; }
 
         [JsonProperty("value")]
-        public string Value { get; set; }
+        public object Value { get; set; }
 
         [JsonProperty("type")]
         public ParameterType Type { get; set; } = ParameterType.any;
@@ -17,6 +17,9 @@ namespace Alexa.NET.Response.APL
         {
             return Type != ParameterType.any;
         }
+
+        [JsonConstructor]
+        private Binding(){}
 
         public Binding(string name, string value)
         {

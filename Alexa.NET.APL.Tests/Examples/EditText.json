@@ -1,0 +1,6 @@
+{
+  "type": "EditText",
+  "style": "EditStyle",
+  "hint": "Zip code",
+  "validCharacters": "-0-9"
+}

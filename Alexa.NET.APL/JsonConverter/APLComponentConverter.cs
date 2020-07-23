@@ -10,6 +10,8 @@ namespace Alexa.NET.APL.JsonConverter
 {
     public class APLComponentConverter : Newtonsoft.Json.JsonConverter
     {
+        public static bool ThrowConversionExceptions { get; set; }
+
         public override bool CanWrite => false;
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
@@ -28,24 +30,35 @@ namespace Alexa.NET.APL.JsonConverter
                 throw new ArgumentOutOfRangeException($"Component type {componentType} not supported");
             }
 
-            if ((target is Frame || target is TouchWrapper) && jObject["items"] != null)
+            jObject.Move("gesture", "gestures");
+            jObject.Move("entity", "entities");
+
+            if (target is GridSequence)
             {
-                jObject["item"] = jObject["items"];
-                jObject.Remove("items");
+                jObject.Move("childHeight", "childHeights");
+                jObject.Move("childWidth", "childWidths");
             }
 
-            if ((target is Container || target is Pager) && jObject["item"] != null)
+            if ((target is Frame || target is TouchWrapper) && jObject["items"] != null)
             {
-                jObject["items"] = jObject["item"];
-                jObject.Remove("item");
+                jObject.Move("items", "item");
+            }
+
+            if ((target is Container || target is Pager || target is GridSequence) && jObject["item"] != null)
+            {
+                jObject.Move("item", "items");
             }
 
             try
             {
                 serializer.Populate(jObject.CreateReader(), target);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                if (ThrowConversionExceptions)
+                {
+                    throw;
+                }
             }
 
             if (target is CustomComponent custom)
@@ -87,7 +100,16 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(AlexaRating),typeof(AlexaRating) },
             {nameof(AlexaImageList),typeof(AlexaImageList) },
             {nameof(AlexaLists),typeof(AlexaLists) },
-            {nameof(AlexaPaginatedList),typeof(AlexaPaginatedList) }
+            {nameof(AlexaPaginatedList),typeof(AlexaPaginatedList) },
+            {nameof(AlexaProgressBar), typeof(AlexaProgressBar)},
+            {nameof(AlexaProgressBarRadial), typeof(AlexaProgressBarRadial)},
+            {nameof(AlexaProgressDots), typeof(AlexaProgressDots)},
+            {nameof(AlexaSlider), typeof(AlexaSlider)},
+            {nameof(AlexaSliderRadial), typeof(AlexaSliderRadial)},
+            {nameof(AlexaDetail), typeof(AlexaDetail)},
+            {nameof(AlexaGridList), typeof(AlexaGridList)},
+            {nameof(EditText), typeof(EditText)},
+            {nameof(GridSequence), typeof(GridSequence)}
         };
 
         private APLComponent GetComponent(string type)
