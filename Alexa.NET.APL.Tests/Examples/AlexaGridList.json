@@ -12,7 +12,7 @@
     "parameters": [
       "gridListData"
     ],
-    "items": [
+    "items": 
       {
         "type": "AlexaGridList",
         "headerTitle": "Header Title",
@@ -21,11 +21,11 @@
         "listItems": "${gridListData.listItemsToShow}",
         "customLayoutName": "MyListItem"
       }
-    ]
+    
   },
   "layouts": {
     "MyListItem": {
-      "items": [
+      "items": 
         {
           "type": "Container",
           "height": "100vh",
@@ -48,7 +48,7 @@
             }
           ]
         }
-      ]
+      
     }
   }
 }

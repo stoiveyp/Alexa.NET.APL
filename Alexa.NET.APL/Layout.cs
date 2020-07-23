@@ -25,7 +25,8 @@ namespace Alexa.NET.Response.APL
          JsonConverter(typeof(ParameterListConverter),true)]
         public IList<Parameter> Parameters { get; set; }
 
-        [JsonProperty("items")]
+        [JsonProperty("items"), 
+        JsonConverter(typeof(APLComponentListConverter))]
         public IList<APLComponent> Items { get; set; }
 
         public Layout AsMain(string dataSourceKey = "payload")

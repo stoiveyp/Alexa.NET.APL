@@ -8,7 +8,7 @@
       "parameters": [
         "payload"
       ],
-      "item": {
+      "items": {
         "type": "Selector",
         "items": [
           {

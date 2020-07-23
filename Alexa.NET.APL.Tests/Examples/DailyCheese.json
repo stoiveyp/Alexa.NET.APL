@@ -137,7 +137,7 @@
 
       "payload"
     ],
-    "items": [
+    "items": 
       {
         "type": "Container",
         "height": "100vh",
@@ -174,6 +174,6 @@
           }
         ]
       }
-    ]
+    
   }
 }
