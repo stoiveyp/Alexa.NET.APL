@@ -26,7 +26,7 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> FontFamily { get; set; }
 
         [JsonProperty("fontSize",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> FontSize { get; set; }
+        public APLValue<int?> FontSize { get; set; }
 
         [JsonProperty("fontStyle",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> FontStyle { get; set; }

@@ -40,15 +40,13 @@ namespace Alexa.NET.APL.JsonConverter
 
         private IAVGItem GetFilter(string type)
         {
-            switch (type)
+            return type switch
             {
-                case "path":
-                    return new AVGPath();
-                case "group":
-                    return new AVGGroup();
-                default:
-                    return null;
-            }
+                "path" => new AVGPath(),
+                "group" => new AVGGroup(),
+                "text" => new AVGText(),
+                _ => null
+            };
         }
 
         public override bool CanConvert(Type objectType)

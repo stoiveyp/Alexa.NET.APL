@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
 using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
@@ -24,8 +20,8 @@ namespace Alexa.NET.APL
         [JsonIgnore]
         public APLDocumentVersion Version
         {
-            get => ToEnum(VersionString);
-            set => VersionString = ToEnumString(typeof(APLDocumentVersion), value);
+            get => EnumParser.ToEnum(VersionString, APLDocumentVersion.Unknown);
+            set => VersionString = EnumParser.ToEnumString(typeof(APLDocumentVersion), value);
         }
 
         [JsonProperty("version")]
@@ -50,29 +46,5 @@ namespace Alexa.NET.APL
         [JsonProperty("extensions",NullValueHandling = NullValueHandling.Ignore),
             JsonConverter(typeof(GenericSingleOrListConverter<APLExtension>))]
         public APLValue<IList<APLExtension>> Extensions { get; set; }
-
-        private static string ToEnumString(System.Type enumType, object type)
-        {
-            var name = Enum.GetName(enumType, type);
-            var enumMemberAttribute = ((EnumMemberAttribute[])enumType.GetTypeInfo().GetField(name).GetCustomAttributes(typeof(EnumMemberAttribute), true)).FirstOrDefault();
-            return enumMemberAttribute?.Value ?? type.ToString();
-        }
-
-        public static APLDocumentVersion ToEnum(string str)
-        {
-            var enumType = typeof(APLDocumentVersion);
-            if (string.IsNullOrWhiteSpace(str))
-            {
-                return APLDocumentVersion.Unknown;
-            }
-
-            foreach (var name in Enum.GetNames(enumType))
-
-            {
-                var enumMemberAttribute = ((EnumMemberAttribute[])enumType.GetTypeInfo().GetField(name).GetCustomAttributes(typeof(EnumMemberAttribute), true)).FirstOrDefault();
-                if (enumMemberAttribute != null && enumMemberAttribute.Value == str) return (APLDocumentVersion)Enum.Parse(enumType, name);
-            }
-            return APLDocumentVersion.Unknown;
-        }
     }
 }
