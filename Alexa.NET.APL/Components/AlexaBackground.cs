@@ -7,29 +7,10 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
 {
-    public class AlexaBackground : APLComponent
+    public class AlexaBackground : ResponsiveTemplate
     {
         [JsonProperty("type")]
         public override string Type => nameof(AlexaBackground);
-
-        [JsonProperty("backgroundAlign", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> BackgroundAlign { get; set; }
-
-        [JsonProperty("backgroundBlur", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool?> BackgroundBlur { get; set; }
-
-        [JsonProperty("backgroundColor", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> BackgroundColor { get; set; }
-
-        [JsonProperty("backgroundImageSource", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> BackgroundImageSource { get; set; }
-
-        [JsonProperty("backgroundVideoSource", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<VideoSource> BackgroundVideoSource { get; set; }
-
-        [JsonProperty("backgroundScale", NullValueHandling = NullValueHandling.Ignore),
-        JsonConverter(typeof(APLValueEnumConverter<Scale>))]
-        public APLValue<Scale> BackgroundScale { get; set; }
 
         [JsonProperty("colorOverlay", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> ColorOverlay { get; set; }

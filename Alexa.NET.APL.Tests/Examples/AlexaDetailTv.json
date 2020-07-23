@@ -1,0 +1,37 @@
+{
+  "type": "AlexaDetail",
+  "detailType": "moviesTV",
+  "detailImageAlignment": "right",
+  "headerTitle": "Alexa Detail header title - Movies and TV",
+  "headerSubtitle": "Header subtitle for the 'moviesTV' variant",
+  "headerBackButton": true,
+  "headerAttributionImage": "https://s3.amazonaws.com/ask-skills-assets/apl-layout-assets/attribution_dark_hub_prime.png",
+  "headerDivider": true,
+  "backgroundColor": "@colorPurple800",
+  "imageAspectRatio": "standard_portrait",
+  "imageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/MollyforBT7.png",
+  "imageBlurredBackground": true,
+  "primaryText": "Primary Text",
+  "secondaryText": "Secondary text, displayed after the primary text",
+  "tertiaryText": "1hr 38 min",
+  "quaternaryText": "Quaternary text, displayed after the tertiary text.",
+  "ratingGraphicType": "image",
+  "ratingSlotPadding": "2dp",
+  "ratingSlotMode": "single",
+  "singleRatingGraphicWidth": "40dp",
+  "singleRatingGraphic": "https://ask-skills-assets.s3.amazonaws.com/apl-layout-assets/rating-pg.png",
+  "button1Text": "Button 1",
+  "button1Style": "outlined",
+  "button1PrimaryAction": 
+    {
+      "type": "SendEvent",
+      "arguments": [
+        "button1Pressed",
+        "Send this data to the skill",
+        "Data from the movies&TV example!"
+      ]
+    }
+  ,
+  "imageCaption": "Image caption",
+  "bodyText": "Body text. Note that this example uses a custom graphic to display 'PG' as a rating. Then the <code>tertiaryText</code> property displays the movie duration. The example also includes just button 1, rather than both buttons. The example uses the \"standard_portrait\" aspect ratio for the image."
+}

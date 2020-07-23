@@ -316,6 +316,18 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void AlexaDetailRecipe()
+        {
+            Utility.AssertSerialization<AlexaDetail>("AlexaDetailRecipe.json");
+        }
+
+        [Fact]
+        public void AlexaDetailTv()
+        {
+            Utility.AssertSerialization<AlexaDetail>("AlexaDetailTv.json");
+        }
+
+        [Fact]
         public void DictionaryBindingTest()
         {
             var rawContainer = new Container
