@@ -27,7 +27,7 @@ namespace Alexa.NET.APL.Audio
         public IList<Parameter> Parameters { get; set; }
 
         [JsonProperty("items"),
-         JsonConverter(typeof(APLAComponentListConverter))]
+         JsonConverter(typeof(APLAComponentListConverter), true)]
         public IList<APLAComponent> Items { get; set; }
 
         public AudioLayout AsMain(string dataSourceKey = "payload")

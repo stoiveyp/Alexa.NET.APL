@@ -42,6 +42,36 @@ Instead we've contributed to the core Alexa.NET library to enable the JSONDirect
   directive.Properties.Add("document",aplDocumentJson);
 ```
 
+## Create an audio document from scratch
+As of v6 Alexa.NET.APL now supports APL for Audio
+```csharp
+var lyrics = new Speech { Content = "Row, row row your boat, gently down the stream. Merrily merrily merrily merrily life is but a dream" };
+ skillResponse.Response.Directives.Add(new RenderDocumentDirective(new APLADocument
+            {
+                MainTemplate = new AudioLayout(
+                    new Mixer
+                    {
+                        Items = new List<APLAComponent>{
+                            lyrics,
+                            new Sequencer
+                            {
+                                Items = new List<APLAComponent>{
+                                new Silence{Duration = 1500},
+                                lyrics
+                                }
+                            },
+                            new Sequencer
+                            {
+                            Items = new List<APLAComponent>{
+                            new Silence{Duration = 3000},
+                        lyrics
+                    }
+            }
+                    }
+                    })
+            }));
+```
+
 ## Creating a Layout Document from scratch
 Alexa.NET.APL has a set of APL components so that creating layouts is entirely within the C# object model
 All properties are of Type `APLValue&lt;T&gt;` - which allows you to specify an absolute value or an APL data binding expression for each property
