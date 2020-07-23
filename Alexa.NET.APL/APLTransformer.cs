@@ -10,6 +10,12 @@ namespace Alexa.NET.APL
     {
         public APLTransformer() { }
 
+        public APLTransformer(string transformerType, string outputName)
+        {
+            Transformer = transformerType;
+            OutputName = outputName;
+        }
+
         public APLTransformer(string transformerType, string inputPath, string outputName)
         {
             Transformer = transformerType;
@@ -17,7 +23,7 @@ namespace Alexa.NET.APL
             OutputName = outputName;
         }
 
-        [JsonProperty("inputPath")]
+        [JsonProperty("inputPath", NullValueHandling = NullValueHandling.Ignore)]
         public string InputPath { get; set; }
 
         [JsonProperty("outputName",NullValueHandling = NullValueHandling.Ignore)]
@@ -25,6 +31,9 @@ namespace Alexa.NET.APL
 
         [JsonProperty("transformer")]
         public string Transformer { get; set; }
+
+        [JsonProperty("template",NullValueHandling = NullValueHandling.Ignore)]
+        public string Template { get; set; }
 
         public static APLTransformer SsmlToSpeech(string inputPath, string outputName)
         {
@@ -44,6 +53,11 @@ namespace Alexa.NET.APL
         public static APLTransformer TextToSpeech(string inputPath, string outputName)
         {
             return new APLTransformer("textToSpeech",inputPath,outputName);
+        }
+
+        public static APLTransformer AplAudioToSpeech(string template, string outputName)
+        {
+            return new APLTransformer("aplAudioToSpeech", outputName){Template=template};
         }
     }
 }
