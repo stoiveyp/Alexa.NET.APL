@@ -30,7 +30,12 @@ var shape = input.Context.Viewport?.Shape;
 
 ## If you already have a JSON Layout
 If you've used the Alexa designer to generate your APL and just want to send it exactly as-is in the response, we recommend not using the strongly typed APLDocument and RenderDocumentDirective.
+###If the APL is stored in the authoring tool - link directly
+```csharp
+var directive = new RenderDocumentDirective(new APLDocumentLink("doc://alexa/apl/documents/<document-name>"));
+```
 
+###If your APL is stored elsewhere
 Instead we've contributed to the core Alexa.NET library to enable the JSONDirective type, which saves on the extra processing and complexity of converting to and from an object model for no added benefit.
 ```csharp
   var directive = new JsonDirective(RenderDocumentDirective.APLDirectiveType);

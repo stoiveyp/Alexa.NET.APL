@@ -160,6 +160,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void RenderDocumentLink()
         {
+            
             Utility.AssertSerialization<RenderDocumentDirective>("RenderDocumentLink.json");
         }
 

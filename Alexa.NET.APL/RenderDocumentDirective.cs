@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Alexa.NET.APL;
 using Alexa.NET.Response.APL;
 using Alexa.NET.Response.Converters;
@@ -14,6 +12,13 @@ namespace Alexa.NET.Response
         public const string APLDirectiveType = "Alexa.Presentation.APL.RenderDocument";
         public const string APLTDirectiveType = "Alexa.Presentation.APLT.RenderDocument";
         private static readonly object directiveadd = new object();
+
+        public RenderDocumentDirective(){}
+
+        public RenderDocumentDirective(APLDocumentReference document)
+        {
+            Document = document;
+        }
 
         public static void AddSupport()
         {
@@ -32,7 +37,13 @@ namespace Alexa.NET.Response
         }
 
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-        public string Type => Document is APLTDocument ? APLTDirectiveType : APLDirectiveType;
+        public string Type => Document switch
+        {
+            APLDocument _ => APLDirectiveType,
+            APLDocumentLink _ => APLDirectiveType,
+            APLTDocument _ => APLTDirectiveType,
+            _ => string.Empty
+        };
 
         [JsonProperty("token", NullValueHandling = NullValueHandling.Ignore)]
         public string Token { get; set; }
