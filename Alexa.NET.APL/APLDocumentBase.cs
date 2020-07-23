@@ -47,6 +47,9 @@ namespace Alexa.NET.APL
         [JsonProperty("settings", NullValueHandling = NullValueHandling.Ignore)]
         public APLDocumentSettings Settings { get; set; }
 
+        [JsonProperty("extensions",NullValueHandling = NullValueHandling.Ignore),
+            JsonConverter(typeof(GenericSingleOrListConverter<APLExtension>))]
+        public APLValue<IList<APLExtension>> Extensions { get; set; }
 
         private static string ToEnumString(System.Type enumType, object type)
         {
