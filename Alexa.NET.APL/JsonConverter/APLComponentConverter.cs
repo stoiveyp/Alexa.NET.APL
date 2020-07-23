@@ -33,12 +33,18 @@ namespace Alexa.NET.APL.JsonConverter
             jObject.Move("gesture", "gestures");
             jObject.Move("entity", "entities");
 
+            if (target is GridSequence)
+            {
+                jObject.Move("childHeight", "childHeights");
+                jObject.Move("childWidth", "childWidths");
+            }
+
             if ((target is Frame || target is TouchWrapper) && jObject["items"] != null)
             {
                 jObject.Move("items", "item");
             }
 
-            if ((target is Container || target is Pager) && jObject["item"] != null)
+            if ((target is Container || target is Pager || target is GridSequence) && jObject["item"] != null)
             {
                 jObject.Move("item", "items");
             }
@@ -101,7 +107,9 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(AlexaSlider), typeof(AlexaSlider)},
             {nameof(AlexaSliderRadial), typeof(AlexaSliderRadial)},
             {nameof(AlexaDetail), typeof(AlexaDetail)},
-            {nameof(AlexaGridList), typeof(AlexaGridList)}
+            {nameof(AlexaGridList), typeof(AlexaGridList)},
+            {nameof(EditText), typeof(EditText)},
+            {nameof(GridSequence), typeof(GridSequence)}
         };
 
         private APLComponent GetComponent(string type)

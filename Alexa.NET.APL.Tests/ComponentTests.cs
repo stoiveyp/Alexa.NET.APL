@@ -334,6 +334,18 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void EditText()
+        {
+            Utility.AssertSerialization<EditText>("EditText.json");
+        }
+
+        [Fact]
+        public void GridSequence()
+        {
+            Utility.AssertSerialization<GridSequence>("GridSequence.json");
+        }
+
+        [Fact]
         public void DictionaryBindingTest()
         {
             var rawContainer = new Container
