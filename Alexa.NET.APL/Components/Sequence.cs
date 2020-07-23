@@ -42,5 +42,8 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("onScroll", NullValueHandling = NullValueHandling.Ignore),
          JsonConverter(typeof(APLCommandListConverter))]
         public APLValue<IList<APLCommand>> OnScroll { get; set; }
+
+        [JsonProperty("scaling",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<int?> Scaling { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
@@ -46,6 +47,19 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("numbered",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> Numbered { get; set; }
 
+        [JsonProperty("wrap",NullValueHandling = NullValueHandling.Ignore),
+            JsonConverter(typeof(APLValueEnumConverter<ContainerWrap>))]
+        public APLValue<ContainerWrap?> Wrap { get; set; }
 
+    }
+
+    public enum ContainerWrap
+    {
+        [EnumMember(Value="wrapReverse")]
+        WrapReverse,
+        [EnumMember(Value="noWrap")]
+        NoWrap,
+        [EnumMember(Value="wrap")]
+        Wrap
     }
 }
