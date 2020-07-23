@@ -46,30 +46,30 @@ Instead we've contributed to the core Alexa.NET library to enable the JSONDirect
 As of v6 Alexa.NET.APL now supports APL for Audio
 ```csharp
 var lyrics = new Speech { Content = "Row, row row your boat, gently down the stream. Merrily merrily merrily merrily life is but a dream" };
- skillResponse.Response.Directives.Add(new RenderDocumentDirective(new APLADocument
+new APLADocument
+    {
+        MainTemplate = new AudioLayout(
+            new Mixer
             {
-                MainTemplate = new AudioLayout(
-                    new Mixer
+                Items = new List<APLAComponent>{
+                    lyrics,
+                    new Sequencer
                     {
                         Items = new List<APLAComponent>{
-                            lyrics,
-                            new Sequencer
-                            {
-                                Items = new List<APLAComponent>{
-                                new Silence{Duration = 1500},
-                                lyrics
-                                }
-                            },
-                            new Sequencer
-                            {
-                            Items = new List<APLAComponent>{
+                            new Silence{Duration = 1500},
+                            lyrics
+                        }
+                    },
+                    new Sequencer
+                    {
+                        Items = new List<APLAComponent>{
                             new Silence{Duration = 3000},
-                        lyrics
+                            lyrics
+                        }
                     }
-            }
-                    }
-                    })
-            }));
+                }
+            })
+    };
 ```
 
 ## Creating a Layout Document from scratch
