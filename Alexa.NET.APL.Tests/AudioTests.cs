@@ -24,7 +24,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void Audio()
         {
-            Utility.AssertSerialization<Audio.Audio>("Audio_Audio.json");
+            Utility.AssertSerialization<Audio.Audio>("Audio_AudioFilters.json");
         }
 
         [Fact]

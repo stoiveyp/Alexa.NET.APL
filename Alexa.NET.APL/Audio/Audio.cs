@@ -1,4 +1,6 @@
-﻿using Alexa.NET.Response.APL;
+﻿using System.Collections.Generic;
+using Alexa.NET.APL.JsonConverter;
+using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Audio
@@ -9,5 +11,9 @@ namespace Alexa.NET.APL.Audio
 
         [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Source { get; set; }
+
+        [JsonProperty("filter", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLAFilterListConverter))]
+        public APLValue<IList<APLAFilter>> Filters { get; set; }
     }
 }

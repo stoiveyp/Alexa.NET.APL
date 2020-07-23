@@ -1,0 +1,27 @@
+{
+  "type": "Audio",
+  "source": "https://amazon.com/rainforestSoundEffect.mp3",
+  "filter": [
+    {
+      "type": "Trim",
+      "start": 2000,
+      "end": 9000
+    },
+    {
+      "type": "FadeIn",
+      "duration": 2000
+    },
+    {
+      "type": "FadeOut",
+      "duration": 2000
+    },
+    {
+      "type": "Volume",
+      "amount": "50%"
+    },
+    {
+      "type": "Volume",
+      "amount": 0.5
+    }
+  ]
+}
