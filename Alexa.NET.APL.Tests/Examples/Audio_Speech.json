@@ -1,0 +1,5 @@
+{
+  "type": "Speech",
+  "contentType": "SSML",
+  "content": "<speak><amazon:effect name='whispered'>Hello user!</amazon:effect></speak>"
+}

@@ -11,6 +11,7 @@ namespace Alexa.NET.Response
     {
         public const string APLDirectiveType = "Alexa.Presentation.APL.RenderDocument";
         public const string APLTDirectiveType = "Alexa.Presentation.APLT.RenderDocument";
+        public const string APLADirectiveType = "Alexa.Presentation.APLA.RenderDocument";
         private static readonly object directiveadd = new object();
 
         public RenderDocumentDirective(){}
@@ -33,6 +34,11 @@ namespace Alexa.NET.Response
                 {
                     DirectiveConverter.TypeFactories.Add(APLTDirectiveType, () => new RenderDocumentDirective());
                 }
+
+                if (!DirectiveConverter.TypeFactories.ContainsKey(APLADirectiveType))
+                {
+                    DirectiveConverter.TypeFactories.Add(APLADirectiveType, () => new RenderDocumentDirective());
+                }
             }
         }
 
@@ -42,6 +48,7 @@ namespace Alexa.NET.Response
             APLDocument _ => APLDirectiveType,
             APLDocumentLink _ => APLDirectiveType,
             APLTDocument _ => APLTDirectiveType,
+            APLADocument _ => APLADirectiveType,
             _ => string.Empty
         };
 

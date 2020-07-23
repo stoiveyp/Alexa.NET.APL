@@ -1,0 +1,32 @@
+{
+  "type": "Alexa.Presentation.APLA.RenderDocument",
+  "token": "developer-provided-string",
+  "document": {
+    "version": "0.8",
+    "type": "APLA",
+    "mainTemplate": {
+      "parameters": [
+        "payload"
+      ],
+      "item": {
+        "type": "Selector",
+        "items": [
+          {
+            "type": "Speech",
+            "when": "${payload.user.name == ''}",
+            "content": "Hello!"
+          },
+          {
+            "type": "Speech",
+            "content": "Hi ${payload.user.name}!"
+          }
+        ]
+      }
+    }
+  },
+  "datasources": {
+    "user": {
+      "name": "John"
+    }
+  }
+}

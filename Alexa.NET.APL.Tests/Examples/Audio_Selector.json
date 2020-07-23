@@ -1,0 +1,17 @@
+{
+  "type": "Selector",
+  "items": [
+    {
+      "type": "Speech",
+      "when": "${environment.alexaLocale == 'en-US'}",
+      "contentType": "PlainText",
+      "content": "Hello!"
+    },
+    {
+      "type": "Speech",
+      "when": "${environment.alexaLocale == 'es-ES'}",
+      "contentType": "SSML",
+      "content": "<speak><voice name='Conchita'>Hola!</voice></speak>"
+    }
+  ]
+}

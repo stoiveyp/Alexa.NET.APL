@@ -35,9 +35,5 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("item", NullValueHandling = NullValueHandling.Ignore),
         JsonConverter(typeof(APLComponentListConverter))]
         public APLValue<IList<APLComponent>> Item { get; set; }
-
-        [JsonProperty("onPress", NullValueHandling = NullValueHandling.Ignore),
-        JsonConverter(typeof(APLCommandListConverter))]
-        public APLValue<IList<APLCommand>> OnPress { get; set; }
     }
 }

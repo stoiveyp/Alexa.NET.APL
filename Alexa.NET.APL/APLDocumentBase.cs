@@ -24,8 +24,8 @@ namespace Alexa.NET.APL
             set => VersionString = EnumParser.ToEnumString(typeof(APLDocumentVersion), value);
         }
 
-        [JsonProperty("version")]
-        public string VersionString { get; set; }
+        [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Description { get; set; }
 
         [JsonProperty("layouts", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, Layout> Layouts { get; set; }

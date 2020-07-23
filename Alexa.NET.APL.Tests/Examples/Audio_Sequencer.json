@@ -1,0 +1,15 @@
+{
+  "type": "Sequencer",
+  "items": [
+    {
+      "type": "Speech",
+      "contentType": "PlainText",
+      "content": "Hello world!"
+    },
+    {
+      "type": "Speech",
+      "contentType": "PlainText",
+      "content": "What time is it?"
+    }
+  ]
+}

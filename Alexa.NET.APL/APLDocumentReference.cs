@@ -8,5 +8,8 @@ namespace Alexa.NET.APL
     {
         [JsonProperty("type")]
         public abstract string Type { get; }
+
+        [JsonProperty("version", NullValueHandling = NullValueHandling.Ignore)]
+        public string VersionString { get; set; }
     }
 }

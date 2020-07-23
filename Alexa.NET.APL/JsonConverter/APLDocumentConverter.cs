@@ -32,6 +32,10 @@ namespace Alexa.NET.APL.JsonConverter
                     var aplt = new APLTDocument();
                     serializer.Populate(jObject.CreateReader(), aplt);
                     return aplt;
+                case "APLA":
+                    var apla = new APLADocument();
+                    serializer.Populate(jObject.CreateReader(), apla);
+                    return apla;
                 case "LINK":
                     var link = new APLDocumentLink();
                     serializer.Populate(jObject.CreateReader(), link);
