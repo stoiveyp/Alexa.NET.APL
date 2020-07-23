@@ -19,7 +19,7 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("progressBarType",NullValueHandling = NullValueHandling.Ignore),
         JsonConverter(typeof(APLValueEnumConverter<ProgressBarType>))]
-        public APLValue<ProgressBarType> ProgressBarType { get; set; }
+        public APLValue<ProgressBarType?> ProgressBarType { get; set; }
 
         [JsonProperty("progressFillColor",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> ProgressFillColor { get; set; }

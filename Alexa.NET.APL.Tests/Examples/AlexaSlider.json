@@ -1,0 +1,42 @@
+{
+  "type": "AlexaSlider",
+  "sliderId": "Slider",
+  "progressValue": 0,
+  "totalValue": 100000,
+  "sliderMoveMillisecond": 10000,
+  "progressFillColor": "red",
+  "thumbColor": "green",
+  "positionPropertyName": "Thumbposition",
+  "thumbDisplayedAllStates": true,
+  "metadataDisplayed": true,
+  "onMoveCommand": {
+    "type": "SetValue",
+    "property": "handlerName",
+    "value": "onMove"
+  },
+  "onUpCommand": {
+    "type": "SetValue",
+    "property": "handlerName",
+    "value": "onUp"
+  },
+  "onDownCommand": {
+    "type": "SetValue",
+    "property": "handlerName",
+    "value": "onDown"
+  },
+  "onFocusCommand": {
+    "type": "SetValue",
+    "property": "handlerName",
+    "value": "onFocus"
+  },
+  "onBlurCommand": {
+    "type": "SetValue",
+    "property": "handlerName",
+    "value": "onBlur"
+  },
+  "handleKeyDownCommand": {
+    "type": "SetValue",
+    "property": "handlerName",
+    "value": "handleKeyDown"
+  }
+}

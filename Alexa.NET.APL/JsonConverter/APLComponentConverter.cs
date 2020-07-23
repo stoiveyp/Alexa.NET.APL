@@ -10,6 +10,8 @@ namespace Alexa.NET.APL.JsonConverter
 {
     public class APLComponentConverter : Newtonsoft.Json.JsonConverter
     {
+        public static bool ThrowConversionExceptions { get; set; }
+
         public override bool CanWrite => false;
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
@@ -28,22 +30,17 @@ namespace Alexa.NET.APL.JsonConverter
                 throw new ArgumentOutOfRangeException($"Component type {componentType} not supported");
             }
 
-            if(jObject["entity"] != null)
-            {
-                jObject["entities"] = jObject["entity"];
-                jObject.Remove("entity");
-            }
+            jObject.Move("gesture", "gestures");
+            jObject.Move("entity", "entities");
 
             if ((target is Frame || target is TouchWrapper) && jObject["items"] != null)
             {
-                jObject["item"] = jObject["items"];
-                jObject.Remove("items");
+                jObject.Move("items", "item");
             }
 
             if ((target is Container || target is Pager) && jObject["item"] != null)
             {
-                jObject["items"] = jObject["item"];
-                jObject.Remove("item");
+                jObject.Move("item", "items");
             }
 
             try
@@ -52,6 +49,10 @@ namespace Alexa.NET.APL.JsonConverter
             }
             catch (Exception ex)
             {
+                if (ThrowConversionExceptions)
+                {
+                    throw;
+                }
             }
 
             if (target is CustomComponent custom)
@@ -97,6 +98,7 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(AlexaProgressBar), typeof(AlexaProgressBar)},
             {nameof(AlexaProgressBarRadial), typeof(AlexaProgressBarRadial)},
             {nameof(AlexaProgressDots), typeof(AlexaProgressDots)},
+            {nameof(AlexaSlider), typeof(AlexaSlider)}
         };
 
         private APLComponent GetComponent(string type)

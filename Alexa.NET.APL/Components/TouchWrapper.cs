@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
 {
-    public class TouchWrapper : ActionableComponent
+    public class TouchWrapper : TouchComponent
     {
         public TouchWrapper()
         {
@@ -32,8 +32,9 @@ namespace Alexa.NET.APL.Components
         public override string Type => nameof(TouchWrapper);
 
 
-        [JsonProperty("item", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLComponent>> Item { get; set; }
+        [JsonProperty("item", NullValueHandling = NullValueHandling.Ignore),
+        JsonConverter(typeof(APLComponentListConverter))]
+        public APLValue<IList<APLComponent>> Item { get; set; }
 
         [JsonProperty("onPress", NullValueHandling = NullValueHandling.Ignore),
         JsonConverter(typeof(APLCommandListConverter))]

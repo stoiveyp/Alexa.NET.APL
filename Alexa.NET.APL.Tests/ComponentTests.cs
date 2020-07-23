@@ -5,6 +5,7 @@ using Alexa.NET.APL.Commands;
 using Alexa.NET.APL.Components;
 using Alexa.NET.APL.DataSources;
 using Alexa.NET.APL.Filters;
+using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response;
 using Alexa.NET.Response.APL;
 using Alexa.NET.Response.Directive;
@@ -300,6 +301,13 @@ namespace Alexa.NET.APL.Tests
         public void ProgressDots()
         {
             Utility.AssertSerialization<AlexaProgressDots>("AlexaProgressDots.json");
+        }
+
+        [Fact]
+        public void Slider()
+        {
+            APLComponentConverter.ThrowConversionExceptions = true;
+            Utility.AssertSerialization<AlexaSlider>("AlexaSlider.json");
         }
 
         [Fact]
