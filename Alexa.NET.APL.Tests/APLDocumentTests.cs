@@ -157,7 +157,11 @@ namespace Alexa.NET.APL.Tests
             Assert.IsType<DynamicIndexList>(source);
         }
 
-
+        [Fact]
+        public void RenderDocumentLink()
+        {
+            Utility.AssertSerialization<RenderDocumentDirective>("RenderDocumentLink.json");
+        }
 
         private APLDocument GetDocument(APLDocumentVersion? version = null)
         {

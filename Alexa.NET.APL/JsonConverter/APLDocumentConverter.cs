@@ -7,32 +7,35 @@ using Newtonsoft.Json.Linq;
 
 namespace Alexa.NET.APL.JsonConverter
 {
-    public class APLDocumentConverter:JsonConverter<APLDocumentBase>
+    public class APLDocumentConverter:JsonConverter<APLDocumentReference>
     {
         public override bool CanWrite => false;
 
-        public override void WriteJson(JsonWriter writer, APLDocumentBase value, JsonSerializer serializer)
+        public override void WriteJson(JsonWriter writer, APLDocumentReference value, JsonSerializer serializer)
         {
             throw new NotImplementedException();
         }
 
-        public override APLDocumentBase ReadJson(JsonReader reader, Type objectType, APLDocumentBase existingValue, bool hasExistingValue,
+        public override APLDocumentReference ReadJson(JsonReader reader, Type objectType, APLDocumentReference existingValue, bool hasExistingValue,
             JsonSerializer serializer)
         {
             var jObject = JObject.Load(reader);
             var documentType = jObject.Value<string>("type");
-            if (documentType == "APL")
-            {
-                var apl = new APLDocument();
-                serializer.Populate(jObject.CreateReader(), apl);
-                return apl;
-            }
 
-            if(documentType == "APLT")
+            switch (documentType.ToUpper())
             {
-                var aplt = new APLTDocument();
-                serializer.Populate(jObject.CreateReader(), aplt);
-                return aplt;
+                case "APL":
+                    var apl = new APLDocument();
+                    serializer.Populate(jObject.CreateReader(), apl);
+                    return apl;
+                case "APLT":
+                    var aplt = new APLTDocument();
+                    serializer.Populate(jObject.CreateReader(), aplt);
+                    return aplt;
+                case "LINK":
+                    var link = new APLDocumentLink();
+                    serializer.Populate(jObject.CreateReader(), link);
+                    return link;
             }
 
             throw new InvalidOperationException($"Unknown APL Document type {documentType}");

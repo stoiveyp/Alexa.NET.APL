@@ -1,0 +1,8 @@
+{
+  "type": "Alexa.Presentation.APL.RenderDocument",
+  "token": "helloworld-by-link",
+  "document": {
+    "src": "doc://alexa/apl/documents/helloworld-by-link",
+    "type": "Link"
+  }
+}

@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
-using System.Text;
 using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Alexa.NET.APL
 {
-    [JsonConverter(typeof(APLDocumentConverter))]
-    public abstract class APLDocumentBase
+    public abstract class APLDocumentBase:APLDocumentReference
     {
         protected APLDocumentBase()
         {
@@ -23,8 +20,6 @@ namespace Alexa.NET.APL
         {
             Version = version;
         }
-
-        [JsonProperty("type")] public abstract string Type { get; }
 
         [JsonIgnore]
         public APLDocumentVersion Version

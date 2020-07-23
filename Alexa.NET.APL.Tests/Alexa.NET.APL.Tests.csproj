@@ -80,6 +80,9 @@
     <None Update="Examples\Commands.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="Examples\RenderDocumentLink.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="Examples\DailyCheese.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
