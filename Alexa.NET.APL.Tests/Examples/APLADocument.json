@@ -6,7 +6,7 @@
     "parameters": [
       "payload"
     ],
-    "items": 
+    "items": [
       {
         "type": "Sequencer",
         "items": [
@@ -20,6 +20,6 @@
           }
         ]
       }
-    
+    ]
   }
 }

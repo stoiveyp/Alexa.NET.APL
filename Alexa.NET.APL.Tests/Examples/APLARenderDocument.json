@@ -8,20 +8,22 @@
       "parameters": [
         "payload"
       ],
-      "items": {
-        "type": "Selector",
-        "items": [
-          {
-            "type": "Speech",
-            "when": "${payload.user.name == ''}",
-            "content": "Hello!"
-          },
-          {
-            "type": "Speech",
-            "content": "Hi ${payload.user.name}!"
-          }
-        ]
-      }
+      "items": [
+        {
+          "type": "Selector",
+          "items": [
+            {
+              "type": "Speech",
+              "when": "${payload.user.name == ''}",
+              "content": "Hello!"
+            },
+            {
+              "type": "Speech",
+              "content": "Hi ${payload.user.name}!"
+            }
+          ]
+        }
+      ]
     }
   },
   "datasources": {
