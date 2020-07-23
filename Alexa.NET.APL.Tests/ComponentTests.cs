@@ -328,6 +328,12 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void AlexaGridList()
+        {
+            Utility.AssertSerialization<APLDocument>("AlexaGridList.json");
+        }
+
+        [Fact]
         public void DictionaryBindingTest()
         {
             var rawContainer = new Container
