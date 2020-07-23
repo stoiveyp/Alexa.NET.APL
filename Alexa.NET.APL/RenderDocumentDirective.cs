@@ -64,5 +64,8 @@ namespace Alexa.NET.Response
 
         [JsonProperty("datasources", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, APLDataSource> DataSources { get; set; }
+
+        [JsonProperty("sources",NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string, APLDocumentReference> Sources { get; set; }
     }
 }
