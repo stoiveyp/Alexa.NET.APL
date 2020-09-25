@@ -166,3 +166,10 @@ var sendEvent = new ExecuteCommandsDirective("token",new []
     }
 });
 ```
+
+## Enable Motion Support
+```csharp
+backExtension = new BackStack("Back");
+aplDocument.Extensions.Add(backExtension);
+aplDocument.Settings.Add(backExtension.Name,new BackStackSettings{BackStackId="myDocument"});
+```
