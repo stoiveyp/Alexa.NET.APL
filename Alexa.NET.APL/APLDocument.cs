@@ -32,7 +32,7 @@ namespace Alexa.NET.Response.APL
         public APLValue<IList<APLKeyboardHandler>> HandleKeyUp { get; set; }
 
         [JsonProperty("theme", NullValueHandling = NullValueHandling.Ignore), JsonConverter(typeof(StringEnumConverter))]
-        public ViewportTheme Theme { get; set; }
+        public ViewportTheme? Theme { get; set; }
 
         [JsonProperty("import", NullValueHandling = NullValueHandling.Ignore)]
         public IList<Import> Imports { get; set; }

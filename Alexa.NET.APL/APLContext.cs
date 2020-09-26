@@ -5,13 +5,18 @@ namespace Alexa.NET.APL
 {
     public class APLContext:Context
     {
-        [JsonProperty("Display")]
+        [JsonProperty("Display", NullValueHandling = NullValueHandling.Ignore)]
         public AlexaDisplay Display { get; set; }
 
-        [JsonProperty("Viewport")]
+        [JsonProperty("Viewport", NullValueHandling = NullValueHandling.Ignore)]
         public AlexaViewport Viewport { get; set; }
 
-        [JsonProperty("Viewports")]
+        [JsonProperty("Viewports", NullValueHandling = NullValueHandling.Ignore)]
         public Viewport[] Viewports { get; set; }
+
+        [JsonProperty("Extensions",NullValueHandling = NullValueHandling.Ignore)]
+        public AlexaExtensions Extensions { get; set; }
+
+
     }
 }

@@ -1,0 +1,17 @@
+{
+  "type": "APL",
+  "version": "1.4",
+  "extensions": [
+    {
+      "name": "SmartMotion",
+      "uri": "alexaext:smartmotion:10"
+    }
+  ],
+  "settings": {
+    "SmartMotion": {
+      "deviceStateName": "MyDeviceState",
+      "wakeWordResponse": "followOnWakeWord"
+    }
+  },
+  "mainTemplate": null
+}

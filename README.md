@@ -166,3 +166,28 @@ var sendEvent = new ExecuteCommandsDirective("token",new []
     }
 });
 ```
+
+## Enabling an APL Extension
+```csharp
+var doc = new APLDocument(APLDocumentVersion.V1_4);
+var backstack = new BackstackExtension("Back");
+
+doc.Extensions.Value.Add(backstack);
+doc.Settings = new APLDocumentSettings(); 
+doc.Settings.Add(backstack.Name, new BackStackSettings{BackstackId = "myDocument"});
+
+var goback = GoBackCommand.For(backstack);
+```
+
+## Check for extension support
+```csharp
+//Use APLSkillRequest, not SkillRequest
+skillRequest.Context.Extensions.Available.Contains(SmartMotionExtension.URL)
+```
+
+## Add extension event handler
+```csharp
+var doc = new APLDocument();
+var smartMotion = new SmartMotionExtension("SmartMotion");
+smartMotion.OnDeviceStateChanged(doc, listOfCommands);
+```

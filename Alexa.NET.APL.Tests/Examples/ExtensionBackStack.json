@@ -1,0 +1,16 @@
+{
+  "type": "APL",
+  "version": "1.4",
+  "mainTemplate": null, 
+  "extensions": [
+    {
+      "name": "Back",
+      "uri": "aplext:backstack:10"
+    }
+  ],
+  "settings": {
+    "Back": {
+      "backstackId": "myDocument"
+    }
+  }
+}
