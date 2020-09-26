@@ -110,5 +110,14 @@ namespace Alexa.NET.APL.Tests
             var PlayNamedChoreo = PlayNamedChoreoCommand.For(new SmartMotionExtension("SmartMotion"), "ScreenImpactCenter");
             Assert.True(JToken.DeepEquals(expected, JObject.FromObject(PlayNamedChoreo)));
         }
+
+        [Fact]
+        public void DeviceStateChangedHandler()
+        {
+            var doc = new APLDocument();
+            var smartMotion = new SmartMotionExtension("SmartMotion");
+            smartMotion.OnDeviceStateChanged(doc, null);
+            Assert.True(doc.Handlers.ContainsKey("SmartMotion:OnDeviceStateChanged"));
+        }
     }
 }

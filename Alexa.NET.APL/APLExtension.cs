@@ -7,9 +7,9 @@ namespace Alexa.NET.APL
     public class APLExtension
     {
         [JsonProperty("name",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> Name { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty("uri",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> Uri { get; set; }
+        public string Uri { get; set; }
     }
 }

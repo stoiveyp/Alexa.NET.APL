@@ -184,3 +184,10 @@ var goback = GoBackCommand.For(backstack);
 //Use APLSkillRequest, not SkillRequest
 skillRequest.Context.Extensions.Available.Contains(SmartMotionExtension.URL)
 ```
+
+## Add extension event handler
+```csharp
+var doc = new APLDocument();
+var smartMotion = new SmartMotionExtension("SmartMotion");
+smartMotion.OnDeviceStateChanged(doc, listOfCommands);
+```
