@@ -86,5 +86,21 @@ namespace Alexa.NET.APL.Tests
             setWake.WakeWordResponse = WakeWordResponse.TurnToWakeWord;
             Assert.True(JToken.DeepEquals(expected, JObject.FromObject(setWake)));
         }
+
+        [Fact]
+        public void StopMotion()
+        {
+            var expected = new JObject { { "type", "SmartMotion:StopMotion" } };
+            var stopMotion = StopMotionCommand.For(new SmartMotionExtension("SmartMotion"));
+            Assert.True(JToken.DeepEquals(expected, JObject.FromObject(stopMotion)));
+        }
+
+        [Fact]
+        public void TurnToPrimaryUser()
+        {
+            var expected = new JObject { { "type", "SmartMotion:TurnToPrimaryUser" } };
+            var TurnToPrimaryUser = TurnToPrimaryUserCommand.For(new SmartMotionExtension("SmartMotion"));
+            Assert.True(JToken.DeepEquals(expected, JObject.FromObject(TurnToPrimaryUser)));
+        }
     }
 }
