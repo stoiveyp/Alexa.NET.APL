@@ -135,5 +135,23 @@ namespace Alexa.NET.APL.Tests
             });
             Assert.True(Utility.CompareJson(doc, "ExtensionEntitySensing.json"));
         }
+
+        [Fact]
+        public void EntitySensingStateChanged()
+        {
+            var doc = new APLDocument();
+            var entitySensing = new EntitySensingExtension("EntitySensing");
+            entitySensing.OnEntitySensingStateChanged(doc, null);
+            Assert.True(doc.Handlers.ContainsKey("EntitySensing:OnEntitySensingStateChanged"));
+        }
+
+        [Fact]
+        public void PrimaryUserChanged()
+        {
+            var doc = new APLDocument();
+            var entitySensing = new EntitySensingExtension("EntitySensing");
+            entitySensing.OnPrimaryUserChanged(doc, null);
+            Assert.True(doc.Handlers.ContainsKey("EntitySensing:OnPrimaryUserChanged"));
+        }
     }
 }
