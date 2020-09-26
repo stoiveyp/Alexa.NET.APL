@@ -61,5 +61,13 @@ namespace Alexa.NET.APL.Tests
             });
             Assert.True(Utility.CompareJson(doc, "ExtensionSmartMotion.json"));
         }
+
+        [Fact]
+        public void FollowPrimaryUser()
+        {
+            var expected = new JObject { { "type", "SmartMotion:FollowPrimaryUser" } };
+            var goBack = FollowPrimaryUserCommand.For(new SmartMotionExtension("SmartMotion"));
+            Assert.True(JToken.DeepEquals(expected, JObject.FromObject(goBack)));
+        }
     }
 }
