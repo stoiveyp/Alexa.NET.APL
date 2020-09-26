@@ -102,5 +102,13 @@ namespace Alexa.NET.APL.Tests
             var TurnToPrimaryUser = TurnToPrimaryUserCommand.For(new SmartMotionExtension("SmartMotion"));
             Assert.True(JToken.DeepEquals(expected, JObject.FromObject(TurnToPrimaryUser)));
         }
+
+        [Fact]
+        public void PlayNamedChoreo()
+        {
+            var expected = new JObject { { "type", "SmartMotion:PlayNamedChoreo" }, {"name","ScreenImpactCenter"} };
+            var PlayNamedChoreo = PlayNamedChoreoCommand.For(new SmartMotionExtension("SmartMotion"), "ScreenImpactCenter");
+            Assert.True(JToken.DeepEquals(expected, JObject.FromObject(PlayNamedChoreo)));
+        }
     }
 }
