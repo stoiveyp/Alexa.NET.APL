@@ -3,14 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>6.0.4</Version>
+    <Version>6.1.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Fix SpeechContentType</PackageReleaseNotes>
+    <PackageReleaseNotes>Extension support
+Backstack, SmartMotion and EntitySensing extensions added</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <LangVersion>8</LangVersion>
   </PropertyGroup>
