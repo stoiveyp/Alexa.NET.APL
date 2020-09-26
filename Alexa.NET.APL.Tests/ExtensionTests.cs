@@ -69,5 +69,22 @@ namespace Alexa.NET.APL.Tests
             var goBack = FollowPrimaryUserCommand.For(new SmartMotionExtension("SmartMotion"));
             Assert.True(JToken.DeepEquals(expected, JObject.FromObject(goBack)));
         }
+
+        [Fact]
+        public void GoToCenter()
+        {
+            var expected = new JObject { { "type", "SmartMotion:GoToCenter" } };
+            var goBack = GoToCenterCommand.For(new SmartMotionExtension("SmartMotion"));
+            Assert.True(JToken.DeepEquals(expected, JObject.FromObject(goBack)));
+        }
+
+        [Fact]
+        public void SetWakeWordResponse()
+        {
+            var expected = new JObject { { "type", "SmartMotion:SetWakeWordResponse" }, {"wakeWordResponse", "turnToWakeWord"} };
+            var setWake = SetWakeWordResponseCommand.For(new SmartMotionExtension("SmartMotion"));
+            setWake.WakeWordResponse = WakeWordResponse.TurnToWakeWord;
+            Assert.True(JToken.DeepEquals(expected, JObject.FromObject(setWake)));
+        }
     }
 }
