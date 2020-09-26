@@ -35,5 +35,13 @@ namespace Alexa.NET.APL.Tests
             goBack.BackValue = "myDocument";
             Assert.True(JToken.DeepEquals(expected, JObject.FromObject(goBack)));
         }
+
+        [Fact]
+        public void BackstackClear()
+        {
+            var expected = new JObject { { "type", "Back:Clear" } };
+            var goBack = BackstackClearCommand.For(new BackStack("Back"));
+            Assert.True(JToken.DeepEquals(expected, JObject.FromObject(goBack)));
+        }
     }
 }
