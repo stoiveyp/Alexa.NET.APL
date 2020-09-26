@@ -167,9 +167,10 @@ var sendEvent = new ExecuteCommandsDirective("token",new []
 });
 ```
 
-## Enable Motion Support
+## Enabling an APL Extension
 ```csharp
-backExtension = new BackStack("Back");
-aplDocument.Extensions.Add(backExtension);
-aplDocument.Settings.Add(backExtension.Name,new BackStackSettings{BackStackId="myDocument"});
+ var backstack = new BackStack("Back");
+ var doc = new APLDocument(APLDocumentVersion.V1_4);
+ doc.Extensions.Value.Add(backstack);
+ doc.Settings.Add(backstack.Name, new BackStackSettings{BackstackId = "myDocument"});
 ```

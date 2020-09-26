@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
@@ -44,7 +45,12 @@ namespace Alexa.NET.APL
         public APLDocumentSettings Settings { get; set; }
 
         [JsonProperty("extensions",NullValueHandling = NullValueHandling.Ignore),
-            JsonConverter(typeof(GenericSingleOrListConverter<APLExtension>))]
-        public APLValue<IList<APLExtension>> Extensions { get; set; }
+            JsonConverter(typeof(GenericSingleOrListConverter<APLExtension>),true)]
+        public APLValue<IList<APLExtension>> Extensions { get; set; } = new List<APLExtension>();
+
+        public bool ShouldSerializeExtensions()
+        {
+            return Extensions.Value?.Any() ?? false;
+        }
     }
 }
