@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Alexa.NET.APL.Extensions.Backstack;
+using Alexa.NET.APL.Extensions.EntitySensing;
 using Alexa.NET.APL.Extensions.SmartMotion;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -34,7 +35,8 @@ namespace Alexa.NET.APL.JsonConverter
         public static Dictionary<string, Type> APLExtensionLookup = new Dictionary<string, Type>
         {
             {BackstackExtension.URL, typeof(BackstackExtension)},
-            {SmartMotionExtension.URL, typeof(SmartMotionExtension)}
+            {SmartMotionExtension.URL, typeof(SmartMotionExtension)},
+            {EntitySensingExtension.URL, typeof(EntitySensingExtension)}
         };
 
         private APLExtension GetGesture(string commandType)

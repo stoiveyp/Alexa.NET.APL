@@ -1,0 +1,17 @@
+{
+  "type": "APL",
+  "version": "1.4",
+  "extensions": [
+    {
+      "name": "EntitySensing",
+      "uri": "alexaext:entitysensing:10"
+    }
+  ],
+  "settings": {
+    "EntitySensing": {
+      "entitySensingStateName": "EntitySensingState",
+      "primaryUserName": "User"
+    }
+  },
+  "mainTemplate": null
+}

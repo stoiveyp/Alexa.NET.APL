@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Alexa.NET.APL.Extensions.Backstack;
+using Alexa.NET.APL.Extensions.EntitySensing;
 using Alexa.NET.APL.Extensions.SmartMotion;
 using Alexa.NET.Request;
 using Alexa.NET.Response.APL;
@@ -118,6 +119,21 @@ namespace Alexa.NET.APL.Tests
             var smartMotion = new SmartMotionExtension("SmartMotion");
             smartMotion.OnDeviceStateChanged(doc, null);
             Assert.True(doc.Handlers.ContainsKey("SmartMotion:OnDeviceStateChanged"));
+        }
+
+        [Fact]
+        public void EntitySensing()
+        {
+            var entitySensing = new EntitySensingExtension("EntitySensing");
+            var doc = new APLDocument(APLDocumentVersion.V1_4);
+            doc.Extensions.Value.Add(entitySensing);
+            doc.Settings = new APLDocumentSettings();
+            doc.Settings.Add(entitySensing.Name, new EntitySensingSettings
+            {
+                EntitySensingStateName = "EntitySensingState",
+                PrimaryUserName = "User"
+            });
+            Assert.True(Utility.CompareJson(doc, "ExtensionEntitySensing.json"));
         }
     }
 }
