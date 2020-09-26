@@ -7,7 +7,7 @@ namespace Alexa.NET.APL.Extensions
     {
         private readonly string _extensionName;
 
-        public BackstackGoBackCommand For(BackStack extension)
+        public static BackstackGoBackCommand For(BackStack extension)
         {
             return new BackstackGoBackCommand(extension.Name);
         }
@@ -20,14 +20,9 @@ namespace Alexa.NET.APL.Extensions
         public override string Type => $"{_extensionName}:GoBack";
 
         [JsonProperty("backType",NullValueHandling = NullValueHandling.Ignore), JsonConverter(typeof(StringEnumConverter))]
-        public BackTypeKind BackType { get; set; }
+        public BackTypeKind? BackType { get; set; }
 
         [JsonProperty("backValue",NullValueHandling = NullValueHandling.Ignore)]
         public object BackValue { get; set; }
-    }
-
-    public enum BackTypeKind
-    {
-
     }
 }
