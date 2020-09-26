@@ -169,8 +169,18 @@ var sendEvent = new ExecuteCommandsDirective("token",new []
 
 ## Enabling an APL Extension
 ```csharp
- var backstack = new BackStack("Back");
- var doc = new APLDocument(APLDocumentVersion.V1_4);
- doc.Extensions.Value.Add(backstack);
- doc.Settings.Add(backstack.Name, new BackStackSettings{BackstackId = "myDocument"});
+var doc = new APLDocument(APLDocumentVersion.V1_4);
+var backstack = new BackstackExtension("Back");
+
+doc.Extensions.Value.Add(backstack);
+doc.Settings = new APLDocumentSettings(); 
+doc.Settings.Add(backstack.Name, new BackStackSettings{BackstackId = "myDocument"});
+
+var goback = GoBackCommand.For(backstack);
+```
+
+## Check for extension support
+```csharp
+//Use APLSkillRequest, not SkillRequest
+skillRequest.Context.Extensions.Available.Contains(SmartMotionExtension.URL)
 ```

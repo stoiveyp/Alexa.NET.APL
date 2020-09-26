@@ -52,5 +52,18 @@ namespace Alexa.NET.APL
         {
             return Extensions.Value?.Any() ?? false;
         }
+
+        [JsonExtensionData]
+        public Dictionary<string,object> Handlers { get; set; }
+
+        public void AddHandler(string name, APLValue<IList<APLCommand>> commands)
+        {
+            if (Handlers == null)
+            {
+                Handlers = new Dictionary<string, object>();
+            }
+
+            Handlers.Add(name, commands);
+        }
     }
 }

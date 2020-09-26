@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using Alexa.NET.APL.JsonConverter;
+using Newtonsoft.Json;
 
 namespace Alexa.NET.APL
 {
+    [JsonConverter(typeof(APLExtensionConverter))]
     public class APLExtension
     {
         [JsonProperty("name",NullValueHandling = NullValueHandling.Ignore)]

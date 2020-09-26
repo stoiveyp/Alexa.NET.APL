@@ -1,18 +1,18 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Alexa.NET.APL.Extensions
+namespace Alexa.NET.APL.Extensions.Backstack
 {
-    public class BackstackGoBackCommand:APLCommand
+    public class GoBackCommand:APLCommand
     {
         private readonly string _extensionName;
 
-        public static BackstackGoBackCommand For(BackStack extension)
+        public static GoBackCommand For(BackstackExtension extension)
         {
-            return new BackstackGoBackCommand(extension.Name);
+            return new GoBackCommand(extension.Name);
         }
 
-        public BackstackGoBackCommand(string extensionName)
+        public GoBackCommand(string extensionName)
         {
             _extensionName = extensionName;
         }

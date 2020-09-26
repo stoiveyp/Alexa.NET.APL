@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Alexa.NET.APL.Extensions
+namespace Alexa.NET.APL.Extensions.Backstack
 {
     public class BackStackSettings
     {

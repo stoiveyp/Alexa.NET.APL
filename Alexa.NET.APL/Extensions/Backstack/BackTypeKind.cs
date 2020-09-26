@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Alexa.NET.APL.Extensions
+namespace Alexa.NET.APL.Extensions.Backstack
 {
     public enum BackTypeKind
     {
