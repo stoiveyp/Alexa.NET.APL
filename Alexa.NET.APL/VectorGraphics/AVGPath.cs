@@ -5,9 +5,9 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.VectorGraphics
 {
-    public class AVGPath : IAVGItem
+    public class AVGPath : AVGItem
     {
-        [JsonProperty("type")] public string Type => "path";
+        [JsonProperty("type")] public override string Type => "path";
 
         [JsonProperty("fillOpacity",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<double?> FillOpacity { get; set; }

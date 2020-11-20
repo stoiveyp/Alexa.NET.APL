@@ -34,9 +34,9 @@ namespace Alexa.NET.APL.Components
         public APLValue<Scale?> Scale { get; set; }
 
         [JsonProperty("sources",NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(StringOrArrayConverter))]
-        public IList<string> Sources{ get; set; }
+        public APLValue<IList<string>> Sources{ get; set; }
 
-        [JsonProperty("filters",NullValueHandling = NullValueHandling.Ignore)]
-        public IImageFilter[] Filters { get; set; }
+        [JsonProperty("filters",NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(ImageFilterListConverter))]
+        public APLValue<IList<IImageFilter>> Filters { get; set; }
     }
 }

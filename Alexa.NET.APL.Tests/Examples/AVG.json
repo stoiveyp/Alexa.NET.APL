@@ -1,13 +1,20 @@
 {
   "type": "AVG",
-  "version": "1.1",
-  "height": 60,
-  "width": 150,
+  "version": "1.2",
+  "height": 100,
+  "width": 100,
   "items": [
     {
       "type": "path",
       "pathData": "M0,0 l150,0 l0,60 l-150,0 Z",
       "fill": "#d8d8d8"
+    },
+    {
+      "type": "path",
+      "fill": "red",
+      "stroke": "blue",
+      "strokeWidth": 4,
+      "pathData": "M 50 0 L 100 50 L 50 100 L 0 50 z"
     },
     {
       "type": "text",
@@ -18,6 +25,22 @@
       "x": 75,
       "y": 50,
       "textAnchor": "middle"
+    },
+    {
+      "type": "path",
+      "fill": "red",
+      "stroke": "blue",
+      "strokeWidth": 4,
+      "pathData": "M 60 10 L 110 60 L 60 110 L 10 60 z",
+      "filters": 
+        {
+          "type": "DropShadow",
+          "color": "black",
+          "horizontalOffset": -3,
+          "radius": 3,
+          "verticalOffset": 3
+        }
+      
     }
   ]
 }

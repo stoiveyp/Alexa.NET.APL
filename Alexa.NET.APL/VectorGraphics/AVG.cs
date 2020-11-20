@@ -16,11 +16,15 @@ namespace Alexa.NET.APL.VectorGraphics
             set => VersionString = EnumParser.ToEnumString(typeof(AVGVersion), value);
         }
 
-        [JsonProperty("version")] public string VersionString { get; set; } = "1.1";
+        [JsonProperty("version")] public string VersionString { get; set; } = "1.2";
 
 
         [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Description { get; set; }
+
+        [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(GenericSingleOrListConverter<object>))]
+        public APLValue<IList<object>> Data { get; set; }
 
         [JsonProperty("height")]
         public APLAbsoluteDimensionValue Height { get; set; }

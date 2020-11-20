@@ -33,6 +33,14 @@
     {
       "type": "Color",
       "color": "#B620E0"
+    },
+    {
+      "type": "Grayscale",
+      "amount": 1.0
+    },
+    {
+      "type": "Saturate",
+      "amount": 2.0
     }
   ]
 }
