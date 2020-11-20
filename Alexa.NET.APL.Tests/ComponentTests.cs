@@ -358,6 +358,12 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void AlexaSwitch()
+        {
+            Utility.AssertSerialization<AlexaSwitch>("AlexaSwitch.json");
+        }
+
+        [Fact]
         public void GridSequence()
         {
             Utility.AssertSerialization<GridSequence>("GridSequence.json");
