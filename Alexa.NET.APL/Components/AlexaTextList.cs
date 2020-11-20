@@ -93,5 +93,41 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("theme", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Theme { get; set; }
 
+        [JsonProperty("onSwipeDone", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OnSwipeDone { get; set; }
+
+        [JsonProperty("onSwipeMove", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OnSwipeMove { get; set; }
+
+        [JsonProperty("swipeActionIconBackground", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> SwipeActionIconBackground { get; set; }
+
+        [JsonProperty("swipeActionIconForeground", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> SwipeActionIconForeground { get; set; }
+
+        [JsonProperty("optionsButton1Command", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OptionsButton1Command { get; set; }
+
+        [JsonProperty("optionsButton1Text", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> OptionsButton1Text { get; set; }
+
+        [JsonProperty("optionsButton2Command", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OptionsButton2Command { get; set; }
+
+        [JsonProperty("optionsButton2Text", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> OptionsButton2Text { get; set; }
+
+        [JsonProperty("swipeDirection", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> SwipeDirection { get; set; }
+
+        [JsonProperty("swipeActionIcon", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> SwipeActionIcon { get; set; }
+
+        [JsonProperty("swipeActionIconType", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> SwipeActionIconType { get; set; }
     }
 }
