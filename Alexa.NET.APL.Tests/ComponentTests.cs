@@ -133,8 +133,8 @@ namespace Alexa.NET.APL.Tests
                 Left = new AbsoluteDimension(24, "vw"),
                 PaddingLeft = new RelativeDimension(5),
                 Top = "${top}",
-                Right = new APLAbsoluteDimensionValue("345"),
-                Bottom = new APLAbsoluteDimensionValue("test")
+                Right = new APLDimensionValue(new AbsoluteDimension(345,"dp")),
+                Bottom = new APLDimensionValue("test")
 
             };
 
@@ -143,7 +143,7 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal("24vw", jobject.Value<string>("left"));
             Assert.Equal("5%", jobject.Value<string>("paddingLeft"));
             Assert.Equal("${top}", jobject.Value<string>("top"));
-            Assert.Equal("345", jobject.Value<string>("right"));
+            Assert.Equal("345dp", jobject.Value<string>("right"));
             Assert.Equal("test", jobject.Value<string>("bottom"));
         }
 
@@ -171,14 +171,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void KeyboardEvent()
         {
-            var component = Utility.ExampleFileContent<APLComponent>("KeyboardTouchWrapper.json");
-            var touch = Assert.IsType<TouchWrapper>(component);
-            Assert.Equal(2, touch.Bindings.Count);
-            Assert.Equal(5, touch.HandleKeyDown.Value.Count);
-            var keydown = touch.HandleKeyDown.Value.First();
-
-            Assert.Equal("${event.keyboard.code == 'KeyW'}", keydown.When.Expression);
-            Assert.Single(keydown.Commands.Value);
+            Utility.AssertSerialization<APLComponent>("KeyboardTouchWrapper.json");
         }
 
         [Fact]

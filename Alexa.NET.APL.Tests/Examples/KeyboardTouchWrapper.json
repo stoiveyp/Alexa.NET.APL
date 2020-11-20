@@ -10,53 +10,76 @@
       "value": 0
     }
   ],
+  "actions": [
+    {
+      "name": "activate",
+      "label": "Reply to user",
+      "commands": 
+        {
+          "type": "SendEvent",
+          "arguments": "Activated by action invocation"
+        }
+      
+    },
+    {
+      "name": "thumbsup",
+      "label": "Mark positively",
+      "commands": 
+        {
+          "type": "SetValue",
+          "property": "Rating",
+          "value": 1.0
+        }
+      
+    }
+  ],
   "handleKeyDown": [
     {
       "when": "${event.keyboard.code == 'KeyW'}",
-      "commands": [
+      "commands": 
         {
           "type": "SetValue",
           "property": "y",
           "value": "${y - 10}"
         }
-      ]
+      
     },
     {
       "when": "${event.keyboard.code == 'KeyS'}",
-      "commands": [
+      "commands": 
         {
           "type": "SetValue",
           "property": "y",
           "value": "${y + 10}"
         }
-      ]
+      
     },
     {
       "when": "${event.keyboard.code == 'KeyA'}",
-      "commands": [
+      "commands": 
         {
           "type": "SetValue",
           "property": "x",
           "value": "${x - 10}"
         }
-      ]
+      
     },
     {
       "when": "${event.keyboard.code == 'KeyD'}",
-      "commands": [
+      "commands": 
         {
           "type": "SetValue",
           "property": "x",
           "value": "${x + 10}"
         }
-      ]
+      
     },
     {
       "when": "${event.keyboard.code == 'Enter'}",
       "description": "Block the normal 'enter' behavior"
     }
   ],
-  "items": {
+  "item": {
     "type": "Image"
   }
 }
