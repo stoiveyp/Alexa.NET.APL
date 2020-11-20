@@ -24,5 +24,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("theme",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Theme { get; set; }
+
+        [JsonProperty("touchForward",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool?> TouchForward { get; set; }
     }
 }

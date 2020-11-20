@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Alexa.NET.APL.Filters;
+using Alexa.NET.APL.VectorGraphics.Filters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Alexa.NET.APL.JsonConverter
 {
-    public class ImageFilterConverter : Newtonsoft.Json.JsonConverter
+    public class IAVGFilterConverter : Newtonsoft.Json.JsonConverter
     {
         public override bool CanWrite => false;
 
@@ -22,7 +21,7 @@ namespace Alexa.NET.APL.JsonConverter
         {
             var jObject = JObject.Load(reader);
             var filterType = jObject.Value<string>("type");
-            object target = ImageFilterLookup.GetLookupType<IImageFilter>(filterType, "Alexa.NET.APL.Filters", s => null);
+            object target = IAVGFilterLookup.GetLookupType<IAVGFilter>(filterType, "Alexa.NET.APL.VectorGraphics.Filters", s => null);
             if (target == null)
             {
                 throw new ArgumentOutOfRangeException($"Filter type {filterType} not supported");
@@ -40,11 +39,11 @@ namespace Alexa.NET.APL.JsonConverter
 
         }
 
-        public static ConcurrentDictionary<string,Type> ImageFilterLookup = new ConcurrentDictionary<string, Type>();
+        public static ConcurrentDictionary<string, Type> IAVGFilterLookup = new ConcurrentDictionary<string, Type>();
 
         public override bool CanConvert(Type objectType)
         {
-            return objectType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IImageFilter));
+            return objectType.GetTypeInfo().ImplementedInterfaces.Contains(typeof(IAVGFilter));
         }
     }
 }

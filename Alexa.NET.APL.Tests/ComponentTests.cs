@@ -85,7 +85,7 @@ namespace Alexa.NET.APL.Tests
                 var directive = CreateAplDirective(launchTemplateApl, ("launchTemplateData", launchTemplateData));
 
                 response.Response.Directives.Add(directive);
-                var output = JsonConvert.SerializeObject(response);
+                JsonConvert.SerializeObject(response);
         }
 
         static JsonDirective CreateAplDirective(JObject apl, params (string Key, ObjectDataSource Value)[] dataSources)
@@ -106,7 +106,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void ContainerTest()
         {
-            var container = new Container
+            new Container
             (
                 new Text("APL in C#")
                 {
@@ -133,8 +133,8 @@ namespace Alexa.NET.APL.Tests
                 Left = new AbsoluteDimension(24, "vw"),
                 PaddingLeft = new RelativeDimension(5),
                 Top = "${top}",
-                Right = new APLAbsoluteDimensionValue("345"),
-                Bottom = new APLAbsoluteDimensionValue("test")
+                Right = new APLDimensionValue(new AbsoluteDimension(345,"dp")),
+                Bottom = new APLDimensionValue("test")
 
             };
 
@@ -143,22 +143,14 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal("24vw", jobject.Value<string>("left"));
             Assert.Equal("5%", jobject.Value<string>("paddingLeft"));
             Assert.Equal("${top}", jobject.Value<string>("top"));
-            Assert.Equal("345", jobject.Value<string>("right"));
+            Assert.Equal("345dp", jobject.Value<string>("right"));
             Assert.Equal("test", jobject.Value<string>("bottom"));
         }
 
         [Fact]
-        public void ImageWithBlur()
+        public void ImageFilters()
         {
-            var image = new Image
-            {
-                Filters = new IImageFilter[]
-                {
-                    new Blur(Dimension.From("10dp")),
-                }
-            };
-
-            Assert.True(Utility.CompareJson(image, "ImageWithBlur.json"));
+            Utility.AssertSerialization<Image>("ImageFilters.json");
         }
 
         [Fact]
@@ -179,14 +171,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void KeyboardEvent()
         {
-            var component = Utility.ExampleFileContent<APLComponent>("KeyboardTouchWrapper.json");
-            var touch = Assert.IsType<TouchWrapper>(component);
-            Assert.Equal(2, touch.Bindings.Count);
-            Assert.Equal(5, touch.HandleKeyDown.Value.Count);
-            var keydown = touch.HandleKeyDown.Value.First();
-
-            Assert.Equal("${event.keyboard.code == 'KeyW'}", keydown.When.Expression);
-            Assert.Single(keydown.Commands.Value);
+            Utility.AssertSerialization<APLComponent>("KeyboardTouchWrapper.json");
         }
 
         [Fact]
@@ -337,6 +322,30 @@ namespace Alexa.NET.APL.Tests
         public void EditText()
         {
             Utility.AssertSerialization<EditText>("EditText.json");
+        }
+
+        [Fact]
+        public void SwipeToAction()
+        {
+            Utility.AssertSerialization<AlexaSwipeToAction>("AlexaSwipeToAction.json");
+        }
+
+        [Fact]
+        public void AlexaRadioButton()
+        {
+            Utility.AssertSerialization<AlexaRadioButton>("AlexaRadioButton.json");
+        }
+
+        [Fact]
+        public void AlexaCheckbox()
+        {
+            Utility.AssertSerialization<AlexaCheckbox>("AlexaCheckbox.json");
+        }
+
+        [Fact]
+        public void AlexaSwitch()
+        {
+            Utility.AssertSerialization<AlexaSwitch>("AlexaSwitch.json");
         }
 
         [Fact]

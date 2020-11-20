@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.VectorGraphics
 {
-    public class AVGGroup : IAVGItem
+    public class AVGGroup : AVGItem
     {
-        [JsonProperty("type")] public string Type => "group";
+        [JsonProperty("type")] public override string Type => "group";
 
         [JsonProperty("opacity",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<double?> Opacity { get; set; }

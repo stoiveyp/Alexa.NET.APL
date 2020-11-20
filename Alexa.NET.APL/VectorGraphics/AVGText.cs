@@ -2,9 +2,9 @@
 
 namespace Alexa.NET.APL.VectorGraphics
 {
-    public class AVGText : IAVGItem
+    public class AVGText : AVGItem
     {
-        public string Type => "text";
+        public override string Type => "text";
 
         [JsonProperty("fontFamily", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> FontFamily { get; set; }

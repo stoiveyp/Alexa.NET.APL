@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using Alexa.NET.APL.Audio;
 using Alexa.NET.Response.APL;
@@ -20,8 +21,8 @@ namespace Alexa.NET.APL.JsonConverter
             JsonSerializer serializer)
         {
             var jObject = JObject.Load(reader);
-            var commandType = jObject.Value<string>("type");
-            var target = GetGesture(commandType);
+            var audioType = jObject.Value<string>("type");
+            var target = APLAComponentLookup.GetLookupType<APLAComponent>(audioType, "Alexa.NET.APL.Audio", s => null);
             if (target != null)
             {
                 jObject.Move("item", "items");
@@ -29,25 +30,12 @@ namespace Alexa.NET.APL.JsonConverter
                 return target;
             }
 
-            throw new ArgumentOutOfRangeException($"Command type {commandType} not supported");
+            throw new ArgumentOutOfRangeException($"Command type {audioType} not supported");
         }
 
-        public static Dictionary<string, Type> APLAComponentLookup = new Dictionary<string, Type>
+        public static ConcurrentDictionary<string, Type> APLAComponentLookup = new ConcurrentDictionary<string, Type>
         {
-            {nameof(Audio), typeof(Audio.Audio)},
-            {nameof(Mixer), typeof(Mixer)},
-            {nameof(Selector), typeof(Selector)},
-            {nameof(Sequencer), typeof(Sequencer)},
-            {nameof(Silence), typeof(Silence)},
-            {nameof(Speech), typeof(Speech)}
+
         };
-
-        private APLAComponent GetGesture(string commandType)
-        {
-            return (APLAComponent)(
-                APLAComponentLookup.ContainsKey(commandType)
-                    ? Activator.CreateInstance(APLAComponentLookup[commandType])
-                    : null);
-        }
     }
 }

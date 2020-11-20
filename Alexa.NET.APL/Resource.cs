@@ -5,7 +5,7 @@ using Newtonsoft.Json.Serialization;
 
 namespace Alexa.NET.Response.APL
 {
-    public class Resource
+    public class Resource:ResourceBase
     {
         public Resource()
         {
@@ -17,26 +17,11 @@ namespace Alexa.NET.Response.APL
             When = when;
         }
 
-        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
-        public string Description { get; set; }
-
-        [JsonProperty("when", NullValueHandling = NullValueHandling.Ignore)]
-        public string When { get; set; }
-
-        [JsonProperty("booleans",NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string, string> Booleans { get; set; }
-
         [JsonProperty("colors", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, string> Colors { get; set; }
 
         [JsonProperty("dimensions", NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, APLDimensionValue> Dimensions { get; set; }
-
-        [JsonProperty("strings", NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string, string> Strings { get; set; }
-
-        [JsonProperty("numbers",NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string, APLValue<int?>> Numbers { get; set; }
 
         [JsonProperty("gradients",NullValueHandling = NullValueHandling.Ignore)]
         public Dictionary<string, APLValue<APLGradient>> Gradients { get; set; }
@@ -46,15 +31,6 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("resources", NullValueHandling = NullValueHandling.Ignore)]
         public IList<Resource> Resources { get; set; }
-
-        public void AddBoolean(string key, string expression)
-        {
-            if (Booleans == null)
-            {
-                Booleans = new Dictionary<string, string>();
-            }
-            Booleans.Add(key,expression);
-        }
 
         public void AddColor(string key, string expression)
         {
@@ -72,24 +48,6 @@ namespace Alexa.NET.Response.APL
                 Dimensions = new Dictionary<string, APLDimensionValue>();
             }
             Dimensions.Add(key, expression);
-        }
-
-        public void AddString(string key, string expression)
-        {
-            if (Strings == null)
-            {
-                Strings = new Dictionary<string, string>();
-            }
-            Strings.Add(key, expression);
-        }
-
-        public void AddNumber(string key, APLValue<int?> resource)
-        {
-            if (Numbers == null)
-            {
-                Numbers = new Dictionary<string, APLValue<int?>>();
-            }
-            Numbers.Add(key, resource);
         }
 
         public void AddGradient(string key, APLValue<APLGradient> gradient)

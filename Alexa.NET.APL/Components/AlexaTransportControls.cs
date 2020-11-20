@@ -54,5 +54,11 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("secondaryControlsRightAction", NullValueHandling = NullValueHandling.Ignore),
          JsonConverter(typeof(APLCommandListConverter))]
         public APLValue<IList<APLCommand>> SecondaryControlsRightAction{ get; set; }
+
+        [JsonProperty("secondaryControlsLeftAccessibilityLabel",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> SecondaryControlsLeftAccessibilityLabel { get; set; }
+
+        [JsonProperty("secondaryControlsRightAccessibilityLabel", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> SecondaryControlsRightAccessibilityLabel { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Alexa.NET.APL.Filters;
+﻿using System.Collections.Generic;
+using Alexa.NET.APL.Filters;
 using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
@@ -9,9 +10,9 @@ namespace Alexa.NET.APL.Components
     {
         public Image() { }
 
-        public Image(string source)
+        public Image(params string[] sources)
         {
-            Source = source;
+            Sources = sources;
         }
 
         public const string ComponentType = "Image";
@@ -32,10 +33,10 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("scale",NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(APLValueEnumConverter<Scale>))]
         public APLValue<Scale?> Scale { get; set; }
 
-        [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> Source { get; set; }
+        [JsonProperty("sources",NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(StringOrArrayConverter))]
+        public APLValue<IList<string>> Sources{ get; set; }
 
-        [JsonProperty("filters",NullValueHandling = NullValueHandling.Ignore)]
-        public IImageFilter[] Filters { get; set; }
+        [JsonProperty("filters",NullValueHandling = NullValueHandling.Ignore),JsonConverter(typeof(ImageFilterListConverter))]
+        public APLValue<IList<IImageFilter>> Filters { get; set; }
     }
 }

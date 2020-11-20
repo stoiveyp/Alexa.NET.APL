@@ -1,0 +1,15 @@
+{
+  "type": "AlexaSwitch",
+  "id": "${switchId}",
+  "switchHeight": "${switchHeight}",
+  "switchWidth": "${switchWidth}",
+  "activeColor": "${activeColor}",
+  "checked": "${checked}",
+  "disabled": "${disabled}",
+  "isIndeterminate": "${isIndeterminate}",
+  "primaryAction": 
+    {
+      "type": "ShowSwitchResult"
+    }
+  
+}
