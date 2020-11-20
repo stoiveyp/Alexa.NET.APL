@@ -30,5 +30,8 @@ namespace Alexa.NET.APL
 
         [JsonProperty("resources", NullValueHandling = NullValueHandling.Ignore)]
         public IList<APLAResource> Resources { get; set; }
+
+        [JsonProperty("compositions", NullValueHandling = NullValueHandling.Ignore)]
+        public Dictionary<string, AudioLayout> Compositions { get; set; }
     }
 }

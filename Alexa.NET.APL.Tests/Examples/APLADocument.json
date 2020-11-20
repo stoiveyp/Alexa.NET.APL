@@ -2,6 +2,23 @@
   "type": "APLA",
   "version": "0.8",
   "description": "More complex example that plays two speech components, one after another",
+  "compositions": {
+    "JoeyVoice": {
+      "parameters": [
+        {
+          "name": "speechContent",
+          "type": "string"
+        }
+      ],
+      "items": [
+        {
+          "type": "Speech",
+          "contentType": "SSML",
+          "content": "<speak><voice name='Joey'><lang xml:lang='en-US'>${speechContent}</lang></voice></speak>"
+        }
+      ]
+    }
+  },
   "resources": [
     {
       "numbers": {
