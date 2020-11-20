@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Alexa.NET.APL.Audio;
+using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL
@@ -26,5 +27,8 @@ namespace Alexa.NET.APL
 
         [JsonProperty("mainTemplate")]
         public AudioLayout MainTemplate { get; set; }
+
+        [JsonProperty("resources", NullValueHandling = NullValueHandling.Ignore)]
+        public IList<APLAResource> Resources { get; set; }
     }
 }

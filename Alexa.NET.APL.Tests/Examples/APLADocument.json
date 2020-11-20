@@ -2,6 +2,22 @@
   "type": "APLA",
   "version": "0.8",
   "description": "More complex example that plays two speech components, one after another",
+  "resources": [
+    {
+      "numbers": {
+        "fixedVolume": 0.5
+      },
+      "booleans": {
+        "isHeadless": "${!environment.aplVersion && !environment.apltVersion}"
+      }
+    },
+    {
+      "when": "${@isHeadless}",
+      "numbers": {
+        "fixedVolume": "1"
+      }
+    }
+  ],
   "mainTemplate": {
     "parameters": [
       "payload"
