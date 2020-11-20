@@ -148,17 +148,9 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
-        public void ImageWithBlur()
+        public void ImageFilters()
         {
-            var image = new Image
-            {
-                Filters = new IImageFilter[]
-                {
-                    new Blur(Dimension.From("10dp")),
-                }
-            };
-
-            Assert.True(Utility.CompareJson(image, "ImageWithBlur.json"));
+            Utility.AssertSerialization<Image>("ImageFilters.json");
         }
 
         [Fact]

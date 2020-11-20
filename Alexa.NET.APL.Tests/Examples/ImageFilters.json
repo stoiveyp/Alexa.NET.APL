@@ -1,0 +1,23 @@
+{
+  "type": "Image",
+  "height": "200dp",
+  "width": "300dp",
+  "sources": [
+    "https://example.com/images/lake.jpg",
+    "https://example.com/images/duck.jpg"
+  ],
+  "filters": [
+    {
+      "type": "Blur",
+      "radius": "10dp"
+    },
+    {
+      "type": "Noise",
+      "useColor": true
+    },
+    {
+      "type": "Blend",
+      "mode": "normal"
+    }
+  ]
+}

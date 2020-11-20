@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Reflection;
 using Alexa.NET.APL.Components;
@@ -70,7 +71,7 @@ namespace Alexa.NET.APL.JsonConverter
 
         }
 
-        public static Dictionary<string, Type> APLComponentLookup = new Dictionary<string, Type>
+        public static ConcurrentDictionary<string, Type> APLComponentLookup = new ConcurrentDictionary<string, Type>
         {
 
         };

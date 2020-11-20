@@ -1,9 +1,0 @@
-{
-  "type": "Image",
-  "filters": [
-    {
-      "type": "Blur",
-      "radius": "10dp"
-    }
-  ]
-}

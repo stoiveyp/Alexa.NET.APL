@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using Alexa.NET.APL.Audio;
 using Alexa.NET.Response.APL;
@@ -32,7 +33,7 @@ namespace Alexa.NET.APL.JsonConverter
             throw new ArgumentOutOfRangeException($"Command type {audioType} not supported");
         }
 
-        public static Dictionary<string, Type> APLAComponentLookup = new Dictionary<string, Type>
+        public static ConcurrentDictionary<string, Type> APLAComponentLookup = new ConcurrentDictionary<string, Type>
         {
 
         };

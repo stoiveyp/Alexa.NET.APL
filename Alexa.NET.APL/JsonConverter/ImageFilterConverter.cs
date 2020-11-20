@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -39,7 +40,7 @@ namespace Alexa.NET.APL.JsonConverter
 
         }
 
-        public static Dictionary<string,Type> ImageFilterLookup = new Dictionary<string, Type>();
+        public static ConcurrentDictionary<string,Type> ImageFilterLookup = new ConcurrentDictionary<string, Type>();
 
         public override bool CanConvert(Type objectType)
         {
