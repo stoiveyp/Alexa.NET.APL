@@ -53,7 +53,7 @@ namespace Alexa.NET.APL.JsonConverter
             {
                 serializer.Populate(jObject.CreateReader(), target);
             }
-            catch (Exception ex)
+            catch
             {
                 if (ThrowConversionExceptions)
                 {
@@ -72,52 +72,28 @@ namespace Alexa.NET.APL.JsonConverter
 
         public static Dictionary<string, Type> APLComponentLookup = new Dictionary<string, Type>
         {
-            {nameof(Container), typeof(Container)},
-            {nameof(Text), typeof(Text)},
-            {nameof(Image), typeof(Image)},
-            {nameof(Frame), typeof(Frame)},
-            {nameof(ScrollView), typeof(ScrollView)},
-            {nameof(Sequence), typeof(Sequence)},
-            {nameof(TouchWrapper), typeof(TouchWrapper)},
-            {nameof(Pager), typeof(Pager)},
-            {nameof(VectorGraphic),typeof(VectorGraphic) },
-            {nameof(Video), typeof(Video)},
-            {nameof(AlexaBackground), typeof(AlexaBackground)},
-            {nameof(AlexaButton),typeof(AlexaButton) },
-            {nameof(AlexaDivider),typeof(AlexaDivider) },
-            {nameof(AlexaFooter),typeof(AlexaFooter) },
-            {nameof(AlexaHeader),typeof(AlexaHeader) },
-            {nameof(AlexaImage),typeof(AlexaImage) },
-            {nameof(AlexaOrdinal),typeof(AlexaOrdinal) },
-            {nameof(AlexaPageCounter),typeof(AlexaPageCounter) },
-            {nameof(AlexaTextListItem),typeof(AlexaTextListItem) },
-            {nameof(AlexaTransportControls),typeof(AlexaTransportControls) },
-            {nameof(AlexaHeadline),typeof(AlexaHeadline) },
-            {nameof(AlexaTextList),typeof(AlexaTextList) },
-            {nameof(TimeText),typeof(TimeText) },
-            {nameof(AlexaIconButton),typeof(AlexaIconButton) },
-            {nameof(AlexaImageListItem),typeof(AlexaImageListItem) },
-            {nameof(AlexaRating),typeof(AlexaRating) },
-            {nameof(AlexaImageList),typeof(AlexaImageList) },
-            {nameof(AlexaLists),typeof(AlexaLists) },
-            {nameof(AlexaPaginatedList),typeof(AlexaPaginatedList) },
-            {nameof(AlexaProgressBar), typeof(AlexaProgressBar)},
-            {nameof(AlexaProgressBarRadial), typeof(AlexaProgressBarRadial)},
-            {nameof(AlexaProgressDots), typeof(AlexaProgressDots)},
-            {nameof(AlexaSlider), typeof(AlexaSlider)},
-            {nameof(AlexaSliderRadial), typeof(AlexaSliderRadial)},
-            {nameof(AlexaDetail), typeof(AlexaDetail)},
-            {nameof(AlexaGridList), typeof(AlexaGridList)},
-            {nameof(EditText), typeof(EditText)},
-            {nameof(GridSequence), typeof(GridSequence)}
+
         };
 
         private APLComponent GetComponent(string type)
         {
-            return (APLComponent)(
-                APLComponentLookup.ContainsKey(type)
-                    ? Activator.CreateInstance(APLComponentLookup[type])
-                    : new CustomComponent(type));
+            if (APLComponentLookup.ContainsKey(type))
+            {
+                return (APLComponent) Activator.CreateInstance(APLComponentLookup[type]);
+            }
+
+            var resultingType = Type.GetType("Alexa.NET.APL.Components." + type);
+            if (resultingType != null)
+            {
+                if (!APLComponentLookup.ContainsKey(type))
+                {
+                    APLComponentLookup.Add(type, resultingType);
+                }
+
+                return (APLComponent)Activator.CreateInstance(resultingType);
+            }
+
+            return new CustomComponent(type);
         }
 
         public override bool CanConvert(Type objectType)

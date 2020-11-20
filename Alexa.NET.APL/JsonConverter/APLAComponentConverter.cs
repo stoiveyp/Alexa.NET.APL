@@ -21,7 +21,7 @@ namespace Alexa.NET.APL.JsonConverter
         {
             var jObject = JObject.Load(reader);
             var commandType = jObject.Value<string>("type");
-            var target = GetGesture(commandType);
+            var target = GetComponent(commandType);
             if (target != null)
             {
                 jObject.Move("item", "items");
@@ -34,20 +34,28 @@ namespace Alexa.NET.APL.JsonConverter
 
         public static Dictionary<string, Type> APLAComponentLookup = new Dictionary<string, Type>
         {
-            {nameof(Audio), typeof(Audio.Audio)},
-            {nameof(Mixer), typeof(Mixer)},
-            {nameof(Selector), typeof(Selector)},
-            {nameof(Sequencer), typeof(Sequencer)},
-            {nameof(Silence), typeof(Silence)},
-            {nameof(Speech), typeof(Speech)}
+
         };
 
-        private APLAComponent GetGesture(string commandType)
+        private APLAComponent GetComponent(string type)
         {
-            return (APLAComponent)(
-                APLAComponentLookup.ContainsKey(commandType)
-                    ? Activator.CreateInstance(APLAComponentLookup[commandType])
-                    : null);
+            if (APLAComponentLookup.ContainsKey(type))
+            {
+                return (APLAComponent)Activator.CreateInstance(APLAComponentLookup[type]);
+            }
+
+            var resultingType = Type.GetType("Alexa.NET.APL.Audio." + type);
+            if (resultingType != null)
+            {
+                if (!APLAComponentLookup.ContainsKey(type))
+                {
+                    APLAComponentLookup.Add(type, resultingType);
+                }
+
+                return (APLAComponent)Activator.CreateInstance(resultingType);
+            }
+
+            return null;
         }
     }
 }

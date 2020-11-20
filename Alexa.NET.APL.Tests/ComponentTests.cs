@@ -85,7 +85,7 @@ namespace Alexa.NET.APL.Tests
                 var directive = CreateAplDirective(launchTemplateApl, ("launchTemplateData", launchTemplateData));
 
                 response.Response.Directives.Add(directive);
-                var output = JsonConvert.SerializeObject(response);
+                JsonConvert.SerializeObject(response);
         }
 
         static JsonDirective CreateAplDirective(JObject apl, params (string Key, ObjectDataSource Value)[] dataSources)
@@ -106,7 +106,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void ContainerTest()
         {
-            var container = new Container
+            new Container
             (
                 new Text("APL in C#")
                 {
@@ -337,6 +337,12 @@ namespace Alexa.NET.APL.Tests
         public void EditText()
         {
             Utility.AssertSerialization<EditText>("EditText.json");
+        }
+
+        [Fact]
+        public void SwipeToAction()
+        {
+            Utility.AssertSerialization<AlexaSwipeToAction>("SwipeToAction.json");
         }
 
         [Fact]
