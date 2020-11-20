@@ -1,0 +1,8 @@
+{
+  "type": "AlexaCheckbox",
+  "id": "checkedTrueIndeterminateTrueLight",
+  "checked": true,
+  "isIndeterminate": true,
+  "disabled": true,
+  "theme": "light"
+}

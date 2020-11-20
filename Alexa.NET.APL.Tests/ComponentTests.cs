@@ -352,6 +352,12 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void AlexaCheckbox()
+        {
+            Utility.AssertSerialization<AlexaCheckbox>("AlexaCheckbox.json");
+        }
+
+        [Fact]
         public void GridSequence()
         {
             Utility.AssertSerialization<GridSequence>("GridSequence.json");
