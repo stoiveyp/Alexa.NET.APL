@@ -1,0 +1,14 @@
+{
+  "type": "AlexaRadioButton",
+  "id": "${radioButtonId}",
+  "radioButtonHeight": "${radioButtonHeight}",
+  "radioButtonWidth": "${radioButtonWidth}",
+  "radioButtonColor": "${radioButtonColor}",
+  "checked": "${checked}",
+  "disabled": "${disabled}",
+  "primaryAction": 
+    {
+      "type": "ShowRadioButtonResult"
+    }
+  
+}
