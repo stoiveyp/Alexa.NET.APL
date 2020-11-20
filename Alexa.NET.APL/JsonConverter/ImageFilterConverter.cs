@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Alexa.NET.APL.Filters;
@@ -20,7 +21,7 @@ namespace Alexa.NET.APL.JsonConverter
         {
             var jObject = JObject.Load(reader);
             var filterType = jObject.Value<string>("type");
-            object target = GetFilter(filterType);
+            object target = ImageFilterLookup.GetLookupType<IImageFilter>(filterType, "Alexa.NET.APL.Filters", s => null);
             if (target == null)
             {
                 throw new ArgumentOutOfRangeException($"Filter type {filterType} not supported");
@@ -38,16 +39,7 @@ namespace Alexa.NET.APL.JsonConverter
 
         }
 
-        private IImageFilter GetFilter(string type)
-        {
-            switch (type)
-            {
-                case nameof(Blur):
-                    return new Blur();
-                default:
-                    return null;
-            }
-        }
+        public static Dictionary<string,Type> ImageFilterLookup = new Dictionary<string, Type>();
 
         public override bool CanConvert(Type objectType)
         {

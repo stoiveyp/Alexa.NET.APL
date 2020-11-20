@@ -24,7 +24,7 @@ namespace Alexa.NET.APL.JsonConverter
             // Load JObject from stream
             var jObject = JObject.Load(reader);
             var componentType = jObject.Value<string>("type");
-            object target = GetComponent(componentType);
+            object target = APLComponentLookup.GetLookupType<APLComponent>(componentType, "Alexa.NET.APL.Components", s => new CustomComponent(s));
             if (target == null)
             {
                 throw new ArgumentOutOfRangeException($"Component type {componentType} not supported");
@@ -74,27 +74,6 @@ namespace Alexa.NET.APL.JsonConverter
         {
 
         };
-
-        private APLComponent GetComponent(string type)
-        {
-            if (APLComponentLookup.ContainsKey(type))
-            {
-                return (APLComponent) Activator.CreateInstance(APLComponentLookup[type]);
-            }
-
-            var resultingType = Type.GetType("Alexa.NET.APL.Components." + type);
-            if (resultingType != null)
-            {
-                if (!APLComponentLookup.ContainsKey(type))
-                {
-                    APLComponentLookup.Add(type, resultingType);
-                }
-
-                return (APLComponent)Activator.CreateInstance(resultingType);
-            }
-
-            return new CustomComponent(type);
-        }
 
         public override bool CanConvert(Type objectType)
         {

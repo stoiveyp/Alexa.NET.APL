@@ -20,8 +20,8 @@ namespace Alexa.NET.APL.JsonConverter
             JsonSerializer serializer)
         {
             var jObject = JObject.Load(reader);
-            var commandType = jObject.Value<string>("type");
-            var target = GetComponent(commandType);
+            var audioType = jObject.Value<string>("type");
+            var target = APLAComponentLookup.GetLookupType<APLAComponent>(audioType, "Alexa.NET.APL.Audio", s => null);
             if (target != null)
             {
                 jObject.Move("item", "items");
@@ -29,33 +29,12 @@ namespace Alexa.NET.APL.JsonConverter
                 return target;
             }
 
-            throw new ArgumentOutOfRangeException($"Command type {commandType} not supported");
+            throw new ArgumentOutOfRangeException($"Command type {audioType} not supported");
         }
 
         public static Dictionary<string, Type> APLAComponentLookup = new Dictionary<string, Type>
         {
 
         };
-
-        private APLAComponent GetComponent(string type)
-        {
-            if (APLAComponentLookup.ContainsKey(type))
-            {
-                return (APLAComponent)Activator.CreateInstance(APLAComponentLookup[type]);
-            }
-
-            var resultingType = Type.GetType("Alexa.NET.APL.Audio." + type);
-            if (resultingType != null)
-            {
-                if (!APLAComponentLookup.ContainsKey(type))
-                {
-                    APLAComponentLookup.Add(type, resultingType);
-                }
-
-                return (APLAComponent)Activator.CreateInstance(resultingType);
-            }
-
-            return null;
-        }
     }
 }
