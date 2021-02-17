@@ -37,7 +37,8 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(Trim), typeof(Trim)},
             {nameof(FadeIn), typeof(FadeIn)},
             {nameof(FadeOut), typeof(FadeOut)},
-            {nameof(Volume), typeof(Volume)}
+            {nameof(Volume), typeof(Volume)},
+            {nameof(Repeat), typeof(Repeat) }
         };
 
         private APLAFilter GetGesture(string commandType)

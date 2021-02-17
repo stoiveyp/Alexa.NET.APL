@@ -1,6 +1,7 @@
 {
   "type": "Audio",
   "source": "https://amazon.com/rainforestSoundEffect.mp3",
+  "duration": "trimToParent", 
   "filter": [
     {
       "type": "Trim",
@@ -22,6 +23,10 @@
     {
       "type": "Volume",
       "amount": 0.5
+    },
+    {
+      "type": "Repeat",
+      "repeatCount": 2
     }
   ]
 }

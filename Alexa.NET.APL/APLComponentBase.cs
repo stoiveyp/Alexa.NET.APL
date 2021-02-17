@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Alexa.NET.APL;
+using Alexa.NET.APL.Audio;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Alexa.NET.Response.APL
 {
@@ -26,5 +28,9 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Description { get; set; }
+
+        [JsonProperty("duration", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public AudioDuration? Duration { get; set; }
     }
 }

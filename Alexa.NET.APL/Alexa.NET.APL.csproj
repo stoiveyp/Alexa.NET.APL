@@ -3,15 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>7.0.0</Version>
+    <Version>7.1.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>Full Support for APL v1.5
-Small braking changes to allow support (image sources is now string array, converter lookups use ConcurrentDictionary)</PackageReleaseNotes>
+    <PackageReleaseNotes>Adding audio duration and repeat filter</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <LangVersion>8</LangVersion>
   </PropertyGroup>

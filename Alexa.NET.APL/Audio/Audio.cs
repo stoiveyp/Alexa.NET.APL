@@ -2,6 +2,7 @@
 using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Alexa.NET.APL.Audio
 {
