@@ -3,5 +3,6 @@
   "width": "1000dp",
   "scrollDirection": "vertical",
   "childWidths": [ "20%", "30%", "auto" ],
-  "childHeights": "100dp"
+  "childHeights": "100dp",
+  "gridSequence":  "forceStart" 
 }

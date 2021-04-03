@@ -14,6 +14,10 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("style",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Style { get; set; }
 
+        [JsonProperty("padding", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(GenericSingleOrListConverter<int>))]
+        public APLValue<IList<int>> Padding { get; set; }
+
         [JsonProperty("paddingLeft", NullValueHandling = NullValueHandling.Ignore)]
         public APLDimensionValue PaddingLeft { get; set; }
 
@@ -51,7 +55,7 @@ namespace Alexa.NET.Response.APL
         public APLDimensionValue Bottom { get; set; }
 
         [JsonProperty("grow",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int?> Grow { get; set; }
+        public APLValue<double?> Grow { get; set; }
 
         [JsonProperty("left",NullValueHandling = NullValueHandling.Ignore)]
         public APLDimensionValue Left { get; set; }
@@ -137,5 +141,8 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("actions", NullValueHandling = NullValueHandling.Ignore),
          JsonConverter(typeof(GenericSingleOrListConverter<APLAction>))]
         public APLValue<IList<APLAction>> Actions { get; set; }
+
+        [JsonProperty("preserve", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<IList<string>> Preserve { get; set; }
     }
 }

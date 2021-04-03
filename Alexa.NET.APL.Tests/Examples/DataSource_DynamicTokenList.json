@@ -1,0 +1,5 @@
+{
+  "type": "dynamicTokenList",
+  "listId": "my-list-id",
+  "pageToken": "pageToken" 
+}

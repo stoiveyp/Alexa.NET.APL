@@ -31,5 +31,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("touchForward",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> TouchForward { get; set; }
+
+        [JsonProperty("imageShadow", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool?> ImageShadow { get; set; }
     }
 }

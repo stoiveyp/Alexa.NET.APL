@@ -1,0 +1,109 @@
+{
+  "type": "Pager",
+  "width": 300,
+  "height": 300,
+  "items": {
+    "type": "Frame",
+    "borderWidth": 25,
+    "padding": [ 10, 20, 10, 40 ],
+    "borderColor": "${data.border}",
+    "backgroundColor": "@colorYellow800",
+    "borderRadius": "@shapeRoundedRect",
+    "item": {
+      "type": "Text",
+      "color": "@colorText",
+      "text": "${data.text}"
+    }
+
+  },
+  "data": [
+    {
+      "border": "@colorBlue800",
+      "text": "This is the first page of the pager."
+    },
+    {
+      "border": "@colorTeal800",
+      "text": "This is the second page of the pager."
+    },
+    {
+      "border": "@colorGreen800",
+      "text": "This is third page of the pager."
+    }
+  ],
+  "handlePageMove": [
+    {
+      "when": "${event.direction == 'left'}",
+      "drawOrder": "nextAbove",
+      "commands": [
+        {
+          "type": "SetValue",
+          "componentId": "${event.nextChild.uid}",
+          "property": "transform",
+          "value": [
+            {
+              "translateX": "${(1.0-event.amount) * 300}"
+            }
+          ]
+        },
+        {
+          "type": "SetValue",
+          "componentId": "${event.currentChild.uid}",
+          "property": "opacity",
+          "value": "${(1.0 - event.amount)}"
+        },
+        {
+          "type": "SetValue",
+          "componentId": "${event.currentChild.uid}",
+          "property": "transform",
+          "value": [
+            {
+              "scale": "${(1.0 - 0.3 * event.amount)}"
+            }
+          ]
+        },
+        {
+          "type": "SetValue",
+          "property": "AMOUNT",
+          "value": "${event.amount}"
+        }
+      ]
+    },
+    {
+      "when": "${event.direction == 'right'}",
+      "drawOrder": "nextBelow",
+      "commands": [
+        {
+          "type": "SetValue",
+          "componentId": "${event.currentChild.uid}",
+          "property": "transform",
+          "value": [
+            {
+              "translateX": "${event.amount * 300}"
+            }
+          ]
+        },
+        {
+          "type": "SetValue",
+          "componentId": "${event.nextChild.uid}",
+          "property": "opacity",
+          "value": "${event.amount}"
+        },
+        {
+          "type": "SetValue",
+          "componentId": "${event.nextChild.uid}",
+          "property": "transform",
+          "value": [
+            {
+              "scale": "${(0.7 + 0.3 * event.amount)}"
+            }
+          ]
+        },
+        {
+          "type": "SetValue",
+          "property": "AMOUNT",
+          "value": "${event.amount}"
+        }
+      ]
+    }
+  ]
+}

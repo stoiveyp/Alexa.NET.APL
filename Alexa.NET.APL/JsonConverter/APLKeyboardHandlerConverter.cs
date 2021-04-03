@@ -9,12 +9,11 @@ namespace Alexa.NET.APL.JsonConverter
 
         public APLKeyboardHandlerConverter(bool alwaysOutputArray) : base(alwaysOutputArray) { }
 
-        private readonly APLCommandConverter _converter = new APLCommandConverter();
         protected override JsonToken SingleToken => JsonToken.StartObject;
 
         protected override void ReadSingle(JsonReader reader, JsonSerializer serializer, List<APLKeyboardHandler> list)
         {
-            var value = (APLKeyboardHandler)_converter.ReadJson(reader, typeof(APLKeyboardHandler), null, serializer);
+            var value = serializer.Deserialize<APLKeyboardHandler>(reader);
             list.Add(value);
         }
     }

@@ -41,6 +41,10 @@ namespace Alexa.NET.APL
          JsonConverter(typeof(APLCommandListConverter), true)]
         public APLValue<IList<APLCommand>> OnMount { get; set; }
 
+        [JsonProperty("onConfigChange", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter), true)]
+        public APLValue<IList<APLCommand>> OnConfigChange { get; set; }
+
         [JsonProperty("settings", NullValueHandling = NullValueHandling.Ignore)]
         public APLDocumentSettings Settings { get; set; }
 

@@ -43,5 +43,9 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("scrollDirection",NullValueHandling = NullValueHandling.Ignore),
             JsonConverter(typeof(APLValueEnumConverter<ScrollDirection>))]
         public APLValue<ScrollDirection?> ScrollDirection { get; set; }
+
+        [JsonProperty("snap", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(APLValueEnumConverter<Snap>))]
+        public APLValue<Snap?> Snap { get; set; }
     }
 }

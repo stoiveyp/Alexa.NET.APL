@@ -23,13 +23,14 @@ namespace Alexa.NET.APL.Components
         public APLValue<List<object>> Data { get; set; }
 
         [JsonProperty("firstItem", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLComponent>> FirstItem { get; set; }
+        public APLValue<IList<APLComponent>> FirstItem { get; set; }
 
         [JsonProperty("lastItem", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLComponent>> LastItem { get; set; }
+        public APLValue<IList<APLComponent>> LastItem { get; set; }
 
-        [JsonProperty("items", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLComponent>> Items { get; set; }
+        [JsonProperty("items", NullValueHandling = NullValueHandling.Ignore), 
+         JsonConverter(typeof(APLComponentListConverter))]
+        public APLValue<IList<APLComponent>> Items { get; set; }
 
         [JsonProperty("initialPage",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int?> InitialPage { get; set; }
@@ -40,5 +41,9 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("onPageChanged",NullValueHandling = NullValueHandling.Ignore),
          JsonConverter(typeof(APLCommandListConverter))]
         public APLValue<IList<APLCommand>> OnPageChanged { get; set; }
+
+        [JsonProperty("handlePageMove", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(APLPageMoveConverter))]
+        public APLValue<IList<APLPageMoveHandler>> HandlePageMove { get; set; }
     }
 }

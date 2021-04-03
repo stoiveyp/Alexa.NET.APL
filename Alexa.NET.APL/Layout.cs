@@ -18,6 +18,14 @@ namespace Alexa.NET.Response.APL
             Items = items.ToList();
         }
 
+        [JsonProperty("bind", NullValueHandling = NullValueHandling.Ignore)]
+        public IList<Binding> Bindings { get; set; }
+
+        public bool ShouldSerializeBindings()
+        {
+            return Bindings?.Any() ?? false;
+        }
+
         [JsonProperty("description",NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
 

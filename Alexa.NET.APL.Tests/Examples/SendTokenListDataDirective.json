@@ -1,0 +1,20 @@
+{
+  "type": "Alexa.Presentation.APL.SendTokenListData",
+  "token": "developer-provided-token",
+  "correlationToken": "alexa-provided-correlation-token",
+  "listId": "my-list-id",
+  "pageToken": "myListPage2",
+  "nextPageToken":  "myListPage3",
+  "items": [
+    { "primaryText": "item 11" },
+    { "primaryText": "item 12" },
+    { "primaryText": "item 13" },
+    { "primaryText": "item 14" },
+    { "primaryText": "item 15" },
+    { "primaryText": "item 16" },
+    { "primaryText": "item 17" },
+    { "primaryText": "item 18" },
+    { "primaryText": "item 19" },
+    { "primaryText": "item 20" }
+  ]
+}

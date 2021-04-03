@@ -19,6 +19,8 @@ namespace Alexa.NET.Response.APL
         [EnumMember(Value = "1.4")]
         V1_4,
         [EnumMember(Value = "1.5")]
-        V1_5
+        V1_5,
+        [EnumMember(Value = "1.6")]
+        V1_6,
     }
 }
