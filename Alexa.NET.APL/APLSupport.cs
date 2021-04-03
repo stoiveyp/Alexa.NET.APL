@@ -13,6 +13,7 @@ namespace Alexa.NET.APL
             UpdateIndexListDataDirective.AddSupport();
             new UserEventRequestHandler().AddToRequestConverter();
             new LoadIndexListDataRequestHandler().AddToRequestConverter();
+            new LoadTokenListDataRequestHandler().AddToRequestConverter();
             new RuntimeErrorRequestHandler().AddToRequestConverter();
         }
     }

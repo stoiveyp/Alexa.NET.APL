@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Alexa.NET.Request;
+﻿using Alexa.NET.Request;
 using Xunit;
 
 namespace Alexa.NET.APL.Tests
@@ -14,6 +11,14 @@ namespace Alexa.NET.APL.Tests
             var req = Utility.ExampleFileContent<Request.Type.Request>("LoadIndexListDataRequest.json");
             var loadIndex = Assert.IsType<LoadIndexListDataRequest>(req);
             Assert.True(Utility.CompareJson(loadIndex, "LoadIndexListDataRequest.json"));
+        }
+
+        [Fact]
+        public void LoadTokenListData()
+        {
+            var req = Utility.ExampleFileContent<Request.Type.Request>("LoadTokenListDataRequest.json");
+            var loadIndex = Assert.IsType<LoadTokenListDataRequest>(req);
+            Assert.True(Utility.CompareJson(loadIndex, "LoadTokenListDataRequest.json"));
         }
 
         [Fact]
