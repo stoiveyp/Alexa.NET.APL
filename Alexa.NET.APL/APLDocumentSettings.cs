@@ -15,6 +15,9 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("idleTimeout",NullValueHandling = NullValueHandling.Ignore)]
         public int? IdleTimeout { get; set; }
 
+        [JsonProperty("supportsResizing",NullValueHandling = NullValueHandling.Ignore)]
+        public bool? SupportsResizing { get; set; }
+
         [JsonExtensionData]
         public Dictionary<string,object> OtherSettings { get; set; }
 

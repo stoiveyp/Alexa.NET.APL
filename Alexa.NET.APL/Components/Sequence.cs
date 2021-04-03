@@ -45,5 +45,9 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("scaling",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int?> Scaling { get; set; }
+
+        [JsonProperty("snap", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(APLValueEnumConverter<Snap>))]
+        public APLValue<Snap?> Snap { get; set; }
     }
 }

@@ -59,5 +59,7 @@ namespace Alexa.NET.APL.Components
          JsonConverter(typeof(APLCommandListConverter))]
         public APLValue<IList<APLCommand>> PrimaryAction { get; set; }
 
+        [JsonProperty("imageShadow", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool?> ImageShadow { get; set; }
     }
 }

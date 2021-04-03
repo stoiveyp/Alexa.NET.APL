@@ -47,7 +47,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void DailyCheese()
         {
-            var doc = Utility.ExampleFileContent<APLDocument>("DailyCheese.json");
+            var doc = Utility.ExampleFileContent<APLDocument>("Example_DailyCheese.json");
             Assert.Equal("APL", doc.Type);
             Assert.Equal(APLDocumentVersion.V1_3, doc.Version);
             Assert.NotNull(doc.MainTemplate);
@@ -55,7 +55,20 @@ namespace Alexa.NET.APL.Tests
 
             var mount = doc.OnMount.Value.Single();
             Assert.IsType<OpenURL>(mount);
-            Assert.True(Utility.CompareJson(doc, "DailyCheese.json"));
+            Assert.True(Utility.CompareJson(doc, "Example_DailyCheese.json"));
+        }
+
+        [Fact]
+        public void ChangeDocumentLayout()
+        {
+            var doc = Utility.ExampleFileContent<APLDocument>("Example_ChangeDocumentLayout.json");
+            Assert.Equal("APL", doc.Type);
+            Assert.Equal(APLDocumentVersion.V1_6, doc.Version);
+            Assert.True(doc.Settings.SupportsResizing);
+
+            var occ = doc.OnConfigChange.Value.Single();
+            Assert.IsType<Reinflate>(occ);
+            Assert.True(Utility.CompareJson(doc, "Example_ChangeDocumentLayout.json"));
         }
 
         [Fact]

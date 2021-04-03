@@ -43,5 +43,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("singleRatingGraphic",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> SingleRatingGraphic { get; set; }
+
+        [JsonProperty("ratingTextOpacity",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<double?> RatingTextOpacity { get; set; }
     }
 }

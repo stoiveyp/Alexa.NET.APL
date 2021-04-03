@@ -92,7 +92,7 @@ namespace Alexa.NET.APL.JsonConverter
                     realInput = CreateList(reader, serializer, genericType);
                     break;
                 case JsonToken.StartObject:
-                    realInput = serializer.Deserialize(reader, genericType);
+                    realInput = genericType == typeof(object) ? JObject.Load(reader) : serializer.Deserialize(reader, genericType);
                     break;
                 default:
                     realInput = CorrectInput(reader.Value);
@@ -127,7 +127,7 @@ namespace Alexa.NET.APL.JsonConverter
 
             if (genericType == typeof(object))
             {
-
+                return serializer.Deserialize<List<object>>(reader);
             }
 
             return genericType.IsArray ? serializer.Deserialize(reader, genericType) : null;

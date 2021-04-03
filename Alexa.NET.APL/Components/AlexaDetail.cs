@@ -138,7 +138,7 @@ namespace Alexa.NET.APL.Components
         JsonConverter(typeof(GenericSingleOrListConverter<IngredientListItem>))]
         public APLValue<IList<IngredientListItem>> IngredientListItems { get; set; }
 
-
-
+        [JsonProperty("imageShadow",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool?> ImageShadow { get; set; }
     }
 }

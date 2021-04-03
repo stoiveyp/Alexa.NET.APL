@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Alexa.NET.APL.Commands;
 using Alexa.NET.APL.JsonConverter;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
@@ -108,6 +109,17 @@ namespace Alexa.NET.APL.Tests
             var jo = JObject.FromObject(command);
             Assert.Single(jo);
             Assert.Equal("Finish",jo["type"].Value<string>());
+            Assert.IsType<Finish>(JsonConvert.DeserializeObject<APLCommand>(jo.ToString()));
+        }
+
+        [Fact]
+        public void Reinflate()
+        {
+            var command = new Reinflate();
+            var jo = JObject.FromObject(command);
+            Assert.Single(jo);
+            Assert.Equal("Reinflate", jo["type"].Value<string>());
+            Assert.IsType<Reinflate>(JsonConvert.DeserializeObject<APLCommand>(jo.ToString()));
         }
 
         [Fact]

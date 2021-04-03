@@ -26,6 +26,9 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("headerAttributionText",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HeaderAttributionText { get; set; }
 
+        [JsonProperty("headerAttributionOpacity",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<double?> HeaderAttributionOpacity { get; set; }
+
         [JsonProperty("headerAttributionImage",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> HeaderAttributionImage { get; set; }
 

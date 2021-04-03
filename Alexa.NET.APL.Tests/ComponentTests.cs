@@ -355,6 +355,12 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void Pager()
+        {
+            Utility.AssertSerialization<Pager>("Pager.json");
+        }
+
+        [Fact]
         public void DictionaryBindingTest()
         {
             var rawContainer = new Container

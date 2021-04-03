@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 
@@ -54,8 +55,9 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("borderWidth",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int?> BorderWidth { get; set; }
 
-        [JsonProperty("item",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<List<APLComponent>> Item { get; set; }
+        [JsonProperty("item",NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLComponentListConverter))]
+        public APLValue<IList<APLComponent>> Item { get; set; }
 
         [JsonProperty("borderStrokeWidth",NullValueHandling = NullValueHandling.Ignore)]
         public APLAbsoluteDimensionValue BorderStrokeWidth { get; set; }
