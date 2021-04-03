@@ -171,6 +171,13 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void DynamicTokenList()
+        {
+            var source = "DataSource_DynamicTokenList.json";
+            Utility.AssertSerialization<APLDataSource, DynamicTokenList>(source);
+        }
+
+        [Fact]
         public void RenderDocumentLink()
         {
             

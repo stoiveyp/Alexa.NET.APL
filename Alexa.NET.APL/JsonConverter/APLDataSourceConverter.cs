@@ -35,6 +35,7 @@ namespace Alexa.NET.APL.JsonConverter
                 DynamicIndexList.DataSourceType => new DynamicIndexList(),
                 ObjectDataSource.DataSourceType => new ObjectDataSource(),
                 ListDataSource.DataSourceType => new ListDataSource(),
+                DynamicTokenList.DataSourceType => new DynamicTokenList(),
                 _ => (APLDataSource)new KeyValueDataSource()
             };
         }

@@ -108,5 +108,13 @@ namespace Alexa.NET.APL.Tests
             var obj = ExampleFileContent<T>(expectedFile);
             Assert.True(CompareJson(obj, expectedFile));
         }
+
+        public static void AssertSerialization<TImplied, TExplicit>(string expectedFile)
+        {
+            APLComponentConverter.ThrowConversionExceptions = true;
+            var obj = ExampleFileContent<TImplied>(expectedFile);
+            var final = Assert.IsType<TExplicit>(obj);
+            Assert.True(CompareJson(final, expectedFile));
+        }
     }
 }

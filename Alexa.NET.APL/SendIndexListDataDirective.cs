@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Alexa.NET.Response.Converters;
+﻿using Alexa.NET.Response.Converters;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.Response
 {
-    public class SendIndexListDataDirective:IDirective
+    public class SendIndexListDataDirective:ListDataDirective
     {
         public const string DirectiveType = "Alexa.Presentation.APL.SendIndexListData";
 
@@ -23,16 +21,7 @@ namespace Alexa.NET.Response
         }
 
         [JsonProperty("type")]
-        public string Type => DirectiveType;
-
-        [JsonProperty("token",NullValueHandling = NullValueHandling.Ignore)]
-        public string Token { get; set; }
-
-        [JsonProperty("correlationToken",NullValueHandling = NullValueHandling.Ignore)]
-        public string CorrelationToken { get; set; }
-
-        [JsonProperty("listId",NullValueHandling = NullValueHandling.Ignore)]
-        public string ListId { get; set; }
+        public override string Type => DirectiveType;
 
         [JsonProperty("listVersion",NullValueHandling = NullValueHandling.Ignore)]
         public int? ListVersion { get; set; }
@@ -46,12 +35,5 @@ namespace Alexa.NET.Response
         [JsonProperty("maximumExclusiveIndex",NullValueHandling = NullValueHandling.Ignore)]
         public int? MaximumExclusiveIndex { get; set; }
 
-        [JsonProperty("items", NullValueHandling = NullValueHandling.Ignore)]
-        public IList<object> Items { get; set; } = new List<object>();
-
-        public bool ShouldSerializeItems()
-        {
-            return Items?.Any() ?? false;
-        }
     }
 }

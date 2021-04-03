@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Alexa.NET.Response.Directive;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.DataSources

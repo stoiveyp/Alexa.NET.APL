@@ -104,6 +104,13 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void SendTokenListData()
+        {
+            SendTokenListDataDirective.AddSupport();
+            Utility.AssertSerialization<IDirective, SendTokenListDataDirective>("SendTokenListDataDirective.json");
+        }
+
+        [Fact]
         public void UpdateIndexListData()
         {
             UpdateIndexListDataDirective.AddSupport();
