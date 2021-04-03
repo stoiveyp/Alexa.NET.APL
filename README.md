@@ -191,3 +191,11 @@ var doc = new APLDocument();
 var smartMotion = new SmartMotionExtension("SmartMotion");
 smartMotion.OnDeviceStateChanged(doc, listOfCommands);
 ```
+
+## Use SmartMotion Extension to move Echo Show
+```csharp
+response.Response.Directives.Add(
+    new ExecuteCommandsDirective(Guid.NewGuid().ToString("N"),
+    PlayNamedChoreoCommand.For(new SmartMotionExtension("SmartMotion"), "ScreenImpactCenter")
+    ));
+```
