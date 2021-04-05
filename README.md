@@ -194,8 +194,15 @@ smartMotion.OnDeviceStateChanged(doc, listOfCommands);
 
 ## Use SmartMotion Extension to move Echo Show
 ```csharp
-response.Response.Directives.Add(
-    new ExecuteCommandsDirective(Guid.NewGuid().ToString("N"),
-    PlayNamedChoreoCommand.For(new SmartMotionExtension("SmartMotion"), "ScreenImpactCenter")
-    ));
+    var response = ResponseBuilder.Tell("Just an example");
+
+    var ext = new SmartMotionExtension("SmartMotion");
+    var doc = new APLDocument(APLDocumentVersion.V1_6) {Extensions = {Value = new List<APLExtension> {ext}}};
+    var token = Guid.NewGuid().ToString("N");
+
+    response.Response.Directives.Add(
+	new ExecuteCommandsDirective(token,
+	PlayNamedChoreoCommand.For(ext, "ClockwiseMediumSweep")
+	));
+    return response;
 ```
