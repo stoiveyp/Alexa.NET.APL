@@ -198,8 +198,10 @@ smartMotion.OnDeviceStateChanged(doc, listOfCommands);
 
     var ext = new SmartMotionExtension("SmartMotion");
     var doc = new APLDocument(APLDocumentVersion.V1_6) {Extensions = {Value = new List<APLExtension> {ext}}};
+    //... add document components here...
     var token = Guid.NewGuid().ToString("N");
 
+    response.Response.Directives.Add(new RenderDocumentDirective(doc){Token = token});
     response.Response.Directives.Add(
 	new ExecuteCommandsDirective(token,
 	PlayNamedChoreoCommand.For(ext, "ClockwiseMediumSweep")
