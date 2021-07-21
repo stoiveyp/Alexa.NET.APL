@@ -140,5 +140,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("imageShadow",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> ImageShadow { get; set; }
+
+        [JsonProperty("lang", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Lang { get; set; }
     }
 }

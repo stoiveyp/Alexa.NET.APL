@@ -327,7 +327,8 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void SwipeToAction()
         {
-            Utility.AssertSerialization<AlexaSwipeToAction>("AlexaSwipeToAction.json");
+            var output = Utility.AssertSerialization<AlexaSwipeToAction>("AlexaSwipeToAction.json");
+            Assert.Single(output.Properties);
         }
 
         [Fact]

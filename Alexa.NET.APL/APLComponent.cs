@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Alexa.NET.APL;
+using Alexa.NET.APL.Components;
 using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 
@@ -144,5 +145,9 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("preserve", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<IList<string>> Preserve { get; set; }
+
+        [JsonProperty("layoutDirection", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(APLValueEnumConverter<LayoutDirection>))]
+        public APLValue<LayoutDirection?> LayoutDirection { get; set; }
     }
 }

@@ -129,5 +129,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("swipeActionIconType", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> SwipeActionIconType { get; set; }
+
+        [JsonProperty("lang", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Lang { get; set; }
     }
 }
