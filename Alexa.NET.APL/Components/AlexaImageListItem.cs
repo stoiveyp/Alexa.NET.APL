@@ -47,5 +47,12 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("imageShadow", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> ImageShadow { get; set; }
+
+        [JsonProperty("contentDirection",NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(APLValueEnumConverter<ContentDirection>))]
+        public APLValue<ContentDirection?> ContentDirection { get; set; }
+
+        [JsonProperty("imageAltText", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> ImageAltText { get; set; }
     }
 }

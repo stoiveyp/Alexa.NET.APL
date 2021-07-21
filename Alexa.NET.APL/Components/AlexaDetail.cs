@@ -143,5 +143,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("lang", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Lang { get; set; }
+
+        [JsonProperty("headerAttributionOpacity", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<double?> HeaderAttributionOpacity { get; set; }
     }
 }

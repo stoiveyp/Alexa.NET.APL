@@ -34,5 +34,14 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("primaryAction", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(APLCommandListConverter))]
         public APLValue<IList<APLCommand>> PrimaryAction { get; set; }
+
+        [JsonProperty("headerAttributionOpacity", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<double?> HeaderAttributionOpacity { get; set; }
+
+        [JsonProperty("listId", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> ListId { get; set; }
+
+        [JsonProperty("speechItems", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> SpeechItems { get; set; }
     }
 }

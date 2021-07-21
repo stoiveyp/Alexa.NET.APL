@@ -14,5 +14,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("text")]
         public APLValue<string> Content { get; set; }
+
+        [JsonProperty("lang", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Lang { get; set; }
     }
 }

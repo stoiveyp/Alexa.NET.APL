@@ -19,6 +19,12 @@ namespace Alexa.NET.Response.APL
          JsonConverter(typeof(GenericSingleOrListConverter<int>))]
         public APLValue<IList<int>> Padding { get; set; }
 
+        [JsonProperty("paddingStart", NullValueHandling = NullValueHandling.Ignore)]
+        public APLDimensionValue PaddingStart { get; set; }
+
+        [JsonProperty("paddingEnd", NullValueHandling = NullValueHandling.Ignore)]
+        public APLDimensionValue PaddingEnd { get; set; }
+
         [JsonProperty("paddingLeft", NullValueHandling = NullValueHandling.Ignore)]
         public APLDimensionValue PaddingLeft { get; set; }
 
@@ -61,6 +67,9 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("left",NullValueHandling = NullValueHandling.Ignore)]
         public APLDimensionValue Left { get; set; }
 
+        [JsonProperty("start", NullValueHandling = NullValueHandling.Ignore)]
+        public APLDimensionValue Start { get; set; }
+
         [JsonProperty("numbering",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Numbering { get; set; }
 
@@ -69,6 +78,9 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("right",NullValueHandling = NullValueHandling.Ignore)]
         public APLDimensionValue Right { get; set; }
+
+        [JsonProperty("end", NullValueHandling = NullValueHandling.Ignore)]
+        public APLDimensionValue End { get; set; }
 
         [JsonProperty("shrink",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int?> Shrink { get; set; }
