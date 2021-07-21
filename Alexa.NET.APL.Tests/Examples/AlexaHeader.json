@@ -8,5 +8,6 @@
   "headerAttributionText": "Attribution",
   "headerAttributionImage": "https://d2o906d8ln7ui1.cloudfront.net/images/cheeseskillicon.png",
   "headerAttributionPrimacy": true,
-  "headerDivider": true
+  "headerDivider": true,
+  "layoutDirection": "RTL"
 }

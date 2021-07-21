@@ -102,11 +102,12 @@ namespace Alexa.NET.APL.Tests
             return File.ReadAllText(Path.Combine(ExamplesPath, expectedFile));
         }
 
-        public static void AssertSerialization<T>(string expectedFile)
+        public static T AssertSerialization<T>(string expectedFile)
         {
             APLComponentConverter.ThrowConversionExceptions = true;
             var obj = ExampleFileContent<T>(expectedFile);
             Assert.True(CompareJson(obj, expectedFile));
+            return obj;
         }
 
         public static void AssertSerialization<TImplied, TExplicit>(string expectedFile)

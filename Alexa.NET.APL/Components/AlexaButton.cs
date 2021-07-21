@@ -27,5 +27,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("touchForward",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> TouchForward { get; set; }
+
+        [JsonProperty("lang", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Lang { get; set; }
     }
 }

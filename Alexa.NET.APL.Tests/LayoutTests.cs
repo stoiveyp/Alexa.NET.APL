@@ -86,7 +86,8 @@ namespace Alexa.NET.APL.Tests
                 HeaderBackButtonAccessibilityLabel = "back",
                 HeaderAttributionText = "Attribution",
                 HeaderAttributionPrimacy = true,
-                HeaderDivider = true
+                HeaderDivider = true,
+                LayoutDirection = LayoutDirection.RTL
             };
 
             Assert.True(Utility.CompareJson(header,"AlexaHeader.json"));

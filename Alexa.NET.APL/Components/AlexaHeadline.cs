@@ -32,5 +32,11 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("secondaryText", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> SecondaryText { get; set; }
 
+        [JsonProperty("lang", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Lang { get; set; }
+
+        [JsonProperty("headerAttributionOpacity", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<double?> HeaderAttributionOpacity { get; set; }
+
     }
 }

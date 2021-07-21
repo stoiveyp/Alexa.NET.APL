@@ -22,5 +22,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("type")]
         public override string Type => nameof(AlexaFooter);
+
+        [JsonProperty("lang", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> Lang { get; set; }
     }
 }
