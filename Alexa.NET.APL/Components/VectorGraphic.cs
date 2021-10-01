@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Alexa.NET.Response.APL;
+﻿using System.Collections.Generic;
+using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
@@ -20,6 +18,12 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Source { get; set; }
 
+        [JsonProperty("onLoad", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter), true)]
+        public APLValue<IList<APLCommand>> OnLoad { get; set; }
 
+        [JsonProperty("onFail", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter), true)]
+        public APLValue<IList<APLCommand>> OnFail { get; set; }
     }
 }

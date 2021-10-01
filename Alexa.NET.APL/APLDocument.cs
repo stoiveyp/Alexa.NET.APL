@@ -51,5 +51,9 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("background",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<DocumentBackgroundColor> Background { get; set; }
+
+        [JsonProperty("onDisplayStateChange", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter), true)]
+        public APLValue<IList<APLCommand>> OnDisplayStateChange { get; set; }
     }
 }

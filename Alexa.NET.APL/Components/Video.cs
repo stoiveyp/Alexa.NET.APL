@@ -42,5 +42,13 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("onTrackUpdate", NullValueHandling = NullValueHandling.Ignore),
          JsonConverter(typeof(APLCommandListConverter))]
         public APLValue<IList<APLCommand>> OnTrackUpdate { get; set; }
+
+        [JsonProperty("onTrackReady", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter), true)]
+        public APLValue<IList<APLCommand>> OnTrackReady { get; set; }
+
+        [JsonProperty("onTrackFail", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter), true)]
+        public APLValue<IList<APLCommand>> OnTrackFail { get; set; }
     }
 }
