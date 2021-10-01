@@ -4,6 +4,13 @@
   "settings": {},
   "theme": "dark",
   "background": "rgb(10,255,10)",
+  "environment": {
+    "parameters": [
+      "MyData"
+    ],
+    "lang": "${MyData.dataLanguage}",
+    "layoutDirection": "${MyData.dataLayoutDirection}"
+  },
   "import": [
     {
       "name": "alexa-layouts",
@@ -137,43 +144,42 @@
 
       "payload"
     ],
-    "items": 
-      {
-        "type": "Container",
-        "height": "100vh",
-        "items": [
-          {
-            "type": "Image",
-            "source": "${payload.bodyTemplate6Data.backgroundImage.sources[0].url}",
-            "scale": "best-fill",
-            "width": "100vw",
-            "height": "100vh",
-            "position": "absolute"
-          },
-          {
-            "type": "AlexaHeader",
-            "headerAttributionImage": "${payload.bodyTemplate6Data.logoUrl}"
-          },
-          {
-            "type": "Container",
-            "grow": 1.0,
-            "justifyContent": "${viewport.shape == 'round' ? 'center' : 'end'}",
-            "items": {
-                "paddingLeft": "@marginLeft",
-                "paddingRight": "@marginRight",
-                "type": "Text",
-                "text": "${payload.bodyTemplate6Data.textContent.primaryText.text}",
-                "style": "textStyleBody",
-                "textAlign": "${viewport.shape == 'round' ? 'center' : 'left'}"
-              }
-          },
-          {
-            "when": "${viewport.shape != 'round'}",
-            "type": "AlexaFooter",
-            "footerHint": "${payload.bodyTemplate6Data.hintText}"
+    "items": {
+      "type": "Container",
+      "height": "100vh",
+      "items": [
+        {
+          "type": "Image",
+          "source": "${payload.bodyTemplate6Data.backgroundImage.sources[0].url}",
+          "scale": "best-fill",
+          "width": "100vw",
+          "height": "100vh",
+          "position": "absolute"
+        },
+        {
+          "type": "AlexaHeader",
+          "headerAttributionImage": "${payload.bodyTemplate6Data.logoUrl}"
+        },
+        {
+          "type": "Container",
+          "grow": 1.0,
+          "justifyContent": "${viewport.shape == 'round' ? 'center' : 'end'}",
+          "items": {
+            "paddingLeft": "@marginLeft",
+            "paddingRight": "@marginRight",
+            "type": "Text",
+            "text": "${payload.bodyTemplate6Data.textContent.primaryText.text}",
+            "style": "textStyleBody",
+            "textAlign": "${viewport.shape == 'round' ? 'center' : 'left'}"
           }
-        ]
-      }
-    
+        },
+        {
+          "when": "${viewport.shape != 'round'}",
+          "type": "AlexaFooter",
+          "footerHint": "${payload.bodyTemplate6Data.hintText}"
+        }
+      ]
+    }
+
   }
 }

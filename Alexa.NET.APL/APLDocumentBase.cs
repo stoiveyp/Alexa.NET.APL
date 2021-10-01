@@ -57,6 +57,9 @@ namespace Alexa.NET.APL
             return Extensions.Value?.Any() ?? false;
         }
 
+        [JsonProperty("environment", NullValueHandling = NullValueHandling.Ignore)]
+        public APLDocumentEnvironment Environment { get; set; }
+
         [JsonExtensionData]
         public Dictionary<string,object> Handlers { get; set; }
 
