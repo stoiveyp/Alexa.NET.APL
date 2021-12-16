@@ -35,7 +35,8 @@ namespace Alexa.NET.APL.JsonConverter
         {
             {nameof(DoublePress), typeof(DoublePress)},
             {nameof(LongPress), typeof(LongPress)},
-            {nameof(SwipeAway), typeof(SwipeAway)}
+            {nameof(SwipeAway), typeof(SwipeAway)},
+            {nameof(Tap), typeof(Tap)}
         };
 
         private APLGesture GetGesture(string commandType)
