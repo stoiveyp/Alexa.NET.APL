@@ -15,12 +15,23 @@ namespace Alexa.NET.APL.Tests
 {
     public class APLDocumentTests
     {
-        [Fact]
-        public void TopLevelProperties()
+        [Theory]
+        [InlineData("1.0", APLDocumentVersion.V1)]
+        [InlineData("1.1", APLDocumentVersion.V1_1)]
+        [InlineData("1.2", APLDocumentVersion.V1_2)]
+        [InlineData("1.3", APLDocumentVersion.V1_3)]
+        [InlineData("1.4", APLDocumentVersion.V1_4)]
+        [InlineData("1.5", APLDocumentVersion.V1_5)]
+        [InlineData("1.6", APLDocumentVersion.V1_6)]
+        [InlineData("1.7", APLDocumentVersion.V1_7)]
+        [InlineData("1.8", APLDocumentVersion.V1_8)]
+        [InlineData("1.9", APLDocumentVersion.V1_9)]
+        public void TopLevelProperties(string versionString, APLDocumentVersion version)
         {
-            var doc = GetDocument();
+            var doc = GetDocument(version);
             Assert.Equal("APL", doc.Type);
-            Assert.Equal(APLDocumentVersion.V1, doc.Version);
+            Assert.Equal(version, doc.Version);
+            Assert.Equal(versionString, doc.VersionString);
             Assert.NotNull(doc.MainTemplate);
         }
 
