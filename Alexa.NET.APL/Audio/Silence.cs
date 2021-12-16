@@ -8,6 +8,6 @@ namespace Alexa.NET.APL.Audio
         public override string Type => nameof(Silence);
 
         [JsonProperty("duration",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int?> Duration { get; set; }
+        public new APLValue<int?> Duration { get; set; }
     }
 }
