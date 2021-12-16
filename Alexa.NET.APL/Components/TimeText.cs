@@ -19,6 +19,6 @@ namespace Alexa.NET.APL.Components
         public APLValue<string> Format { get; set; }
 
         [JsonProperty("start",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<int?> Start { get; set; }
+        public new APLValue<int?> Start { get; set; }
     }
 }
