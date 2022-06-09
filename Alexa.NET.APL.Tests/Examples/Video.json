@@ -1,5 +1,6 @@
 {
   "type": "Video",
   "autoplay": true,
+  "muted":  true, 
   "source": [ { "url": "https://examplevideo.com/video.mp4" } ]
 }
