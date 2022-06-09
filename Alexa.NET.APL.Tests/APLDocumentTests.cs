@@ -26,6 +26,7 @@ namespace Alexa.NET.APL.Tests
         [InlineData("1.7", APLDocumentVersion.V1_7)]
         [InlineData("1.8", APLDocumentVersion.V1_8)]
         [InlineData("1.9", APLDocumentVersion.V1_9)]
+        [InlineData("2022.1", APLDocumentVersion.V2022_1)]
         public void TopLevelProperties(string versionString, APLDocumentVersion version)
         {
             var doc = GetDocument(version);
