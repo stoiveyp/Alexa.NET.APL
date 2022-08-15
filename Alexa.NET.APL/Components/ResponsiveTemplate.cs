@@ -72,7 +72,7 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("theme", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Theme { get; set; }
 
-        [JsonProperty("hintText", NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> HintText { get; set; }
+        [JsonProperty("footerHintText", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<string> FooterHintText { get; set; }
     }
 }
