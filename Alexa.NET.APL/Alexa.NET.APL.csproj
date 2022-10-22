@@ -3,14 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Steven Pears</Authors>
-    <Version>7.6.1</Version>
+    <Version>7.6.2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Small helper library to allow Alexa.NET skills to work with APL</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/stoiveyp/Alexa.NET.APL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/stoiveyp/Alexa.NET.APL</RepositoryUrl>
     <PackageTags>alexa, skills, APL</PackageTags>
-    <PackageReleaseNotes>FIx hintText to footerHintText in responsive templates (thanks @TroydonAnabolic!)</PackageReleaseNotes>
+    <PackageReleaseNotes>Support APL2022.2</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <LangVersion>8</LangVersion>
   </PropertyGroup>
