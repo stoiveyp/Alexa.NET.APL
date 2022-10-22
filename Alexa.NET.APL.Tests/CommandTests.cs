@@ -115,10 +115,13 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void Reinflate()
         {
-            var command = new Reinflate();
+            var command = new Reinflate{PreservedSequencers = new[] {"test"}};
             var jo = JObject.FromObject(command);
-            Assert.Single(jo);
+            Assert.Equal(2,jo.Count);
             Assert.Equal("Reinflate", jo["type"].Value<string>());
+            Assert.Equal(JTokenType.Array, jo["preservedSequencers"].Type);
+            var sequencer = Assert.Single(jo["preservedSequencers"]);
+            Assert.Equal("test", sequencer.Value<string>());
             Assert.IsType<Reinflate>(JsonConvert.DeserializeObject<APLCommand>(jo.ToString()));
         }
 
