@@ -16,5 +16,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("tertiaryTextPosition",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> TertiaryTextPosition { get; set; }
+        
+        [JsonProperty("touchForward", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool?> TouchForward { get; set; }
     }
 }
