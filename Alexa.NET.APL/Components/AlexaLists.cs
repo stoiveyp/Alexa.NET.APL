@@ -17,9 +17,6 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("emptySecondaryText",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> EmptySecondaryText { get; set; }
 
-        [JsonProperty("footerHintText",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<string> FooterHintText { get; set; }
-
         [JsonProperty("hideDivider",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> HideDivider { get; set; }
 

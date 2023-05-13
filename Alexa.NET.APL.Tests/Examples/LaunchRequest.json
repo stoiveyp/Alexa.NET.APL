@@ -13,6 +13,35 @@
   "context": {
     "AudioPlayer": {},
     "Display": {},
+    "Alexa.Presentation.APL": {
+      "presentationUri": "widget://amzn1.ask.skill.1/MyWidgetSandbox/f1cf2427-1-1-1-1",
+      "token": "helloworldWithButtonToken",
+      "version": "APL_WEB_RENDERER_GANDALF",
+      "componentsVisibleOnScreen": [
+        {
+          "uid": ":1000",
+          "position": "1024x600+0+0:0",
+          "type": "text",
+          "tags": {
+            "viewport": {}
+          },
+          "children": [
+            {
+              "id": "fadeHelloTextButton",
+              "uid": ":1002",
+              "position": "270x70+377+450:0",
+              "type": "text",
+              "tags": {
+                "focused": false,
+                "clickable": true
+              },
+              "entities": []
+            }
+          ],
+          "entities": []
+        }
+      ]
+    },
     "System": {
       "application": {
         "applicationId": "[AppId]"
