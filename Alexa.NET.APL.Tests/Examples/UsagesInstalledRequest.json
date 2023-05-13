@@ -1,0 +1,13 @@
+{
+  "type": "Alexa.DataStore.PackageManager.UsagesInstalled",
+  "payload": {
+    "packageId": "WeatherWidget",
+    "packageVersion": "1.0.0",
+    "usages": [
+      {
+        "instanceId": "amzn1.ask.package.v1.instance.v1.{uuid}",
+        "location": "FAVORITE"
+      }
+    ]
+  }
+}
