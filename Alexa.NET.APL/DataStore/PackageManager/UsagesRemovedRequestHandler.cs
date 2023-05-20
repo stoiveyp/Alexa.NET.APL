@@ -1,18 +1,19 @@
 ﻿using System.Linq;
+using Alexa.NET.Request;
 using Alexa.NET.Request.Type;
 
 namespace Alexa.NET.APL.DataStore.PackageManager
 {
-    public class UsagesInstalledRequestHandler : IRequestTypeConverter
+    public class UsagesRemovedRequestHandler : IRequestTypeConverter
     {
         public bool CanConvert(string requestType)
         {
-            return requestType == UsagesInstalledRequest.RequestType;
+            return requestType == UsagesRemovedRequest.RequestType;
         }
 
         public Request.Type.Request Convert(string requestType)
         {
-            return new UsagesInstalledRequest();
+            return new UsagesRemovedRequest();
         }
 
         private static readonly object directiveadd = new object();
@@ -22,7 +23,7 @@ namespace Alexa.NET.APL.DataStore.PackageManager
             lock (directiveadd)
             {
                 if (RequestConverter.RequestConverters.Where(rc => rc != null)
-                    .All(rc => rc.GetType() != typeof(UsagesInstalledRequestHandler)))
+                    .All(rc => rc.GetType() != typeof(UsagesRemovedRequestHandler)))
                 {
                     RequestConverter.RequestConverters.Add(this);
                 }

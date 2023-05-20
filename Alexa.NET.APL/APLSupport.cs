@@ -17,6 +17,9 @@ namespace Alexa.NET.APL
             new LoadTokenListDataRequestHandler().AddToRequestConverter();
             new RuntimeErrorRequestHandler().AddToRequestConverter();
             new UsagesInstalledRequestHandler().AddToRequestConverter();
+            new UsagesRemovedRequestHandler().AddToRequestConverter();
+            new UpdateRequestHandler().AddToRequestConverter();
+            new InstallationErrorHandler().AddToRequestConverter();
         }
     }
 }

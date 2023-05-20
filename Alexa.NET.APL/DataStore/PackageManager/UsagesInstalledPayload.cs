@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using Alexa.NET.Request;
+using Newtonsoft.Json;
 
-namespace Alexa.NET.Request
+namespace Alexa.NET.APL.DataStore.PackageManager
 {
     public class UsagesInstalledPayload
     {
