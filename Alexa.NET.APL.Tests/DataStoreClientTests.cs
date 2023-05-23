@@ -33,6 +33,23 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public async Task QueryResultSendsCorrectly()
+        {
+            var client = new DataStoreClient(new HttpClient(new ActionHandler(async hr =>
+            {
+                Assert.Equal(HttpMethod.Get, hr.Method);
+                Assert.Equal("https://example.com/v1/datastore/queue/x?maxResults=5&nextToken=zzz", hr.RequestUri.ToString());
+                Assert.Equal("Bearer", hr.Headers.Authorization.Scheme);
+                Assert.Equal("xxx", hr.Headers.Authorization.Parameter);
+
+            }, Utility.ExampleFileContent<QueuedResultResponse>("DataStore_QueryResult.json"))), "https://example.com", "xxx");
+
+            var result = await client.QueuedResultQuery("x",5,"zzz");
+            Assert.Equal(2,result.Items.Length);
+            Assert.Equal(227,result.PaginationContext.TotalCount);
+        }
+
+        [Fact]
         public async Task CancelMethodSendsCorrectly()
         {
             var client = new DataStoreClient(new HttpClient(new ActionHandler(async hr =>

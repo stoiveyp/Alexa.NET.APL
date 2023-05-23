@@ -4,7 +4,6 @@ using System.IO;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -38,7 +37,44 @@ namespace Alexa.NET.APL.DataStore
             Token = accessToken;
         }
 
-        //https://developer.amazon.com/en-US/docs/alexa/alexa-presentation-language/data-store-rest-api-reference.html#commands
+        public Task<QueuedResultResponse> QueuedResultQuery(string queuedResultId, int maxResults)
+        {
+            return QueuedResultQuery(queuedResultId, maxResults, null);
+        }
+
+        public async Task<QueuedResultResponse> QueuedResultQuery(string queuedResultId, int? maxResults = null, string nextToken = null)
+        {
+            var url = $"/v1/datastore/queue/{queuedResultId}";
+            var query = "";
+            if (maxResults != null || !string.IsNullOrWhiteSpace(nextToken))
+            {
+                query = "?";
+                if (maxResults != null)
+                {
+                    query += "maxResults=";
+                    query += maxResults.ToString();
+                }
+
+                if (!string.IsNullOrWhiteSpace(nextToken))
+                {
+                    if (query.Length > 1)
+                    {
+                        query += "&";
+                    }
+
+                    query += "nextToken=";
+                    query += nextToken;
+                }
+            }
+
+            var msg = new HttpRequestMessage(HttpMethod.Get, new Uri(BaseAddress, url + query));
+            msg.Headers.Authorization = new AuthenticationHeaderValue("Bearer", Token);
+            var response = await Client.SendAsync(msg);
+            response.EnsureSuccessStatusCode();
+            using var body = await response.Content.ReadAsStreamAsync();
+            using var sr = new JsonTextReader(new StreamReader(body));
+            return Serializer.Deserialize<QueuedResultResponse>(sr);
+        }
 
         public async Task<CommandsResponse> Commands(CommandsRequest request)
         {

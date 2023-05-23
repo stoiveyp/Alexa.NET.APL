@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "deviceId": "amzn1.ask.device.2",
+      "type": "DEVICE_UNAVAILABLE",
+      "message": "AOGS: Send directive failure: Device unreachable"
+    },
+    {
+      "deviceId": "amzn1.ask.device.3",
+      "type": "DEVICE_UNAVAILABLE",
+      "message": "AOGS: Send directive failure: Device unreachable"
+    }
+  ],
+  "paginationContext": {
+    "totalCount": 227,
+    "nextToken": "token-for-next-page",
+    "previousToken": "token-for-previous-page"
+  }
+}
