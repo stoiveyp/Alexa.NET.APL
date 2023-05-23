@@ -13,7 +13,7 @@
     <PackageReleaseNotes>Support APL2022.2
 TouchForward property added to AlexaTextListItem (thanks @ncipollina!)</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <LangVersion>8</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

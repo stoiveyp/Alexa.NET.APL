@@ -1,0 +1,14 @@
+{
+  "results": [
+    {
+      "deviceId": "amzn1.ask.device.1",
+      "type": "SUCCESS"
+    },
+    {
+      "deviceId": "amzn1.ask.device.2",
+      "type": "DEVICE_UNAVAILABLE",
+      "message": "AOGS: Send directive failure: Device unreachable"
+    }
+  ],
+  "queuedResultId": "<id-for-this-result>"
+}

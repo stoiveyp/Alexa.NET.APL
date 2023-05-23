@@ -1,0 +1,22 @@
+{
+  "commands": [
+    {
+      "type": "PUT_OBJECT",
+      "namespace": "NamespaceMainPage",
+      "key": "keyMainPage",
+      "content": {
+        "mainPageContent": {
+          "lastUpdated": "Sent this update on April 17, 2023."
+        }
+      }
+    }
+  ],
+  "target": {
+    "type": "DEVICES",
+    "items": [
+      "amzn1.ask.device.1",
+      "amzn1.ask.device.2"
+    ]
+  },
+  "attemptDeliveryUntil": "{ISO-8601 Date/time}"
+}
