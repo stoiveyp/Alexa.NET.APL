@@ -1,4 +1,6 @@
-﻿using Alexa.NET.APL.DataStore.PackageManager;
+﻿using System;
+using Alexa.NET.APL.DataStore;
+using Alexa.NET.APL.DataStore.PackageManager;
 using Alexa.NET.Request;
 using Xunit;
 
@@ -78,6 +80,30 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal("WeatherWidget", err.PackageId);
             Assert.Equal("1.0.0", err.Version);
             Assert.Equal("PACKAGEMANAGER_INTERNAL_ERROR", err.Error.Type);
+        }
+
+        [Fact]
+        public void DataStoreErrorStorage()
+        {
+            var req = Utility.ExampleFileContent<Request.Type.Request>("DataStoreError_Storage.json");
+            var typedReq = Assert.IsType<DataStoreErrorRequest>(req);
+            var err = Assert.IsType<DataStoreStorageError>(typedReq.Error);
+
+            Assert.Equal("STORAGE_LIMIT_EXCEEDED", err.Type);
+            Assert.Equal("device-id", err.Content.DeviceId);
+            Assert.NotNull(err.Content.FailedCommand);
+        }
+
+        [Fact]
+        public void DataStoreErrorDevice()
+        {
+            var req = Utility.ExampleFileContent<Request.Type.Request>("DataStoreError_Device.json");
+            var typedReq = Assert.IsType<DataStoreErrorRequest>(req);
+            var err = Assert.IsType<DataStoreDeviceError>(typedReq.Error);
+
+            Assert.Equal("DEVICE_UNAVAILABLE", err.Type);
+            Assert.Equal("device-id", err.Content.DeviceId);
+            Assert.Single(err.Content.Commands);
         }
     }
 }

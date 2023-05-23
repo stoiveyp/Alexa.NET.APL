@@ -1,0 +1,17 @@
+{
+  "type": "Alexa.DataStore.Error",
+  "error": {
+    "type": "DEVICE_UNAVAILABLE",
+    "content": {
+      "deviceId": "device-id",
+      "commands": [
+        {
+          "type": "PUT_OBJECT",
+          "namespace": "namespace-for-the-command",
+          "key": "key-from-the-command",
+          "content": {}
+        }
+      ]
+    }
+  }
+}

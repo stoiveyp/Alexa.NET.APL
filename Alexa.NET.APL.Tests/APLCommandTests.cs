@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Alexa.NET.APL.Commands;
-using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
 namespace Alexa.NET.APL.Tests
 {
-    public class CommandTests
+    public class APLCommandTests
     {
 
         [Fact]
