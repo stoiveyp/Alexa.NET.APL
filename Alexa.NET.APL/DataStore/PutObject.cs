@@ -1,10 +1,15 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Data;
 
 namespace Alexa.NET.APL.DataStore
 {
     public class PutObject : DataStoreCommand
     {
+        public const string CommandType = "PUT_OBJECT";
+
+        public PutObject():base(CommandType){}
+
         [JsonProperty("content")]
         public JObject Content { get; set; }
 
@@ -17,6 +22,8 @@ namespace Alexa.NET.APL.DataStore
 
     public class PutObjectArray : DataStoreCommand
     {
+        public PutObjectArray() : base(PutObject.CommandType) { }
+
         [JsonProperty("content")]
         public JObject[] Content { get; set; }
 

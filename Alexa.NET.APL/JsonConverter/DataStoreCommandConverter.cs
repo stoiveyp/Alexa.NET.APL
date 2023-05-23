@@ -22,8 +22,8 @@ namespace Alexa.NET.APL.JsonConverter
             var jObject = JObject.Load(reader);
             var commandType = jObject.Value<string>("type");
 
-            object target = null;
-            if (commandType == "PUT_OBJECT")
+            object target;
+            if (commandType == PutObject.CommandType)
             {
                 if (jObject.GetValue("content") is JArray)
                 {
@@ -50,9 +50,9 @@ namespace Alexa.NET.APL.JsonConverter
 
         public static Dictionary<string, Type> DataStoreCommandLookup = new Dictionary<string, Type>
         {
-            {"PUT_NAMESPACE", typeof(PutNamespace)},
-            {"REMOVE_NAMESPACE", typeof(RemoveNamespace)},
-            {"CLEAR", typeof(Clear)}
+            {PutNamespace.CommandType, typeof(PutNamespace)},
+            {RemoveNamespace.CommandType, typeof(RemoveNamespace)},
+            {Clear.CommandType, typeof(Clear)}
         };
 
         private DataStoreCommand GetCommand(string commandType)
