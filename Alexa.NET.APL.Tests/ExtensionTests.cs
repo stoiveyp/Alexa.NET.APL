@@ -153,5 +153,11 @@ namespace Alexa.NET.APL.Tests
             entitySensing.OnPrimaryUserChanged(doc, null);
             Assert.True(doc.Handlers.ContainsKey("EntitySensing:OnPrimaryUserChanged"));
         }
+
+        [Fact]
+        public void DataStore()
+        {
+
+        }
     }
 }
