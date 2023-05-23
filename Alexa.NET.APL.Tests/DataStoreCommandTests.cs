@@ -33,10 +33,25 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void PutObjectCommand()
         {
-            var raw = new JObject(new JProperty("type", "PUT_OBJECT"), new JProperty("content",new JObject(new JProperty("test",123))));
-            var cmd = Assert.IsType<PutObject>(JsonConvert.DeserializeObject<DataStoreCommand>(raw.ToString()));
+            var raw = Utility.ExampleFileContent<DataStoreCommand>("DataStore_PutObject.json");
+            var cmd = Assert.IsType<PutObject>(raw);
             Assert.NotNull(cmd.Content);
-            Assert.Equal(123, cmd.Content.Value<int>("test"));
+            Assert.Equal("mainPage", cmd.Key);
+            Assert.Equal("objectDataStoreExample", cmd.Namespace);
+            Assert.Equal("Secondary text from the data store", cmd.Content.Value<string>("secondaryText"));
+        }
+
+        [Fact]
+        public void PutObjectArrayCommand()
+        {
+            var raw = Utility.ExampleFileContent<DataStoreCommand>("DataStore_PutObjectArray.json");
+            var cmd = Assert.IsType<PutObjectArray>(raw);
+            Assert.NotNull(cmd.Content);
+            Assert.Equal(4, cmd.Content.Length);
+            Assert.Equal("arrayDataStoreExample", cmd.Namespace);
+            Assert.Equal("mainList", cmd.Key);
+            var firstItem = cmd.Content[0];
+            Assert.Equal("The first list item.", firstItem.Value<string>("primaryText"));
         }
     }
 }

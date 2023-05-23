@@ -91,7 +91,9 @@ namespace Alexa.NET.APL.Tests
 
             Assert.Equal("STORAGE_LIMIT_EXCEEDED", err.Type);
             Assert.Equal("device-id", err.Content.DeviceId);
-            Assert.NotNull(err.Content.FailedCommand);
+            var cmd = Assert.IsType<PutObject>(err.Content.FailedCommand);
+            Assert.Equal("namespace-from-the-command", cmd.Namespace);
+            Assert.Equal("key-from-the-command", cmd.Key);
         }
 
         [Fact]
@@ -103,7 +105,10 @@ namespace Alexa.NET.APL.Tests
 
             Assert.Equal("DEVICE_UNAVAILABLE", err.Type);
             Assert.Equal("device-id", err.Content.DeviceId);
-            Assert.Single(err.Content.Commands);
+            var cmd = Assert.Single(err.Content.Commands);
+            var cnt = Assert.IsType<PutObject>(cmd);
+            Assert.Equal("namespace-for-the-command", cnt.Namespace);
+            Assert.Equal("key-from-the-command", cnt.Key);
         }
     }
 }

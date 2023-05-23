@@ -27,7 +27,7 @@ namespace Alexa.NET.APL.JsonConverter
             {
                 if (jObject.GetValue("content") is JArray)
                 {
-                    
+                    target = new PutObjectArray();
                 }
                 else
                 {
