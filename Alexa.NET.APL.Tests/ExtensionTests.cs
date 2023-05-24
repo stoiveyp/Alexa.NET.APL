@@ -232,5 +232,23 @@ namespace Alexa.NET.APL.Tests
             var getobj = UpdateArrayBindingRangeCommand.For(new DataStoreExtension("DataStore"), "ToDoNotes",APLValue.To<int?>("${test}"),5);
             Assert.True(JToken.DeepEquals(expected, JObject.FromObject(getobj)));
         }
+
+        [Fact]
+        public void DataStoreOnObjectChanged()
+        {
+            var doc = new APLDocument();
+            var entitySensing = new DataStoreExtension("DataStore");
+            entitySensing.OnObjectChanged(doc, null);
+            Assert.True(doc.Handlers.ContainsKey("DataStore:OnObjectChanged"));
+        }
+
+        [Fact]
+        public void DataStoreOnObjectReceived()
+        {
+            var doc = new APLDocument();
+            var entitySensing = new DataStoreExtension("DataStore");
+            entitySensing.OnObjectReceived(doc, null);
+            Assert.True(doc.Handlers.ContainsKey("DataStore:OnObjectReceived"));
+        }
     }
 }
