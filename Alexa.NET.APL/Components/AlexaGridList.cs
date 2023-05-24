@@ -29,7 +29,7 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("imageBlurredBackground", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> ImageBlurredBackground { get; set; }
 
-        [JsonProperty("imageHideScim", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("imageHideScrim", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> ImageHideScrim { get; set; }
 
         [JsonProperty("imageMetadataPrimary", NullValueHandling = NullValueHandling.Ignore)]

@@ -150,7 +150,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void ImageFilters()
         {
-            Utility.AssertSerialization<Image>("ImageFilters.json");
+            Utility.AssertComponent<Image>("ImageFilters.json");
         }
 
         [Fact]
@@ -171,7 +171,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void KeyboardEvent()
         {
-            Utility.AssertSerialization<APLComponent>("KeyboardTouchWrapper.json");
+            Utility.AssertComponent<APLComponent>("KeyboardTouchWrapper.json");
         }
 
         [Fact]
@@ -237,7 +237,7 @@ namespace Alexa.NET.APL.Tests
                 {
                     new SendEvent
                     {
-                        Arguments = new[]{"ListItemSelected", "${ordinal}"}.ToList()
+                        Arguments = new[]{(object)"ListItemSelected", "${ordinal}"}.ToList()
                     }
                 }.ToList())
             };
@@ -261,104 +261,115 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void AlexaPaginatedList()
         {
-            Utility.AssertSerialization<AlexaPaginatedList>("AlexaPaginatedList.json");
+            Utility.AssertComponent<AlexaPaginatedList>("AlexaPaginatedList.json");
         }
 
         [Fact]
         public void TickHandler()
         {
-            Utility.AssertSerialization<Container>("TickHandler.json");
+            Utility.AssertComponent<Container>("TickHandler.json");
         }
 
         [Fact]
         public void ProgressBar()
         {
-            Utility.AssertSerialization<AlexaProgressBar>("AlexaProgressBar.json");
+            Utility.AssertComponent<AlexaProgressBar>("AlexaProgressBar.json");
         }
 
         [Fact]
         public void ProgressBarRadial()
         {
-            Utility.AssertSerialization<Container>("AlexaProgressBarRadial.json");
+            Utility.AssertComponent<Container>("AlexaProgressBarRadial.json");
         }
 
         [Fact]
         public void ProgressDots()
         {
-            Utility.AssertSerialization<AlexaProgressDots>("AlexaProgressDots.json");
+            Utility.AssertComponent<AlexaProgressDots>("AlexaProgressDots.json");
         }
 
         [Fact]
         public void Slider()
         {
-            Utility.AssertSerialization<AlexaSlider>("AlexaSlider.json");
+            Utility.AssertComponent<AlexaSlider>("AlexaSlider.json");
         }
 
         [Fact]
         public void SliderRadial()
         {
-            Utility.AssertSerialization<Container>("AlexaSliderRadial.json");
+            Utility.AssertComponent<Container>("AlexaSliderRadial.json");
         }
 
         [Fact]
         public void AlexaDetailRecipe()
         {
-            Utility.AssertSerialization<AlexaDetail>("AlexaDetailRecipe.json");
+            Utility.AssertComponent<AlexaDetail>("AlexaDetailRecipe.json");
         }
 
         [Fact]
         public void AlexaDetailTv()
         {
-            Utility.AssertSerialization<AlexaDetail>("AlexaDetailTv.json");
+            Utility.AssertComponent<AlexaDetail>("AlexaDetailTv.json");
         }
 
         [Fact]
         public void AlexaGridList()
         {
-            Utility.AssertSerialization<APLDocument>("AlexaGridList.json");
+            Utility.AssertComponent<AlexaGridList>("AlexaGridList.json");
         }
 
         [Fact]
         public void EditText()
         {
-            Utility.AssertSerialization<EditText>("EditText.json");
+            Utility.AssertComponent<EditText>("EditText.json");
         }
 
         [Fact]
         public void SwipeToAction()
         {
-            var output = Utility.AssertSerialization<AlexaSwipeToAction>("AlexaSwipeToAction.json");
-            Assert.Single(output.Properties);
+            Utility.AssertComponent<AlexaSwipeToAction>("AlexaSwipeToAction.json");
         }
 
         [Fact]
         public void AlexaRadioButton()
         {
-            Utility.AssertSerialization<AlexaRadioButton>("AlexaRadioButton.json");
+            Utility.AssertComponent<AlexaRadioButton>("AlexaRadioButton.json");
         }
 
         [Fact]
         public void AlexaCheckbox()
         {
-            Utility.AssertSerialization<AlexaCheckbox>("AlexaCheckbox.json");
+            Utility.AssertComponent<AlexaCheckbox>("AlexaCheckbox.json");
         }
 
         [Fact]
         public void AlexaSwitch()
         {
-            Utility.AssertSerialization<AlexaSwitch>("AlexaSwitch.json");
+            Utility.AssertComponent<AlexaSwitch>("AlexaSwitch.json");
         }
 
         [Fact]
         public void GridSequence()
         {
-            Utility.AssertSerialization<GridSequence>("GridSequence.json");
+            Utility.AssertComponent<GridSequence>("GridSequence.json");
         }
 
         [Fact]
         public void Pager()
         {
-            Utility.AssertSerialization<Pager>("Pager.json");
+            Utility.AssertComponent<Pager>("Pager.json");
+        }
+
+        [Fact]
+        public void AlexaIcon()
+        {
+            Utility.AssertComponent<AlexaIcon>("AlexaIcon.json");
+        }
+
+        [Fact]
+        public void AlexaCard()
+        {
+            Utility.AssertComponent<AlexaCard>("AlexaCard.json");
         }
 
         [Fact]

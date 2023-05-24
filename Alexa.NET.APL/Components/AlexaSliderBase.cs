@@ -21,8 +21,8 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("totalValue", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int?> TotalValue { get; set; }
 
-        [JsonProperty("thumbDisplayAllStates",NullValueHandling = NullValueHandling.Ignore)]
-        public APLValue<bool?> ThumbDisplayAllStates { get; set; }
+        [JsonProperty("thumbDisplayedAllStates",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool?> ThumbDisplayedAllStates { get; set; }
 
         [JsonProperty("thumbColor",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> ThumbColor { get; set; }

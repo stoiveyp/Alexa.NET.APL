@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Alexa.NET.APL.JsonConverter;
+using Alexa.NET.Response.APL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Xunit;
@@ -100,6 +101,22 @@ namespace Alexa.NET.APL.Tests
         public static string ExampleFileContent(string expectedFile)
         {
             return File.ReadAllText(Path.Combine(ExamplesPath, expectedFile));
+        }
+
+        public static T AssertComponent<T>(string expectedFile) where T : APLComponent
+        {
+            var component = AssertSerialization<T>(expectedFile);
+            if (component.Properties != null)
+            {
+                component.Properties.Remove("type");
+                Assert.Empty(component.Properties);
+            }
+            else
+            {
+                Assert.Null(component.Properties);
+            }
+
+            return component;
         }
 
         public static T AssertSerialization<T>(string expectedFile)

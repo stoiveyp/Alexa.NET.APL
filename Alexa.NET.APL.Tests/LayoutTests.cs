@@ -59,6 +59,17 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void AlexaIconImport()
+        {
+            var document = new APLDocument();
+            Import.AlexaIcon.Into(document);
+            document.MainTemplate = new Layout(
+                new AlexaFooter("Hint Text")
+            ).AsMain();
+            Assert.Contains(Import.AlexaIcon, document.Imports);
+        }
+
+        [Fact]
         public void AlexaFooterRecognisesExistingImport()
         {
             var document = new APLDocument {Imports = new List<Import> {Import.AlexaLayouts}};

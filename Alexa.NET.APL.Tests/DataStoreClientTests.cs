@@ -35,7 +35,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public async Task QueryResultSendsCorrectly()
         {
-            var client = new DataStoreClient(new HttpClient(new ActionHandler(async hr =>
+            var client = new DataStoreClient(new HttpClient(new ActionHandler( hr =>
             {
                 Assert.Equal(HttpMethod.Get, hr.Method);
                 Assert.Equal("https://example.com/v1/datastore/queue/x?maxResults=5&nextToken=zzz", hr.RequestUri.ToString());
@@ -52,7 +52,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public async Task CancelMethodSendsCorrectly()
         {
-            var client = new DataStoreClient(new HttpClient(new ActionHandler(async hr =>
+            var client = new DataStoreClient(new HttpClient(new ActionHandler( hr =>
             {
                 Assert.Equal(HttpMethod.Post, hr.Method);
                 Assert.Equal("https://example.com/v1/datastore/queue/x/cancel", hr.RequestUri.ToString());
