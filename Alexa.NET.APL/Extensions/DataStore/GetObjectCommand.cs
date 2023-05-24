@@ -2,7 +2,7 @@
 
 namespace Alexa.NET.APL.Extensions.DataStore
 {
-    internal class GetObjectCommand:APLCommand
+    public class GetObjectCommand:APLCommand
     {
         private readonly string _extensionName;
 

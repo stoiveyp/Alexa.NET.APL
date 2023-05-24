@@ -1,0 +1,22 @@
+{
+  "type": "APL",
+  "version": "2023.1",
+  "extensions": [
+    {
+      "name": "DataStore",
+      "uri": "alexaext:datastore:10"
+    }
+  ],
+  "settings": {
+    "DataStore": {
+      "dataBindings": [
+        {
+          "namespace": "LocationWeather",
+          "key": "weather",
+          "dataBindingName": "DS_Weather"
+        }
+      ]
+    }
+  },
+  "mainTemplate": null
+}

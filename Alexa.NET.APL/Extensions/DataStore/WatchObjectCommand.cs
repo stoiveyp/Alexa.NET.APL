@@ -2,7 +2,7 @@
 
 namespace Alexa.NET.APL.Extensions.DataStore
 {
-    internal class WatchObjectCommand:APLCommand
+    public class WatchObjectCommand:APLCommand
     {
         private readonly string _extensionName;
 

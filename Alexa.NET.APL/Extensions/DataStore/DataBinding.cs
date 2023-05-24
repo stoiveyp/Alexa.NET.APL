@@ -14,9 +14,9 @@ public class DataBinding
     [JsonProperty("dataBindingName")]
     public string DataBindingName { get; set; }
 
-    [JsonProperty("dataType")]
+    [JsonProperty("dataType", NullValueHandling = NullValueHandling.Ignore)]
     [JsonConverter(typeof(StringEnumConverter))]
-    public DataBindingDataType DataType { get; set; }
+    public DataBindingDataType? DataType { get; set; }
 
     [JsonProperty("startIndex",NullValueHandling = NullValueHandling.Ignore)]
     public int? StartIndex { get; set; }

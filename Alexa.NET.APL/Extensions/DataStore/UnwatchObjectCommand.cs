@@ -2,7 +2,7 @@
 
 namespace Alexa.NET.APL.Extensions.DataStore
 {
-    internal class UnwatchObjectCommand:APLCommand
+    public class UnwatchObjectCommand:APLCommand
     {
         private readonly string _extensionName;
 
