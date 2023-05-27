@@ -20,5 +20,8 @@ namespace Alexa.NET.APL.Filters
         [EnumMember(Value = "saturation")] Saturation,
         [EnumMember(Value = "color")] Color,
         [EnumMember(Value = "luminosity")] Luminosity,
+        [EnumMember(Value = "source-atop")] SourceAtop,
+        [EnumMember(Value = "source-in")] SourceIn,
+        [EnumMember(Value = "source-out")] SourceOut
     }
 }
