@@ -1,0 +1,40 @@
+{
+  "type": "AlexaPhoto",
+  "headerTitle": "Header Title",
+  "imageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/widget/widget-bg-2.jpeg",
+  "primaryText": "One line of primary text. Additional content is truncated.",
+  "secondaryText": "The secondary text also displays one line",
+  "imageHideScrim": true,
+  "onSpeechMark": [
+    {
+      "when": "${event.markValue == 'right'}",
+      "type": "SetValue",
+      "property": "Direction",
+      "value": 1
+    },
+    {
+      "when": "${event.markValue == 'down'}",
+      "type": "SetValue",
+      "property": "Direction",
+      "value": 2
+    },
+    {
+      "when": "${event.markValue == 'left'}",
+      "type": "SetValue",
+      "property": "Direction",
+      "value": 3
+    },
+    {
+      "when": "${event.markValue == 'up'}",
+      "type": "SetValue",
+      "property": "Direction",
+      "value": 4
+    },
+    {
+      "when": "${event.markValue == 'disappear'}",
+      "type": "SetValue",
+      "property": "Direction",
+      "value": 0
+    }
+  ]
+}

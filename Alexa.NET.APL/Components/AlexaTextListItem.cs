@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Text;
 using Newtonsoft.Json;
 
@@ -19,5 +20,8 @@ namespace Alexa.NET.APL.Components
         
         [JsonProperty("touchForward", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<bool?> TouchForward { get; set; }
+
+        [JsonProperty("componentSlot", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<Component> ComponentSlot { get; set; }
     }
 }

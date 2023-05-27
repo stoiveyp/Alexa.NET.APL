@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using Alexa.NET.APL.Commands;
 using Alexa.NET.APL.Components;
 using Alexa.NET.APL.DataSources;
-using Alexa.NET.APL.Filters;
-using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response;
 using Alexa.NET.Response.APL;
 using Alexa.NET.Response.Directive;
@@ -57,10 +54,7 @@ namespace Alexa.NET.APL.Tests
         [Fact]
         public void VideoComponent()
         {
-            var component = new Video { Autoplay = true, Muted = true };
-            var sources = VideoSource.FromUrl("https://examplevideo.com/video.mp4");
-            component.Source = sources;
-            Assert.True(Utility.CompareJson(component, "Video.json","source"));
+            Utility.AssertComponent<Video>("Video.json");
         }
 
         [Fact]
@@ -370,6 +364,24 @@ namespace Alexa.NET.APL.Tests
         public void AlexaCard()
         {
             Utility.AssertComponent<AlexaCard>("AlexaCard.json");
+        }
+
+        [Fact]
+        public void AlexaImageCaption()
+        {
+            Utility.AssertComponent<AlexaImageCaption>("AlexaImageCaption.json");
+        }
+
+        [Fact]
+        public void AlexaPhoto()
+        {
+            Utility.AssertComponent<AlexaPhoto>("AlexaPhoto.json");
+        }
+
+        [Fact]
+        public void AlexaTextWrapping()
+        {
+            Utility.AssertComponent<AlexaTextWrapping>("AlexaTextWrapping.json");
         }
 
         [Fact]

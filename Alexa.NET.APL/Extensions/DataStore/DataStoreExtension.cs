@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 
 namespace Alexa.NET.APL.Extensions.DataStore
-{//https://developer.amazon.com/en-US/docs/alexa/alexa-presentation-language/apl-ext-data-store-extension.html
+{
     public class DataStoreExtension:APLExtension
     {
         public const string URL = "alexaext:datastore:10";

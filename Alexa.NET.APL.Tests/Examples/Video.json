@@ -1,6 +1,17 @@
 {
   "type": "Video",
   "autoplay": true,
-  "muted":  true, 
-  "source": [ { "url": "https://examplevideo.com/video.mp4" } ]
+  "muted": true,
+  "source": [
+    {
+      "url": "https://examplevideo.com/video.mp4",
+      "textTrack": [
+        {
+          "description": "main caption",
+          "url": "https://example.com/videoClips/main.srt",
+          "type": "caption"
+        }
+      ]
+    }
+  ]
 }

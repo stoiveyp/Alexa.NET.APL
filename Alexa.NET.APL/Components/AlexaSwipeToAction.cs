@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using Alexa.NET.APL.JsonConverter;
 using Alexa.NET.Response.APL;
@@ -145,5 +146,8 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("lang", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Lang { get; set; }
+
+        [JsonProperty("componentSlot",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<Component> ComponentSlot { get; set; }
     }
 }

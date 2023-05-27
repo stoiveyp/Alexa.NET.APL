@@ -122,6 +122,10 @@ namespace Alexa.NET.Response.APL
          JsonConverter(typeof(APLCommandListConverter))]
         public APLValue<IList<APLCommand>> OnCursorExit { get; set; }
 
+        [JsonProperty("onSpeechMark", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OnSpeechMark { get; set; }
+
         [JsonProperty("transform",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<List<APLTransform>> Transform { get; set; }
 

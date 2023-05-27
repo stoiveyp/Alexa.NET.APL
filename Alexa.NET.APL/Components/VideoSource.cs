@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Components
@@ -22,6 +23,10 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("offset", NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int?> Offset { get; set; }
+
+        [JsonProperty("textTrack", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(GenericSingleOrListConverter<TextTrack>), true)]
+        public APLValue<IList<TextTrack>> TextTrack { get; set; }
 
         public static List<VideoSource> FromUrl(string url)
         {
