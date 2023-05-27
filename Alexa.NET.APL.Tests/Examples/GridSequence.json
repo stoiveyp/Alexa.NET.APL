@@ -4,5 +4,5 @@
   "scrollDirection": "vertical",
   "childWidths": [ "20%", "30%", "auto" ],
   "childHeights": "100dp",
-  "gridSequence":  "forceStart" 
+  "snap":  "forceStart" 
 }

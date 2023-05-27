@@ -1,0 +1,19 @@
+{
+  "type": "PUT_OBJECT",
+  "namespace": "arrayDataStoreExample",
+  "key": "mainList",
+  "content": [
+    {
+      "primaryText": "The first list item."
+    },
+    {
+      "primaryText": "The second list item."
+    },
+    {
+      "primaryText": "The third list item."
+    },
+    {
+      "primaryText": "The fourth list item."
+    }
+  ]
+}

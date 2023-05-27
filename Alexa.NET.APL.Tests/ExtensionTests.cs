@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Alexa.NET.APL.Extensions.Backstack;
+using Alexa.NET.APL.Extensions.DataStore;
 using Alexa.NET.APL.Extensions.EntitySensing;
 using Alexa.NET.APL.Extensions.SmartMotion;
 using Alexa.NET.Request;
@@ -152,6 +154,101 @@ namespace Alexa.NET.APL.Tests
             var entitySensing = new EntitySensingExtension("EntitySensing");
             entitySensing.OnPrimaryUserChanged(doc, null);
             Assert.True(doc.Handlers.ContainsKey("EntitySensing:OnPrimaryUserChanged"));
+        }
+
+        [Fact]
+        public void DataStore()
+        {
+            var dataStore = new DataStoreExtension("DataStore");
+            var doc = new APLDocument(APLDocumentVersion.V2023_1);
+            doc.Extensions.Value.Add(dataStore);
+            doc.Settings = new APLDocumentSettings();
+            doc.Settings.Add(dataStore.Name, new DataStoreSettings
+            {
+                DataBindings = new()
+                {
+                    new DataBinding
+                    {
+                        Namespace = "LocationWeather",
+                        Key="weather",
+                        DataBindingName = "DS_Weather"
+                    }
+                }
+            });
+            Assert.True(Utility.CompareJson(doc, "DataStore_Extension.json"));
+        }
+
+        [Fact]
+        public void DataStoreGetObject()
+        {
+            var expected = new JObject
+            {
+                { "type", "DataStore:GetObject" }, 
+                { "namespace", "LocationWeather" },
+                { "key", "weather" },
+                { "token", "thisIsADummyToken" }
+            };
+            var getobj = GetObjectCommand.For(new DataStoreExtension("DataStore"), "LocationWeather",
+                "weather", "thisIsADummyToken");
+            Assert.True(JToken.DeepEquals(expected, JObject.FromObject(getobj)));
+        }
+
+        [Fact]
+        public void DataStoreWatchObject()
+        {
+            var expected = new JObject
+            {
+                { "type", "DataStore:WatchObject" },
+                { "namespace", "LocationWeather" },
+                { "key", "weather" },
+            };
+            var getobj = WatchObjectCommand.For(new DataStoreExtension("DataStore"), "LocationWeather", "weather");
+            Assert.True(JToken.DeepEquals(expected, JObject.FromObject(getobj)));
+        }
+
+        [Fact]
+        public void DataStoreUnwatchObject()
+        {
+            var expected = new JObject
+            {
+                { "type", "DataStore:UnwatchObject" },
+                { "namespace", "LocationWeather" },
+                { "key", "weather" },
+            };
+            var getobj = UnwatchObjectCommand.For(new DataStoreExtension("DataStore"), "LocationWeather", "weather");
+            Assert.True(JToken.DeepEquals(expected, JObject.FromObject(getobj)));
+        }
+
+        [Fact]
+        public void DataStoreUpdateArrayBindingRange()
+        {
+            var expected = new JObject
+            {
+                { "type", "DataStore:UpdateArrayBindingRange" },
+                { "dataBindingName", "ToDoNotes" },
+                { "startIndex", "${test}"},
+                { "endIndex", 5},
+            };
+            var getobj = UpdateArrayBindingRangeCommand.For(new DataStoreExtension("DataStore"), "ToDoNotes",APLValue.To<int?>("${test}"),5);
+            Assert.True(JToken.DeepEquals(expected, JObject.FromObject(getobj)));
+        }
+
+        [Fact]
+        public void DataStoreOnObjectChanged()
+        {
+            var doc = new APLDocument();
+            var entitySensing = new DataStoreExtension("DataStore");
+            entitySensing.OnObjectChanged(doc, null);
+            Assert.True(doc.Handlers.ContainsKey("DataStore:OnObjectChanged"));
+        }
+
+        [Fact]
+        public void DataStoreOnObjectReceived()
+        {
+            var doc = new APLDocument();
+            var entitySensing = new DataStoreExtension("DataStore");
+            entitySensing.OnObjectReceived(doc, null);
+            Assert.True(doc.Handlers.ContainsKey("DataStore:OnObjectReceived"));
         }
     }
 }

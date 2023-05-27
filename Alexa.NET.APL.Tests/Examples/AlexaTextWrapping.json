@@ -1,0 +1,25 @@
+{
+  "type": "AlexaTextWrapping",
+  "id": "MyTextWrappingExample",
+  "primaryText": "This is the primary text, number of lines displayed depends on widget size",
+  "secondaryText": "Secondary text",
+  "tertiaryText": "Tertiary text",
+  "backgroundColor": "teal",
+  "headerTitle": "This is the header",
+  "headerTitleCanUseTwoLines": false,
+  "buttonText": "Footer action button",
+  "primaryAction": [
+    {
+      "type": "SetValue",
+      "componentId": "MyTextWrappingExample",
+      "property": "headerTitle",
+      "value": "You tapped the footer!"
+    },
+    {
+      "type": "SendEvent",
+      "arguments": [
+        "tapped the footer"
+      ]
+    }
+  ]
+}

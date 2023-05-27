@@ -24,9 +24,10 @@ namespace Alexa.NET.Response.APL
         [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
         public string Source { get; set; }
 
-        public static Import AlexaStyles => new Import("alexa-styles","1.4.0");
-        public static Import AlexaViewportProfiles => new Import("alexa-viewport-profiles", "1.4.0");
-        public static Import AlexaLayouts => new Import("alexa-layouts","1.5.0");
+        public static Import AlexaStyles => new Import("alexa-styles","1.6.0");
+        public static Import AlexaViewportProfiles => new Import("alexa-viewport-profiles", "1.6.0");
+        public static Import AlexaLayouts => new Import("alexa-layouts","1.7.0");
+        public static Import AlexaIcon => new Import("alexa-icon","1.0.0");
 
         public void Into(APLDocument document)
         {

@@ -21,6 +21,12 @@ namespace Alexa.NET.APL.JsonConverter
         {
             var jObject = JObject.Load(reader);
             var viewportType = jObject.Value<string>("type");
+
+            if (viewportType == null)
+            {
+                return null;
+            }
+
             if (viewportType == "APL")
             {
                 var apl = new APLViewport();

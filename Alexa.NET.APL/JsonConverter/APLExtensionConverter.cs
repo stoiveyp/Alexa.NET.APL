@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Alexa.NET.APL.Extensions.Backstack;
+using Alexa.NET.APL.Extensions.DataStore;
 using Alexa.NET.APL.Extensions.EntitySensing;
 using Alexa.NET.APL.Extensions.SmartMotion;
 using Newtonsoft.Json;
@@ -36,7 +37,8 @@ namespace Alexa.NET.APL.JsonConverter
         {
             {BackstackExtension.URL, typeof(BackstackExtension)},
             {SmartMotionExtension.URL, typeof(SmartMotionExtension)},
-            {EntitySensingExtension.URL, typeof(EntitySensingExtension)}
+            {EntitySensingExtension.URL, typeof(EntitySensingExtension)},
+            {DataStoreExtension.URL, typeof(DataStoreExtension)}
         };
 
         private APLExtension GetGesture(string commandType)

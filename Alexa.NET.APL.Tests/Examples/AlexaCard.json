@@ -1,0 +1,33 @@
+{
+  "type": "AlexaCard",
+  "cardId": "${'card_' + index}",
+  "theme": "${data.theme}",
+  "imageSource": "${data.imageSource}",
+  "imageCaption": "${data.imageCaption}",
+  "cardBackgroundColor": "${data.color}",
+  "headerText": "${data.headerText}",
+  "primaryText": "${data.primaryText}",
+  "secondaryText": "${data.secondaryText}",
+  "tertiaryText": "${data.tertiaryText}",
+  "ratingNumber": "${data.ratingNumber}",
+  "secondaryIconName": "${data.secondaryIconName}",
+  "tertiaryIconName": "${data.tertiaryIconName}",
+  "imageProgressBarPercentage": "${data.imageProgressBarPercentage}",
+  "spacing": "@spacingXSmall",
+  "primaryAction": [
+    {
+      "type": "SetValue",
+      "property": "HeaderSubtitleString",
+      "value": "You selected card ${event.source.id}"
+    },
+    {
+      "type": "SendEvent",
+      "arguments": [
+        {
+          "cardId": "${event.source.id}",
+          "cardPrimaryText": "${event.source.bind.primaryText}"
+        }
+      ]
+    }
+  ]
+}

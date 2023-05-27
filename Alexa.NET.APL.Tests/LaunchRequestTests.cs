@@ -85,8 +85,28 @@ namespace Alexa.NET.APL.Tests
             Assert.Equal(2,segment.X);
             Assert.Equal(0,segment.Y);
             Assert.Equal(3,segment.Characters.Length);
+        }
 
+        [Fact]
+        public void APLContextInformation()
+        {
+            var request = Utility.ExampleFileContent<APLSkillRequest>("LaunchRequest.json");
+            var info = request.Context.AplVisualContext;
+            Assert.Equal("widget://amzn1.ask.skill.1/MyWidgetSandbox/f1cf2427-1-1-1-1", info.PresentationUri);
+            Assert.Equal("helloworldWithButtonToken", info.Token);
+            Assert.Equal("APL_WEB_RENDERER_GANDALF", info.Version);
+            var component = Assert.Single(info.ComponentsVisibleOnScreen);
 
+            Assert.Equal(":1000", component.Uid);
+            Assert.Equal("text", component.Type);
+            Assert.Equal("1024x600+0+0:0", component.Position);
+            Assert.Null(component.Tags.Viewport);
+            var child = Assert.Single(component.Children);
+
+            Assert.Equal("fadeHelloTextButton",child.Id);
+            Assert.Equal(":1002",child.Uid);
+            Assert.True(child.Tags.Clickable);
+            Assert.False(child.Tags.Focused);
         }
     }
 }

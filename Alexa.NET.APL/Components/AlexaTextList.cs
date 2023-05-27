@@ -141,5 +141,10 @@ namespace Alexa.NET.APL.Components
 
         [JsonProperty("speechItems",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> SpeechItems { get; set; }
+
+        [JsonProperty("enableReorder",NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool?> EnableReorder { get; set; }
+
+
     }
 }

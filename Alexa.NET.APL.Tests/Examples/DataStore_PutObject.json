@@ -1,0 +1,11 @@
+{
+  "type": "PUT_OBJECT",
+  "namespace": "objectDataStoreExample",
+  "key": "mainPage",
+  "content": {
+    "headerTitle": "This is the header title from the data store",
+    "primaryText": "This is the primaryText from the data store",
+    "secondaryText": "Secondary text from the data store",
+    "tertiaryText": "Tertiary text from the data store"
+  }
+}

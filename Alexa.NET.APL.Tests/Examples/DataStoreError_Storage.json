@@ -1,0 +1,15 @@
+{
+  "type": "Alexa.DataStore.Error",
+  "error": {
+    "type": "STORAGE_LIMIT_EXCEEDED",
+    "content": {
+      "deviceId": "device-id",
+      "failedCommand": {
+        "type": "PUT_OBJECT",
+        "namespace": "namespace-from-the-command",
+        "key": "key-from-the-command",
+        "content": {}
+      }
+    }
+  }
+}

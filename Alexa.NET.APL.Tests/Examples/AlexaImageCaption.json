@@ -1,0 +1,9 @@
+{
+  "type": "AlexaImageCaption",
+  "imageSource": "https://d2o906d8ln7ui1.cloudfront.net/images/widget/widget-bg-1.jpeg",
+  "headerTitle": "Header title",
+  "attributionImage": "https://d2o906d8ln7ui1.cloudfront.net/images/cheeseskillicon.png",
+  "primaryText": "Primary text displayed over the image with the scrim",
+  "secondaryText": "Secondary Text is not displayed",
+  "imageScrim": true
+}

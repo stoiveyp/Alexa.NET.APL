@@ -1,0 +1,6 @@
+{
+  "type": "Alexa.DataStore.PackageManager.UpdateRequest",
+  "packageId": "WeatherWidget",
+  "fromVersion": "1.0.0",
+  "toVersion": "1.0.1"
+}

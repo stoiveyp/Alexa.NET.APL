@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "session": {},
+  "context": {
+    "AudioPlayer": {},
+    "Viewports": [],
+    "Alexa.Presentation.APL": {
+      "presentationUri": "<string>"
+    },
+    "Alexa.DataStore.PackageManager": {
+      "installedPackages": [
+        {
+          "packageId": "<packageId>",
+          "packageVersion": "1.0.0"
+        }
+      ]
+    }
+  }
+}

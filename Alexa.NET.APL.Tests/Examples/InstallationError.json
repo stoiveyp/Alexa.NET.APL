@@ -1,0 +1,9 @@
+{
+  "type": "Alexa.DataStore.PackageManager.InstallationError",
+  "packageId": "WeatherWidget",
+  "version": "1.0.0",
+  "error": {
+    "type": "PACKAGEMANAGER_INTERNAL_ERROR",
+    "content": {}
+  }
+}
