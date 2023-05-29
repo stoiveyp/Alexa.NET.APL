@@ -1,0 +1,36 @@
+{
+  "packageVersion": "1.0",
+  "packageType": "APL_PACKAGE",
+  "publishingInformation": {
+    "schemaVersion": "1.0",
+    "locales": {
+      "en-US": [
+        {
+          "targetViewport": "WIDGET_M",
+          "metadata": {
+            "name": "Widget name",
+            "description": "Widget description",
+            "keywords": [
+              "keyword1",
+              "keyword2"
+            ],
+            "iconUri": "https://d3ozx4qyxcxwzd.cloudfront.net/default_icon.png",
+            "previews": [
+              "https://d3ozx4qyxcxwzd.cloudfront.net/default_preview.png"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "manifest": {
+    "id": "MyNewWidget",
+    "version": "1.0.0",
+    "presentationDefinitions": [
+      {
+        "url": "presentations/default.tpl"
+      }
+    ],
+    "appliesTo": "${viewport.mode == 'HUB'}"
+  }
+}
