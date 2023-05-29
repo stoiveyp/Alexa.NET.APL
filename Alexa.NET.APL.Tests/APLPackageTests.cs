@@ -10,5 +10,11 @@ namespace Alexa.NET.APL.Tests
         {
             Utility.AssertSerialization<APLPackage>("APLPackage.json");
         }
+
+        [Fact]
+        public void ValidPresentationDefinition()
+        {
+            Utility.AssertSerialization<PresentationDefinition>("PresentationDefinition.json");
+        }
     }
 }
