@@ -20,6 +20,8 @@ namespace Alexa.NET.APL.Commands
         [EnumMember(Value = "seek")]
         Seek,
         [EnumMember(Value = "setTrack")]
-        SetTrack
+        SetTrack,
+        [EnumMember(Value = "seekTo")]
+        SeekTo
     }
 }
