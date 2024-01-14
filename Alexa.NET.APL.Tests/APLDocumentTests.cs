@@ -129,6 +129,12 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void DetailedImport()
+        {
+            Utility.AssertSerialization<Import>("Import.json");
+        }
+
+        [Fact]
         public void LongTextExample()
         {
             var result = Utility.ExampleFileContent<APLDocument>("LongText.json");

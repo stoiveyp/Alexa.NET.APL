@@ -1,0 +1,7 @@
+﻿{
+  "when": "${environment.overrideName && environment.overrideVersion}",
+  "name": "${environment.overrideName + viewport.mode}",
+  "version": "${environment.overrideVersion}",
+  "type":  "allOf",
+  "loadAfter": "default-styles"
+}

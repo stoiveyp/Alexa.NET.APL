@@ -118,7 +118,7 @@ namespace Alexa.NET.APL.Tests
             var updateDirective = Assert.IsType<UpdateIndexListDataDirective>(dir);
 
             Assert.Equal(5, updateDirective.Operations.Count);
-            var ii = Assert.IsType<InsertItem>(updateDirective.Operations[0]);
+            var ii = Assert.IsType<Operation.InsertItem>(updateDirective.Operations[0]);
             Assert.Equal(10,ii.Index);
 
             var imi = Assert.IsType<InsertMultipleItems>(updateDirective.Operations[1]);

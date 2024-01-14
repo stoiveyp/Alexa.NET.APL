@@ -1,0 +1,24 @@
+{
+  "type": "Frame",
+  "height": "50%",
+  "width": "50%",
+  "borderColor": "blue",
+  "borderWidth": 10,
+  "background": {
+    "type": "linear",
+    "colorRange": [
+      "red",
+      "blue"
+    ]
+  },
+  "item": 
+    {
+      "type": "Text",
+      "text": "This text displays over a gradient background",
+      "width": "100%",
+      "height": "100%",
+      "textAlign": "center",
+      "textAlignVertical": "center"
+    }
+  
+}

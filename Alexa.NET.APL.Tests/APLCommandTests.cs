@@ -126,7 +126,31 @@ namespace Alexa.NET.APL.Tests
         {
             var select = Utility.ExampleFileContent<Select>("Select.json");
             Assert.Single(select.Commands.Value);
-            Assert.Equal(5, select.Data.Length);
+            Assert.Equal(5, select.Data.Value.Count);
+        }
+
+        [Fact]
+        public void InsertItem()
+        {
+            Utility.AssertSerialization<APLCommand, InsertItem>("Command_InsertItem.json");
+        }
+
+        [Fact]
+        public void RemoveItem()
+        {
+            Utility.AssertSerialization<APLCommand, RemoveItem>("Command_RemoveItem.json");
+        }
+
+        [Fact]
+        public void ScrollToComponent()
+        {
+            Utility.AssertSerialization<APLCommand, ScrollToComponent>("Command_ScrollToComponent.json");
+        }
+
+        [Fact]
+        public void SetPage()
+        {
+            Utility.AssertSerialization<APLCommand, SetPage>("Command_SetPage.json");
         }
     }
 }

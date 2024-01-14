@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using Alexa.NET.APL.Commands;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -55,8 +53,9 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(ClearFocus),typeof(ClearFocus) },
             {nameof(Select),typeof(Select) },
             {nameof(Finish),typeof(Finish) },
-            {nameof(Reinflate),typeof(Reinflate) }
-
+            {nameof(Reinflate),typeof(Reinflate) },
+            {nameof(InsertItem), typeof(InsertItem)},
+            {nameof(RemoveItem), typeof(RemoveItem)}
         };
 
         private APLCommand GetCommand(string commandType)

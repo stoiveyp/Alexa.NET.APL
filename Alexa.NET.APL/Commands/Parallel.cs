@@ -23,5 +23,9 @@ namespace Alexa.NET.APL.Commands
         [JsonProperty("commands", NullValueHandling = NullValueHandling.Ignore),
         JsonConverter(typeof(APLCommandListConverter))]
         public APLValue<IList<APLCommand>> Commands { get; set; }
+
+        [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(GenericSingleOrListConverter<object>))]
+        public APLValue<IList<object>> Data { get; set; }
     }
 }

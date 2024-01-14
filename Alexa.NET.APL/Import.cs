@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Alexa.NET.APL;
+using Alexa.NET.APL.JsonConverter;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 
 namespace Alexa.NET.Response.APL
@@ -23,6 +27,17 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("source",NullValueHandling = NullValueHandling.Ignore)]
         public string Source { get; set; }
+
+        [JsonProperty("when", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<bool?> When { get; set; }
+
+        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public ImportType? Type { get; set; }
+
+        [JsonProperty("loadAfter", NullValueHandling = NullValueHandling.Ignore)] 
+        [JsonConverter(typeof(StringOrArrayConverter))]
+        public IList<string> LoadAfter { get; set; } = new List<string>();
 
         public static Import AlexaStyles => new Import("alexa-styles","1.6.0");
         public static Import AlexaViewportProfiles => new Import("alexa-viewport-profiles", "1.6.0");
@@ -52,6 +67,11 @@ namespace Alexa.NET.Response.APL
             }
 
             return other.Name == Name && other.Version == Version;
+        }
+
+        public bool ShouldSerializeLoadAfter()
+        {
+            return LoadAfter?.Any() ?? false;
         }
     }
 }
