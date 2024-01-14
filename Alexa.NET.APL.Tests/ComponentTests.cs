@@ -385,6 +385,12 @@ namespace Alexa.NET.APL.Tests
         }
 
         [Fact]
+        public void Frame()
+        {
+            Utility.AssertComponent<Frame>("Frame.json");
+        }
+
+        [Fact]
         public void DictionaryBindingTest()
         {
             var rawContainer = new Container
