@@ -31,6 +31,9 @@ namespace Alexa.NET.APL.Components
 
         public override string Type => ComponentType;
 
+        [JsonProperty("background", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<APLGradient> Background { get; set; }
+
         [JsonProperty("backgroundColor",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> BackgroundColor { get; set; }
 
