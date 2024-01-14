@@ -34,5 +34,8 @@ namespace Alexa.NET.APL.Commands
         [JsonProperty("repeatCount",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int?> RepeatCount { get; set; }
 
+        [JsonProperty("data", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(GenericSingleOrListConverter<object>))]
+        public APLValue<IList<object>> Data { get; set; }
     }
 }
