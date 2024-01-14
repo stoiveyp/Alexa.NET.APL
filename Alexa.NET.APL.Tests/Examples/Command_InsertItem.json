@@ -1,0 +1,12 @@
+{
+  "type": "InsertItem",
+  "componentId": "main",
+  "items": {
+    "type": "Text",
+    "id": "bye",
+    "grow": 1,
+    "text": "Goodbye!",
+    "textAlign": "center",
+    "textAlignVertical": "center"
+  }
+}

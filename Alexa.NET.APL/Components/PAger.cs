@@ -45,5 +45,9 @@ namespace Alexa.NET.APL.Components
         [JsonProperty("handlePageMove", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(APLPageMoveConverter))]
         public APLValue<IList<APLPageMoveHandler>> HandlePageMove { get; set; }
+
+        [JsonProperty("onChildrenChanged", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> OnChildrenChanged { get; set; }
     }
 }

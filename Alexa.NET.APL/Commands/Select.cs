@@ -19,6 +19,6 @@ namespace Alexa.NET.APL.Commands
         public APLValue<IList<APLCommand>> Otherwise { get; set; }
 
         [JsonProperty("data",NullValueHandling = NullValueHandling.Ignore)]
-        public object[] Data { get; set; }
+        public APLValue<IList<object>> Data { get; set; }
     }
 }

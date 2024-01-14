@@ -55,7 +55,8 @@ namespace Alexa.NET.APL.JsonConverter
             {nameof(ClearFocus),typeof(ClearFocus) },
             {nameof(Select),typeof(Select) },
             {nameof(Finish),typeof(Finish) },
-            {nameof(Reinflate),typeof(Reinflate) }
+            {nameof(Reinflate),typeof(Reinflate) },
+            {nameof(InsertItem), typeof(InsertItem)}
 
         };
 
