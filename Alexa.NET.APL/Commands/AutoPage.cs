@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace Alexa.NET.APL.Commands
 {
@@ -17,5 +14,8 @@ namespace Alexa.NET.APL.Commands
 
         [JsonProperty("duration",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<int?> Duration { get; set; }
+
+        [JsonProperty("transitionDuration", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<int?> TransitionDuration { get; set; }
     }
 }

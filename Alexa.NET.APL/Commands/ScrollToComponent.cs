@@ -14,5 +14,8 @@ namespace Alexa.NET.APL.Commands
 
         [JsonProperty("type")]
         public override string Type => nameof(ScrollToComponent);
+
+        [JsonProperty("targetDuration", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<int?> TargetDuration { get; set; }
     }
 }

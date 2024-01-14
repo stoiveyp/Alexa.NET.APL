@@ -17,5 +17,8 @@ namespace Alexa.NET.APL.Commands
 
         [JsonProperty("value")]
         public APLValue<int> Value { get; set; }
+
+        [JsonProperty("transitionDuration", NullValueHandling = NullValueHandling.Ignore)]
+        public APLValue<int?> TransitionDuration { get; set; }
     }
 }

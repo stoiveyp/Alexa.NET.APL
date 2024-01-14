@@ -134,5 +134,23 @@ namespace Alexa.NET.APL.Tests
         {
             Utility.AssertSerialization<APLCommand, InsertItem>("Command_InsertItem.json");
         }
+
+        [Fact]
+        public void RemoveItem()
+        {
+            Utility.AssertSerialization<APLCommand, RemoveItem>("Command_RemoveItem.json");
+        }
+
+        [Fact]
+        public void ScrollToComponent()
+        {
+            Utility.AssertSerialization<APLCommand, ScrollToComponent>("Command_ScrollToComponent.json");
+        }
+
+        [Fact]
+        public void SetPage()
+        {
+            Utility.AssertSerialization<APLCommand, SetPage>("Command_SetPage.json");
+        }
     }
 }
