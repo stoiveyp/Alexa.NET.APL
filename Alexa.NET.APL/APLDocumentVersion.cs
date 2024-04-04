@@ -35,6 +35,8 @@ namespace Alexa.NET.Response.APL
         [EnumMember(Value = "2023.1")]
         V2023_1,
         [EnumMember(Value = "2023.2")]
-        V2023_2
+        V2023_2,
+        [EnumMember(Value = "2024.1")]
+        V2024_1
     }
 }

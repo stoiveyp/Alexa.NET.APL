@@ -152,6 +152,10 @@ namespace Alexa.NET.Response.APL
         JsonConverter(typeof(GenericSingleOrListConverter<TickHandler>))]
         public APLValue<IList<TickHandler>> HandleTick { get; set; }
 
+        [JsonProperty("handleVisibilityChange", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(GenericSingleOrListConverter<VisibilityChangeHandler>))]
+        public APLValue<IList<VisibilityChangeHandler>> HandleVisibilityChange { get; set; }
+
         [JsonProperty("role",NullValueHandling = NullValueHandling.Ignore)]
         public APLValue<string> Role { get; set; }
 
