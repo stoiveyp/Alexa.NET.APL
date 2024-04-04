@@ -1,4 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Alexa.NET.APL;
+using Alexa.NET.APL.JsonConverter;
+using Newtonsoft.Json;
 
 namespace Alexa.NET.Response.APL
 {
@@ -12,6 +15,10 @@ namespace Alexa.NET.Response.APL
 
         [JsonProperty("type")]
         public ParameterType Type { get; set; } = ParameterType.any;
+
+        [JsonProperty("commands", NullValueHandling = NullValueHandling.Ignore),
+         JsonConverter(typeof(APLCommandListConverter))]
+        public APLValue<IList<APLCommand>> Commands { get; set; }
 
         public bool ShouldSerializeType()
         {
